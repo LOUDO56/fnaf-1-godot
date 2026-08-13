@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bj6ejibqm23bs"]
 
+[ext_resource type="Script" uid="uid://cuj7y6mj46ihd" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bbcsj1dbbj26o" path="res://scenes/office.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dfggeq5fuuanq" path="res://scripts/camera.gd" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://cavf4wmldef6k" path="res://scripts/office.gd" id="3_gee14"]
 [ext_resource type="Shader" uid="uid://c6i0w4vdckr57" path="res://shaders/perspective.gdshader" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://7b70rlteumyy" path="res://scenes/watching_cameras.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://dudem3f6cicig" path="res://scripts/libs.gd" id="5_iywne"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbhrr"]
 shader = ExtResource("3_lnu2h")
@@ -11,17 +15,26 @@ shader_parameter/sharpness = 2.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/wrapping_mode = 0
 
-[node name="Game" type="Node2D" unique_id=1569501029]
+[node name="Game" type="Node2D" unique_id=1569501029 node_paths=PackedStringArray("office")]
+script = ExtResource("1_u5sy4")
+office = NodePath("Office")
 
 [node name="Office" parent="." unique_id=1654829613 instance=ExtResource("1_uwrxv")]
+script = ExtResource("3_gee14")
+
+[node name="Panorama" type="ColorRect" parent="." unique_id=117026844]
+material = SubResource("ShaderMaterial_lbhrr")
+offset_right = 1741.0
+offset_bottom = 719.0
+mouse_filter = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office")]
 anchor_mode = 0
 script = ExtResource("2_yqjtg")
 office = NodePath("../Office")
 
-[node name="Panorama" type="ColorRect" parent="." unique_id=117026844]
-material = SubResource("ShaderMaterial_lbhrr")
-offset_right = 1741.0
-offset_bottom = 780.0
-mouse_filter = 2
+[node name="Watching Cameras" parent="Camera2D" unique_id=1111582433 node_paths=PackedStringArray("office") instance=ExtResource("4_lbhrr")]
+office = NodePath("../../Office")
+
+[node name="Libs" type="Node2D" parent="." unique_id=365965140]
+script = ExtResource("5_iywne")

@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dxgmn4ek5rmym" path="res://assets/audio/Buzz_Fan_Florescent2.wav" id="5_qphb6"]
 [ext_resource type="Texture2D" uid="uid://cp0ik1qxyvh8x" path="res://assets/images/3-THE_OFFICE/LEFT_LIGHT.png" id="6_2knxt"]
 [ext_resource type="Texture2D" uid="uid://dl1o0fvt8tyal" path="res://assets/images/3-THE_OFFICE/RIGHT_LIGHT.png" id="7_fmddn"]
-[ext_resource type="Script" uid="uid://dy5ejgyygjgk2" path="res://scenes/doors.gd" id="8_8ywr3"]
+[ext_resource type="Script" uid="uid://dy5ejgyygjgk2" path="res://scripts/doors/doors.gd" id="8_8ywr3"]
 [ext_resource type="PackedScene" uid="uid://daw8q1ml3ihbx" path="res://scenes/doors/buttons/right_door_buttons.tscn" id="9_gdafm"]
 [ext_resource type="Texture2D" uid="uid://dpdqwk2rjj5y5" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/1.png" id="9_qg43x"]
 [ext_resource type="Texture2D" uid="uid://bfgipxsph4ge" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/2.png" id="10_8ywr3"]
@@ -172,30 +172,28 @@ radius = 7.0
 script = ExtResource("1_osgti")
 
 [node name="Normal" type="Sprite2D" parent="Stage" unique_id=146049526]
-scale = Vector2(1.088, 1.083)
+scale = Vector2(1.088, 1)
 texture = ExtResource("1_3e7dm")
 centered = false
 
-[node name="Left Light On" type="Sprite2D" parent="Stage" unique_id=818792451]
+[node name="Left Light on" type="Sprite2D" parent="Stage" unique_id=610998056]
 visible = false
-position = Vector2(0, 2.3841858e-07)
-scale = Vector2(1.088, 1.083)
+scale = Vector2(1.088, 1)
 texture = ExtResource("6_2knxt")
 centered = false
 
-[node name="Right Light On" type="Sprite2D" parent="Stage" unique_id=653034458]
+[node name="Right Light On" type="Sprite2D" parent="Stage" unique_id=1219385270]
 visible = false
-position = Vector2(0, 2.3841858e-07)
-scale = Vector2(1.088, 1.083)
+scale = Vector2(1.088, 1)
 texture = ExtResource("7_fmddn")
 centered = false
 
 [node name="Fan" type="AnimatedSprite2D" parent="." unique_id=110171421]
-position = Vector2(922.00006, 434)
+position = Vector2(922.00006, 396)
 scale = Vector2(1.088, 1.083)
 sprite_frames = SubResource("SpriteFrames_blegu")
 autoplay = "default"
-frame_progress = 0.87792915
+frame_progress = 0.42978808
 
 [node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738]
 stream = ExtResource("5_qphb6")
@@ -211,33 +209,34 @@ office_stage = NodePath("../Stage")
 [node name="Left" type="Node2D" parent="Doors" unique_id=303221849]
 
 [node name="LeftDoorButtons" parent="Doors/Left" unique_id=1750007891 instance=ExtResource("4_fmddn")]
-position = Vector2(55.000004, 454.00003)
+position = Vector2(55.000004, 411.00003)
 scale = Vector2(1.14, 1.14)
 
-[node name="Left Door Animation" type="AnimatedSprite2D" parent="Doors/Left" unique_id=1812582159]
-position = Vector2(201, 375)
-sprite_frames = SubResource("SpriteFrames_skov3")
-
 [node name="Left Border" type="Sprite2D" parent="Doors/Left" unique_id=2142955233]
-position = Vector2(199, 388.99997)
-scale = Vector2(1.035, 1.083)
+position = Vector2(199, 359.55997)
+scale = Vector2(1.035, 1.0012223)
 texture = ExtResource("24_0p3hi")
+
+[node name="Left Door Animation" type="AnimatedSprite2D" parent="Doors/Left" unique_id=1812582159]
+position = Vector2(201, 367.5)
+scale = Vector2(1, 0.9791667)
+sprite_frames = SubResource("SpriteFrames_skov3")
 
 [node name="Right" type="Node2D" parent="Doors" unique_id=1767701846]
 
 [node name="RightDoorButtons" parent="Doors/Right" unique_id=939025561 instance=ExtResource("9_gdafm")]
-position = Vector2(1679, 455)
+position = Vector2(1679, 411)
 scale = Vector2(1.14, 1.14)
 
-[node name="Right Door Animation" type="AnimatedSprite2D" parent="Doors/Right" unique_id=1208869580]
-position = Vector2(1510, 358.01685)
-scale = Vector2(1, 1.0639358)
-sprite_frames = SubResource("SpriteFrames_ucufk")
-
 [node name="Right Border" type="Sprite2D" parent="Doors/Right" unique_id=259231760]
-position = Vector2(1518, 388)
-scale = Vector2(1.088, 1.088)
+position = Vector2(1518, 358.15997)
+scale = Vector2(1.088, 1.0051111)
 texture = ExtResource("40_bkq84")
+
+[node name="Right Door Animation" type="AnimatedSprite2D" parent="Doors/Right" unique_id=1208869580]
+position = Vector2(1510, 347.5)
+scale = Vector2(1, 1.0347222)
+sprite_frames = SubResource("SpriteFrames_ucufk")
 
 [node name="Door Toggle Sound" type="AudioStreamPlayer" parent="Doors" unique_id=183057559]
 stream = ExtResource("25_t1nwb")
@@ -254,7 +253,7 @@ script = ExtResource("44_142py")
 [node name="Area2D" type="Area2D" parent="EasterEggs/Freedy Nose" unique_id=1640583078]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EasterEggs/Freedy Nose/Area2D" unique_id=742916280]
-position = Vector2(737, 259)
+position = Vector2(738, 238)
 shape = SubResource("CircleShape2D_ucufk")
 
 [node name="Freddy Nose Sound" type="AudioStreamPlayer" parent="EasterEggs/Freedy Nose" unique_id=2014189551]

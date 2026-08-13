@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ckfglf2jad78r" path="res://assets/images/3-THE_OFFICE/DOORS/BUTTONS/LEFT/2-DOOR.png" id="3_djhmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
-size = Vector2(56, 91.5)
+size = Vector2(56, 92.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57eyc"]
 size = Vector2(56, 108)
@@ -33,7 +33,7 @@ texture = ExtResource("3_57eyc")
 [node name="Buttons Area" type="Area2D" parent="." unique_id=688702626]
 
 [node name="Door" type="CollisionShape2D" parent="Buttons Area" unique_id=1009998080]
-position = Vector2(4, -55)
+position = Vector2(4, -54.375)
 shape = SubResource("RectangleShape2D_ucufk")
 
 [node name="Light" type="CollisionShape2D" parent="Buttons Area" unique_id=920964911]

@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://7b70rlteumyy"]
+
+[ext_resource type="Texture2D" uid="uid://dipbuu1i617i6" path="res://assets/images/6-CAMERAS/0-FLIP.png" id="1_cowaa"]
+[ext_resource type="Texture2D" uid="uid://bjvjingrrdwew" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/1.png" id="2_jcug8"]
+[ext_resource type="Texture2D" uid="uid://ees0dkkmjf75" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/2.png" id="3_ik82r"]
+[ext_resource type="Texture2D" uid="uid://d2vwniv6om8sl" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/3.png" id="4_oiq6h"]
+[ext_resource type="Texture2D" uid="uid://2snro6dbr6lp" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/4.png" id="5_eo4fb"]
+[ext_resource type="Texture2D" uid="uid://bef7elnoclsnt" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/5.png" id="6_06boq"]
+[ext_resource type="Texture2D" uid="uid://dn080rkfdoml7" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/6.png" id="7_lcmb7"]
+[ext_resource type="Texture2D" uid="uid://cdjpahh3vng3t" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/7.png" id="8_dufyt"]
+[ext_resource type="Texture2D" uid="uid://c55ee3tmffdw0" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/8.png" id="9_3uo7g"]
+[ext_resource type="Texture2D" uid="uid://bcd74oph8o0bu" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/9.png" id="10_t8uwp"]
+[ext_resource type="Texture2D" uid="uid://pk1l6130njr8" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/10.png" id="11_7j2rh"]
+[ext_resource type="Texture2D" uid="uid://bme7yiijlsmax" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/11.png" id="12_5vsf2"]
+[ext_resource type="Script" uid="uid://x0xlwdibqhvj" path="res://scripts/cameras/monitor_animation.gd" id="13_bgr5x"]
+[ext_resource type="AudioStream" uid="uid://3mibuo5ivtfb" path="res://assets/audio/put down.wav" id="14_ik82r"]
+[ext_resource type="Texture2D" uid="uid://d361ide7p2pai" path="res://assets/images/6-CAMERAS/1-STAGE.png" id="15_p2vq4"]
+[ext_resource type="Script" uid="uid://dgbkdj5les4k0" path="res://scripts/cameras/camera_switching.gd" id="15_rm80q"]
+[ext_resource type="Texture2D" uid="uid://22ofqi4073f1" path="res://assets/images/6-CAMERAS/1-STAGE_ALL.png" id="16_4bprt"]
+[ext_resource type="Texture2D" uid="uid://ehn4aw6l0nsc" path="res://assets/images/6-CAMERAS/1-STAGE_BONNIE.png" id="17_el3f3"]
+[ext_resource type="Texture2D" uid="uid://cny2mlwscft30" path="res://assets/images/6-CAMERAS/1-STAGE_CHICA.png" id="18_rm80q"]
+[ext_resource type="Texture2D" uid="uid://d0wrvxbhmrjlk" path="res://assets/images/6-CAMERAS/1-STAGE_BONNIE_CHICA.png" id="19_p0ssk"]
+[ext_resource type="Texture2D" uid="uid://bym0e3gi6rlta" path="res://assets/images/6-CAMERAS/1-STAGE_FREDDY_LOOKING.png" id="20_awpbl"]
+[ext_resource type="Texture2D" uid="uid://d3xfpst3p8k08" path="res://assets/images/6-CAMERAS/1-STAGE_LOOKING.png" id="21_ap4w1"]
+[ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://scenes/ui/statics.tscn" id="22_el3f3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucufk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jcug8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ik82r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oiq6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eo4fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_06boq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lcmb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dufyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3uo7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t8uwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7j2rh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5vsf2")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a554"]
+size = Vector2(782, 69)
+
+[node name="Watching Cameras" type="Node2D" unique_id=1111582433]
+
+[node name="Cameras" type="Node2D" parent="." unique_id=1991594992]
+script = ExtResource("15_rm80q")
+
+[node name="CAM 1A (Show Stage)" type="Node2D" parent="Cameras" unique_id=529313007]
+visible = false
+
+[node name="Every Animatronics" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=675635689]
+visible = false
+texture = ExtResource("15_p2vq4")
+centered = false
+
+[node name="No Animatronics" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=882681129]
+visible = false
+texture = ExtResource("16_4bprt")
+centered = false
+
+[node name="Freddy Chica" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=190210490]
+visible = false
+texture = ExtResource("17_el3f3")
+centered = false
+
+[node name="Bonnie Freddy" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=1425672785]
+visible = false
+texture = ExtResource("18_rm80q")
+centered = false
+
+[node name="Freddy" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=286036216]
+visible = false
+texture = ExtResource("19_p0ssk")
+centered = false
+
+[node name="EasterEggs" type="Node2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=994700499]
+visible = false
+
+[node name="Freddy Look Camera" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)/EasterEggs" unique_id=1910500626]
+visible = false
+texture = ExtResource("20_awpbl")
+centered = false
+
+[node name="Everyone Look Camera" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)/EasterEggs" unique_id=437499067]
+visible = false
+texture = ExtResource("21_ap4w1")
+centered = false
+
+[node name="CAM 1B (Dining Area)" type="Node2D" parent="Cameras" unique_id=507266740]
+visible = false
+
+[node name="CAM 1C (Pirate Cove)" type="Node2D" parent="Cameras" unique_id=1026792710]
+visible = false
+
+[node name="CAM 2A (West Hall)" type="Node2D" parent="Cameras" unique_id=1826282464]
+visible = false
+
+[node name="CAM 2B (W Hall Corner)" type="Node2D" parent="Cameras" unique_id=453225509]
+visible = false
+
+[node name="CAM 3 (Supply Closet)" type="Node2D" parent="Cameras" unique_id=160296677]
+visible = false
+
+[node name="CAM 4A (East Hall)" type="Node2D" parent="Cameras" unique_id=1224956025]
+visible = false
+
+[node name="CAM 4B (E Hall Corner)" type="Node2D" parent="Cameras" unique_id=2063864739]
+visible = false
+
+[node name="CAM 5 (Backstage)" type="Node2D" parent="Cameras" unique_id=901801634]
+visible = false
+
+[node name="CAM 6 (Kitchen)" type="Node2D" parent="Cameras" unique_id=1260731436]
+visible = false
+
+[node name="CAM 7 (Restrooms)" type="Node2D" parent="Cameras" unique_id=334983378]
+visible = false
+
+[node name="Statics" parent="Cameras" unique_id=1232822903 instance=ExtResource("22_el3f3")]
+visible = false
+modulate = Color(1, 1, 1, 0.3)
+
+[node name="Monitor" type="Node2D" parent="." unique_id=179084905]
+script = ExtResource("13_bgr5x")
+
+[node name="Monitor Sprite" type="Sprite2D" parent="Monitor" unique_id=854149140]
+position = Vector2(520, 668)
+texture = ExtResource("1_cowaa")
+
+[node name="Watch Monitor Animation" type="AnimatedSprite2D" parent="Monitor" unique_id=2142349348]
+sprite_frames = SubResource("SpriteFrames_ucufk")
+centered = false
+
+[node name="Monitor Camera Sound" type="AudioStreamPlayer" parent="Monitor" unique_id=1441073752]
+stream = ExtResource("14_ik82r")
+volume_db = -5.0
+
+[node name="Watch Cameras Zone" type="Area2D" parent="Monitor" unique_id=1710823504]
+position = Vector2(520, 668)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monitor/Watch Cameras Zone" unique_id=820599573]
+position = Vector2(-33, 26.5)
+shape = SubResource("RectangleShape2D_0a554")
+
+[connection signal="monitor_closed" from="Monitor" to="Cameras" method="_on_monitor_monitor_closed"]
+[connection signal="monitor_opened" from="Monitor" to="Cameras" method="_on_monitor_monitor_opened"]
+[connection signal="animation_finished" from="Monitor/Watch Monitor Animation" to="Monitor" method="_on_watch_camera_animation_animation_finished"]
+[connection signal="mouse_entered" from="Monitor/Watch Cameras Zone" to="Monitor" method="_on_watch_cameras_zone_mouse_entered"]
+[connection signal="mouse_exited" from="Monitor/Watch Cameras Zone" to="Monitor" method="_on_watch_cameras_zone_mouse_exited"]

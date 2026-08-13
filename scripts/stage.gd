@@ -1,7 +1,7 @@
 class_name OfficeStage extends Node2D
 
 @onready var normal_stage := $"Normal"
-@onready var left_light_on_stage := $"Left Light On"
+@onready var left_light_on_stage := $"Left Light on"
 @onready var right_light_on_stage := $"Right Light On"
 
 func change_stage(stage: Stage) -> void:
