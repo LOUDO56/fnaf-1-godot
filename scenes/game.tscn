@@ -33,8 +33,7 @@ anchor_mode = 0
 script = ExtResource("2_yqjtg")
 office = NodePath("../Office")
 
-[node name="Watching Cameras" parent="Camera2D" unique_id=1111582433 node_paths=PackedStringArray("office") instance=ExtResource("4_lbhrr")]
-office = NodePath("../../Office")
+[node name="Watching Cameras" parent="Camera2D" unique_id=1111582433 instance=ExtResource("4_lbhrr")]
 
 [node name="Libs" type="Node2D" parent="." unique_id=365965140]
 script = ExtResource("5_iywne")

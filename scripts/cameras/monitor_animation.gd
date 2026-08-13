@@ -3,7 +3,7 @@ class_name MonitorAnimation extends Node2D
 signal monitor_opened()
 signal monitor_closed()
 
-@onready var watch_cameras_animation := $"Watch Monitor Animation"
+@onready var watch_cameras_animation: AnimatedSprite2D = $"Watch Monitor Animation"
 @onready var monitor_camera_sound = $"Monitor Camera Sound"
 @onready var monitor_sprite = $"Monitor Sprite"
 
@@ -18,6 +18,8 @@ func _on_watch_cameras_zone_mouse_entered() -> void:
 	if not Libs.is_mouse_in_window(get_viewport()):
 		return
 	if mouse_inside_zone:
+		return
+	if watch_cameras_animation.is_playing():
 		return
 	
 	monitor_sprite.visible = false

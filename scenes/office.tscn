@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbcsj1dbbj26o"]
 
 [ext_resource type="Texture2D" uid="uid://b70jtqj5in0eb" path="res://assets/images/3-THE_OFFICE/1-OFFICE.png" id="1_3e7dm"]
+[ext_resource type="AudioStream" uid="uid://c8jfd355f8uac" path="res://assets/audio/ColdPresc B.wav" id="1_likdn"]
 [ext_resource type="Script" uid="uid://doocewdvk6fje" path="res://scripts/stage.gd" id="1_osgti"]
 [ext_resource type="Texture2D" uid="uid://dwhff32d2wgr2" path="res://assets/images/3-THE_OFFICE/FAN/1.png" id="2_qphb6"]
 [ext_resource type="Texture2D" uid="uid://b403vjlypshgb" path="res://assets/images/3-THE_OFFICE/FAN/2.png" id="3_hub07"]
@@ -30,7 +31,9 @@
 [ext_resource type="AudioStream" uid="uid://d0dpeb3po8cqr" path="res://assets/audio/door_toggle.wav" id="25_t1nwb"]
 [ext_resource type="Texture2D" uid="uid://wmyxxby1cvnt" path="res://assets/images/3-THE_OFFICE/DOORS/RIGHT/2.png" id="26_sjdia"]
 [ext_resource type="Texture2D" uid="uid://b7poh8yweg5b1" path="res://assets/images/3-THE_OFFICE/DOORS/RIGHT/3.png" id="27_0p3hi"]
+[ext_resource type="Texture2D" uid="uid://d36uk6gwqeqov" path="res://assets/images/OTHER_THINGS/119.png" id="28_ak7v7"]
 [ext_resource type="Texture2D" uid="uid://dld2245hlcxp4" path="res://assets/images/3-THE_OFFICE/DOORS/RIGHT/4.png" id="28_bkq84"]
+[ext_resource type="Texture2D" uid="uid://cw27p7m6kydtw" path="res://assets/images/OTHER_THINGS/121.png" id="29_likdn"]
 [ext_resource type="Texture2D" uid="uid://b7oqs2ljglssn" path="res://assets/images/3-THE_OFFICE/DOORS/RIGHT/5.png" id="29_osgti"]
 [ext_resource type="Texture2D" uid="uid://1gnarab7qewh" path="res://assets/images/3-THE_OFFICE/DOORS/RIGHT/6.png" id="30_142py"]
 [ext_resource type="Texture2D" uid="uid://2igk85rf6egj" path="res://assets/images/3-THE_OFFICE/DOORS/RIGHT/7.png" id="31_65uj5"]
@@ -117,6 +120,12 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("28_ak7v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_likdn")
+}, {
+"duration": 1.0,
 "texture": ExtResource("25_m4cp1")
 }, {
 "duration": 1.0,
@@ -167,6 +176,13 @@ animations = [{
 radius = 7.0
 
 [node name="Office" type="Node2D" unique_id=1654829613]
+
+[node name="Ambiance" type="Node2D" parent="." unique_id=962121517]
+
+[node name="Ambiance A" type="AudioStreamPlayer" parent="Ambiance" unique_id=304361516]
+stream = ExtResource("1_likdn")
+volume_db = -10.0
+autoplay = true
 
 [node name="Stage" type="Node2D" parent="." unique_id=1795822514]
 script = ExtResource("1_osgti")
@@ -234,8 +250,8 @@ scale = Vector2(1.088, 1.0051111)
 texture = ExtResource("40_bkq84")
 
 [node name="Right Door Animation" type="AnimatedSprite2D" parent="Doors/Right" unique_id=1208869580]
-position = Vector2(1510, 347.5)
-scale = Vector2(1, 1.0347222)
+position = Vector2(1510, 359.5)
+scale = Vector2(1, 1.0013889)
 sprite_frames = SubResource("SpriteFrames_ucufk")
 
 [node name="Door Toggle Sound" type="AudioStreamPlayer" parent="Doors" unique_id=183057559]

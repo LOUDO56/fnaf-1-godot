@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dn080rkfdoml7" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/6.png" id="7_lcmb7"]
 [ext_resource type="Texture2D" uid="uid://cdjpahh3vng3t" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/7.png" id="8_dufyt"]
 [ext_resource type="Texture2D" uid="uid://c55ee3tmffdw0" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/8.png" id="9_3uo7g"]
+[ext_resource type="PackedScene" uid="uid://cdtpq4vqwca0c" path="res://scenes/ui/white_bars.tscn" id="10_p0ssk"]
 [ext_resource type="Texture2D" uid="uid://bcd74oph8o0bu" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/9.png" id="10_t8uwp"]
 [ext_resource type="Texture2D" uid="uid://pk1l6130njr8" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/10.png" id="11_7j2rh"]
+[ext_resource type="AudioStream" uid="uid://bac5ks2ymgtn7" path="res://assets/audio/MiniDV_Tape_Eject_1.wav" id="11_awpbl"]
 [ext_resource type="Texture2D" uid="uid://bme7yiijlsmax" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/11.png" id="12_5vsf2"]
 [ext_resource type="Script" uid="uid://x0xlwdibqhvj" path="res://scripts/cameras/monitor_animation.gd" id="13_bgr5x"]
 [ext_resource type="AudioStream" uid="uid://3mibuo5ivtfb" path="res://assets/audio/put down.wav" id="14_ik82r"]
@@ -147,6 +149,14 @@ visible = false
 [node name="Statics" parent="Cameras" unique_id=1232822903 instance=ExtResource("22_el3f3")]
 visible = false
 modulate = Color(1, 1, 1, 0.3)
+
+[node name="White Bars" parent="Cameras" unique_id=707425992 instance=ExtResource("10_p0ssk")]
+visible = false
+
+[node name="Audio" type="Node2D" parent="Cameras" unique_id=305747493]
+
+[node name="Camera Moving Audio" type="AudioStreamPlayer" parent="Cameras/Audio" unique_id=285895829]
+stream = ExtResource("11_awpbl")
 
 [node name="Monitor" type="Node2D" parent="." unique_id=179084905]
 script = ExtResource("13_bgr5x")

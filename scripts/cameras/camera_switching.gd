@@ -2,9 +2,12 @@ extends Node2D
 
 @onready var current_camera := Camera.CAM_1A
 @onready var statics := $"Statics"
+@onready var white_bars: WhiteBars = $"White Bars"
+@onready var camera_moving_audio = $"Audio/Camera Moving Audio"
 
 func _on_monitor_monitor_closed() -> void:
 	visible = false
+	camera_moving_audio.stop()
 
 func _on_monitor_monitor_opened() -> void:
 	visible = true
@@ -13,6 +16,9 @@ func _on_monitor_monitor_opened() -> void:
 	var current_camera_sprite = _get_sprite_from_camera(current_camera)
 	current_camera_sprite.get_parent().visible = true
 	current_camera_sprite.visible = true
+	white_bars.start()
+	camera_moving_audio.play()
+	
 
 func _get_sprite_from_camera(camera: Camera) -> Sprite2D:
 	if camera == Camera.CAM_1A:

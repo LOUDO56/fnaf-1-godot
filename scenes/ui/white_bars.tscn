@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cdtpq4vqwca0c"]
+
+[ext_resource type="Script" uid="uid://b6st5t18f6lfd" path="res://scripts/ui/white_bars_camera.gd" id="1_p0iin"]
+[ext_resource type="Texture2D" uid="uid://day1nhdmf8rpb" path="res://assets/images/6-CAMERAS/WHITE_BARS/4.png" id="4_f5c6f"]
+[ext_resource type="Texture2D" uid="uid://pl4b21u4uxjk" path="res://assets/images/6-CAMERAS/WHITE_BARS/2.png" id="4_k4c26"]
+[ext_resource type="Texture2D" uid="uid://b220ef3qgcimg" path="res://assets/images/6-CAMERAS/WHITE_BARS/9.png" id="5_u7t8l"]
+[ext_resource type="Texture2D" uid="uid://dej8c3gadc0lx" path="res://assets/images/6-CAMERAS/WHITE_BARS/6.png" id="6_2h2q6"]
+[ext_resource type="Texture2D" uid="uid://cl8cjnhp8dt8x" path="res://assets/images/6-CAMERAS/WHITE_BARS/5.png" id="6_u7t8l"]
+[ext_resource type="Texture2D" uid="uid://beei7c55iydms" path="res://assets/images/6-CAMERAS/WHITE_BARS/10.png" id="7_t2g6k"]
+[ext_resource type="AudioStream" uid="uid://c6uc7yflp6bmw" path="res://assets/audio/blip3.wav" id="8_3d0nb"]
+[ext_resource type="Texture2D" uid="uid://cyhdp1olf7r4s" path="res://assets/images/6-CAMERAS/WHITE_BARS/7.png" id="8_bey0b"]
+[ext_resource type="Texture2D" uid="uid://hu1fkl1jgw5i" path="res://assets/images/6-CAMERAS/WHITE_BARS/1.png" id="9_ecwsh"]
+[ext_resource type="Texture2D" uid="uid://b71ngbauekbrd" path="res://assets/images/6-CAMERAS/WHITE_BARS/3.png" id="10_twncc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ow827"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ecwsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k4c26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_twncc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u7t8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f5c6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u7t8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2h2q6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t2g6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bey0b")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 60.0
+}]
+
+[node name="White Bars Camera" type="Node2D" unique_id=707425992]
+script = ExtResource("1_p0iin")
+
+[node name="White Bars Camera Animation" type="AnimatedSprite2D" parent="." unique_id=2144790464]
+sprite_frames = SubResource("SpriteFrames_ow827")
+frame = 8
+frame_progress = 1.0
+centered = false
+
+[node name="White Bars Camera Sound" type="AudioStreamPlayer" parent="." unique_id=4209112]
+stream = ExtResource("8_3d0nb")
+
+[connection signal="animation_finished" from="White Bars Camera Animation" to="." method="_on_white_bars_camera_animation_animation_finished"]
