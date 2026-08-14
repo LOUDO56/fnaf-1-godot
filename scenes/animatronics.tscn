@@ -14,12 +14,13 @@ script = ExtResource("1_cweo8")
 
 [node name="Bonnie" type="Node2D" parent="." unique_id=1439423576 node_paths=PackedStringArray("step_sound")]
 script = ExtResource("2_cweo8")
+ai_level = 2
 movement_timer_seconds = 4.97
 step_sound = NodePath("../Step Audio")
 
 [node name="Chica" type="Node2D" parent="." unique_id=1463412259 node_paths=PackedStringArray("step_sound")]
 script = ExtResource("3_yemax")
-ai_level = 20
+ai_level = 1
 movement_timer_seconds = 4.98
 step_sound = NodePath("../Step Audio")
 

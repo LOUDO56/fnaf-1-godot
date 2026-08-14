@@ -44,6 +44,7 @@ func _try_to_move() -> void:
 	if old_position == CameraMap.Camera.DOOR and not at_door():
 		on_left_door.emit()
 
+## Used for camera spot where the animatronic has position variation
 func _define_random_variant(max_variant := 1) -> void:
 	variant = randi_range(0, max_variant)
 	

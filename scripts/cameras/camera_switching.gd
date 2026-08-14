@@ -13,7 +13,10 @@ const FLICKER_TIMER = 0.027
 @onready var cooldown_camera_side := $"Cooldown Camera Side"
 @onready var camera_outline := $"CanvasLayer/Cameras/Camera Outline"
 @onready var camera_map: CameraMap = $"CanvasLayer/Cameras/Camera Map"
-@onready var camera_disabled_text = $"CanvasLayer/Cameras/Camera Disabled Text"
+@onready var camera_disabled_text := $"CanvasLayer/Cameras/Camera Disabled Text"
+@onready var camera_garble_sounds := [$"CanvasLayer/Cameras/Audio/Camera Garble 1", $"CanvasLayer/Cameras/Audio/Camera Garble 2", $"CanvasLayer/Cameras/Audio/Camera Garble 3"]
+@onready var garble_sprite := $"Points/Garble"
+@onready var garble_timer := $"Points/Garble/Garble Timer"
 
 var camera_position_x := 0.0
 var moving_side = "right"
@@ -21,6 +24,11 @@ var camera_moving = true
 var current_camera_sprite: Sprite2D
 var current_camera_sprite_width: float
 var flicker_time: float
+
+func _ready() -> void:
+	visible = false
+	animatronics.bonnie.on_animatronic_moved.connect(_on_animatronic_moved)
+	animatronics.chica.on_animatronic_moved.connect(_on_animatronic_moved)
 
 func _process(delta: float) -> void:
 
@@ -53,6 +61,9 @@ func _on_monitor_monitor_closed() -> void:
 	camera_moving_audio.stop()
 	$CanvasLayer/Cameras.visible = false
 	animatronics.chica.decrease_kitchen_sound()
+	_stop_garble_camera()
+	for camera_garble_sound in camera_garble_sounds:
+		camera_garble_sound.stop()
 
 func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
@@ -84,6 +95,25 @@ func _hide_all_camera():
 func _on_cooldown_camera_side_timeout() -> void:
 	camera_moving = true
 	
+func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera) -> void:
+	if visible and (old_position == current_camera or new_position == current_camera):
+		_garble_camera()
+		
+func _garble_camera() -> void:
+	if current_camera == CameraMap.Camera.CAM_6:
+		return
+	garble_timer.start()
+	camera_garble_sounds.pick_random().play()
+	garble_sprite.visible = true
+	_change_sprite(_get_sprite_from_camera(current_camera))
+
+func _stop_garble_camera() -> void:	
+	garble_sprite.visible = false
+	garble_timer.stop()
+	
+func _on_garble_timer_timeout() -> void:
+	_stop_garble_camera()
+
 func _get_sprite_from_camera(camera: CameraMap.Camera) -> Sprite2D:
 	camera_disabled_text.visible = false
 	match camera:

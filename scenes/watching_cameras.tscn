@@ -74,6 +74,9 @@
 [ext_resource type="Texture2D" uid="uid://cjopa5hv74pot" path="res://assets/images/6-CAMERAS/4-RESTROOMS_CHICA2.png" id="51_65s46"]
 [ext_resource type="Texture2D" uid="uid://68vaogt5s2mv" path="res://assets/images/6-CAMERAS/4-RESTROOMS_FREDDY.png" id="52_lm885"]
 [ext_resource type="Texture2D" uid="uid://bve61w4ogenba" path="res://assets/images/6-CAMERAS/CAM_TEXT/10-DISABLED.png" id="55_lm885"]
+[ext_resource type="AudioStream" uid="uid://chbbbqo1jso33" path="res://assets/audio/garble1.wav" id="59_aqy2v"]
+[ext_resource type="AudioStream" uid="uid://dh5lpceblpd1h" path="res://assets/audio/garble2.wav" id="60_fatv5"]
+[ext_resource type="AudioStream" uid="uid://baer02hqjvph4" path="res://assets/audio/garble3.wav" id="61_0gpnb"]
 [ext_resource type="Script" uid="uid://ba5wr88k0t6sd" path="res://scripts/ui/red_circle.gd" id="61_d5oxx"]
 [ext_resource type="Texture2D" uid="uid://ddo37fkyptu3q" path="res://assets/images/6-CAMERAS/0-REC.png" id="61_fpy5d"]
 
@@ -476,6 +479,14 @@ visible = false
 texture = ExtResource("52_lm885")
 centered = false
 
+[node name="Garble" type="Sprite2D" parent="Points" unique_id=785881306]
+visible = false
+texture = ExtResource("49_iab5x")
+centered = false
+
+[node name="Garble Timer" type="Timer" parent="Points/Garble" unique_id=478578337]
+wait_time = 4.0
+
 [node name="Panorama" type="ColorRect" parent="." unique_id=2103955774]
 material = SubResource("ShaderMaterial_ap4w1")
 offset_top = 1.0
@@ -506,6 +517,15 @@ position = Vector2(1050, 509)
 
 [node name="Camera Moving Audio" type="AudioStreamPlayer" parent="CanvasLayer/Cameras/Audio" unique_id=285895829]
 stream = ExtResource("11_awpbl")
+
+[node name="Camera Garble 1" type="AudioStreamPlayer" parent="CanvasLayer/Cameras/Audio" unique_id=2032451928]
+stream = ExtResource("59_aqy2v")
+
+[node name="Camera Garble 2" type="AudioStreamPlayer" parent="CanvasLayer/Cameras/Audio" unique_id=651993325]
+stream = ExtResource("60_fatv5")
+
+[node name="Camera Garble 3" type="AudioStreamPlayer" parent="CanvasLayer/Cameras/Audio" unique_id=488087564]
+stream = ExtResource("61_0gpnb")
 
 [node name="Camera Outline" type="Sprite2D" parent="CanvasLayer/Cameras" unique_id=2056848259]
 texture = ExtResource("12_ap4w1")
@@ -549,6 +569,7 @@ position = Vector2(520, 668)
 position = Vector2(-33, 26.5)
 shape = SubResource("RectangleShape2D_0a554")
 
+[connection signal="timeout" from="Points/Garble/Garble Timer" to="." method="_on_garble_timer_timeout"]
 [connection signal="timeout" from="Cooldown Camera Side" to="." method="_on_cooldown_camera_side_timeout"]
 [connection signal="camera_changed" from="CanvasLayer/Cameras/Camera Map" to="." method="_on_camera_map_camera_changed"]
 [connection signal="timeout" from="CanvasLayer/Cameras/Red Circle/Blink Timer" to="CanvasLayer/Cameras/Red Circle" method="_on_blink_timer_timeout"]
