@@ -4,7 +4,7 @@ class_name CameraPoint extends Node2D
 @export var name_texture: Texture
 
 @onready var un_pressed_sprite := $"UnPressed"
-@onready var pressed_sprite := $"Pressed"
+@onready var selected_animation := $"SelectedAnimation"
 @onready var camera_name := $"../Camera Name"
 
 signal on_camera_point_clicked(id: CameraMap.Camera)
@@ -16,9 +16,11 @@ func _on_press_zone_input_event(viewport: Node, event: InputEvent, shape_idx: in
 
 func select() -> void:
 	un_pressed_sprite.visible = false
-	pressed_sprite.visible = true
+	selected_animation.visible = true
+	selected_animation.play()
 	camera_name.texture = name_texture
 	
 func unselect() -> void:
 	un_pressed_sprite.visible = true
-	pressed_sprite.visible = false
+	selected_animation.visible = false
+	selected_animation.stop()

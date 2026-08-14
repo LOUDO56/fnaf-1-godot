@@ -1,6 +1,7 @@
 extends Node2D
 
-const CAMERA_SPEED = 100
+const CAMERA_SPEED = 75
+const FLICKER_TIMER = 0.027
 
 @onready var current_camera := CameraMap.Camera.CAM_1A
 @onready var statics := $"CanvasLayer/Cameras/Statics"
@@ -10,35 +11,43 @@ const CAMERA_SPEED = 100
 @onready var cooldown_camera_side := $"Cooldown Camera Side"
 @onready var camera_outline := $"CanvasLayer/Cameras/Camera Outline"
 @onready var camera_map: CameraMap = $"CanvasLayer/Cameras/Camera Map"
+@onready var camera_disabled_text = $"CanvasLayer/Cameras/Camera Disabled Text"
 
 var camera_position_x := 0.0
 var moving_side = "right"
 var camera_moving = true
 var current_camera_sprite: Sprite2D
 var current_camera_sprite_width: float
+var flicker_time: float
 
 func _process(delta: float) -> void:
-	if not camera_moving:
-		return
-	if current_camera_sprite_width == 0.0:
-		return
-	
-	if moving_side == "right":
-		monitor_view.position.x += CAMERA_SPEED * delta
-	else:
-		monitor_view.position.x -= CAMERA_SPEED * delta
-	
-	if monitor_view.position.x >= current_camera_sprite_width:
-		moving_side = "left"
-		camera_moving = false
-		cooldown_camera_side.start()
-	if monitor_view.position.x <= 0:
-		moving_side = "right"
-		camera_moving = false
-		cooldown_camera_side.start()
+
+	if camera_moving and current_camera_sprite_width:
+		if moving_side == "right":
+			monitor_view.position.x += CAMERA_SPEED * delta
+		else:
+			monitor_view.position.x -= CAMERA_SPEED * delta
+		
+		if monitor_view.position.x >= current_camera_sprite_width:
+			moving_side = "left"
+			camera_moving = false
+			cooldown_camera_side.start()
+		if monitor_view.position.x <= 0:
+			moving_side = "right"
+			camera_moving = false
+			cooldown_camera_side.start()
+		
+	flicker_time += delta
+	if flicker_time >= FLICKER_TIMER:
+		if current_camera == CameraMap.Camera.CAM_2A:
+			_change_sprite(_get_west_hall_sprite())
+		var random = randf_range(0.05, 0.35)
+		statics.modulate.a = random
+		flicker_time = 0.0
 
 func _on_monitor_monitor_closed() -> void:
 	visible = false
+	camera_disabled_text.visible = false
 	camera_moving_audio.stop()
 	$CanvasLayer/Cameras.visible = false
 
@@ -46,20 +55,21 @@ func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
 	monitor_view.make_current()
 	visible = true
-	_hide_all_camera()
-	var current_camera_sprite = _get_sprite_from_camera(current_camera)
-	current_camera_sprite.get_parent().visible = true
-	current_camera_sprite.visible = true
+	_change_sprite(_get_sprite_from_camera(current_camera))
 	camera_moving_audio.play()
 	camera_map.select_camera(camera_map.selected_camera_id)
 	
 	
 func _on_camera_map_camera_changed(id: CameraMap.Camera) -> void:
 	current_camera = id
+	_change_sprite(_get_sprite_from_camera(id))
+	
+func _change_sprite(new_sprite: Sprite2D) -> void:
 	_hide_all_camera()
-	current_camera_sprite = _get_sprite_from_camera(id)
+	current_camera_sprite = new_sprite
 	current_camera_sprite.visible = true
-	current_camera_sprite_width = (current_camera_sprite.texture.get_width() * current_camera_sprite.scale.x) - get_viewport_rect().size.x
+	current_camera_sprite_width = current_camera_sprite.texture.get_width() - get_viewport_rect().size.x
+
 	
 func _hide_all_camera():
 	for child in get_node("Points").get_children():
@@ -71,6 +81,7 @@ func _on_cooldown_camera_side_timeout() -> void:
 	camera_moving = true
 	
 func _get_sprite_from_camera(camera: CameraMap.Camera) -> Sprite2D:
+	camera_disabled_text.visible = false
 	match camera:
 		CameraMap.Camera.CAM_1A:
 			return _get_show_stage_sprite()
@@ -91,6 +102,7 @@ func _get_sprite_from_camera(camera: CameraMap.Camera) -> Sprite2D:
 		CameraMap.Camera.CAM_5:
 			return _get_backstage_sprite()
 		CameraMap.Camera.CAM_6:
+			camera_disabled_text.visible = true
 			return _get_kitchen_sprite()
 		CameraMap.Camera.CAM_7:
 			return _get_restrooms_sprite()
@@ -106,7 +118,10 @@ func _get_pirate_cove_sprite() -> Sprite2D:
 	return $"Points/CAM 1C (Pirate Cove)/Idle"
 	
 func _get_west_hall_sprite() -> Sprite2D:
-	return $"Points/CAM 2A (West Hall)/No Light"
+	if (randi() % 10 >= 7):
+		return $"Points/CAM 2A (West Hall)/Light"
+	else:
+		return $"Points/CAM 2A (West Hall)/No Light"
 
 func _get_west_hall_corner_sprite() -> Sprite2D:
 	return $"Points/CAM 2B (W Hall Corner)/No Animatronic"

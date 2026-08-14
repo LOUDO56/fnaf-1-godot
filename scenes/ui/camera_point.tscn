@@ -4,6 +4,20 @@
 [ext_resource type="Script" uid="uid://wgs1hgxstyhu" path="res://scripts/cameras/camera_point.gd" id="1_15dn3"]
 [ext_resource type="Texture2D" uid="uid://cdh36m8duj0wy" path="res://assets/images/6-CAMERAS/CAM_BUTTONS/CAM_PRESSED2 (switch animation sequence).png" id="2_15dn3"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucufk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_15dn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_7arb5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.5
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7arb5"]
 size = Vector2(62, 43)
 
@@ -14,10 +28,9 @@ script = ExtResource("1_15dn3")
 texture_filter = 1
 texture = ExtResource("1_7arb5")
 
-[node name="Pressed" type="Sprite2D" parent="." unique_id=1481593595]
-visible = false
-texture_filter = 1
-texture = ExtResource("2_15dn3")
+[node name="SelectedAnimation" type="AnimatedSprite2D" parent="." unique_id=1288973570]
+sprite_frames = SubResource("SpriteFrames_ucufk")
+frame_progress = 0.40817696
 
 [node name="Press Zone" type="Area2D" parent="." unique_id=1986462966]
 

@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://d0wrvxbhmrjlk" path="res://assets/images/6-CAMERAS/1-STAGE_BONNIE_CHICA.png" id="19_p0ssk"]
 [ext_resource type="Texture2D" uid="uid://bym0e3gi6rlta" path="res://assets/images/6-CAMERAS/1-STAGE_FREDDY_LOOKING.png" id="20_awpbl"]
 [ext_resource type="Texture2D" uid="uid://b721qq5p5bs51" path="res://assets/images/6-CAMERAS/9-WEST_HALL.png" id="20_q3bjb"]
+[ext_resource type="Texture2D" uid="uid://c6noqkk3k1y3s" path="res://assets/images/6-CAMERAS/6-WEST_HALL_CORNER_2.png" id="21_65s46"]
 [ext_resource type="Texture2D" uid="uid://d3xfpst3p8k08" path="res://assets/images/6-CAMERAS/1-STAGE_LOOKING.png" id="21_ap4w1"]
 [ext_resource type="Texture2D" uid="uid://yt8tp8wxeigp" path="res://assets/images/6-CAMERAS/9-WEST_HALL_BONNIE.png" id="21_tqr7o"]
 [ext_resource type="Texture2D" uid="uid://dd1q15idelywd" path="res://assets/images/6-CAMERAS/9-WEST_HALL_BONNIE2.png" id="22_aqy2v"]
@@ -72,6 +73,9 @@
 [ext_resource type="Texture2D" uid="uid://bjee8a34j2p14" path="res://assets/images/6-CAMERAS/4-RESTROOMS_CHICA.png" id="50_iab5x"]
 [ext_resource type="Texture2D" uid="uid://cjopa5hv74pot" path="res://assets/images/6-CAMERAS/4-RESTROOMS_CHICA2.png" id="51_65s46"]
 [ext_resource type="Texture2D" uid="uid://68vaogt5s2mv" path="res://assets/images/6-CAMERAS/4-RESTROOMS_FREDDY.png" id="52_lm885"]
+[ext_resource type="Texture2D" uid="uid://bve61w4ogenba" path="res://assets/images/6-CAMERAS/CAM_TEXT/10-DISABLED.png" id="55_lm885"]
+[ext_resource type="Script" uid="uid://ba5wr88k0t6sd" path="res://scripts/ui/red_circle.gd" id="61_d5oxx"]
+[ext_resource type="Texture2D" uid="uid://ddo37fkyptu3q" path="res://assets/images/6-CAMERAS/0-REC.png" id="61_fpy5d"]
 
 [sub_resource type="Shader" id="Shader_awpbl"]
 code = "shader_type canvas_item;
@@ -290,7 +294,7 @@ centered = false
 
 [node name="Light" type="Sprite2D" parent="Points/CAM 2A (West Hall)" unique_id=1746388790]
 visible = false
-texture = ExtResource("26_ut5t7")
+texture = ExtResource("21_65s46")
 centered = false
 
 [node name="Light Bonnie" type="Sprite2D" parent="Points/CAM 2A (West Hall)" unique_id=108128910]
@@ -491,7 +495,7 @@ wait_time = 1.5
 visible = false
 
 [node name="Statics" parent="CanvasLayer/Cameras" unique_id=1232822903 instance=ExtResource("22_el3f3")]
-modulate = Color(1, 1, 1, 0.3)
+modulate = Color(1, 1, 1, 0.109000005)
 
 [node name="Camera Map" parent="CanvasLayer/Cameras" unique_id=48420636 instance=ExtResource("9_er5vx")]
 position = Vector2(1050, 509)
@@ -506,6 +510,21 @@ stream = ExtResource("11_awpbl")
 [node name="Camera Outline" type="Sprite2D" parent="CanvasLayer/Cameras" unique_id=2056848259]
 texture = ExtResource("12_ap4w1")
 centered = false
+
+[node name="Camera Disabled Text" type="Sprite2D" parent="CanvasLayer/Cameras" unique_id=1593922034]
+visible = false
+position = Vector2(484, 55)
+texture = ExtResource("55_lm885")
+centered = false
+
+[node name="Red Circle" type="Sprite2D" parent="CanvasLayer/Cameras" unique_id=1129721608]
+position = Vector2(92, 84)
+texture = ExtResource("61_fpy5d")
+script = ExtResource("61_d5oxx")
+
+[node name="Blink Timer" type="Timer" parent="CanvasLayer/Cameras/Red Circle" unique_id=1478281296]
+wait_time = 1.2999999999999998
+autostart = true
 
 [node name="Monitor" type="Node2D" parent="CanvasLayer" unique_id=179084905]
 script = ExtResource("13_bgr5x")
@@ -532,6 +551,7 @@ shape = SubResource("RectangleShape2D_0a554")
 
 [connection signal="timeout" from="Cooldown Camera Side" to="." method="_on_cooldown_camera_side_timeout"]
 [connection signal="camera_changed" from="CanvasLayer/Cameras/Camera Map" to="." method="_on_camera_map_camera_changed"]
+[connection signal="timeout" from="CanvasLayer/Cameras/Red Circle/Blink Timer" to="CanvasLayer/Cameras/Red Circle" method="_on_blink_timer_timeout"]
 [connection signal="monitor_closed" from="CanvasLayer/Monitor" to="." method="_on_monitor_monitor_closed"]
 [connection signal="monitor_opened" from="CanvasLayer/Monitor" to="." method="_on_monitor_monitor_opened"]
 [connection signal="animation_finished" from="CanvasLayer/Monitor/Watch Monitor Animation" to="CanvasLayer/Monitor" method="_on_watch_monitor_animation_animation_finished"]
