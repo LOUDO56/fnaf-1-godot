@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		return
 	flicker_light_count = 0
 
-	if (randi() % 10 > 8):
+	if (randi() % 10 > 7):
 		door_light_sound.volume_db = -100
 		office_stage.change_stage(OfficeStage.Stage.NORMAL)
 	else:

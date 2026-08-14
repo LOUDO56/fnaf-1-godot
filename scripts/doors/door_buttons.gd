@@ -51,9 +51,6 @@ func _change_state(state: State):
 	closed.visible = state == State.CLOSED
 	light_on.visible = state == State.LIGHT_ON
 	closed_light_on.visible = state == State.CLOSED_LIGHT_ON
-	
-enum State {OPENED, CLOSED, LIGHT_ON, CLOSED_LIGHT_ON}
-
 
 func turn_off_light() -> void:
 	if not is_light_on:
@@ -63,6 +60,7 @@ func turn_off_light() -> void:
 		_change_state(State.CLOSED)
 	else:
 		_change_state(State.OPENED)
+	toggle_light.emit(side, false)
 
 
 func _on_cooldown_press_door_timeout() -> void:
@@ -70,3 +68,6 @@ func _on_cooldown_press_door_timeout() -> void:
 
 func _on_cooldown_press_light_timeout() -> void:
 	can_press_light = true
+
+
+enum State {OPENED, CLOSED, LIGHT_ON, CLOSED_LIGHT_ON}

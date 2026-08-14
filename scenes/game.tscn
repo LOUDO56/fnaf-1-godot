@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbhrr"]
 shader = ExtResource("3_lnu2h")
-shader_parameter/zoom = 0.175
+shader_parameter/zoom = 0.17
 shader_parameter/sharpness = 2.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/wrapping_mode = 0
@@ -22,18 +22,18 @@ office = NodePath("Office")
 [node name="Office" parent="." unique_id=1654829613 instance=ExtResource("1_uwrxv")]
 script = ExtResource("3_gee14")
 
-[node name="Panorama" type="ColorRect" parent="." unique_id=117026844]
+[node name="Panorama" type="ColorRect" parent="Office" unique_id=117026844]
 material = SubResource("ShaderMaterial_lbhrr")
 offset_right = 1741.0
 offset_bottom = 719.0
 mouse_filter = 2
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office")]
+[node name="OfficeCamera" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office")]
 anchor_mode = 0
 script = ExtResource("2_yqjtg")
 office = NodePath("../Office")
 
-[node name="Watching Cameras" parent="Camera2D" unique_id=1111582433 instance=ExtResource("4_lbhrr")]
+[node name="Watching Cameras" parent="OfficeCamera" unique_id=1111582433 instance=ExtResource("4_lbhrr")]
 
 [node name="Libs" type="Node2D" parent="." unique_id=365965140]
 script = ExtResource("5_iywne")

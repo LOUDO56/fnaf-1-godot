@@ -4,10 +4,10 @@ class_name WhiteBars extends Node2D
 @onready var white_bars_camera_sound := $"White Bars Camera Sound"
 @onready var white_bars_camera_animation := $"White Bars Camera Animation"
 
-func _process(delta: float) -> void:
-	pass
+func _ready() -> void:
+	visible = false
 
-func start() -> void:
+func play() -> void:
 	visible = true
 	white_bars_camera_animation.play()
 	white_bars_camera_sound.play()

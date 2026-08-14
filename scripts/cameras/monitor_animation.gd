@@ -40,8 +40,8 @@ func _on_watch_cameras_zone_mouse_exited() -> void:
 		return
 	monitor_sprite.visible = true
 	mouse_inside_zone = false
-
-func _on_watch_camera_animation_animation_finished() -> void:
+	
+func _on_watch_monitor_animation_animation_finished() -> void:
 	watch_cameras_animation.visible = false
 	if is_watching_cameras:
 		monitor_opened.emit()

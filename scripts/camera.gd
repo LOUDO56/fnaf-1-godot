@@ -6,7 +6,6 @@ const SLOW_MOVE_SPEED := 200.0
 const MED_MOVE_SPEED := 600.0
 const FAST_MOVE_SPEED := 800.0
 
-
 var normal_office_sprite: Sprite2D
 var margin_right_office
 

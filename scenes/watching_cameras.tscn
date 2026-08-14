@@ -9,22 +9,132 @@
 [ext_resource type="Texture2D" uid="uid://dn080rkfdoml7" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/6.png" id="7_lcmb7"]
 [ext_resource type="Texture2D" uid="uid://cdjpahh3vng3t" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/7.png" id="8_dufyt"]
 [ext_resource type="Texture2D" uid="uid://c55ee3tmffdw0" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/8.png" id="9_3uo7g"]
+[ext_resource type="PackedScene" uid="uid://dp4n1054yqw10" path="res://scenes/camera_map.tscn" id="9_er5vx"]
+[ext_resource type="Texture2D" uid="uid://6g65rj1rou4w" path="res://assets/images/6-CAMERAS/2-DINING_AREA.png" id="9_o072i"]
+[ext_resource type="Texture2D" uid="uid://bbbylfop7wqmv" path="res://assets/images/6-CAMERAS/2-DINING_AREA_BONNIE.png" id="10_ebw6w"]
 [ext_resource type="PackedScene" uid="uid://cdtpq4vqwca0c" path="res://scenes/ui/white_bars.tscn" id="10_p0ssk"]
 [ext_resource type="Texture2D" uid="uid://bcd74oph8o0bu" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/9.png" id="10_t8uwp"]
 [ext_resource type="Texture2D" uid="uid://pk1l6130njr8" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/10.png" id="11_7j2rh"]
 [ext_resource type="AudioStream" uid="uid://bac5ks2ymgtn7" path="res://assets/audio/MiniDV_Tape_Eject_1.wav" id="11_awpbl"]
+[ext_resource type="Texture2D" uid="uid://cdwx3inxsqlnk" path="res://assets/images/6-CAMERAS/2-DINING_AREA_BONNIE_2.0.png" id="11_pul0k"]
+[ext_resource type="Texture2D" uid="uid://cbtxswo6plhs6" path="res://assets/images/6-CAMERAS/2-DINING_AREA_CHICA.png" id="12_5b2pp"]
 [ext_resource type="Texture2D" uid="uid://bme7yiijlsmax" path="res://assets/images/6-CAMERAS/MONITOR_ANIMATION/11.png" id="12_5vsf2"]
+[ext_resource type="Texture2D" uid="uid://bly1hqhgdumcq" path="res://assets/images/6-CAMERAS/camera_outline.png" id="12_ap4w1"]
 [ext_resource type="Script" uid="uid://x0xlwdibqhvj" path="res://scripts/cameras/monitor_animation.gd" id="13_bgr5x"]
+[ext_resource type="Texture2D" uid="uid://dfso67orcbpd7" path="res://assets/images/6-CAMERAS/2-DINING_AREA_CHICA2.png" id="13_iykit"]
+[ext_resource type="Texture2D" uid="uid://bmaje1oef8hew" path="res://assets/images/6-CAMERAS/2-DINING_AREA_FREDDY.png" id="14_1yjca"]
 [ext_resource type="AudioStream" uid="uid://3mibuo5ivtfb" path="res://assets/audio/put down.wav" id="14_ik82r"]
+[ext_resource type="Texture2D" uid="uid://dtoe3rlalyr82" path="res://assets/images/6-CAMERAS/3-PIRATE_COVE.png" id="15_iab5x"]
 [ext_resource type="Texture2D" uid="uid://d361ide7p2pai" path="res://assets/images/6-CAMERAS/1-STAGE.png" id="15_p2vq4"]
 [ext_resource type="Script" uid="uid://dgbkdj5les4k0" path="res://scripts/cameras/camera_switching.gd" id="15_rm80q"]
 [ext_resource type="Texture2D" uid="uid://22ofqi4073f1" path="res://assets/images/6-CAMERAS/1-STAGE_ALL.png" id="16_4bprt"]
+[ext_resource type="Texture2D" uid="uid://bd6u3tmdvtmwt" path="res://assets/images/6-CAMERAS/3-PIRATE_COVE_FOXY.png" id="16_65s46"]
 [ext_resource type="Texture2D" uid="uid://ehn4aw6l0nsc" path="res://assets/images/6-CAMERAS/1-STAGE_BONNIE.png" id="17_el3f3"]
+[ext_resource type="Texture2D" uid="uid://2et5wbk12te4" path="res://assets/images/6-CAMERAS/3-PIRATE_COVE_FOXY2.png" id="17_lm885"]
+[ext_resource type="Texture2D" uid="uid://di2r56kc2uma" path="res://assets/images/6-CAMERAS/3-PIRATE_COVE_FOXY3.png" id="18_d5oxx"]
 [ext_resource type="Texture2D" uid="uid://cny2mlwscft30" path="res://assets/images/6-CAMERAS/1-STAGE_CHICA.png" id="18_rm80q"]
+[ext_resource type="Texture2D" uid="uid://bqa54eums33n" path="res://assets/images/6-CAMERAS/3-PIRATE_COVE_IT'S_ME.png" id="19_fpy5d"]
 [ext_resource type="Texture2D" uid="uid://d0wrvxbhmrjlk" path="res://assets/images/6-CAMERAS/1-STAGE_BONNIE_CHICA.png" id="19_p0ssk"]
 [ext_resource type="Texture2D" uid="uid://bym0e3gi6rlta" path="res://assets/images/6-CAMERAS/1-STAGE_FREDDY_LOOKING.png" id="20_awpbl"]
+[ext_resource type="Texture2D" uid="uid://b721qq5p5bs51" path="res://assets/images/6-CAMERAS/9-WEST_HALL.png" id="20_q3bjb"]
 [ext_resource type="Texture2D" uid="uid://d3xfpst3p8k08" path="res://assets/images/6-CAMERAS/1-STAGE_LOOKING.png" id="21_ap4w1"]
+[ext_resource type="Texture2D" uid="uid://yt8tp8wxeigp" path="res://assets/images/6-CAMERAS/9-WEST_HALL_BONNIE.png" id="21_tqr7o"]
+[ext_resource type="Texture2D" uid="uid://dd1q15idelywd" path="res://assets/images/6-CAMERAS/9-WEST_HALL_BONNIE2.png" id="22_aqy2v"]
 [ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://scenes/ui/statics.tscn" id="22_el3f3"]
+[ext_resource type="Texture2D" uid="uid://b5a4iqaexbf5j" path="res://assets/images/6-CAMERAS/9-WEST_HALL_BONNIE3.png" id="23_fatv5"]
+[ext_resource type="Texture2D" uid="uid://biljujt5atmu5" path="res://assets/images/6-CAMERAS/9-WEST_HALL_GOLDEN_FREDDY.png" id="24_0gpnb"]
+[ext_resource type="Texture2D" uid="uid://t5nups3on2td" path="res://assets/images/6-CAMERAS/9-WEST_HALL_POSTER_GLITCH.png" id="25_emyvi"]
+[ext_resource type="Texture2D" uid="uid://bx4ifdrwd822e" path="res://assets/images/6-CAMERAS/6-WEST_HALL_CORNER.png" id="26_ut5t7"]
+[ext_resource type="Texture2D" uid="uid://c4ueqkijo8p2m" path="res://assets/images/6-CAMERAS/6-WEST_HALL_CORNER_BONNIE.png" id="27_58wwe"]
+[ext_resource type="Texture2D" uid="uid://sudeg6uwp02a" path="res://assets/images/6-CAMERAS/8-SUPPLY_ROOM.png" id="28_77wcr"]
+[ext_resource type="Texture2D" uid="uid://cn8s3d76tmqjf" path="res://assets/images/6-CAMERAS/8-SUPPLY_ROOM_BONNIE.png" id="29_vmm5u"]
+[ext_resource type="Texture2D" uid="uid://buhro73xrfwqs" path="res://assets/images/6-CAMERAS/10-EAST_HALL.png" id="30_2p2lw"]
+[ext_resource type="Texture2D" uid="uid://sstqb1p63yfn" path="res://assets/images/6-CAMERAS/10-EAST_HALL_CHICA.png" id="31_vu5n7"]
+[ext_resource type="Texture2D" uid="uid://q8fe467p77xx" path="res://assets/images/6-CAMERAS/10-EAST_HALL_CHICA2.png" id="32_7supg"]
+[ext_resource type="Texture2D" uid="uid://cr8c22muyc25l" path="res://assets/images/6-CAMERAS/10-EAST_HALL_CHICA3.png" id="33_y4xcj"]
+[ext_resource type="Texture2D" uid="uid://cea02wp4vrifm" path="res://assets/images/6-CAMERAS/10-EAST_HALL_FREDDY.png" id="34_lti6e"]
+[ext_resource type="Texture2D" uid="uid://ojd5fdxudynj" path="res://assets/images/6-CAMERAS/10-EAST_HALL_NEWS.png" id="35_gpmva"]
+[ext_resource type="Texture2D" uid="uid://dackp7k0rpuo1" path="res://assets/images/6-CAMERAS/10-EAST_HALL_NEWS2.png" id="36_v74yb"]
+[ext_resource type="Texture2D" uid="uid://egafgrkj0o3i" path="res://assets/images/6-CAMERAS/10-EAST_HALL_NEWS3.png" id="37_6bfyb"]
+[ext_resource type="Texture2D" uid="uid://bjbrds0e2r0ku" path="res://assets/images/6-CAMERAS/10-EAST_HALL_NEWS4.png" id="38_qhmqv"]
+[ext_resource type="Texture2D" uid="uid://c3g5kxj117gsf" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER.png" id="39_yqihh"]
+[ext_resource type="Texture2D" uid="uid://ehxoacjwevw6" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_CHICA.png" id="40_3ay5e"]
+[ext_resource type="Texture2D" uid="uid://di24pj3ayqf02" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_CHICA2.png" id="41_fu4hn"]
+[ext_resource type="Texture2D" uid="uid://c1lg36nal3s43" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_FREDDY.png" id="42_n7ikx"]
+[ext_resource type="Texture2D" uid="uid://dr5m5xkntarwt" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_CHILDREN.png" id="43_wl7vb"]
+[ext_resource type="Texture2D" uid="uid://dbt24pvxm1hio" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_IT'S_ME.png" id="44_qigm6"]
+[ext_resource type="Texture2D" uid="uid://dck4ney4mad1f" path="res://assets/images/6-CAMERAS/5-BACKSTAGE.png" id="45_dm6j0"]
+[ext_resource type="Texture2D" uid="uid://cc4fuigvtcnt0" path="res://assets/images/6-CAMERAS/5-BACKSTAGE_BONNIE.png" id="46_kujov"]
+[ext_resource type="Texture2D" uid="uid://gk4wf6lsm5ka" path="res://assets/images/6-CAMERAS/5-BACKSTAGE_BONNIE_2.0.png" id="47_0h0k5"]
+[ext_resource type="Texture2D" uid="uid://dpemjx7sqsim" path="res://assets/images/6-CAMERAS/5-BACKSTAGE_LOOKING.png" id="48_yjqbx"]
+[ext_resource type="Texture2D" uid="uid://cyqkh2v47ywi0" path="res://assets/images/6-CAMERAS/4-RESTROOMS.png" id="49_1yjca"]
+[ext_resource type="Texture2D" uid="uid://coxek1ydkmwf8" path="res://assets/images/6-CAMERAS/kitchen.png" id="49_iab5x"]
+[ext_resource type="Texture2D" uid="uid://bjee8a34j2p14" path="res://assets/images/6-CAMERAS/4-RESTROOMS_CHICA.png" id="50_iab5x"]
+[ext_resource type="Texture2D" uid="uid://cjopa5hv74pot" path="res://assets/images/6-CAMERAS/4-RESTROOMS_CHICA2.png" id="51_65s46"]
+[ext_resource type="Texture2D" uid="uid://68vaogt5s2mv" path="res://assets/images/6-CAMERAS/4-RESTROOMS_FREDDY.png" id="52_lm885"]
+
+[sub_resource type="Shader" id="Shader_awpbl"]
+code = "shader_type canvas_item;
+
+/**
+ * In relative units now (0-1)
+ */
+uniform float zoom = 1.0;
+
+/**
+ * Higher values = less distortion in the center
+ */
+uniform float sharpness = 2.0;
+
+/**
+ * (1, 0) for horizontal only, (0, 1) for vertical only
+ */
+uniform vec2 direction = vec2(1.0, 0.0);
+
+/**
+ * 0: Repeats
+ * 1: Clamps
+ * 2: Clips
+ */
+uniform int wrapping_mode = 0;
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+void fragment() {
+    float fB;
+    float fC;
+
+    vec2 posTex;
+    vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
+    vec2 uv = SCREEN_UV;
+    vec2 ndir = normalize(direction);
+    float fac1 = abs(dot(uv - 0.5, normalize(ndir.yx))) * 2.0;
+    float fac2 = -dot(uv - 0.5, normalize(ndir)) * 2.0;
+    vec2 new_uv = uv + pow(fac1, sharpness) * fac2 * zoom * ndir;
+    switch (wrapping_mode)
+    {
+        case 2:
+            if (0.0 > new_uv.x || new_uv.x > 1.0 || 0.0 > new_uv.y || new_uv.y > 1.0)
+            {
+                COLOR = vec4(0);
+                break;
+            }
+        case 0:
+            new_uv = fract(new_uv);
+            // fall-through
+        case 1:
+            new_uv = clamp(new_uv, vec2(0), vec2(1));
+            COLOR = textureLod(SCREEN_TEXTURE, new_uv, 0.0);
+            break;
+    }
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ap4w1"]
+shader = SubResource("Shader_awpbl")
+shader_parameter/zoom = 0.155
+shader_parameter/sharpness = 2.0
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/wrapping_mode = 0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ucufk"]
 animations = [{
@@ -71,117 +181,359 @@ animations = [{
 size = Vector2(782, 69)
 
 [node name="Watching Cameras" type="Node2D" unique_id=1111582433]
-
-[node name="Cameras" type="Node2D" parent="." unique_id=1991594992]
 script = ExtResource("15_rm80q")
 
-[node name="CAM 1A (Show Stage)" type="Node2D" parent="Cameras" unique_id=529313007]
-visible = false
+[node name="Points" type="Node2D" parent="." unique_id=2030942947]
 
-[node name="Every Animatronics" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=675635689]
+[node name="CAM 1A (Show Stage)" type="Node2D" parent="Points" unique_id=529313007]
+
+[node name="Every Animatronics" type="Sprite2D" parent="Points/CAM 1A (Show Stage)" unique_id=675635689]
 visible = false
 texture = ExtResource("15_p2vq4")
 centered = false
 
-[node name="No Animatronics" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=882681129]
+[node name="No Animatronics" type="Sprite2D" parent="Points/CAM 1A (Show Stage)" unique_id=882681129]
 visible = false
 texture = ExtResource("16_4bprt")
 centered = false
 
-[node name="Freddy Chica" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=190210490]
+[node name="Freddy Chica" type="Sprite2D" parent="Points/CAM 1A (Show Stage)" unique_id=190210490]
 visible = false
 texture = ExtResource("17_el3f3")
 centered = false
 
-[node name="Bonnie Freddy" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=1425672785]
+[node name="Bonnie Freddy" type="Sprite2D" parent="Points/CAM 1A (Show Stage)" unique_id=1425672785]
 visible = false
 texture = ExtResource("18_rm80q")
 centered = false
 
-[node name="Freddy" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=286036216]
+[node name="Freddy" type="Sprite2D" parent="Points/CAM 1A (Show Stage)" unique_id=286036216]
 visible = false
 texture = ExtResource("19_p0ssk")
 centered = false
 
-[node name="EasterEggs" type="Node2D" parent="Cameras/CAM 1A (Show Stage)" unique_id=994700499]
-visible = false
-
-[node name="Freddy Look Camera" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)/EasterEggs" unique_id=1910500626]
+[node name="Freddy Look Camera" type="Sprite2D" parent="Points/CAM 1A (Show Stage)" unique_id=1910500626]
 visible = false
 texture = ExtResource("20_awpbl")
 centered = false
 
-[node name="Everyone Look Camera" type="Sprite2D" parent="Cameras/CAM 1A (Show Stage)/EasterEggs" unique_id=437499067]
+[node name="Everyone Look Camera" type="Sprite2D" parent="Points/CAM 1A (Show Stage)" unique_id=437499067]
 visible = false
 texture = ExtResource("21_ap4w1")
 centered = false
 
-[node name="CAM 1B (Dining Area)" type="Node2D" parent="Cameras" unique_id=507266740]
+[node name="CAM 1B (Dining Area)" type="Node2D" parent="Points" unique_id=507266740]
+
+[node name="No Animatronic" type="Sprite2D" parent="Points/CAM 1B (Dining Area)" unique_id=668619817]
+visible = false
+texture = ExtResource("9_o072i")
+centered = false
+
+[node name="Bonnie" type="Sprite2D" parent="Points/CAM 1B (Dining Area)" unique_id=32724274]
+visible = false
+texture = ExtResource("10_ebw6w")
+centered = false
+
+[node name="Bonnie 2" type="Sprite2D" parent="Points/CAM 1B (Dining Area)" unique_id=1468362071]
+visible = false
+texture = ExtResource("11_pul0k")
+centered = false
+
+[node name="Chica" type="Sprite2D" parent="Points/CAM 1B (Dining Area)" unique_id=1718387864]
+visible = false
+texture = ExtResource("12_5b2pp")
+centered = false
+
+[node name="Chica 2" type="Sprite2D" parent="Points/CAM 1B (Dining Area)" unique_id=2006281981]
+visible = false
+texture = ExtResource("13_iykit")
+centered = false
+
+[node name="Freddy" type="Sprite2D" parent="Points/CAM 1B (Dining Area)" unique_id=436733874]
+visible = false
+texture = ExtResource("14_1yjca")
+centered = false
+
+[node name="CAM 1C (Pirate Cove)" type="Node2D" parent="Points" unique_id=1026792710]
+
+[node name="Idle" type="Sprite2D" parent="Points/CAM 1C (Pirate Cove)" unique_id=471173450]
+visible = false
+texture = ExtResource("15_iab5x")
+centered = false
+
+[node name="1" type="Sprite2D" parent="Points/CAM 1C (Pirate Cove)" unique_id=1547053627]
+visible = false
+texture = ExtResource("16_65s46")
+centered = false
+
+[node name="2" type="Sprite2D" parent="Points/CAM 1C (Pirate Cove)" unique_id=575159549]
+visible = false
+texture = ExtResource("17_lm885")
+centered = false
+
+[node name="3" type="Sprite2D" parent="Points/CAM 1C (Pirate Cove)" unique_id=1239583069]
+visible = false
+texture = ExtResource("18_d5oxx")
+centered = false
+
+[node name="It\'s me" type="Sprite2D" parent="Points/CAM 1C (Pirate Cove)" unique_id=470389693]
+visible = false
+texture = ExtResource("19_fpy5d")
+centered = false
+
+[node name="CAM 2A (West Hall)" type="Node2D" parent="Points" unique_id=1826282464]
+
+[node name="No Light" type="Sprite2D" parent="Points/CAM 2A (West Hall)" unique_id=1517677404]
+visible = false
+texture = ExtResource("26_ut5t7")
+centered = false
+
+[node name="Light" type="Sprite2D" parent="Points/CAM 2A (West Hall)" unique_id=1746388790]
+visible = false
+texture = ExtResource("26_ut5t7")
+centered = false
+
+[node name="Light Bonnie" type="Sprite2D" parent="Points/CAM 2A (West Hall)" unique_id=108128910]
+visible = false
+texture = ExtResource("27_58wwe")
+centered = false
+
+[node name="CAM 2B (W Hall Corner)" type="Node2D" parent="Points" unique_id=453225509]
+
+[node name="No Animatronic" type="Sprite2D" parent="Points/CAM 2B (W Hall Corner)" unique_id=1780940800]
+visible = false
+texture = ExtResource("20_q3bjb")
+centered = false
+
+[node name="Bonnie" type="Sprite2D" parent="Points/CAM 2B (W Hall Corner)" unique_id=12252219]
+visible = false
+texture = ExtResource("21_tqr7o")
+centered = false
+
+[node name="Bonnie 2" type="Sprite2D" parent="Points/CAM 2B (W Hall Corner)" unique_id=1721595154]
+visible = false
+texture = ExtResource("22_aqy2v")
+centered = false
+
+[node name="Bonnie 3" type="Sprite2D" parent="Points/CAM 2B (W Hall Corner)" unique_id=1088042451]
+visible = false
+texture = ExtResource("23_fatv5")
+centered = false
+
+[node name="Golden Freddy Poster" type="Sprite2D" parent="Points/CAM 2B (W Hall Corner)" unique_id=1274197998]
+visible = false
+texture = ExtResource("24_0gpnb")
+centered = false
+
+[node name="Freddy Poster" type="Sprite2D" parent="Points/CAM 2B (W Hall Corner)" unique_id=988139747]
+visible = false
+texture = ExtResource("25_emyvi")
+centered = false
+
+[node name="CAM 3 (Supply Closet)" type="Node2D" parent="Points" unique_id=160296677]
+
+[node name="No Animatronic" type="Sprite2D" parent="Points/CAM 3 (Supply Closet)" unique_id=2141264149]
+visible = false
+texture = ExtResource("28_77wcr")
+centered = false
+
+[node name="Bonnie" type="Sprite2D" parent="Points/CAM 3 (Supply Closet)" unique_id=729417706]
+visible = false
+texture = ExtResource("29_vmm5u")
+centered = false
+
+[node name="CAM 4A (East Hall)" type="Node2D" parent="Points" unique_id=1224956025]
+
+[node name="No Animatronic" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=965140515]
+visible = false
+texture = ExtResource("39_yqihh")
+centered = false
+
+[node name="Chica2" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=2095831550]
+visible = false
+texture = ExtResource("40_3ay5e")
+centered = false
+
+[node name="Chica 4" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=260199082]
+visible = false
+texture = ExtResource("41_fu4hn")
+centered = false
+
+[node name="Freddy2" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=1189926091]
+visible = false
+texture = ExtResource("42_n7ikx")
+centered = false
+
+[node name="Children" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=1449668181]
+visible = false
+texture = ExtResource("43_wl7vb")
+centered = false
+
+[node name="It\'s me" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=1492037857]
+visible = false
+texture = ExtResource("44_qigm6")
+centered = false
+
+[node name="CAM 4B (E Hall Corner)" type="Node2D" parent="Points" unique_id=2063864739]
+
+[node name="No Animatronic" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=567037716]
+visible = false
+texture = ExtResource("30_2p2lw")
+centered = false
+
+[node name="Chica" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=833692391]
+visible = false
+texture = ExtResource("31_vu5n7")
+centered = false
+
+[node name="Chica 2" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=1839310346]
+visible = false
+texture = ExtResource("32_7supg")
+centered = false
+
+[node name="Chica 3" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=1916005146]
+visible = false
+texture = ExtResource("33_y4xcj")
+centered = false
+
+[node name="Freddy" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=1152576867]
+visible = false
+texture = ExtResource("34_lti6e")
+centered = false
+
+[node name="News" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=860252291]
+visible = false
+texture = ExtResource("35_gpmva")
+centered = false
+
+[node name="News 2" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=1275613160]
+visible = false
+texture = ExtResource("36_v74yb")
+centered = false
+
+[node name="News 3" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=1997599658]
+visible = false
+texture = ExtResource("37_6bfyb")
+centered = false
+
+[node name="News 4" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=1468875905]
+visible = false
+texture = ExtResource("38_qhmqv")
+centered = false
+
+[node name="CAM 5 (Backstage)" type="Node2D" parent="Points" unique_id=901801634]
+
+[node name="No Animatronic" type="Sprite2D" parent="Points/CAM 5 (Backstage)" unique_id=102153253]
+visible = false
+texture = ExtResource("45_dm6j0")
+centered = false
+
+[node name="Bonnie" type="Sprite2D" parent="Points/CAM 5 (Backstage)" unique_id=1192642770]
+visible = false
+texture = ExtResource("46_kujov")
+centered = false
+
+[node name="Bonnie 2" type="Sprite2D" parent="Points/CAM 5 (Backstage)" unique_id=1176253754]
+visible = false
+texture = ExtResource("47_0h0k5")
+centered = false
+
+[node name="Looking" type="Sprite2D" parent="Points/CAM 5 (Backstage)" unique_id=328782726]
+visible = false
+texture = ExtResource("48_yjqbx")
+centered = false
+
+[node name="CAM 6 (Kitchen)" type="Node2D" parent="Points" unique_id=1260731436]
+
+[node name="Nothing" type="Sprite2D" parent="Points/CAM 6 (Kitchen)" unique_id=488487179]
+visible = false
+texture = ExtResource("49_iab5x")
+centered = false
+
+[node name="CAM 7 (Restrooms)" type="Node2D" parent="Points" unique_id=334983378]
+
+[node name="No Animatronic" type="Sprite2D" parent="Points/CAM 7 (Restrooms)" unique_id=286125814]
+visible = false
+texture = ExtResource("49_1yjca")
+centered = false
+
+[node name="Chica" type="Sprite2D" parent="Points/CAM 7 (Restrooms)" unique_id=1892729431]
+visible = false
+texture = ExtResource("50_iab5x")
+centered = false
+
+[node name="Chica 2" type="Sprite2D" parent="Points/CAM 7 (Restrooms)" unique_id=462631417]
+visible = false
+texture = ExtResource("51_65s46")
+centered = false
+
+[node name="Freddy" type="Sprite2D" parent="Points/CAM 7 (Restrooms)" unique_id=1692742158]
+visible = false
+texture = ExtResource("52_lm885")
+centered = false
+
+[node name="Panorama" type="ColorRect" parent="." unique_id=2103955774]
+material = SubResource("ShaderMaterial_ap4w1")
+offset_top = 1.0
+offset_right = 1741.0
+offset_bottom = 720.0
+mouse_filter = 2
+
+[node name="MonitorView" type="Camera2D" parent="." unique_id=357244678]
+anchor_mode = 0
+
+[node name="Cooldown Camera Side" type="Timer" parent="." unique_id=1976673510]
+wait_time = 1.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1667149584]
+
+[node name="Cameras" type="Node2D" parent="CanvasLayer" unique_id=463728720]
 visible = false
 
-[node name="CAM 1C (Pirate Cove)" type="Node2D" parent="Cameras" unique_id=1026792710]
-visible = false
-
-[node name="CAM 2A (West Hall)" type="Node2D" parent="Cameras" unique_id=1826282464]
-visible = false
-
-[node name="CAM 2B (W Hall Corner)" type="Node2D" parent="Cameras" unique_id=453225509]
-visible = false
-
-[node name="CAM 3 (Supply Closet)" type="Node2D" parent="Cameras" unique_id=160296677]
-visible = false
-
-[node name="CAM 4A (East Hall)" type="Node2D" parent="Cameras" unique_id=1224956025]
-visible = false
-
-[node name="CAM 4B (E Hall Corner)" type="Node2D" parent="Cameras" unique_id=2063864739]
-visible = false
-
-[node name="CAM 5 (Backstage)" type="Node2D" parent="Cameras" unique_id=901801634]
-visible = false
-
-[node name="CAM 6 (Kitchen)" type="Node2D" parent="Cameras" unique_id=1260731436]
-visible = false
-
-[node name="CAM 7 (Restrooms)" type="Node2D" parent="Cameras" unique_id=334983378]
-visible = false
-
-[node name="Statics" parent="Cameras" unique_id=1232822903 instance=ExtResource("22_el3f3")]
-visible = false
+[node name="Statics" parent="CanvasLayer/Cameras" unique_id=1232822903 instance=ExtResource("22_el3f3")]
 modulate = Color(1, 1, 1, 0.3)
 
-[node name="White Bars" parent="Cameras" unique_id=707425992 instance=ExtResource("10_p0ssk")]
-visible = false
+[node name="Camera Map" parent="CanvasLayer/Cameras" unique_id=48420636 instance=ExtResource("9_er5vx")]
+position = Vector2(1050, 509)
 
-[node name="Audio" type="Node2D" parent="Cameras" unique_id=305747493]
+[node name="White Bars" parent="CanvasLayer/Cameras" unique_id=707425992 instance=ExtResource("10_p0ssk")]
 
-[node name="Camera Moving Audio" type="AudioStreamPlayer" parent="Cameras/Audio" unique_id=285895829]
+[node name="Audio" type="Node2D" parent="CanvasLayer/Cameras" unique_id=305747493]
+
+[node name="Camera Moving Audio" type="AudioStreamPlayer" parent="CanvasLayer/Cameras/Audio" unique_id=285895829]
 stream = ExtResource("11_awpbl")
 
-[node name="Monitor" type="Node2D" parent="." unique_id=179084905]
+[node name="Camera Outline" type="Sprite2D" parent="CanvasLayer/Cameras" unique_id=2056848259]
+texture = ExtResource("12_ap4w1")
+centered = false
+
+[node name="Monitor" type="Node2D" parent="CanvasLayer" unique_id=179084905]
 script = ExtResource("13_bgr5x")
 
-[node name="Monitor Sprite" type="Sprite2D" parent="Monitor" unique_id=854149140]
+[node name="Monitor Sprite" type="Sprite2D" parent="CanvasLayer/Monitor" unique_id=854149140]
 position = Vector2(520, 668)
 texture = ExtResource("1_cowaa")
 
-[node name="Watch Monitor Animation" type="AnimatedSprite2D" parent="Monitor" unique_id=2142349348]
+[node name="Watch Monitor Animation" type="AnimatedSprite2D" parent="CanvasLayer/Monitor" unique_id=2142349348]
+visible = false
 sprite_frames = SubResource("SpriteFrames_ucufk")
 centered = false
 
-[node name="Monitor Camera Sound" type="AudioStreamPlayer" parent="Monitor" unique_id=1441073752]
+[node name="Monitor Camera Sound" type="AudioStreamPlayer" parent="CanvasLayer/Monitor" unique_id=1441073752]
 stream = ExtResource("14_ik82r")
 volume_db = -5.0
 
-[node name="Watch Cameras Zone" type="Area2D" parent="Monitor" unique_id=1710823504]
+[node name="Watch Cameras Zone" type="Area2D" parent="CanvasLayer/Monitor" unique_id=1710823504]
 position = Vector2(520, 668)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Monitor/Watch Cameras Zone" unique_id=820599573]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Monitor/Watch Cameras Zone" unique_id=820599573]
 position = Vector2(-33, 26.5)
 shape = SubResource("RectangleShape2D_0a554")
 
-[connection signal="monitor_closed" from="Monitor" to="Cameras" method="_on_monitor_monitor_closed"]
-[connection signal="monitor_opened" from="Monitor" to="Cameras" method="_on_monitor_monitor_opened"]
-[connection signal="animation_finished" from="Monitor/Watch Monitor Animation" to="Monitor" method="_on_watch_camera_animation_animation_finished"]
-[connection signal="mouse_entered" from="Monitor/Watch Cameras Zone" to="Monitor" method="_on_watch_cameras_zone_mouse_entered"]
-[connection signal="mouse_exited" from="Monitor/Watch Cameras Zone" to="Monitor" method="_on_watch_cameras_zone_mouse_exited"]
+[connection signal="timeout" from="Cooldown Camera Side" to="." method="_on_cooldown_camera_side_timeout"]
+[connection signal="camera_changed" from="CanvasLayer/Cameras/Camera Map" to="." method="_on_camera_map_camera_changed"]
+[connection signal="monitor_closed" from="CanvasLayer/Monitor" to="." method="_on_monitor_monitor_closed"]
+[connection signal="monitor_opened" from="CanvasLayer/Monitor" to="." method="_on_monitor_monitor_opened"]
+[connection signal="animation_finished" from="CanvasLayer/Monitor/Watch Monitor Animation" to="CanvasLayer/Monitor" method="_on_watch_monitor_animation_animation_finished"]
+[connection signal="mouse_entered" from="CanvasLayer/Monitor/Watch Cameras Zone" to="CanvasLayer/Monitor" method="_on_watch_cameras_zone_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Monitor/Watch Cameras Zone" to="CanvasLayer/Monitor" method="_on_watch_cameras_zone_mouse_exited"]
