@@ -4,6 +4,7 @@ class_name OfficeStage extends Node2D
 @onready var left_light_on_stage := $"Left Light on"
 @onready var left_bonnie_light_on_stage := $"Left Bonnie Light On"
 @onready var right_light_on_stage := $"Right Light On"
+@onready var right_chica_light_on_stage := $"Right Chica Light On"
 
 var animatronics: Animatronics
 
@@ -12,6 +13,7 @@ func change_stage(stage: Stage) -> void:
 	left_light_on_stage.visible = stage == Stage.LEFT_LIGHT_ON
 	left_bonnie_light_on_stage.visible = stage == Stage.LEFT_BONNIE_LIGHT_ON
 	right_light_on_stage.visible = stage == Stage.RIGHT_LIGHT_ON
+	right_chica_light_on_stage.visible = stage == Stage.RIGHT_CHICA_LIGHT_ON
 
 func _on_door_buttons_toggle_light(side: String, on: bool) -> void:
 	if on:

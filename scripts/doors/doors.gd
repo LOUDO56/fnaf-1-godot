@@ -20,6 +20,9 @@ func setup_animatronics_behavior(p_animatronics: Animatronics) -> void:
 	animatronics = p_animatronics
 	animatronics.bonnie.on_at_door.connect(_on_bonnie_at_door)
 	animatronics.bonnie.on_left_door.connect(_on_bonnie_left_door)
+	
+	animatronics.chica.on_at_door.connect(_on_chica_at_door)
+	animatronics.chica.on_left_door.connect(_on_chica_left_door)
 
 func _process(delta: float) -> void:
 	flicker_light_count += delta
@@ -39,7 +42,11 @@ func _process(delta: float) -> void:
 			else:
 				office_stage.change_stage(OfficeStage.Stage.LEFT_LIGHT_ON)
 		if right_door.is_light_on:
-			office_stage.change_stage(OfficeStage.Stage.RIGHT_LIGHT_ON)
+			if animatronics.chica.at_door():
+				_play_stinger_sound("right")
+				office_stage.change_stage(OfficeStage.Stage.RIGHT_CHICA_LIGHT_ON)
+			else:
+				office_stage.change_stage(OfficeStage.Stage.RIGHT_LIGHT_ON)
 		
 func stop_light_sound():
 	door_light_sound.stop()
@@ -88,3 +95,9 @@ func _on_bonnie_at_door():
 	
 func _on_bonnie_left_door():
 	play_stringer_sound_left = false
+	
+func _on_chica_at_door():
+	play_stringer_sound_right = true
+	
+func _on_chica_left_door():
+	play_stringer_sound_right = false

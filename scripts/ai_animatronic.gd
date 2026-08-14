@@ -24,16 +24,19 @@ func _process(delta: float) -> void:
 func at_door() -> bool:
 	return current_position == CameraMap.Camera.DOOR
 		
-func _fifty_fifty() -> int:
-	return randi() % 2 == 1
+func _fifty_fifty() -> bool:
+	return randi() % 2 == 0
 		
 func _try_to_move() -> void:
-	_define_random_variant()
 	var old_position = current_position
-	var can_move = ai_level >= randi() % 20
-	if can_move:
-		_play_step_sound()
-		move_ai()
+	var cannot_move = ai_level < randi_range(1, MAX_AI_LEVEL)
+	
+	if cannot_move:
+		return
+		
+	_play_step_sound()
+	_define_random_variant()
+	move_ai()
 	on_animatronic_moved.emit(old_position, current_position)
 	
 	if at_door():
@@ -42,7 +45,7 @@ func _try_to_move() -> void:
 		on_left_door.emit()
 
 func _define_random_variant(max_variant := 1) -> void:
-	variant = randi() % max_variant + 1
+	variant = randi_range(0, max_variant)
 	
 func _play_step_sound():
 	if step_sound == null:

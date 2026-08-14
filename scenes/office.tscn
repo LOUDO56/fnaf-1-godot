@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ecwlf40d3jxa" path="res://assets/images/3-THE_OFFICE/1-OFFICE_BONNIE.png" id="6_pjxyp"]
 [ext_resource type="Texture2D" uid="uid://dl1o0fvt8tyal" path="res://assets/images/3-THE_OFFICE/RIGHT_LIGHT.png" id="7_fmddn"]
 [ext_resource type="Script" uid="uid://dy5ejgyygjgk2" path="res://scripts/doors/doors.gd" id="8_8ywr3"]
+[ext_resource type="Texture2D" uid="uid://cmvx5byvkxpt5" path="res://assets/images/3-THE_OFFICE/1-OFFICE_CHICA.png" id="8_70iqj"]
 [ext_resource type="PackedScene" uid="uid://daw8q1ml3ihbx" path="res://scenes/doors/buttons/right_door_buttons.tscn" id="9_gdafm"]
 [ext_resource type="Texture2D" uid="uid://dpdqwk2rjj5y5" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/1.png" id="9_qg43x"]
 [ext_resource type="Texture2D" uid="uid://bfgipxsph4ge" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/2.png" id="10_8ywr3"]
@@ -214,6 +215,12 @@ scale = Vector2(1.088, 1)
 texture = ExtResource("7_fmddn")
 centered = false
 
+[node name="Right Chica Light On" type="Sprite2D" parent="Stage" unique_id=1076279496]
+visible = false
+scale = Vector2(1.088, 1)
+texture = ExtResource("8_70iqj")
+centered = false
+
 [node name="Fan" type="AnimatedSprite2D" parent="." unique_id=110171421]
 position = Vector2(922.00006, 396)
 scale = Vector2(1.088, 1.083)
@@ -255,12 +262,12 @@ position = Vector2(1679, 411)
 scale = Vector2(1.14, 1.14)
 
 [node name="Right Border" type="Sprite2D" parent="Doors/Right" unique_id=259231760]
-position = Vector2(1518, 358.15997)
-scale = Vector2(1.088, 1.0051111)
+position = Vector2(1520.044, 358.15997)
+scale = Vector2(0.9270645, 1.0051111)
 texture = ExtResource("40_bkq84")
 
 [node name="Right Door Animation" type="AnimatedSprite2D" parent="Doors/Right" unique_id=1208869580]
-position = Vector2(1510, 359.5)
+position = Vector2(1507, 375.99997)
 scale = Vector2(1, 1.0013889)
 sprite_frames = SubResource("SpriteFrames_ucufk")
 

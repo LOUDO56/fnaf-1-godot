@@ -353,17 +353,17 @@ visible = false
 texture = ExtResource("39_yqihh")
 centered = false
 
-[node name="Chica2" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=2095831550]
+[node name="Chica" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=2095831550]
 visible = false
 texture = ExtResource("40_3ay5e")
 centered = false
 
-[node name="Chica 4" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=260199082]
+[node name="Chica 2" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=260199082]
 visible = false
 texture = ExtResource("41_fu4hn")
 centered = false
 
-[node name="Freddy2" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=1189926091]
+[node name="Freddy" type="Sprite2D" parent="Points/CAM 4A (East Hall)" unique_id=1189926091]
 visible = false
 texture = ExtResource("42_n7ikx")
 centered = false
