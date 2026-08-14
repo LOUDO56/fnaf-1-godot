@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbcsj1dbbj26o"]
 
 [ext_resource type="Texture2D" uid="uid://b70jtqj5in0eb" path="res://assets/images/3-THE_OFFICE/1-OFFICE.png" id="1_3e7dm"]
+[ext_resource type="Script" uid="uid://cavf4wmldef6k" path="res://scripts/office.gd" id="1_bv0q3"]
 [ext_resource type="AudioStream" uid="uid://c8jfd355f8uac" path="res://assets/audio/ColdPresc B.wav" id="1_likdn"]
 [ext_resource type="Script" uid="uid://doocewdvk6fje" path="res://scripts/stage.gd" id="1_osgti"]
 [ext_resource type="Texture2D" uid="uid://dwhff32d2wgr2" path="res://assets/images/3-THE_OFFICE/FAN/1.png" id="2_qphb6"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ci4vlxslkxxs4" path="res://scenes/doors/buttons/left_door_buttons.tscn" id="4_fmddn"]
 [ext_resource type="AudioStream" uid="uid://dxgmn4ek5rmym" path="res://assets/audio/Buzz_Fan_Florescent2.wav" id="5_qphb6"]
 [ext_resource type="Texture2D" uid="uid://cp0ik1qxyvh8x" path="res://assets/images/3-THE_OFFICE/LEFT_LIGHT.png" id="6_2knxt"]
+[ext_resource type="Texture2D" uid="uid://ecwlf40d3jxa" path="res://assets/images/3-THE_OFFICE/1-OFFICE_BONNIE.png" id="6_pjxyp"]
 [ext_resource type="Texture2D" uid="uid://dl1o0fvt8tyal" path="res://assets/images/3-THE_OFFICE/RIGHT_LIGHT.png" id="7_fmddn"]
 [ext_resource type="Script" uid="uid://dy5ejgyygjgk2" path="res://scripts/doors/doors.gd" id="8_8ywr3"]
 [ext_resource type="PackedScene" uid="uid://daw8q1ml3ihbx" path="res://scenes/doors/buttons/right_door_buttons.tscn" id="9_gdafm"]
@@ -48,6 +50,7 @@
 [ext_resource type="AudioStream" uid="uid://dtdwl7v2d5h7s" path="res://assets/audio/door_light.wav" id="42_bkq84"]
 [ext_resource type="Script" uid="uid://ldk5j05glun3" path="res://scripts/easter_eggs/freedy_nose.gd" id="44_142py"]
 [ext_resource type="AudioStream" uid="uid://l0tp07iblxal" path="res://assets/audio/PartyFavorraspyPart_AC01__3.wav" id="45_65uj5"]
+[ext_resource type="AudioStream" uid="uid://co2ufx041t5ir" path="res://assets/audio/windowscare.wav" id="49_nygyx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_blegu"]
 animations = [{
@@ -176,6 +179,7 @@ animations = [{
 radius = 7.0
 
 [node name="Office" type="Node2D" unique_id=1654829613]
+script = ExtResource("1_bv0q3")
 
 [node name="Ambiance" type="Node2D" parent="." unique_id=962121517]
 
@@ -196,6 +200,12 @@ centered = false
 visible = false
 scale = Vector2(1.088, 1)
 texture = ExtResource("6_2knxt")
+centered = false
+
+[node name="Left Bonnie Light On" type="Sprite2D" parent="Stage" unique_id=1093558147]
+visible = false
+scale = Vector2(1.088, 1)
+texture = ExtResource("6_pjxyp")
 centered = false
 
 [node name="Right Light On" type="Sprite2D" parent="Stage" unique_id=1219385270]
@@ -260,6 +270,9 @@ volume_db = -5.0
 
 [node name="Door Light Sound" type="AudioStreamPlayer" parent="Doors" unique_id=745367107]
 stream = ExtResource("42_bkq84")
+
+[node name="Stinger Sound" type="AudioStreamPlayer" parent="Doors" unique_id=7597149]
+stream = ExtResource("49_nygyx")
 
 [node name="EasterEggs" type="Node2D" parent="." unique_id=426331742]
 

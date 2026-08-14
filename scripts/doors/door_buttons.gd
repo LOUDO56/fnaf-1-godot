@@ -20,7 +20,7 @@ var is_light_on := false
 var can_press_door := true;
 var can_press_light := true;
 
-func _on_buttons_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_buttons_area_input_event(_viewport: Node, event: InputEvent,shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if shape_idx == DOOR_SHAPE_ID and can_press_door:
 			is_door_closed = !is_door_closed
@@ -60,7 +60,6 @@ func turn_off_light() -> void:
 		_change_state(State.CLOSED)
 	else:
 		_change_state(State.OPENED)
-	toggle_light.emit(side, false)
 
 
 func _on_cooldown_press_door_timeout() -> void:

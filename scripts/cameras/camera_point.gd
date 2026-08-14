@@ -10,7 +10,7 @@ class_name CameraPoint extends Node2D
 signal on_camera_point_clicked(id: CameraMap.Camera)
 
 
-func _on_press_zone_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_press_zone_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		on_camera_point_clicked.emit(id)
 

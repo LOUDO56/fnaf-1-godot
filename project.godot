@@ -8,6 +8,10 @@
 
 config_version=5
 
+[accessibility]
+
+general/size/mode=3
+
 [application]
 
 config/name="five nights at freddy's"
@@ -19,7 +23,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

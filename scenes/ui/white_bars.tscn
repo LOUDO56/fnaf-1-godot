@@ -51,9 +51,8 @@ animations = [{
 script = ExtResource("1_p0iin")
 
 [node name="White Bars Camera Animation" type="AnimatedSprite2D" parent="." unique_id=2144790464]
+visible = false
 sprite_frames = SubResource("SpriteFrames_ow827")
-frame = 8
-frame_progress = 1.0
 centered = false
 
 [node name="White Bars Camera Sound" type="AudioStreamPlayer" parent="." unique_id=4209112]

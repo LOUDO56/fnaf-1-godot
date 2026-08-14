@@ -3,6 +3,8 @@ extends Node2D
 const CAMERA_SPEED = 75
 const FLICKER_TIMER = 0.027
 
+@export var animatronics: Animatronics
+
 @onready var current_camera := CameraMap.Camera.CAM_1A
 @onready var statics := $"CanvasLayer/Cameras/Statics"
 @onready var white_bars: WhiteBars = $"CanvasLayer/Cameras/White Bars"
@@ -109,9 +111,16 @@ func _get_sprite_from_camera(camera: CameraMap.Camera) -> Sprite2D:
 	return _get_show_stage_sprite()
 	
 func _get_show_stage_sprite() -> Sprite2D:
+	if animatronics.bonnie.current_position != CameraMap.Camera.CAM_1A:
+		return $"Points/CAM 1A (Show Stage)/Freddy Chica"
 	return $"Points/CAM 1A (Show Stage)/Every Animatronics"
 	
 func _get_diner_area_sprite() -> Sprite2D:
+	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_1B:
+		if animatronics.bonnie.variant == 0:
+			return $"Points/CAM 1B (Dining Area)/Bonnie"
+		else:
+			return $"Points/CAM 1B (Dining Area)/Bonnie 2"
 	return $"Points/CAM 1B (Dining Area)/No Animatronic"
 
 func _get_pirate_cove_sprite() -> Sprite2D:
@@ -119,15 +128,25 @@ func _get_pirate_cove_sprite() -> Sprite2D:
 	
 func _get_west_hall_sprite() -> Sprite2D:
 	if (randi() % 10 >= 7):
-		return $"Points/CAM 2A (West Hall)/Light"
+		if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2A:
+			return $"Points/CAM 2A (West Hall)/Light Bonnie"
+		else:
+			return $"Points/CAM 2A (West Hall)/Light"
 	else:
 		return $"Points/CAM 2A (West Hall)/No Light"
 
 func _get_west_hall_corner_sprite() -> Sprite2D:
-	return $"Points/CAM 2B (W Hall Corner)/No Animatronic"
+	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2B:
+		# TODO: glitch variant?
+		return $"Points/CAM 2B (W Hall Corner)/Bonnie"
+	else:
+		return $"Points/CAM 2B (W Hall Corner)/No Animatronic"
 	
 func _get_supply_closet_sprite() -> Sprite2D:
-	return $"Points/CAM 3 (Supply Closet)/No Animatronic"
+	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_3:
+		return $"Points/CAM 3 (Supply Closet)/Bonnie"
+	else:
+		return $"Points/CAM 3 (Supply Closet)/No Animatronic"
 	
 func _get_east_hall_sprite() -> Sprite2D:
 	return $"Points/CAM 4A (East Hall)/No Animatronic"
@@ -136,6 +155,11 @@ func _get_east_hall_corner_sprite() -> Sprite2D:
 	return $"Points/CAM 4B (E Hall Corner)/No Animatronic"
 	
 func _get_backstage_sprite() -> Sprite2D:
+	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_5:
+		if animatronics.bonnie.variant == 0:
+			return $"Points/CAM 5 (Backstage)/Bonnie"
+		else:
+			return $"Points/CAM 5 (Backstage)/Bonnie 2"
 	return $"Points/CAM 5 (Backstage)/No Animatronic"
 	
 func _get_kitchen_sprite() -> Sprite2D:

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cuj7y6mj46ihd" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bbcsj1dbbj26o" path="res://scenes/office.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cjtx82kq787uq" path="res://scenes/animatronics.tscn" id="2_gee14"]
 [ext_resource type="Script" uid="uid://dfggeq5fuuanq" path="res://scripts/camera.gd" id="2_yqjtg"]
-[ext_resource type="Script" uid="uid://cavf4wmldef6k" path="res://scripts/office.gd" id="3_gee14"]
 [ext_resource type="Shader" uid="uid://c6i0w4vdckr57" path="res://shaders/perspective.gdshader" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://7b70rlteumyy" path="res://scenes/watching_cameras.tscn" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://dudem3f6cicig" path="res://scripts/libs.gd" id="5_iywne"]
@@ -19,8 +19,10 @@ shader_parameter/wrapping_mode = 0
 script = ExtResource("1_u5sy4")
 office = NodePath("Office")
 
-[node name="Office" parent="." unique_id=1654829613 instance=ExtResource("1_uwrxv")]
-script = ExtResource("3_gee14")
+[node name="Animatronics" parent="." unique_id=181922248 instance=ExtResource("2_gee14")]
+
+[node name="Office" parent="." unique_id=1654829613 node_paths=PackedStringArray("animatronics") instance=ExtResource("1_uwrxv")]
+animatronics = NodePath("../Animatronics")
 
 [node name="Panorama" type="ColorRect" parent="Office" unique_id=117026844]
 material = SubResource("ShaderMaterial_lbhrr")
@@ -33,7 +35,8 @@ anchor_mode = 0
 script = ExtResource("2_yqjtg")
 office = NodePath("../Office")
 
-[node name="Watching Cameras" parent="OfficeCamera" unique_id=1111582433 instance=ExtResource("4_lbhrr")]
+[node name="Watching Cameras" parent="OfficeCamera" unique_id=1111582433 node_paths=PackedStringArray("animatronics") instance=ExtResource("4_lbhrr")]
+animatronics = NodePath("../../Animatronics")
 
 [node name="Libs" type="Node2D" parent="." unique_id=365965140]
 script = ExtResource("5_iywne")

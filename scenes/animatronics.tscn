@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cjtx82kq787uq"]
+
+[ext_resource type="Script" uid="uid://dvbqbm0jqt8ya" path="res://scripts/animatronics.gd" id="1_cweo8"]
+[ext_resource type="Script" uid="uid://b0vqjyrwarwqo" path="res://scripts/animatronics/bonnie.gd" id="2_cweo8"]
+[ext_resource type="AudioStream" uid="uid://bi5vxoh6vgwsc" path="res://assets/audio/deep steps.wav" id="3_bis2m"]
+[ext_resource type="Script" uid="uid://jjdrnn5ta30t" path="res://scripts/animatronics/chica.gd" id="3_yemax"]
+
+[node name="Animatronics" type="Node2D" unique_id=181922248]
+script = ExtResource("1_cweo8")
+
+[node name="Bonnie" type="Node2D" parent="." unique_id=1439423576 node_paths=PackedStringArray("step_sound")]
+script = ExtResource("2_cweo8")
+ai_level = 20
+movement_timer_seconds = 4.97
+step_sound = NodePath("../Step Audio")
+
+[node name="Chica" type="Node2D" parent="." unique_id=1463412259]
+script = ExtResource("3_yemax")
+
+[node name="Step Audio" type="AudioStreamPlayer" parent="." unique_id=1576850055]
+stream = ExtResource("3_bis2m")
+volume_db = -10.0
