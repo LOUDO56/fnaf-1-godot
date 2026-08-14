@@ -52,6 +52,7 @@ func _on_monitor_monitor_closed() -> void:
 	camera_disabled_text.visible = false
 	camera_moving_audio.stop()
 	$CanvasLayer/Cameras.visible = false
+	animatronics.chica.decrease_kitchen_sound()
 
 func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
@@ -60,7 +61,7 @@ func _on_monitor_monitor_opened() -> void:
 	_change_sprite(_get_sprite_from_camera(current_camera))
 	camera_moving_audio.play()
 	camera_map.select_camera(camera_map.selected_camera_id)
-	
+		
 	
 func _on_camera_map_camera_changed(id: CameraMap.Camera) -> void:
 	current_camera = id
@@ -71,7 +72,8 @@ func _change_sprite(new_sprite: Sprite2D) -> void:
 	current_camera_sprite = new_sprite
 	current_camera_sprite.visible = true
 	current_camera_sprite_width = current_camera_sprite.texture.get_width() - get_viewport_rect().size.x
-
+	if camera_map.selected_camera_id == CameraMap.Camera.CAM_6:
+		animatronics.chica.increase_kitchen_sound()
 	
 func _hide_all_camera():
 	for child in get_node("Points").get_children():

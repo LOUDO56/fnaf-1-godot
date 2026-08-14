@@ -4,21 +4,46 @@
 [ext_resource type="Script" uid="uid://b0vqjyrwarwqo" path="res://scripts/animatronics/bonnie.gd" id="2_cweo8"]
 [ext_resource type="AudioStream" uid="uid://bi5vxoh6vgwsc" path="res://assets/audio/deep steps.wav" id="3_bis2m"]
 [ext_resource type="Script" uid="uid://jjdrnn5ta30t" path="res://scripts/animatronics/chica.gd" id="3_yemax"]
+[ext_resource type="AudioStream" uid="uid://rd4h244lqlgm" path="res://assets/audio/OVEN-DRAWE_GEN-HDF18122.wav" id="4_dxqq2"]
+[ext_resource type="AudioStream" uid="uid://ctvby2d3dtjra" path="res://assets/audio/OVEN-DRA_1_GEN-HDF18119.wav" id="5_h7bw6"]
+[ext_resource type="AudioStream" uid="uid://demp5dh55h6j7" path="res://assets/audio/OVEN-DRA_2_GEN-HDF18120.wav" id="6_eq31s"]
+[ext_resource type="AudioStream" uid="uid://bac0un6mfm34b" path="res://assets/audio/OVEN-DRA_7_GEN-HDF18121.wav" id="7_exftl"]
 
 [node name="Animatronics" type="Node2D" unique_id=181922248]
 script = ExtResource("1_cweo8")
 
 [node name="Bonnie" type="Node2D" parent="." unique_id=1439423576 node_paths=PackedStringArray("step_sound")]
 script = ExtResource("2_cweo8")
-ai_level = 4
 movement_timer_seconds = 4.97
 step_sound = NodePath("../Step Audio")
 
 [node name="Chica" type="Node2D" parent="." unique_id=1463412259 node_paths=PackedStringArray("step_sound")]
 script = ExtResource("3_yemax")
+ai_level = 20
 movement_timer_seconds = 4.98
 step_sound = NodePath("../Step Audio")
+
+[node name="Kitchen Mess Audio 1" type="AudioStreamPlayer" parent="Chica" unique_id=279386011]
+stream = ExtResource("4_dxqq2")
+volume_db = -17.0
+
+[node name="Kitchen Mess Audio 2" type="AudioStreamPlayer" parent="Chica" unique_id=968047200]
+stream = ExtResource("5_h7bw6")
+volume_db = -17.0
+
+[node name="Kitchen Mess Audio 3" type="AudioStreamPlayer" parent="Chica" unique_id=324219245]
+stream = ExtResource("6_eq31s")
+volume_db = -17.0
+
+[node name="Kitchen Mess Audio 4" type="AudioStreamPlayer" parent="Chica" unique_id=2081049365]
+stream = ExtResource("7_exftl")
+volume_db = -17.0
+
+[node name="Kitchen Audio Interval" type="Timer" parent="Chica" unique_id=570394944]
+wait_time = 5.0
 
 [node name="Step Audio" type="AudioStreamPlayer" parent="." unique_id=1576850055]
 stream = ExtResource("3_bis2m")
 volume_db = -10.0
+
+[connection signal="timeout" from="Chica/Kitchen Audio Interval" to="Chica" method="_on_kitchen_audio_interval_timeout"]

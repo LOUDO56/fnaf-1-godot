@@ -34,8 +34,8 @@ func _try_to_move() -> void:
 	if cannot_move:
 		return
 		
-	_play_step_sound()
 	_define_random_variant()
+	_play_step_sound()
 	move_ai()
 	on_animatronic_moved.emit(old_position, current_position)
 	
