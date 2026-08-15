@@ -16,18 +16,22 @@ size = Vector2(56, 108)
 script = ExtResource("1_djhmf")
 
 [node name="Opened" type="Sprite2D" parent="." unique_id=162184190]
+texture_filter = 1
 texture = ExtResource("1_3g165")
 
 [node name="Closed" type="Sprite2D" parent="." unique_id=1233952047]
 visible = false
+texture_filter = 1
 texture = ExtResource("3_djhmf")
 
 [node name="Light On" type="Sprite2D" parent="." unique_id=839245468]
 visible = false
+texture_filter = 1
 texture = ExtResource("2_djhmf")
 
 [node name="Closed Light On" type="Sprite2D" parent="." unique_id=97514462]
 visible = false
+texture_filter = 1
 texture = ExtResource("3_57eyc")
 
 [node name="Buttons Area" type="Area2D" parent="." unique_id=688702626]

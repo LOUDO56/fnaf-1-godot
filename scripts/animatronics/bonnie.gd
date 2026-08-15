@@ -7,13 +7,21 @@ const ROUTES := {
 	CameraMap.Camera.CAM_2A: [CameraMap.Camera.CAM_3, CameraMap.Camera.CAM_2B],
 	CameraMap.Camera.CAM_3:  [CameraMap.Camera.CAM_2A, CameraMap.Camera.DOOR],
 	CameraMap.Camera.CAM_2B: [CameraMap.Camera.DOOR, CameraMap.Camera.CAM_3],
-	CameraMap.Camera.DOOR:   [CameraMap.Camera.CAM_1B],
 }
+
+@export var breathing_sounds: Array[AudioStreamPlayer]
 
 func move_ai() -> void:
 	current_position = ROUTES[current_position].pick_random()
 	if current_position == CameraMap.Camera.CAM_5:
 		_easter_egg_bonnie_look_camera_backstage()
 
+func get_character() -> Animatronics.Character:
+	return Animatronics.Character.BONNIE
+
+func _attack_blocked() -> void:
+	current_position = CameraMap.Camera.CAM_1B
+
+		
 func _easter_egg_bonnie_look_camera_backstage() -> void:
 	variant = 1 if randi() % 10 == 0 else 0

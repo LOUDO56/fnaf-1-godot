@@ -19,10 +19,20 @@ run/main_scene="uid://bj6ejibqm23bs"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bpts5617ubv58"
+
+[autoload]
+
+Events="*uid://bp5s8q3i3s4vv"
+Globals="*uid://bvgc2s1qw5mtp"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -30,6 +40,10 @@ window/stretch/aspect="expand"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[global_group]
+
+ambiance=""
 
 [physics]
 

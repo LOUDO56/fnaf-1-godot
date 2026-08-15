@@ -56,29 +56,161 @@
 [ext_resource type="Texture2D" uid="uid://cea02wp4vrifm" path="res://assets/images/6-CAMERAS/10-EAST_HALL_FREDDY.png" id="34_lti6e"]
 [ext_resource type="Texture2D" uid="uid://ojd5fdxudynj" path="res://assets/images/6-CAMERAS/10-EAST_HALL_NEWS.png" id="35_gpmva"]
 [ext_resource type="Texture2D" uid="uid://dackp7k0rpuo1" path="res://assets/images/6-CAMERAS/10-EAST_HALL_NEWS2.png" id="36_v74yb"]
+[ext_resource type="Texture2D" uid="uid://bcvj3kyjiev6q" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/1_AA.png" id="37_2hn1r"]
 [ext_resource type="Texture2D" uid="uid://egafgrkj0o3i" path="res://assets/images/6-CAMERAS/10-EAST_HALL_NEWS3.png" id="37_6bfyb"]
+[ext_resource type="Texture2D" uid="uid://dkjbll6cgpv4r" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/1_AB.png" id="38_on5oy"]
 [ext_resource type="Texture2D" uid="uid://bjbrds0e2r0ku" path="res://assets/images/6-CAMERAS/10-EAST_HALL_NEWS4.png" id="38_qhmqv"]
+[ext_resource type="Texture2D" uid="uid://cyuunmmwo3ai3" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/2.png" id="39_o5qtt"]
 [ext_resource type="Texture2D" uid="uid://c3g5kxj117gsf" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER.png" id="39_yqihh"]
 [ext_resource type="Texture2D" uid="uid://ehxoacjwevw6" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_CHICA.png" id="40_3ay5e"]
+[ext_resource type="Texture2D" uid="uid://dwec7gj6jtqfn" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/3.png" id="40_gh81e"]
 [ext_resource type="Texture2D" uid="uid://di24pj3ayqf02" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_CHICA2.png" id="41_fu4hn"]
+[ext_resource type="Texture2D" uid="uid://7paymlapqmqe" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/4.png" id="41_uqv87"]
 [ext_resource type="Texture2D" uid="uid://c1lg36nal3s43" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_FREDDY.png" id="42_n7ikx"]
+[ext_resource type="Texture2D" uid="uid://dyjflbk613e8l" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/5.png" id="42_qxcvq"]
+[ext_resource type="Texture2D" uid="uid://bdt8f6u0grrag" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/6.png" id="43_jqppk"]
 [ext_resource type="Texture2D" uid="uid://dr5m5xkntarwt" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_CHILDREN.png" id="43_wl7vb"]
+[ext_resource type="Texture2D" uid="uid://j01t7khxn0fi" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/7.png" id="44_b3gg5"]
 [ext_resource type="Texture2D" uid="uid://dbt24pvxm1hio" path="res://assets/images/6-CAMERAS/7-EAST_HALL_CORNER_IT'S_ME.png" id="44_qigm6"]
 [ext_resource type="Texture2D" uid="uid://dck4ney4mad1f" path="res://assets/images/6-CAMERAS/5-BACKSTAGE.png" id="45_dm6j0"]
+[ext_resource type="Texture2D" uid="uid://dylnhji151ho0" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/8.png" id="45_jktq6"]
 [ext_resource type="Texture2D" uid="uid://cc4fuigvtcnt0" path="res://assets/images/6-CAMERAS/5-BACKSTAGE_BONNIE.png" id="46_kujov"]
+[ext_resource type="Texture2D" uid="uid://cp312o4qmtpqa" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/9.png" id="46_t7s8c"]
 [ext_resource type="Texture2D" uid="uid://gk4wf6lsm5ka" path="res://assets/images/6-CAMERAS/5-BACKSTAGE_BONNIE_2.0.png" id="47_0h0k5"]
+[ext_resource type="Texture2D" uid="uid://bm6ue7kksnw6j" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/10.png" id="47_f87ga"]
 [ext_resource type="Texture2D" uid="uid://dpemjx7sqsim" path="res://assets/images/6-CAMERAS/5-BACKSTAGE_LOOKING.png" id="48_yjqbx"]
+[ext_resource type="Texture2D" uid="uid://ckx8ljvjojouj" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/11.png" id="48_yo03f"]
 [ext_resource type="Texture2D" uid="uid://cyqkh2v47ywi0" path="res://assets/images/6-CAMERAS/4-RESTROOMS.png" id="49_1yjca"]
+[ext_resource type="Texture2D" uid="uid://bxsd7mg3li6wv" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/12.png" id="49_ath43"]
 [ext_resource type="Texture2D" uid="uid://coxek1ydkmwf8" path="res://assets/images/6-CAMERAS/kitchen.png" id="49_iab5x"]
+[ext_resource type="Texture2D" uid="uid://b3bti55puayy1" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/13.png" id="50_ewv14"]
 [ext_resource type="Texture2D" uid="uid://bjee8a34j2p14" path="res://assets/images/6-CAMERAS/4-RESTROOMS_CHICA.png" id="50_iab5x"]
 [ext_resource type="Texture2D" uid="uid://cjopa5hv74pot" path="res://assets/images/6-CAMERAS/4-RESTROOMS_CHICA2.png" id="51_65s46"]
+[ext_resource type="Texture2D" uid="uid://d4bht4nt8oags" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/14.png" id="51_thtgm"]
 [ext_resource type="Texture2D" uid="uid://68vaogt5s2mv" path="res://assets/images/6-CAMERAS/4-RESTROOMS_FREDDY.png" id="52_lm885"]
+[ext_resource type="Texture2D" uid="uid://bwaqrie6pj11i" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/15.png" id="52_xrsdq"]
+[ext_resource type="Texture2D" uid="uid://qk1brb6p33p7" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/16.png" id="53_70onr"]
+[ext_resource type="Texture2D" uid="uid://dkjhdpfj5xsdx" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/17.png" id="54_vilqb"]
+[ext_resource type="Texture2D" uid="uid://lrwrrs87ssvh" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/18.png" id="55_0kkbb"]
 [ext_resource type="Texture2D" uid="uid://bve61w4ogenba" path="res://assets/images/6-CAMERAS/CAM_TEXT/10-DISABLED.png" id="55_lm885"]
+[ext_resource type="Texture2D" uid="uid://cfsidumhwhyak" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/19.png" id="56_cuj8m"]
+[ext_resource type="Texture2D" uid="uid://b54thkwnrwri6" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/20.png" id="57_q42yj"]
+[ext_resource type="Texture2D" uid="uid://x71ei4vx8go0" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/21.png" id="58_f2r2f"]
 [ext_resource type="AudioStream" uid="uid://chbbbqo1jso33" path="res://assets/audio/garble1.wav" id="59_aqy2v"]
+[ext_resource type="Texture2D" uid="uid://b0pvdh4iggc15" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/22.png" id="59_k6vlb"]
+[ext_resource type="Texture2D" uid="uid://c5b6m42g6708n" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/23.png" id="60_85xqn"]
 [ext_resource type="AudioStream" uid="uid://dh5lpceblpd1h" path="res://assets/audio/garble2.wav" id="60_fatv5"]
 [ext_resource type="AudioStream" uid="uid://baer02hqjvph4" path="res://assets/audio/garble3.wav" id="61_0gpnb"]
+[ext_resource type="Texture2D" uid="uid://vy4p7jx6jngg" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/24.png" id="61_7jyb3"]
 [ext_resource type="Script" uid="uid://ba5wr88k0t6sd" path="res://scripts/ui/red_circle.gd" id="61_d5oxx"]
 [ext_resource type="Texture2D" uid="uid://ddo37fkyptu3q" path="res://assets/images/6-CAMERAS/0-REC.png" id="61_fpy5d"]
+[ext_resource type="Texture2D" uid="uid://dv5ut07yxi7mh" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/25.png" id="62_gjju6"]
+[ext_resource type="Texture2D" uid="uid://o58ygu4vs5bp" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/26.png" id="63_q1htp"]
+[ext_resource type="Texture2D" uid="uid://b1td1bac2jvh4" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/27.png" id="64_tgdvf"]
+[ext_resource type="Texture2D" uid="uid://xalkknx5xbx" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/28.png" id="65_1ygy3"]
+[ext_resource type="Texture2D" uid="uid://wpexvfuvwsn5" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/29.png" id="66_lu7us"]
+[ext_resource type="Texture2D" uid="uid://c7qn0flmuhlev" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/30.png" id="67_rec8s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0a554"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_2hn1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_on5oy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_o5qtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_gh81e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_uqv87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_qxcvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_jqppk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_b3gg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_jktq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_t7s8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_f87ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_yo03f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_ath43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_ewv14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_thtgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_xrsdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_70onr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_vilqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_0kkbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_cuj8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_q42yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_f2r2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_k6vlb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_85xqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_7jyb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_gjju6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_q1htp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_tgdvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_1ygy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_lu7us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_rec8s")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
 
 [sub_resource type="Shader" id="Shader_awpbl"]
 code = "shader_type canvas_item;
@@ -381,6 +513,11 @@ visible = false
 texture = ExtResource("44_qigm6")
 centered = false
 
+[node name="Foxy Running" type="AnimatedSprite2D" parent="Points/CAM 4A (East Hall)" unique_id=1174192404]
+visible = false
+sprite_frames = SubResource("SpriteFrames_0a554")
+centered = false
+
 [node name="CAM 4B (E Hall Corner)" type="Node2D" parent="Points" unique_id=2063864739]
 
 [node name="No Animatronic" type="Sprite2D" parent="Points/CAM 4B (E Hall Corner)" unique_id=567037716]
@@ -500,6 +637,13 @@ anchor_mode = 0
 [node name="Cooldown Camera Side" type="Timer" parent="." unique_id=1976673510]
 wait_time = 1.5
 
+[node name="Force Camera Down" type="Timer" parent="." unique_id=308493270]
+wait_time = 30.0
+one_shot = true
+
+[node name="Pick Breath Sound" type="Timer" parent="." unique_id=70148106]
+wait_time = 8.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1667149584]
 
 [node name="Cameras" type="Node2D" parent="CanvasLayer" unique_id=463728720]
@@ -571,6 +715,8 @@ shape = SubResource("RectangleShape2D_0a554")
 
 [connection signal="timeout" from="Points/Garble/Garble Timer" to="." method="_on_garble_timer_timeout"]
 [connection signal="timeout" from="Cooldown Camera Side" to="." method="_on_cooldown_camera_side_timeout"]
+[connection signal="timeout" from="Force Camera Down" to="." method="_on_force_camera_down_timeout"]
+[connection signal="timeout" from="Pick Breath Sound" to="." method="_on_pick_breath_sound_timeout"]
 [connection signal="camera_changed" from="CanvasLayer/Cameras/Camera Map" to="." method="_on_camera_map_camera_changed"]
 [connection signal="timeout" from="CanvasLayer/Cameras/Red Circle/Blink Timer" to="CanvasLayer/Cameras/Red Circle" method="_on_blink_timer_timeout"]
 [connection signal="monitor_closed" from="CanvasLayer/Monitor" to="." method="_on_monitor_monitor_closed"]

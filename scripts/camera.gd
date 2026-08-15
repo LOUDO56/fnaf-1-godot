@@ -1,19 +1,25 @@
 extends Node2D
 
-@export var office: Node2D
+@export var office: Office
+@export var animatronics: Animatronics
 
 const SLOW_MOVE_SPEED := 200.0
 const MED_MOVE_SPEED := 600.0
 const FAST_MOVE_SPEED := 800.0
+const WIDTH_JUMPSCARE_IMAGE := 1280
 
 var normal_office_sprite: Sprite2D
 var margin_right_office
+var can_move := true
 
 func _ready() -> void:
 	normal_office_sprite = office.get_node("Stage/Normal")
 	margin_right_office = (normal_office_sprite.texture.get_width() * normal_office_sprite.scale.x) - get_viewport_rect().size.x
+	Events.disable_gameplay.connect(_on_disable_gameplay)
 
 func _process(delta: float) -> void:
+	if not can_move:
+		return
 	var new_x_position = position.x + _get_movement_speed(_get_mouse_horizontal_ratio()) * delta
 	position.x = clamp(new_x_position, 0.0, margin_right_office)
 
@@ -37,4 +43,17 @@ func _get_movement_speed(ratio) -> float:
 		return speed
 	else:
 		return -speed
+		
+func _on_disable_gameplay():
+	var animatronic_in_office = animatronics.get_animatronic_in_office()
+	var character = animatronic_in_office.get_character()
+	
+	if character != Animatronics.Character.FOXY:
+		office.hide_doors()
+	
+	match character:
+		Animatronics.Character.BONNIE, Animatronics.Character.CHICA:
+			position.x = margin_right_office / 2.0
+	
+	can_move = false
 	

@@ -4,12 +4,14 @@ const CAMERA_SPEED = 75
 const FLICKER_TIMER = 0.027
 
 @export var animatronics: Animatronics
+@export var office: Office
 
 @onready var current_camera := CameraMap.Camera.CAM_1A
 @onready var statics := $"CanvasLayer/Cameras/Statics"
 @onready var white_bars: WhiteBars = $"CanvasLayer/Cameras/White Bars"
 @onready var camera_moving_audio := $"CanvasLayer/Cameras/Audio/Camera Moving Audio"
 @onready var monitor_view := $"MonitorView"
+@onready var monitor_animation: MonitorAnimation = $"CanvasLayer/Monitor"
 @onready var cooldown_camera_side := $"Cooldown Camera Side"
 @onready var camera_outline := $"CanvasLayer/Cameras/Camera Outline"
 @onready var camera_map: CameraMap = $"CanvasLayer/Cameras/Camera Map"
@@ -17,6 +19,9 @@ const FLICKER_TIMER = 0.027
 @onready var camera_garble_sounds := [$"CanvasLayer/Cameras/Audio/Camera Garble 1", $"CanvasLayer/Cameras/Audio/Camera Garble 2", $"CanvasLayer/Cameras/Audio/Camera Garble 3"]
 @onready var garble_sprite := $"Points/Garble"
 @onready var garble_timer := $"Points/Garble/Garble Timer"
+@onready var foxy_running_animation := $"Points/CAM 4A (East Hall)/Foxy Running"
+@onready var force_camera_down_timer := $"Force Camera Down"
+@onready var pick_breath_sound_timer := $"Pick Breath Sound"
 
 var camera_position_x := 0.0
 var moving_side = "right"
@@ -24,12 +29,14 @@ var camera_moving = true
 var current_camera_sprite: Sprite2D
 var current_camera_sprite_width: float
 var flicker_time: float
+var right_door: Door
 
 func _ready() -> void:
 	visible = false
+	right_door = office.doors.right_door;
 	animatronics.bonnie.on_animatronic_moved.connect(_on_animatronic_moved)
 	animatronics.chica.on_animatronic_moved.connect(_on_animatronic_moved)
-	animatronics.freddy.on_animatronic_moved.connect(_on_freddy_moved)
+	Events.disable_gameplay.connect(_on_disabled_gameplay)
 
 func _process(delta: float) -> void:
 
@@ -57,6 +64,8 @@ func _process(delta: float) -> void:
 		flicker_time = 0.0
 
 func _on_monitor_monitor_closed() -> void:
+	if not visible:
+		return
 	visible = false
 	camera_disabled_text.visible = false
 	camera_moving_audio.stop()
@@ -68,6 +77,15 @@ func _on_monitor_monitor_closed() -> void:
 	if not animatronics.freddy.attack_mode or current_camera != CameraMap.Camera.CAM_4B:
 		animatronics.freddy.allow_moving()
 	animatronics.foxy.trigger_always_fail()
+	_handle_freddy_jingle_volume()
+	
+	var animatronic_in_office = animatronics.get_animatronic_in_office()
+	if animatronic_in_office != null and Globals.state != Globals.State.DIED:
+		var animatronic_character := animatronic_in_office.get_character()
+		if animatronic_character == Animatronics.Character.BONNIE or animatronic_character == Animatronics.Character.CHICA:
+			animatronic_in_office.play_jumpscare()
+	
+	foxy_running_animation.visible = false
 
 func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
@@ -78,6 +96,9 @@ func _on_monitor_monitor_opened() -> void:
 	camera_map.select_camera(camera_map.selected_camera_id)
 	animatronics.freddy.block_moving()
 	animatronics.foxy.block_moving()
+	if animatronics.bonnie.in_office() or animatronics.chica.in_office():
+		force_camera_down_timer.start()
+		pick_breath_sound_timer.start()
 	
 func _on_camera_map_camera_changed(id: CameraMap.Camera) -> void:
 	if id != CameraMap.Camera.CAM_6:
@@ -86,9 +107,17 @@ func _on_camera_map_camera_changed(id: CameraMap.Camera) -> void:
 	_change_sprite(_get_sprite_from_camera(id))
 	if animatronics.freddy.current_position == current_camera:
 		animatronics.freddy.reset_freddy_countdown()
-	if animatronics.freddy.attack_mode and current_camera != CameraMap.Camera.CAM_4B:
-		animatronics.freddy.freddy_enter_office()
+	if animatronics.freddy.attack_mode and current_camera != CameraMap.Camera.CAM_4B and right_door.can_enter_office():
+		animatronics.freddy.on_try_attack.emit()
 	_handle_freddy_jingle_volume()
+	if animatronics.foxy.is_coming() and current_camera == CameraMap.Camera.CAM_2A:
+		animatronics.foxy.accelerate_foxy_attack()
+		animatronics.foxy.step_sound.play()
+		foxy_running_animation.play("default")
+		foxy_running_animation.visible = true
+	else:
+		foxy_running_animation.visible = false
+		
 	
 func _change_sprite(new_sprite: Sprite2D) -> void:
 	_hide_all_camera()
@@ -107,6 +136,11 @@ func _hide_all_camera():
 func _on_cooldown_camera_side_timeout() -> void:
 	camera_moving = true
 	
+func _on_force_camera_down_timeout() -> void:
+	if Globals.state != Globals.State.OFFICE:
+		return
+	animatronics.get_animatronic_in_office().play_jumpscare()
+	
 func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera) -> void:
 	if not animatronics.chica.on_stage() and not animatronics.bonnie.on_stage() and animatronics.freddy.on_stage():
 		animatronics.freddy.blocked_on_stage = false
@@ -114,12 +148,11 @@ func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraM
 			animatronics.freddy.allow_moving()
 	if visible and (old_position == current_camera or new_position == current_camera):
 		_garble_camera()
-		
-func _on_freddy_moved(_old_position: CameraMap.Camera, _new_position: CameraMap.Camera):
-	if visible:
-		if animatronics.freddy.attack_mode and current_camera != CameraMap.Camera.CAM_4B:
-			animatronics.freddy.allow_moving()
-			
+
+func _on_disabled_gameplay() -> void:
+	monitor_animation.close_monitor()
+	pick_breath_sound_timer.stop()
+
 func _handle_freddy_jingle_volume():
 	if current_camera == CameraMap.Camera.CAM_6:
 		animatronics.freddy.increase_jingle()
@@ -140,6 +173,12 @@ func _stop_garble_camera() -> void:
 	
 func _on_garble_timer_timeout() -> void:
 	_stop_garble_camera()
+	
+func _on_pick_breath_sound_timeout() -> void:
+	var animatronic_office = animatronics.get_animatronic_in_office()
+	var animatronic_character = animatronic_office.get_character()
+	if animatronic_character == Animatronics.Character.BONNIE or animatronic_character == Animatronics.Character.CHICA:
+		animatronic_office.breathing_sounds.pick_random().play()
 
 func _get_sprite_from_camera(camera: CameraMap.Camera) -> Sprite2D:
 	camera_disabled_text.visible = false
@@ -210,6 +249,8 @@ func _get_pirate_cove_sprite() -> Sprite2D:
 	return $"Points/CAM 1C (Pirate Cove)/Idle"
 	
 func _get_west_hall_sprite() -> Sprite2D:
+	if animatronics.foxy.is_coming():
+		return $"Points/CAM 2A (West Hall)/No Light"
 	if (randi() % 10 >= 7):
 		if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2A:
 			return $"Points/CAM 2A (West Hall)/Light Bonnie"
@@ -269,3 +310,4 @@ func _get_restrooms_sprite() -> Sprite2D:
 	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_7:
 			return $"Points/CAM 7 (Restrooms)/Freddy"
 	return $"Points/CAM 7 (Restrooms)/No Animatronic"
+	

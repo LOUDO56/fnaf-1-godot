@@ -3,20 +3,27 @@
 signal on_animatronic_moved(old_position, new_position)
 signal on_at_door()
 signal on_left_door()
-signal on_inside_office()
+signal on_try_attack()
+signal on_finish_jumpscare()
 
 const MAX_AI_LEVEL = 20
 
 @export var ai_level := 0
 @export var movement_timer_seconds := 0.0
 @export var step_sound: AudioStreamPlayer
+@export var jumpscare_animation: AnimatedSprite2D
+@export var jumpscare_audio: AudioStreamPlayer
+@export var jumpscare_duration: float
 
 var movement_opportunity := 0.0
 var current_position := CameraMap.Camera.CAM_1A
 var variant := 0
 var is_stalled := false
+var timer_jumpscare: Timer
 
 func _process(delta: float) -> void:
+	if Globals.state != Globals.State.OFFICE:
+		return
 	if current_position == CameraMap.Camera.OFFICE:
 		return
 	movement_opportunity += delta
@@ -39,15 +46,16 @@ func block_moving() -> void:
 func allow_moving() -> void:
 	is_stalled = false
 		
-func _fifty_fifty() -> bool:
-	return randi() % 2 == 0
-		
 func _try_to_move() -> void:
 	var old_position = current_position
 	var picked_nb = randi_range(1, MAX_AI_LEVEL)
-	var cannot_move = ai_level < picked_nb or is_stalled
+	var cannot_move = ai_level < picked_nb or current_position == CameraMap.Camera.OFFICE
 	
 	if cannot_move:
+		return
+	
+	if _can_try_attack():
+		on_try_attack.emit()
 		return
 		
 	_define_random_variant()
@@ -59,6 +67,21 @@ func _try_to_move() -> void:
 		on_at_door.emit()
 	if old_position == CameraMap.Camera.DOOR and not at_door():
 		on_left_door.emit()
+
+func _can_try_attack():
+	return current_position == CameraMap.Camera.DOOR
+
+func play_jumpscare() -> void:
+	if not in_office():
+		return
+	jumpscare_audio.play()
+	jumpscare_animation.visible = true
+	jumpscare_animation.play()
+	Events.jumpscare_started.emit(jumpscare_duration)
+	Events.disable_gameplay.emit()
+	
+func on_jumpscare_timeout():
+	on_finish_jumpscare.emit()
 
 ## Used for camera spot where the animatronic has position variation
 func _define_random_variant(max_variant := 1) -> void:
@@ -80,5 +103,13 @@ func _get_step_sound_db_distance() -> float:
 			return -10.0
 	return -5.0
 	
+func step_back():
+	_play_step_sound()
+	_attack_blocked()
+
+func enter_office():
+	current_position = CameraMap.Camera.OFFICE
+
+@abstract func get_character() -> Animatronics.Character
 @abstract func move_ai() -> void
-	
+@abstract func _attack_blocked() -> void

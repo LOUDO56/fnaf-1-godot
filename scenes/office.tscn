@@ -52,6 +52,8 @@
 [ext_resource type="Script" uid="uid://ldk5j05glun3" path="res://scripts/easter_eggs/freedy_nose.gd" id="44_142py"]
 [ext_resource type="AudioStream" uid="uid://l0tp07iblxal" path="res://assets/audio/PartyFavorraspyPart_AC01__3.wav" id="45_65uj5"]
 [ext_resource type="AudioStream" uid="uid://co2ufx041t5ir" path="res://assets/audio/windowscare.wav" id="49_nygyx"]
+[ext_resource type="AudioStream" uid="uid://bu04ommsne75h" path="res://assets/audio/error.wav" id="51_vilxk"]
+[ext_resource type="Shader" uid="uid://c6i0w4vdckr57" path="res://shaders/perspective.gdshader" id="54_12wqr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_blegu"]
 animations = [{
@@ -179,12 +181,19 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ucufk"]
 radius = 7.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y13nk"]
+shader = ExtResource("54_12wqr")
+shader_parameter/zoom = 0.17
+shader_parameter/sharpness = 2.0
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/wrapping_mode = 0
+
 [node name="Office" type="Node2D" unique_id=1654829613]
 script = ExtResource("1_bv0q3")
 
 [node name="Ambiance" type="Node2D" parent="." unique_id=962121517]
 
-[node name="Ambiance A" type="AudioStreamPlayer" parent="Ambiance" unique_id=304361516]
+[node name="Ambiance A" type="AudioStreamPlayer" parent="Ambiance" unique_id=304361516 groups=["ambiance"]]
 stream = ExtResource("1_likdn")
 volume_db = -10.0
 autoplay = true
@@ -193,42 +202,36 @@ autoplay = true
 script = ExtResource("1_osgti")
 
 [node name="Normal" type="Sprite2D" parent="Stage" unique_id=146049526]
-scale = Vector2(1.088, 1)
 texture = ExtResource("1_3e7dm")
 centered = false
 
 [node name="Left Light on" type="Sprite2D" parent="Stage" unique_id=610998056]
 visible = false
-scale = Vector2(1.088, 1)
 texture = ExtResource("6_2knxt")
 centered = false
 
 [node name="Left Bonnie Light On" type="Sprite2D" parent="Stage" unique_id=1093558147]
 visible = false
-scale = Vector2(1.088, 1)
 texture = ExtResource("6_pjxyp")
 centered = false
 
 [node name="Right Light On" type="Sprite2D" parent="Stage" unique_id=1219385270]
 visible = false
-scale = Vector2(1.088, 1)
 texture = ExtResource("7_fmddn")
 centered = false
 
 [node name="Right Chica Light On" type="Sprite2D" parent="Stage" unique_id=1076279496]
 visible = false
-scale = Vector2(1.088, 1)
 texture = ExtResource("8_70iqj")
 centered = false
 
 [node name="Fan" type="AnimatedSprite2D" parent="." unique_id=110171421]
-position = Vector2(922.00006, 396)
-scale = Vector2(1.088, 1.083)
+position = Vector2(847, 401)
 sprite_frames = SubResource("SpriteFrames_blegu")
 autoplay = "default"
 frame_progress = 0.42978808
 
-[node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738]
+[node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738 groups=["ambiance"]]
 stream = ExtResource("5_qphb6")
 volume_db = -10.0
 autoplay = true
@@ -241,45 +244,49 @@ office_stage = NodePath("../Stage")
 
 [node name="Left" type="Node2D" parent="Doors" unique_id=303221849]
 
-[node name="LeftDoorButtons" parent="Doors/Left" unique_id=1750007891 instance=ExtResource("4_fmddn")]
-position = Vector2(55.000004, 411.00003)
-scale = Vector2(1.14, 1.14)
+[node name="LeftDoorButtons" parent="Doors/Left" unique_id=1750007891 node_paths=PackedStringArray("door_error_sound") instance=ExtResource("4_fmddn")]
+z_index = 1
+position = Vector2(39, 398)
+door_error_sound = NodePath("../../Door Error Sound")
 
 [node name="Left Border" type="Sprite2D" parent="Doors/Left" unique_id=2142955233]
-position = Vector2(199, 359.55997)
-scale = Vector2(1.035, 1.0012223)
+position = Vector2(185, 359.55997)
 texture = ExtResource("24_0p3hi")
 
 [node name="Left Door Animation" type="AnimatedSprite2D" parent="Doors/Left" unique_id=1812582159]
-position = Vector2(201, 367.5)
+position = Vector2(183, 367.5)
 scale = Vector2(1, 0.9791667)
 sprite_frames = SubResource("SpriteFrames_skov3")
 
 [node name="Right" type="Node2D" parent="Doors" unique_id=1767701846]
 
-[node name="RightDoorButtons" parent="Doors/Right" unique_id=939025561 instance=ExtResource("9_gdafm")]
-position = Vector2(1679, 411)
-scale = Vector2(1.14, 1.14)
+[node name="RightDoorButtons" parent="Doors/Right" unique_id=939025561 node_paths=PackedStringArray("door_error_sound") instance=ExtResource("9_gdafm")]
+z_index = 1
+position = Vector2(1551, 398)
+door_error_sound = NodePath("../../Door Error Sound")
 
 [node name="Right Border" type="Sprite2D" parent="Doors/Right" unique_id=259231760]
-position = Vector2(1520.044, 358.15997)
+position = Vector2(1406.044, 359.15997)
 scale = Vector2(0.9270645, 1.0051111)
 texture = ExtResource("40_bkq84")
 
 [node name="Right Door Animation" type="AnimatedSprite2D" parent="Doors/Right" unique_id=1208869580]
-position = Vector2(1507, 375.99997)
+position = Vector2(1413, 375.99997)
 scale = Vector2(1, 1.0013889)
 sprite_frames = SubResource("SpriteFrames_ucufk")
 
-[node name="Door Toggle Sound" type="AudioStreamPlayer" parent="Doors" unique_id=183057559]
+[node name="Door Toggle Sound" type="AudioStreamPlayer" parent="Doors" unique_id=183057559 groups=["ambiance"]]
 stream = ExtResource("25_t1nwb")
 volume_db = -5.0
 
-[node name="Door Light Sound" type="AudioStreamPlayer" parent="Doors" unique_id=745367107]
+[node name="Door Light Sound" type="AudioStreamPlayer" parent="Doors" unique_id=745367107 groups=["ambiance"]]
 stream = ExtResource("42_bkq84")
 
-[node name="Stinger Sound" type="AudioStreamPlayer" parent="Doors" unique_id=7597149]
+[node name="Stinger Sound" type="AudioStreamPlayer" parent="Doors" unique_id=7597149 groups=["ambiance"]]
 stream = ExtResource("49_nygyx")
+
+[node name="Door Error Sound" type="AudioStreamPlayer" parent="Doors" unique_id=82423657 groups=["ambiance"]]
+stream = ExtResource("51_vilxk")
 
 [node name="EasterEggs" type="Node2D" parent="." unique_id=426331742]
 
@@ -289,12 +296,19 @@ script = ExtResource("44_142py")
 [node name="Area2D" type="Area2D" parent="EasterEggs/Freedy Nose" unique_id=1640583078]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EasterEggs/Freedy Nose/Area2D" unique_id=742916280]
-position = Vector2(738, 238)
+position = Vector2(677, 238)
 shape = SubResource("CircleShape2D_ucufk")
 
 [node name="Freddy Nose Sound" type="AudioStreamPlayer" parent="EasterEggs/Freedy Nose" unique_id=2014189551]
 stream = ExtResource("45_65uj5")
 volume_db = -5.0
+
+[node name="Panorama" type="ColorRect" parent="." unique_id=1382670982]
+z_index = 2
+material = SubResource("ShaderMaterial_y13nk")
+offset_right = 1598.0
+offset_bottom = 719.0
+mouse_filter = 2
 
 [connection signal="toggle_door" from="Doors/Left/LeftDoorButtons" to="Doors" method="_on_door_buttons_toggle_door"]
 [connection signal="toggle_light" from="Doors/Left/LeftDoorButtons" to="Stage" method="_on_door_buttons_toggle_light"]

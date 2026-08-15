@@ -8,35 +8,45 @@ signal monitor_closed()
 @onready var monitor_sprite = $"Monitor Sprite"
 
 
-var mouse_inside_zone = false
-var is_watching_cameras = false
+var mouse_inside_zone := false
+var is_watching_cameras := false
+var monitor_disabled := false
 
 func _ready() -> void:
 	watch_cameras_animation.visible = false
+	Events.disable_gameplay.connect(_on_disable_gameplay)
 
 func _on_watch_cameras_zone_mouse_entered() -> void:
-	if not Libs.is_mouse_in_window(get_viewport()):
-		return
-	if mouse_inside_zone:
-		return
-	if watch_cameras_animation.is_playing():
+	if monitor_disabled or not Libs.is_mouse_in_window(get_viewport()) or mouse_inside_zone or watch_cameras_animation.is_playing():
 		return
 	
 	monitor_sprite.visible = false
 	mouse_inside_zone = true
 	watch_cameras_animation.visible = true
-	monitor_camera_sound.play()
 	
 	if is_watching_cameras:
-		watch_cameras_animation.play_backwards("default")
-		is_watching_cameras = false
-		monitor_closed.emit()
+		close_monitor()
 	else:
-		watch_cameras_animation.play("default")
-		is_watching_cameras = true
+		open_monitor()
+
+func close_monitor():
+	if not is_watching_cameras:
+		return
+	monitor_camera_sound.play()
+	watch_cameras_animation.visible = true
+	watch_cameras_animation.play_backwards("default")
+	is_watching_cameras = false
+	monitor_closed.emit()
+
+func open_monitor():
+	if is_watching_cameras:
+		return
+	monitor_camera_sound.play()
+	watch_cameras_animation.play("default")
+	is_watching_cameras = true
 
 func _on_watch_cameras_zone_mouse_exited() -> void:
-	if not Libs.is_mouse_in_window(get_viewport()):
+	if monitor_disabled or not Libs.is_mouse_in_window(get_viewport()):
 		return
 	monitor_sprite.visible = true
 	mouse_inside_zone = false
@@ -45,3 +55,6 @@ func _on_watch_monitor_animation_animation_finished() -> void:
 	watch_cameras_animation.visible = false
 	if is_watching_cameras:
 		monitor_opened.emit()
+		
+func _on_disable_gameplay():
+	monitor_disabled = true

@@ -1,7 +1,11 @@
 class_name Freddy extends Animatronic
 
+@export var jumpscare_light_out_animation: AnimatedSprite2D
+
 @onready var freddy_laughs := [$"Freddy Laugh 1", $"Freddy Laugh 2", $"Freddy Laugh 3"]
 @onready var freddy_jingle := $"Freddy Jingle"
+@onready var freddy_jumpscare_timer := $"Freddy Jumpscare Timer"
+@onready var freddy_step := $"Freddy Step"
 
 var freddy_max_countdown: float
 var freddy_move_countdown := 0.0
@@ -15,7 +19,7 @@ const ROUTES := {
 	CameraMap.Camera.CAM_7: [CameraMap.Camera.CAM_6],
 	CameraMap.Camera.CAM_6: [CameraMap.Camera.CAM_4A],
 	CameraMap.Camera.CAM_4A: [CameraMap.Camera.CAM_4B],
-	CameraMap.Camera.CAM_4B: [CameraMap.Camera.OFFICE],
+	CameraMap.Camera.CAM_4B: [CameraMap.Camera.CAM_4A],
 }
 
 func _ready() -> void:
@@ -39,12 +43,28 @@ func move_ai() -> void:
 	else:
 		succeed_last_movement = true
 		_move_freddy()
-		
+
+func _can_try_attack():
+	return attack_mode and not is_stalled and randi() % 2 == 0 # to allow freddy to either try attack or return to 4A		
+
+func get_character() -> Animatronics.Character:
+	return Animatronics.Character.FREDDY
+
+func step_back():
+	_play_laugh()
+	_attack_blocked()
+
+func _attack_blocked() -> void:
+	current_position = CameraMap.Camera.CAM_4A
+	attack_mode = false
+	is_stalled = true
+
 func _move_freddy() -> void:
-	if is_stalled or in_office():
+	if is_stalled:
 		return
 	reset_freddy_countdown()
-	current_position = ROUTES[current_position].pick_random()
+	if current_position != CameraMap.Camera.OFFICE:
+		current_position = ROUTES[current_position].pick_random()
 	attack_mode = current_position == CameraMap.Camera.CAM_4B
 	if attack_mode:
 		block_moving()
@@ -55,18 +75,23 @@ func _move_freddy() -> void:
 		freddy_jingle.play()
 	else:
 		freddy_jingle.stop()
+	if current_position == CameraMap.Camera.OFFICE:
+		freddy_jumpscare_timer.start()
 		
-func increase_jingle():
+
+func increase_jingle() -> void:
 	freddy_jingle.volume_db = -5.0
 	
-func decrease_jingle():
+func decrease_jingle() -> void:
 	freddy_jingle.volume_db = -26.0
 	
-func freddy_enter_office():
+func enter_office() -> void:
 	if not succeed_last_movement:
 		return
+	current_position = CameraMap.Camera.OFFICE
 	allow_moving()
 	_move_freddy()
+	block_moving()
 
 func reset_freddy_countdown() -> void:
 	freddy_move_countdown = 0
@@ -81,8 +106,16 @@ func _play_laugh():
 		laugh.volume_db = _get_step_sound_db_distance()
 		laugh.stop()
 	freddy_laughs.pick_random().play()
+	freddy_step.volume_db = _get_step_sound_db_distance() + 5.0
+	freddy_step.play()
 	
 func _on_move_freddy_pressed() -> void:
 	is_stalled = false
 	blocked_on_stage = false
 	_move_freddy()
+
+
+func _on_freddy_jumpscare_timer_timeout() -> void:
+	if randf() < 0.25 and not is_stalled:
+		play_jumpscare()
+		freddy_jumpscare_timer.stop()

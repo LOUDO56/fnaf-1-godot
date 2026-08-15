@@ -3,6 +3,8 @@ class_name Chica extends Animatronic
 @onready var kitchen_mess_audios := [$"Kitchen Mess Audio 1", $"Kitchen Mess Audio 2", $"Kitchen Mess Audio 3", $"Kitchen Mess Audio 4"]
 @onready var kitchen_audio_interval := $"Kitchen Audio Interval"
 
+@export var breathing_sounds: Array[AudioStreamPlayer]
+
 var current_kitchen_mess_audio: AudioStreamPlayer
 
 const ROUTES := {
@@ -12,8 +14,10 @@ const ROUTES := {
 	CameraMap.Camera.CAM_6:  [CameraMap.Camera.CAM_4A, CameraMap.Camera.CAM_7],
 	CameraMap.Camera.CAM_4A: [CameraMap.Camera.CAM_4B, CameraMap.Camera.CAM_1B],
 	CameraMap.Camera.CAM_4B: [CameraMap.Camera.CAM_4A, CameraMap.Camera.DOOR],
-	CameraMap.Camera.DOOR:   [CameraMap.Camera.CAM_4A, CameraMap.Camera.CAM_1B],
 }
+
+func _ready() -> void:
+	Events.disable_gameplay.connect(_on_disabled_gameplay)
 
 func move_ai() -> void:
 	current_position = ROUTES[current_position].pick_random()
@@ -25,6 +29,12 @@ func move_ai() -> void:
 		if current_kitchen_mess_audio != null:
 			current_kitchen_mess_audio.stop()
 			
+func get_character() -> Animatronics.Character:
+	return Animatronics.Character.CHICA
+
+func _attack_blocked() -> void:
+	current_position = [CameraMap.Camera.CAM_4A, CameraMap.Camera.CAM_1B].pick_random()
+
 func increase_kitchen_sound():
 	if current_kitchen_mess_audio == null or !current_kitchen_mess_audio.playing:
 		return
@@ -42,3 +52,6 @@ func _play_random_kitchen_sound():
 
 func _on_kitchen_audio_interval_timeout() -> void:
 	_play_random_kitchen_sound()
+
+func _on_disabled_gameplay() -> void:
+	kitchen_audio_interval.stop()

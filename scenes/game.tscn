@@ -4,39 +4,47 @@
 [ext_resource type="PackedScene" uid="uid://bbcsj1dbbj26o" path="res://scenes/office.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cjtx82kq787uq" path="res://scenes/animatronics.tscn" id="2_gee14"]
 [ext_resource type="Script" uid="uid://dfggeq5fuuanq" path="res://scripts/camera.gd" id="2_yqjtg"]
-[ext_resource type="Shader" uid="uid://c6i0w4vdckr57" path="res://shaders/perspective.gdshader" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://7b70rlteumyy" path="res://scenes/watching_cameras.tscn" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://dudem3f6cicig" path="res://scripts/libs.gd" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://scenes/ui/statics.tscn" id="8_gee14"]
+[ext_resource type="Script" uid="uid://sfpdspyhj55p" path="res://scripts/death.gd" id="8_vtaks"]
+[ext_resource type="AudioStream" uid="uid://bia1ot4nsv48b" path="res://assets/audio/static.wav" id="9_0tnpc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbhrr"]
-shader = ExtResource("3_lnu2h")
-shader_parameter/zoom = 0.17
-shader_parameter/sharpness = 2.0
-shader_parameter/direction = Vector2(0, 1)
-shader_parameter/wrapping_mode = 0
-
-[node name="Game" type="Node2D" unique_id=1569501029 node_paths=PackedStringArray("office")]
+[node name="Game" type="Node2D" unique_id=1569501029 node_paths=PackedStringArray("office", "animatronics")]
 script = ExtResource("1_u5sy4")
 office = NodePath("Office")
-
-[node name="Animatronics" parent="." unique_id=181922248 instance=ExtResource("2_gee14")]
+animatronics = NodePath("Office/Animatronics")
 
 [node name="Office" parent="." unique_id=1654829613 node_paths=PackedStringArray("animatronics") instance=ExtResource("1_uwrxv")]
-animatronics = NodePath("../Animatronics")
+animatronics = NodePath("Animatronics")
 
-[node name="Panorama" type="ColorRect" parent="Office" unique_id=117026844]
-material = SubResource("ShaderMaterial_lbhrr")
-offset_right = 1741.0
-offset_bottom = 719.0
-mouse_filter = 2
+[node name="Animatronics" parent="Office" unique_id=181922248 instance=ExtResource("2_gee14")]
 
-[node name="OfficeCamera" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office")]
+[node name="OfficeCamera" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office", "animatronics")]
 anchor_mode = 0
 script = ExtResource("2_yqjtg")
 office = NodePath("../Office")
+animatronics = NodePath("../Office/Animatronics")
 
-[node name="Watching Cameras" parent="OfficeCamera" unique_id=1111582433 node_paths=PackedStringArray("animatronics") instance=ExtResource("4_lbhrr")]
-animatronics = NodePath("../../Animatronics")
+[node name="Watching Cameras" parent="OfficeCamera" unique_id=1111582433 node_paths=PackedStringArray("animatronics", "office") instance=ExtResource("4_lbhrr")]
+animatronics = NodePath("../../Office/Animatronics")
+office = NodePath("../../Office")
 
 [node name="Libs" type="Node2D" parent="." unique_id=365965140]
 script = ExtResource("5_iywne")
+
+[node name="Jumpscare Timer" type="Timer" parent="." unique_id=790274028]
+wait_time = 0.6
+one_shot = true
+
+[node name="Death Layer" type="CanvasLayer" parent="." unique_id=1951408997]
+layer = 2
+script = ExtResource("8_vtaks")
+
+[node name="Death Statics" parent="Death Layer" unique_id=1232822903 instance=ExtResource("8_gee14")]
+visible = false
+
+[node name="Death Sound" type="AudioStreamPlayer" parent="Death Layer" unique_id=741058014 groups=["ambiance"]]
+stream = ExtResource("9_0tnpc")
+
+[connection signal="timeout" from="Jumpscare Timer" to="." method="_on_jumpscare_timer_timeout"]

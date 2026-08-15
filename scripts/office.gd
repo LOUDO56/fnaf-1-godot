@@ -11,7 +11,6 @@ class_name Office extends Node2D
 var office_camera: Camera2D
 
 func _ready() -> void:
-	doors.setup_animatronics_behavior(animatronics)
 	office_stage.animatronics = animatronics
 
 func listen_flip_events(monitor_animation: MonitorAnimation, office_camera_1: Camera2D) -> void:
@@ -25,6 +24,9 @@ func _on_monitor_opened():
 	left_door_buttons.turn_off_light()
 	right_door_buttons.turn_off_light()
 	doors.stop_light_sound()
+	
+func hide_doors():
+	doors.visible = false
 
 func _on_monitor_closed():
 	office_camera.make_current()
