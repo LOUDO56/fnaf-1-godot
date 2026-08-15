@@ -8,40 +8,59 @@
 [ext_resource type="AudioStream" uid="uid://ctvby2d3dtjra" path="res://assets/audio/OVEN-DRA_1_GEN-HDF18119.wav" id="5_h7bw6"]
 [ext_resource type="AudioStream" uid="uid://demp5dh55h6j7" path="res://assets/audio/OVEN-DRA_2_GEN-HDF18120.wav" id="6_eq31s"]
 [ext_resource type="AudioStream" uid="uid://bac0un6mfm34b" path="res://assets/audio/OVEN-DRA_7_GEN-HDF18121.wav" id="7_exftl"]
+[ext_resource type="Script" uid="uid://dcw78bowo04pp" path="res://scripts/animatronics/freddy.gd" id="8_e6oyr"]
+[ext_resource type="AudioStream" uid="uid://of1c4e4gjved" path="res://assets/audio/Laugh_Giggle_Girl_1d.wav" id="9_wbclq"]
+[ext_resource type="AudioStream" uid="uid://76iy6myn2krj" path="res://assets/audio/Laugh_Giggle_Girl_2d.wav" id="10_ns5r7"]
+[ext_resource type="AudioStream" uid="uid://d357i6pemr8pj" path="res://assets/audio/Laugh_Giggle_Girl_8d.wav" id="11_5nh4t"]
 
 [node name="Animatronics" type="Node2D" unique_id=181922248]
 script = ExtResource("1_cweo8")
 
 [node name="Bonnie" type="Node2D" parent="." unique_id=1439423576 node_paths=PackedStringArray("step_sound")]
 script = ExtResource("2_cweo8")
-ai_level = 2
 movement_timer_seconds = 4.97
 step_sound = NodePath("../Step Audio")
 
 [node name="Chica" type="Node2D" parent="." unique_id=1463412259 node_paths=PackedStringArray("step_sound")]
 script = ExtResource("3_yemax")
-ai_level = 1
 movement_timer_seconds = 4.98
 step_sound = NodePath("../Step Audio")
 
 [node name="Kitchen Mess Audio 1" type="AudioStreamPlayer" parent="Chica" unique_id=279386011]
 stream = ExtResource("4_dxqq2")
-volume_db = -17.0
+volume_db = -20.0
 
 [node name="Kitchen Mess Audio 2" type="AudioStreamPlayer" parent="Chica" unique_id=968047200]
 stream = ExtResource("5_h7bw6")
-volume_db = -17.0
-
-[node name="Kitchen Mess Audio 3" type="AudioStreamPlayer" parent="Chica" unique_id=324219245]
-stream = ExtResource("6_eq31s")
-volume_db = -17.0
+volume_db = -20.0
 
 [node name="Kitchen Mess Audio 4" type="AudioStreamPlayer" parent="Chica" unique_id=2081049365]
 stream = ExtResource("7_exftl")
-volume_db = -17.0
+volume_db = -20.0
+
+[node name="Kitchen Mess Audio 3" type="AudioStreamPlayer" parent="Chica" unique_id=324219245]
+stream = ExtResource("6_eq31s")
+volume_db = -20.0
 
 [node name="Kitchen Audio Interval" type="Timer" parent="Chica" unique_id=570394944]
-wait_time = 5.0
+wait_time = 8.0
+
+[node name="Freddy" type="Node2D" parent="." unique_id=1373339142]
+script = ExtResource("8_e6oyr")
+ai_level = 8
+movement_timer_seconds = 3.02
+
+[node name="Freddy Laugh 1" type="AudioStreamPlayer" parent="Freddy" unique_id=2719322]
+stream = ExtResource("9_wbclq")
+volume_db = -10.0
+
+[node name="Freddy Laugh 2" type="AudioStreamPlayer" parent="Freddy" unique_id=382475517]
+stream = ExtResource("10_ns5r7")
+volume_db = -10.0
+
+[node name="Freddy Laugh 3" type="AudioStreamPlayer" parent="Freddy" unique_id=828067397]
+stream = ExtResource("11_5nh4t")
+volume_db = -10.0
 
 [node name="Step Audio" type="AudioStreamPlayer" parent="." unique_id=1576850055]
 stream = ExtResource("3_bis2m")

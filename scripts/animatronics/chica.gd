@@ -40,7 +40,7 @@ func increase_kitchen_sound():
 func decrease_kitchen_sound():
 	if current_kitchen_mess_audio == null or !current_kitchen_mess_audio.playing:
 			return
-	current_kitchen_mess_audio.volume_db = -17.0
+	current_kitchen_mess_audio.volume_db = -20.0
 
 func _play_random_kitchen_sound():
 	if current_kitchen_mess_audio == null or !current_kitchen_mess_audio.playing:
