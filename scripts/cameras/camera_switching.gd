@@ -67,6 +67,7 @@ func _on_monitor_monitor_closed() -> void:
 		camera_garble_sound.stop()
 	if not animatronics.freddy.attack_mode or current_camera != CameraMap.Camera.CAM_4B:
 		animatronics.freddy.allow_moving()
+	animatronics.foxy.trigger_always_fail()
 
 func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
@@ -76,6 +77,7 @@ func _on_monitor_monitor_opened() -> void:
 	camera_moving_audio.play()
 	camera_map.select_camera(camera_map.selected_camera_id)
 	animatronics.freddy.block_moving()
+	animatronics.foxy.block_moving()
 	
 func _on_camera_map_camera_changed(id: CameraMap.Camera) -> void:
 	if id != CameraMap.Camera.CAM_6:
@@ -86,6 +88,7 @@ func _on_camera_map_camera_changed(id: CameraMap.Camera) -> void:
 		animatronics.freddy.reset_freddy_countdown()
 	if animatronics.freddy.attack_mode and current_camera != CameraMap.Camera.CAM_4B:
 		animatronics.freddy.freddy_enter_office()
+	_handle_freddy_jingle_volume()
 	
 func _change_sprite(new_sprite: Sprite2D) -> void:
 	_hide_all_camera()
@@ -113,9 +116,16 @@ func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraM
 		_garble_camera()
 		
 func _on_freddy_moved(_old_position: CameraMap.Camera, _new_position: CameraMap.Camera):
-	if visible and animatronics.freddy.attack_mode and current_camera != CameraMap.Camera.CAM_4B:
-		animatronics.freddy.allow_moving()
-		
+	if visible:
+		if animatronics.freddy.attack_mode and current_camera != CameraMap.Camera.CAM_4B:
+			animatronics.freddy.allow_moving()
+			
+func _handle_freddy_jingle_volume():
+	if current_camera == CameraMap.Camera.CAM_6:
+		animatronics.freddy.increase_jingle()
+	else:
+		animatronics.freddy.decrease_jingle()
+			
 func _garble_camera() -> void:
 	if current_camera == CameraMap.Camera.CAM_6:
 		return
@@ -185,6 +195,18 @@ func _get_diner_area_sprite() -> Sprite2D:
 	return $"Points/CAM 1B (Dining Area)/No Animatronic"
 
 func _get_pirate_cove_sprite() -> Sprite2D:
+	match animatronics.foxy.step_attack:
+		0:
+			return $"Points/CAM 1C (Pirate Cove)/Idle"
+		1:
+			return $"Points/CAM 1C (Pirate Cove)/1"
+		2:
+			return $"Points/CAM 1C (Pirate Cove)/2"
+		3:
+			if randi_range(0, 10) == 0:
+				return $"Points/CAM 1C (Pirate Cove)/It's me"
+			else:
+				return $"Points/CAM 1C (Pirate Cove)/3"
 	return $"Points/CAM 1C (Pirate Cove)/Idle"
 	
 func _get_west_hall_sprite() -> Sprite2D:

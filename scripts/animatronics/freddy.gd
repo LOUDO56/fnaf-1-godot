@@ -1,6 +1,7 @@
 class_name Freddy extends Animatronic
 
 @onready var freddy_laughs := [$"Freddy Laugh 1", $"Freddy Laugh 2", $"Freddy Laugh 3"]
+@onready var freddy_jingle := $"Freddy Jingle"
 
 var freddy_max_countdown: float
 var freddy_move_countdown := 0.0
@@ -49,6 +50,17 @@ func _move_freddy() -> void:
 		block_moving()
 	_play_laugh()
 	succeed_last_movement = false
+	if current_position == CameraMap.Camera.CAM_6:
+		decrease_jingle()
+		freddy_jingle.play()
+	else:
+		freddy_jingle.stop()
+		
+func increase_jingle():
+	freddy_jingle.volume_db = -5.0
+	
+func decrease_jingle():
+	freddy_jingle.volume_db = -26.0
 	
 func freddy_enter_office():
 	if not succeed_last_movement:
@@ -58,14 +70,19 @@ func freddy_enter_office():
 
 func reset_freddy_countdown() -> void:
 	freddy_move_countdown = 0
-
-func block_moving() -> void:
-	is_stalled = true
 	
 func allow_moving() -> void:
 	if blocked_on_stage:
 		return
-	is_stalled = false
+	super.allow_moving()
 
 func _play_laugh():
+	for laugh: AudioStreamPlayer in freddy_laughs:
+		laugh.volume_db = _get_step_sound_db_distance()
+		laugh.stop()
 	freddy_laughs.pick_random().play()
+	
+func _on_move_freddy_pressed() -> void:
+	is_stalled = false
+	blocked_on_stage = false
+	_move_freddy()

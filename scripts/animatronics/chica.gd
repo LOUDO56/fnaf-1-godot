@@ -24,14 +24,7 @@ func move_ai() -> void:
 		kitchen_audio_interval.stop()
 		if current_kitchen_mess_audio != null:
 			current_kitchen_mess_audio.stop()
-	
-func _play_step_sound():
-	if current_position == CameraMap.Camera.CAM_1A:
-		step_sound.volume_db = -18.0
-	else:
-		step_sound.volume_db = -10.0
-	step_sound.play()
-	
+			
 func increase_kitchen_sound():
 	if current_kitchen_mess_audio == null or !current_kitchen_mess_audio.playing:
 		return

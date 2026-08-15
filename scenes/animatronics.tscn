@@ -9,9 +9,12 @@
 [ext_resource type="AudioStream" uid="uid://demp5dh55h6j7" path="res://assets/audio/OVEN-DRA_2_GEN-HDF18120.wav" id="6_eq31s"]
 [ext_resource type="AudioStream" uid="uid://bac0un6mfm34b" path="res://assets/audio/OVEN-DRA_7_GEN-HDF18121.wav" id="7_exftl"]
 [ext_resource type="Script" uid="uid://dcw78bowo04pp" path="res://scripts/animatronics/freddy.gd" id="8_e6oyr"]
+[ext_resource type="AudioStream" uid="uid://yvbk2evbaclp" path="res://assets/audio/music box.wav" id="9_ns5r7"]
 [ext_resource type="AudioStream" uid="uid://of1c4e4gjved" path="res://assets/audio/Laugh_Giggle_Girl_1d.wav" id="9_wbclq"]
 [ext_resource type="AudioStream" uid="uid://76iy6myn2krj" path="res://assets/audio/Laugh_Giggle_Girl_2d.wav" id="10_ns5r7"]
 [ext_resource type="AudioStream" uid="uid://d357i6pemr8pj" path="res://assets/audio/Laugh_Giggle_Girl_8d.wav" id="11_5nh4t"]
+[ext_resource type="Script" uid="uid://jsm5gqasqb18" path="res://scripts/animatronics/foxy.gd" id="13_ns5r7"]
+[ext_resource type="AudioStream" uid="uid://dbiqnewhxk8ne" path="res://assets/audio/run.wav" id="14_5nh4t"]
 
 [node name="Animatronics" type="Node2D" unique_id=181922248]
 script = ExtResource("1_cweo8")
@@ -47,8 +50,11 @@ wait_time = 8.0
 
 [node name="Freddy" type="Node2D" parent="." unique_id=1373339142]
 script = ExtResource("8_e6oyr")
-ai_level = 8
 movement_timer_seconds = 3.02
+
+[node name="Freddy Jingle" type="AudioStreamPlayer" parent="Freddy" unique_id=529242764]
+stream = ExtResource("9_ns5r7")
+volume_db = -5.0
 
 [node name="Freddy Laugh 1" type="AudioStreamPlayer" parent="Freddy" unique_id=2719322]
 stream = ExtResource("9_wbclq")
@@ -62,8 +68,31 @@ volume_db = -10.0
 stream = ExtResource("11_5nh4t")
 volume_db = -10.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Freddy" unique_id=937679396]
+visible = false
+
+[node name="Move Freddy" type="Button" parent="Freddy/CanvasLayer" unique_id=61999]
+offset_left = 21.0
+offset_top = 659.0
+offset_right = 129.0
+offset_bottom = 690.0
+text = "Move Freddy"
+
+[node name="Foxy" type="Node2D" parent="." unique_id=581834715]
+script = ExtResource("13_ns5r7")
+ai_level = 14
+movement_timer_seconds = 5.01
+
+[node name="Run Audio" type="AudioStreamPlayer" parent="Foxy" unique_id=1398133831]
+stream = ExtResource("14_5nh4t")
+volume_db = -5.0
+
+[node name="Always Fail Timer" type="Timer" parent="Foxy" unique_id=560084429]
+
 [node name="Step Audio" type="AudioStreamPlayer" parent="." unique_id=1576850055]
 stream = ExtResource("3_bis2m")
 volume_db = -10.0
 
 [connection signal="timeout" from="Chica/Kitchen Audio Interval" to="Chica" method="_on_kitchen_audio_interval_timeout"]
+[connection signal="pressed" from="Freddy/CanvasLayer/Move Freddy" to="Freddy" method="_on_move_freddy_pressed"]
+[connection signal="timeout" from="Foxy/Always Fail Timer" to="Foxy" method="_on_always_fail_timer_timeout"]

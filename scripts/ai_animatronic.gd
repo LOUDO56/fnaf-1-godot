@@ -32,6 +32,12 @@ func in_office() -> bool:
 
 func on_stage() -> bool:
 	return current_position == CameraMap.Camera.CAM_1A
+	
+func block_moving() -> void:
+	is_stalled = true
+	
+func allow_moving() -> void:
+	is_stalled = false
 		
 func _fifty_fifty() -> bool:
 	return randi() % 2 == 0
@@ -39,14 +45,14 @@ func _fifty_fifty() -> bool:
 func _try_to_move() -> void:
 	var old_position = current_position
 	var picked_nb = randi_range(1, MAX_AI_LEVEL)
-	var cannot_move = ai_level < picked_nb
+	var cannot_move = ai_level < picked_nb or is_stalled
 	
 	if cannot_move:
 		return
 		
 	_define_random_variant()
-	_play_step_sound()
 	move_ai()
+	_play_step_sound()
 	on_animatronic_moved.emit(old_position, current_position)
 	
 	if at_door():
@@ -61,7 +67,18 @@ func _define_random_variant(max_variant := 1) -> void:
 func _play_step_sound() -> void:
 	if step_sound == null:
 		return
+	step_sound.volume_db = _get_step_sound_db_distance();
 	step_sound.play()
-
+	
+func _get_step_sound_db_distance() -> float:
+	match current_position:
+		CameraMap.Camera.CAM_1B, CameraMap.Camera.CAM_5, CameraMap.Camera.CAM_7:
+			return -18.0
+		CameraMap.Camera.CAM_3, CameraMap.Camera.CAM_1C, CameraMap.Camera.CAM_2A, CameraMap.Camera.CAM_4A, CameraMap.Camera.CAM_6:
+			return -14.0
+		CameraMap.Camera.CAM_2B, CameraMap.Camera.CAM_4B:
+			return -10.0
+	return -5.0
+	
 @abstract func move_ai() -> void
 	
