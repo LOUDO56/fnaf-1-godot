@@ -16,6 +16,7 @@ func _ready() -> void:
 	normal_office_sprite = office.get_node("Stage/Normal")
 	margin_right_office = (normal_office_sprite.texture.get_width() * normal_office_sprite.scale.x) - get_viewport_rect().size.x
 	Events.disable_gameplay.connect(_on_disable_gameplay)
+	Events.jumpscare_started.connect(_on_jumpscare_started)
 
 func _process(delta: float) -> void:
 	if not can_move:
@@ -56,4 +57,9 @@ func _on_disable_gameplay():
 			position.x = margin_right_office / 2.0
 	
 	can_move = false
+
+func _on_jumpscare_started(_time: float, animatronic: Animatronic) -> void:
+	if animatronic is Freddy and animatronic.power_off_mode():
+		can_move = false
+		position.x = 0
 	

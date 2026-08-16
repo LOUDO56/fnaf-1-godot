@@ -6,11 +6,15 @@
 [ext_resource type="Script" uid="uid://doocewdvk6fje" path="res://scripts/stage.gd" id="1_osgti"]
 [ext_resource type="Texture2D" uid="uid://dwhff32d2wgr2" path="res://assets/images/3-THE_OFFICE/FAN/1.png" id="2_qphb6"]
 [ext_resource type="Texture2D" uid="uid://b403vjlypshgb" path="res://assets/images/3-THE_OFFICE/FAN/2.png" id="3_hub07"]
+[ext_resource type="AudioStream" uid="uid://bf4h5sqwv4u2r" path="res://assets/audio/powerdown.wav" id="3_qgrek"]
 [ext_resource type="Texture2D" uid="uid://spt5aoet4p0s" path="res://assets/images/3-THE_OFFICE/FAN/3.png" id="4_2knxt"]
 [ext_resource type="PackedScene" uid="uid://ci4vlxslkxxs4" path="res://scenes/doors/buttons/left_door_buttons.tscn" id="4_fmddn"]
 [ext_resource type="AudioStream" uid="uid://dxgmn4ek5rmym" path="res://assets/audio/Buzz_Fan_Florescent2.wav" id="5_qphb6"]
+[ext_resource type="Texture2D" uid="uid://d3d5ewnvf24dg" path="res://assets/images/3-THE_OFFICE/LIGHTS_OUT/304.png" id="5_wb33o"]
 [ext_resource type="Texture2D" uid="uid://cp0ik1qxyvh8x" path="res://assets/images/3-THE_OFFICE/LEFT_LIGHT.png" id="6_2knxt"]
 [ext_resource type="Texture2D" uid="uid://ecwlf40d3jxa" path="res://assets/images/3-THE_OFFICE/1-OFFICE_BONNIE.png" id="6_pjxyp"]
+[ext_resource type="Texture2D" uid="uid://llq8o26rstna" path="res://assets/images/3-THE_OFFICE/LIGHTS_OUT/305.png" id="6_qgrek"]
+[ext_resource type="AudioStream" uid="uid://bi5vxoh6vgwsc" path="res://assets/audio/deep steps.wav" id="7_f3wdx"]
 [ext_resource type="Texture2D" uid="uid://dl1o0fvt8tyal" path="res://assets/images/3-THE_OFFICE/RIGHT_LIGHT.png" id="7_fmddn"]
 [ext_resource type="Script" uid="uid://dy5ejgyygjgk2" path="res://scripts/doors/doors.gd" id="8_8ywr3"]
 [ext_resource type="Texture2D" uid="uid://cmvx5byvkxpt5" path="res://assets/images/3-THE_OFFICE/1-OFFICE_CHICA.png" id="8_70iqj"]
@@ -18,8 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://dpdqwk2rjj5y5" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/1.png" id="9_qg43x"]
 [ext_resource type="Texture2D" uid="uid://bfgipxsph4ge" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/2.png" id="10_8ywr3"]
 [ext_resource type="Texture2D" uid="uid://c0wvhki8w376j" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/3.png" id="11_t1nwb"]
+[ext_resource type="Texture2D" uid="uid://coxek1ydkmwf8" path="res://assets/images/6-CAMERAS/kitchen.png" id="12_rvn1j"]
 [ext_resource type="Texture2D" uid="uid://bpklp80wl663f" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/4.png" id="12_uwvu6"]
 [ext_resource type="Texture2D" uid="uid://bfx6ucde20oib" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/5.png" id="13_7i2nt"]
+[ext_resource type="Script" uid="uid://cbn577syt1vnh" path="res://scripts/freddy_jingle.gd" id="13_f1ywt"]
+[ext_resource type="AudioStream" uid="uid://yvbk2evbaclp" path="res://assets/audio/music box.wav" id="14_f3wdx"]
 [ext_resource type="Texture2D" uid="uid://b5dvqnaiqr5ty" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/6.png" id="14_fw3ux"]
 [ext_resource type="Texture2D" uid="uid://cjkx5ykia4hem" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/7.png" id="15_g1ciw"]
 [ext_resource type="Texture2D" uid="uid://ctxv567tyokqp" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/8.png" id="16_u5glt"]
@@ -198,11 +205,42 @@ stream = ExtResource("1_likdn")
 volume_db = -10.0
 autoplay = true
 
+[node name="Power Off Audio" type="AudioStreamPlayer" parent="Ambiance" unique_id=74196955]
+stream = ExtResource("3_qgrek")
+
 [node name="Stage" type="Node2D" parent="." unique_id=1795822514]
 script = ExtResource("1_osgti")
 
+[node name="Freddy Jingle" type="Node2D" parent="Stage" unique_id=179059683]
+script = ExtResource("13_f1ywt")
+
+[node name="Fan Audio" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=1205193030]
+stream = ExtResource("5_qphb6")
+volume_db = -5.0
+
+[node name="Step Sound" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=1688195894]
+stream = ExtResource("7_f3wdx")
+volume_db = -5.0
+
+[node name="Step Delay" type="Timer" parent="Stage/Freddy Jingle/Step Sound" unique_id=447814327]
+wait_time = 2.0
+one_shot = true
+
+[node name="Freddy Jingle Audio" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=932797044]
+stream = ExtResource("14_f3wdx")
+
 [node name="Normal" type="Sprite2D" parent="Stage" unique_id=146049526]
 texture = ExtResource("1_3e7dm")
+centered = false
+
+[node name="Power Off" type="Sprite2D" parent="Stage" unique_id=440063717]
+visible = false
+texture = ExtResource("5_wb33o")
+centered = false
+
+[node name="Power Off Freddy" type="Sprite2D" parent="Stage" unique_id=2050382465]
+visible = false
+texture = ExtResource("6_qgrek")
 centered = false
 
 [node name="Left Light on" type="Sprite2D" parent="Stage" unique_id=610998056]
@@ -225,12 +263,16 @@ visible = false
 texture = ExtResource("8_70iqj")
 centered = false
 
+[node name="Black Out" type="Sprite2D" parent="Stage" unique_id=1604755759]
+visible = false
+texture = ExtResource("12_rvn1j")
+centered = false
+
 [node name="Fan" type="AnimatedSprite2D" parent="." unique_id=110171421]
 z_index = 1
-position = Vector2(847, 401)
+position = Vector2(848, 401)
 sprite_frames = SubResource("SpriteFrames_blegu")
 autoplay = "default"
-frame = 2
 
 [node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738 groups=["ambiance"]]
 stream = ExtResource("5_qphb6")
@@ -251,12 +293,11 @@ position = Vector2(39, 398)
 door_error_sound = NodePath("../../Door Error Sound")
 
 [node name="Left Border" type="Sprite2D" parent="Doors/Left" unique_id=2142955233]
-position = Vector2(185, 359.55997)
+position = Vector2(183, 367.55997)
 texture = ExtResource("24_0p3hi")
 
 [node name="Left Door Animation" type="AnimatedSprite2D" parent="Doors/Left" unique_id=1812582159]
 position = Vector2(183, 367.5)
-scale = Vector2(1, 0.9791667)
 sprite_frames = SubResource("SpriteFrames_skov3")
 
 [node name="Right" type="Node2D" parent="Doors" unique_id=1767701846]
@@ -276,7 +317,7 @@ position = Vector2(1413, 375.99997)
 scale = Vector2(1, 1.0013889)
 sprite_frames = SubResource("SpriteFrames_ucufk")
 
-[node name="Door Toggle Sound" type="AudioStreamPlayer" parent="Doors" unique_id=183057559 groups=["ambiance"]]
+[node name="Door Toggle Sound" type="AudioStreamPlayer" parent="Doors" unique_id=183057559]
 stream = ExtResource("25_t1nwb")
 volume_db = -5.0
 
@@ -311,10 +352,9 @@ offset_right = 1598.0
 offset_bottom = 719.0
 mouse_filter = 2
 
+[connection signal="timeout" from="Stage/Freddy Jingle/Step Sound/Step Delay" to="Stage/Freddy Jingle" method="_on_step_delay_timeout"]
 [connection signal="toggle_door" from="Doors/Left/LeftDoorButtons" to="Doors" method="_on_door_buttons_toggle_door"]
-[connection signal="toggle_light" from="Doors/Left/LeftDoorButtons" to="Stage" method="_on_door_buttons_toggle_light"]
 [connection signal="toggle_light" from="Doors/Left/LeftDoorButtons" to="Doors" method="_on_door_buttons_toggle_light"]
 [connection signal="toggle_door" from="Doors/Right/RightDoorButtons" to="Doors" method="_on_door_buttons_toggle_door"]
-[connection signal="toggle_light" from="Doors/Right/RightDoorButtons" to="Stage" method="_on_door_buttons_toggle_light"]
 [connection signal="toggle_light" from="Doors/Right/RightDoorButtons" to="Doors" method="_on_door_buttons_toggle_light"]
 [connection signal="input_event" from="EasterEggs/Freedy Nose/Area2D" to="EasterEggs/Freedy Nose" method="_on_area_2d_input_event"]

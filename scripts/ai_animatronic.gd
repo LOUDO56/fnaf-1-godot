@@ -77,8 +77,15 @@ func play_jumpscare() -> void:
 	jumpscare_audio.play()
 	jumpscare_animation.visible = true
 	jumpscare_animation.play()
-	Events.jumpscare_started.emit(jumpscare_duration)
+	Events.jumpscare_started.emit(jumpscare_duration, self)
 	Events.disable_gameplay.emit()
+
+
+func cancel_jumpscare() -> void:
+	current_position = CameraMap.Camera.CAM_1A
+	jumpscare_audio.stop()
+	jumpscare_animation.visible = false
+	jumpscare_animation.stop()
 	
 func on_jumpscare_timeout():
 	on_finish_jumpscare.emit()

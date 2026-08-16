@@ -59,6 +59,7 @@ func step_back():
 
 func _attack_blocked() -> void:
 	current_position = CameraMap.Camera.CAM_4A
+	succeed_last_movement = false
 	attack_mode = false
 	is_stalled = true
 
@@ -80,7 +81,15 @@ func _move_freddy() -> void:
 		freddy_jingle.stop()
 	if current_position == CameraMap.Camera.OFFICE:
 		freddy_jumpscare_timer.start()
-		
+
+func play_jumpscare_light_out() -> void:
+	jumpscare_audio.play()
+	jumpscare_light_out_animation.visible = true
+	jumpscare_light_out_animation.play()
+	Events.jumpscare_started.emit(0.7, self)
+
+func power_off_mode() -> bool:
+	return jumpscare_light_out_animation.visible
 
 func increase_jingle() -> void:
 	freddy_jingle.volume_db = -5.0
@@ -134,7 +143,7 @@ func on_monitor_opened() -> void:
 func on_camera_changed(camera: CameraMap.Camera) -> void:
 	if camera == current_position:
 		reset_freddy_countdown()
-	if attack_mode and camera != CameraMap.Camera.CAM_4B:
+	if attack_mode and camera != CameraMap.Camera.CAM_4B and succeed_last_movement:
 		on_try_attack.emit()
 	if camera == CameraMap.Camera.CAM_6:
 		increase_jingle()

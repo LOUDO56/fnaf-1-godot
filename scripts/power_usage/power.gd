@@ -1,6 +1,6 @@
 class_name Power extends Node2D
 
-@export var night_divisor := 9.6
+@export var night_divisor := 3.0
 @export var usage: PowerUsage
 
 @onready var first_digit = $"Percent/First Digit"
@@ -11,6 +11,7 @@ var power_consume_time := 0.0
 
 func _ready() -> void:
 	_update_power_sprite_value()
+	Events.jumpscare_started.connect(_on_jumpscare_started)
 
 func _process(delta: float) -> void:
 	power_consume_time += delta
@@ -19,6 +20,10 @@ func _process(delta: float) -> void:
 		power = maxf(power - (base + 0.1 / night_divisor) / 10.0, 0.0)
 		_update_power_sprite_value()
 		power_consume_time -= 0.1
+	if power <= 0.0:
+		set_process(false)
+		Events.power_off.emit()
+		get_parent().visible = false
 
 func _update_power_sprite_value() -> void:
 	first_digit.visible = power >= 10.0
@@ -28,3 +33,6 @@ func _update_power_sprite_value() -> void:
 func _update_digit(digits: Node2D, number: int) -> void:
 	for digit in digits.get_children():
 		digit.visible = digit.name == str(number)
+		
+func _on_jumpscare_started(time: float, animatronic: Animatronic) -> void:
+	set_process(false)

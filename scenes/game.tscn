@@ -27,7 +27,7 @@ script = ExtResource("2_yqjtg")
 office = NodePath("../Office")
 animatronics = NodePath("../Office/Animatronics")
 
-[node name="Watching Cameras" parent="OfficeCamera" unique_id=1111582433 node_paths=PackedStringArray("animatronics", "office") instance=ExtResource("4_lbhrr")]
+[node name="Switching Cameras" parent="OfficeCamera" unique_id=1111582433 node_paths=PackedStringArray("animatronics", "office") instance=ExtResource("4_lbhrr")]
 animatronics = NodePath("../../Office/Animatronics")
 office = NodePath("../../Office")
 

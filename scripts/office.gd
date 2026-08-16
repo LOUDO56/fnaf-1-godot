@@ -1,10 +1,13 @@
 class_name Office extends Node2D
 
 @onready var fan_audio = $"Fan/Fan Audio"
+@onready var fan = $"Fan"
 @onready var doors: Doors = $"Doors"
 @onready var office_stage: OfficeStage = $"Stage"
 @onready var left_door_buttons: Door = $"Doors/Left/LeftDoorButtons"
 @onready var right_door_buttons: Door = $"Doors/Right/RightDoorButtons"
+@onready var power_off_audio := $"Ambiance/Power Off Audio"
+@onready var freddy_jingle := $"Stage/Freddy Jingle"
 
 @export var animatronics: Animatronics
 
@@ -12,6 +15,9 @@ var office_camera: Camera2D
 
 func _ready() -> void:
 	office_stage.animatronics = animatronics
+	freddy_jingle.setup(animatronics.freddy)
+	Events.power_off.connect(_on_power_off)
+	Events.jumpscare_started.connect(_on_jumpscare_started)
 
 func listen_flip_events(monitor_animation: MonitorAnimation, office_camera_1: Camera2D) -> void:
 	office_camera = office_camera_1
@@ -32,3 +38,15 @@ func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera):
 	office_camera.make_current()
 	visible = true
 	fan_audio.volume_db += 10
+
+func _on_power_off():
+	power_off_audio.play()
+	fan.visible = false
+	fan.stop()
+
+
+func _on_jumpscare_started(_time: float, animatronic: Animatronic):
+	if animatronic.get_character() == Animatronics.Character.FOXY:
+		return
+	fan.visible = false
+	fan.stop()

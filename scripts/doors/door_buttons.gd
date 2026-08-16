@@ -22,6 +22,9 @@ var can_press_door := true;
 var can_press_light := true;
 var imminent_death := false
 
+func _ready() -> void:
+	Events.power_off.connect(_on_power_off)
+
 func _on_buttons_area_input_event(_viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if Globals.state != Globals.State.OFFICE:
@@ -37,6 +40,10 @@ func _on_buttons_area_input_event(_viewport: Node, event: InputEvent, shape_idx:
 			$CooldownPressDoor.start(PRESS_DOOR_DELAY)
 		if shape_idx == LIGTH_SHAPE_ID and can_press_light:
 			is_light_on = !is_light_on
+			if is_light_on:
+				Events.increase_power_usage.emit()
+			else:
+				Events.decrease_power_usage.emit()
 			toggle_light.emit(side, is_light_on)
 			can_press_light = false
 			$CooldownPressLight.start(PRESS_LIGHT_DELAY)
@@ -84,5 +91,10 @@ func _on_cooldown_press_door_timeout() -> void:
 func _on_cooldown_press_light_timeout() -> void:
 	can_press_light = true
 
+func _on_power_off() -> void:
+	if is_door_closed:
+		toggle_door.emit(side, false)
+	toggle_light.emit(side, false)
+	visible = false
 
 enum State {OPENED, CLOSED, LIGHT_ON, CLOSED_LIGHT_ON}

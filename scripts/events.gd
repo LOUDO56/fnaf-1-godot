@@ -1,7 +1,7 @@
 extends Node
 
 @warning_ignore("unused_signal")
-signal jumpscare_started(time: float)
+signal jumpscare_started(time: float, animatronic: Animatronic)
 
 @warning_ignore("unused_signal")
 signal disable_gameplay()
@@ -10,3 +10,5 @@ signal disable_gameplay()
 signal increase_power_usage()
 @warning_ignore("unused_signal")
 signal decrease_power_usage()
+@warning_ignore("unused_signal")
+signal power_off()

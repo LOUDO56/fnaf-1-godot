@@ -16,6 +16,9 @@ var flicker_light_count := 0.0
 var play_stringer_sound_left := false
 var play_stringer_sound_right := false
 
+func _ready() -> void:
+	Events.power_off.connect(_on_power_off)
+
 func setup_animatronics_behavior(p_animatronics: Animatronics) -> void:
 	animatronics = p_animatronics
 	animatronics.bonnie.on_at_door.connect(_on_bonnie_at_door)
@@ -79,11 +82,9 @@ func _on_door_buttons_toggle_door(side: String, close: bool) -> void:
 
 func _on_door_buttons_toggle_light(side: String, on: bool) -> void:
 	if on:
-		Events.increase_power_usage.emit()
 		door_light_sound.play()
 		_play_stinger_sound(side)
 	else:
-		Events.decrease_power_usage.emit()
 		door_light_sound.stop()
 
 
@@ -95,7 +96,7 @@ func _on_door_buttons_toggle_light(side: String, on: bool) -> void:
 	else:
 		left_door.turn_off_light()
 
-func _play_stinger_sound(side):
+func _play_stinger_sound(side) -> void:
 	if side == "left" and play_stringer_sound_left:
 		stringer_sound.play()
 		play_stringer_sound_left = false
@@ -103,17 +104,20 @@ func _play_stinger_sound(side):
 		stringer_sound.play()
 		play_stringer_sound_right = false
 		
-func _on_bonnie_at_door():
+func _on_bonnie_at_door() -> void:
 	play_stringer_sound_left = true
 	
-func _on_bonnie_left_door():
+func _on_bonnie_left_door() -> void:
 	play_stringer_sound_left = false
 
-func _on_chica_at_door():
+func _on_chica_at_door() -> void:
 	play_stringer_sound_right = true
 	
-func _on_chica_left_door():
+func _on_chica_left_door() -> void:
 	play_stringer_sound_right = false
+
+func _on_power_off() -> void:
+	set_process(false)
 
 func _try_attack(animatronic: Animatronic, door: Door, imminent_death := false, instant_jumpscare := false) -> void:
 	if not door.can_enter_office():

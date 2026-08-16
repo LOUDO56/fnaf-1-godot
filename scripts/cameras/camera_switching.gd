@@ -47,6 +47,7 @@ func _ready() -> void:
 	camera_map.camera_changed.connect(animatronics.foxy.on_camera_changed)
 	
 	Events.disable_gameplay.connect(_on_disabled_gameplay)
+	Events.power_off.connect(_on_power_off)
 
 func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	if not visible:
@@ -114,3 +115,8 @@ func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraM
 func _on_disabled_gameplay() -> void:
 	monitor_animation.close_monitor()
 	breathing_behind_cam.pick_breath_sound_timer.stop()
+	
+func _on_power_off() -> void:
+	monitor_animation.close_monitor()
+	force_camera_down_timer.stop()
+	visible = false

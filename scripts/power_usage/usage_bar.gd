@@ -16,6 +16,8 @@ func _on_power_increase() -> void:
 	
 func _on_power_decrease() -> void:
 	consumption_level -= 1
+	if consumption_level <= 0:
+		consumption_level = 1
 	_update_bar()
 
 func _update_bar() -> void:

@@ -16,6 +16,7 @@ var monitor_disabled := false
 func _ready() -> void:
 	watch_cameras_animation.visible = false
 	Events.disable_gameplay.connect(_on_disable_gameplay)
+	Events.power_off.connect(_on_power_off)
 
 func _on_watch_cameras_zone_mouse_entered() -> void:
 	if monitor_disabled or not Libs.is_mouse_in_window(get_viewport()) or mouse_inside_zone or watch_cameras_animation.is_playing():
@@ -59,3 +60,7 @@ func _on_watch_monitor_animation_animation_finished() -> void:
 		
 func _on_disable_gameplay():
 	monitor_disabled = true
+	
+func _on_power_off():
+	monitor_disabled = true
+	monitor_sprite.visible = false

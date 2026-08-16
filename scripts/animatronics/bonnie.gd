@@ -1,7 +1,12 @@
 class_name Bonnie extends Animatronic
 
 const ROUTES := {
-	CameraMap.Camera.CAM_1A: [CameraMap.Camera.DOOR],
+	CameraMap.Camera.CAM_1A: [CameraMap.Camera.CAM_5, CameraMap.Camera.CAM_1B],
+	CameraMap.Camera.CAM_5:  [CameraMap.Camera.CAM_2A, CameraMap.Camera.CAM_1B],
+	CameraMap.Camera.CAM_1B: [CameraMap.Camera.CAM_2A, CameraMap.Camera.CAM_5],
+	CameraMap.Camera.CAM_2A: [CameraMap.Camera.CAM_3, CameraMap.Camera.CAM_2B],
+	CameraMap.Camera.CAM_3:  [CameraMap.Camera.CAM_2A, CameraMap.Camera.DOOR],
+	CameraMap.Camera.CAM_2B: [CameraMap.Camera.DOOR, CameraMap.Camera.CAM_3],
 }
 
 @export var breathing_sounds: Array[AudioStreamPlayer]
