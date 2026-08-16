@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dfggeq5fuuanq" path="res://scripts/camera.gd" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://7b70rlteumyy" path="res://scenes/switching_cameras.tscn" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://dudem3f6cicig" path="res://scripts/libs.gd" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://b4kfro0u777fy" path="res://scenes/ui/night_time.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://c85atmdfgp6r6" path="res://scenes/ui/power_usage.tscn" id="6_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://scenes/ui/statics.tscn" id="8_gee14"]
 [ext_resource type="Script" uid="uid://sfpdspyhj55p" path="res://scripts/death.gd" id="8_vtaks"]
@@ -32,6 +33,10 @@ animatronics = NodePath("../../Office/Animatronics")
 office = NodePath("../../Office")
 
 [node name="UI" type="Node2D" parent="." unique_id=980144219]
+
+[node name="Night Time" parent="UI" unique_id=1946143972 node_paths=PackedStringArray("game", "animatronics") instance=ExtResource("6_kvpfn")]
+game = NodePath("../..")
+animatronics = NodePath("../../Office/Animatronics")
 
 [node name="Power Usage" parent="UI" unique_id=530145606 instance=ExtResource("6_vtaks")]
 

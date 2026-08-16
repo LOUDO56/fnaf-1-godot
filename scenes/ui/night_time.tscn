@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b4kfro0u777fy"]
+
+[ext_resource type="Texture2D" uid="uid://g4d6s8hcw8l0" path="res://assets/images/3-THE_OFFICE/OTHER/AM.png" id="1_kxfli"]
+[ext_resource type="Script" uid="uid://cn81emb8540vh" path="res://scripts/ui/night_time.gd" id="1_w30q0"]
+[ext_resource type="Texture2D" uid="uid://cwq7ygvl6w05v" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/1.png" id="2_bal3p"]
+[ext_resource type="Texture2D" uid="uid://rbbdtgegmt2i" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/2.png" id="3_w30q0"]
+[ext_resource type="Texture2D" uid="uid://beka0h7o4lsvf" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/3.png" id="4_64ub8"]
+[ext_resource type="Texture2D" uid="uid://pultwlouk6db" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/4.png" id="5_am3l4"]
+[ext_resource type="Texture2D" uid="uid://d2bso0sudb7i" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/5.png" id="6_1v4m5"]
+[ext_resource type="Texture2D" uid="uid://c8rn56jt5r0eh" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/6.png" id="7_8amll"]
+
+[node name="Night Time" type="Node2D" unique_id=1946143972]
+script = ExtResource("1_w30q0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1118678683]
+layer = 3
+
+[node name="Time" type="Node2D" parent="CanvasLayer" unique_id=1255326392]
+
+[node name="AM" type="Sprite2D" parent="CanvasLayer/Time" unique_id=1418257496]
+texture_filter = 1
+position = Vector2(1224, 45)
+texture = ExtResource("1_kxfli")
+
+[node name="Digits" type="Node2D" parent="CanvasLayer/Time" unique_id=853570701]
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/Time/Digits" unique_id=912773114]
+visible = false
+texture_filter = 1
+position = Vector2(1178, 45)
+texture = ExtResource("2_bal3p")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/Time/Digits" unique_id=1357325630]
+visible = false
+texture_filter = 1
+position = Vector2(1178, 45)
+texture = ExtResource("3_w30q0")
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/Time/Digits" unique_id=1916169938]
+visible = false
+texture_filter = 1
+position = Vector2(1178, 45)
+texture = ExtResource("4_64ub8")
+
+[node name="4" type="Sprite2D" parent="CanvasLayer/Time/Digits" unique_id=912951049]
+visible = false
+texture_filter = 1
+position = Vector2(1178, 45)
+texture = ExtResource("5_am3l4")
+
+[node name="5" type="Sprite2D" parent="CanvasLayer/Time/Digits" unique_id=1607318795]
+visible = false
+texture_filter = 1
+position = Vector2(1178, 45)
+texture = ExtResource("6_1v4m5")
+
+[node name="6" type="Sprite2D" parent="CanvasLayer/Time/Digits" unique_id=1506000786]
+visible = false
+texture_filter = 1
+position = Vector2(1178, 45)
+texture = ExtResource("7_8amll")
+
+[node name="12" type="Node2D" parent="CanvasLayer/Time/Digits" unique_id=1566497886]
+position = Vector2(-12, 10)
+metadata/_edit_group_ = true
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/Time/Digits/12" unique_id=1354512562]
+texture_filter = 1
+position = Vector2(1169, 36)
+texture = ExtResource("2_bal3p")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/Time/Digits/12" unique_id=74273052]
+texture_filter = 1
+position = Vector2(1191, 36)
+texture = ExtResource("3_w30q0")
+
+[node name="Instant Success" type="Button" parent="CanvasLayer" unique_id=69048970]
+visible = false
+offset_left = 1139.0
+offset_top = 68.0
+offset_right = 1237.0
+offset_bottom = 99.0
+text = "Finish night"
+
+[connection signal="pressed" from="CanvasLayer/Instant Success" to="." method="_on_instant_success_pressed"]

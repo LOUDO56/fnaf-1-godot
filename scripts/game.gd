@@ -1,4 +1,4 @@
-extends Node2D
+class_name Game extends Node2D
 
 @export var office: Office
 @export var animatronics: Animatronics
@@ -9,6 +9,7 @@ extends Node2D
 @onready var jumpscare_timer := $"Jumpscare Timer"
 @onready var death_layer := $"Death Layer"
 @onready var jumpscare_sound := $"Office/Animatronics/Default Jumpscare Audio"
+@onready var success_screen := preload("res://scenes/succeed_nigtht_animation.tscn").instantiate()
 
 func _ready() -> void:
 	doors.setup_animatronics_behavior(animatronics)
@@ -28,8 +29,12 @@ func _on_monitor_opened() -> void:
 	
 func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	office_camera.set_process(true)
+	
+func success_night():
+	process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().root.add_child(success_screen)
 
-func _on_jumpscare_started(time: float, animatronic: Animatronic) -> void:
+func _on_jumpscare_started(time: float, _animatronic: Animatronic) -> void:
 	Globals.state = Globals.State.DIED
 	office.set_process(PROCESS_MODE_DISABLED)
 	jumpscare_timer.start(time)

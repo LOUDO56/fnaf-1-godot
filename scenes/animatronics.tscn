@@ -461,7 +461,7 @@ script = ExtResource("1_cweo8")
 [node name="Bonnie" type="Node2D" parent="." unique_id=1439423576 node_paths=PackedStringArray("breathing_sounds", "step_sound", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("2_cweo8")
 breathing_sounds = [NodePath("../Breath 1"), NodePath("../Breath 2"), NodePath("../Breath 3"), NodePath("../Breath 4")]
-ai_level = 10
+ai_level = 5
 movement_timer_seconds = 4.97
 step_sound = NodePath("../Step Audio")
 jumpscare_animation = NodePath("Jumpscare")
@@ -477,7 +477,7 @@ centered = false
 [node name="Chica" type="Node2D" parent="." unique_id=1463412259 node_paths=PackedStringArray("breathing_sounds", "step_sound", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("3_yemax")
 breathing_sounds = [NodePath("../Breath 1"), NodePath("../Breath 2"), NodePath("../Breath 3"), NodePath("../Breath 4")]
-ai_level = 10
+ai_level = 7
 movement_timer_seconds = 4.98
 step_sound = NodePath("../Step Audio")
 jumpscare_animation = NodePath("Jumpscare")
@@ -511,7 +511,7 @@ centered = false
 [node name="Freddy" type="Node2D" parent="." unique_id=1373339142 node_paths=PackedStringArray("jumpscare_light_out_animation", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("8_e6oyr")
 jumpscare_light_out_animation = NodePath("Jumpscare Light Out")
-ai_level = 10
+ai_level = 3
 movement_timer_seconds = 3.02
 jumpscare_animation = NodePath("Jumpscare")
 jumpscare_audio = NodePath("../Default Jumpscare Audio")
@@ -562,7 +562,7 @@ centered = false
 
 [node name="Foxy" type="Node2D" parent="." unique_id=581834715 node_paths=PackedStringArray("step_sound", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("13_ns5r7")
-ai_level = 10
+ai_level = 5
 movement_timer_seconds = 5.01
 step_sound = NodePath("Run Audio")
 jumpscare_animation = NodePath("Jumpscare")
