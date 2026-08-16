@@ -1,6 +1,6 @@
 @abstract class_name Animatronic extends Node2D
 
-signal on_animatronic_moved(old_position, new_position)
+signal animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera)
 signal on_at_door()
 signal on_left_door()
 signal on_try_attack()
@@ -61,7 +61,7 @@ func _try_to_move() -> void:
 	_define_random_variant()
 	move_ai()
 	_play_step_sound()
-	on_animatronic_moved.emit(old_position, current_position)
+	animatronic_moved.emit(old_position, current_position)
 	
 	if at_door():
 		on_at_door.emit()

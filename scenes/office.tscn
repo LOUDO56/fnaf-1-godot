@@ -226,10 +226,11 @@ texture = ExtResource("8_70iqj")
 centered = false
 
 [node name="Fan" type="AnimatedSprite2D" parent="." unique_id=110171421]
+z_index = 1
 position = Vector2(847, 401)
 sprite_frames = SubResource("SpriteFrames_blegu")
 autoplay = "default"
-frame_progress = 0.42978808
+frame = 2
 
 [node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738 groups=["ambiance"]]
 stream = ExtResource("5_qphb6")

@@ -11,7 +11,8 @@ var freddy_max_countdown: float
 var freddy_move_countdown := 0.0
 var succeed_last_movement := false
 var attack_mode := false
-var blocked_on_stage := true
+var bonnie_left_stage := false
+var chica_left_stage := false
 
 const ROUTES := {
 	CameraMap.Camera.CAM_1A: [CameraMap.Camera.CAM_1B],
@@ -51,6 +52,8 @@ func get_character() -> Animatronics.Character:
 	return Animatronics.Character.FREDDY
 
 func step_back():
+	if is_stalled:
+		return
 	_play_laugh()
 	_attack_blocked()
 
@@ -97,7 +100,7 @@ func reset_freddy_countdown() -> void:
 	freddy_move_countdown = 0
 	
 func allow_moving() -> void:
-	if blocked_on_stage:
+	if not chica_left_stage or not bonnie_left_stage:
 		return
 	super.allow_moving()
 
@@ -111,11 +114,37 @@ func _play_laugh():
 	
 func _on_move_freddy_pressed() -> void:
 	is_stalled = false
-	blocked_on_stage = false
+	bonnie_left_stage = true
+	chica_left_stage = true
 	_move_freddy()
-
 
 func _on_freddy_jumpscare_timer_timeout() -> void:
 	if randf() < 0.25 and not is_stalled:
 		play_jumpscare()
 		freddy_jumpscare_timer.stop()
+		
+func on_monitor_closed(last_camera_viewed: CameraMap.Camera) -> void:
+	if not attack_mode or last_camera_viewed != CameraMap.Camera.CAM_4B:
+		allow_moving()
+	decrease_jingle()
+	
+func on_monitor_opened() -> void:
+	block_moving()
+
+func on_camera_changed(camera: CameraMap.Camera) -> void:
+	if camera == current_position:
+		reset_freddy_countdown()
+	if attack_mode and camera != CameraMap.Camera.CAM_4B:
+		on_try_attack.emit()
+	if camera == CameraMap.Camera.CAM_6:
+		increase_jingle()
+	else:
+		decrease_jingle()
+
+func on_bonnie_move(old_position: CameraMap.Camera, _new_position: CameraMap.Camera):
+	if old_position == CameraMap.Camera.CAM_1A:
+		bonnie_left_stage = true
+	
+func on_chica_move(old_position: CameraMap.Camera, _new_position: CameraMap.Camera):
+	if old_position == CameraMap.Camera.CAM_1A:
+		chica_left_stage = true

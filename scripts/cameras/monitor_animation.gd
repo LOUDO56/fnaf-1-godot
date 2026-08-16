@@ -1,12 +1,13 @@
 class_name MonitorAnimation extends Node2D
 
 signal monitor_opened()
-signal monitor_closed()
+signal monitor_closed(last_camera_viewed: CameraMap.Camera)
+
+@export var camera_switching: CameraSwitching
 
 @onready var watch_cameras_animation: AnimatedSprite2D = $"Watch Monitor Animation"
 @onready var monitor_camera_sound = $"Monitor Camera Sound"
 @onready var monitor_sprite = $"Monitor Sprite"
-
 
 var mouse_inside_zone := false
 var is_watching_cameras := false
@@ -36,7 +37,7 @@ func close_monitor():
 	watch_cameras_animation.visible = true
 	watch_cameras_animation.play_backwards("default")
 	is_watching_cameras = false
-	monitor_closed.emit()
+	monitor_closed.emit(camera_switching.current_camera)
 
 func open_monitor():
 	if is_watching_cameras:

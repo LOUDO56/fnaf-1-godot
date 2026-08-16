@@ -20,13 +20,18 @@ func setup_animatronics_behavior(p_animatronics: Animatronics) -> void:
 	animatronics = p_animatronics
 	animatronics.bonnie.on_at_door.connect(_on_bonnie_at_door)
 	animatronics.bonnie.on_left_door.connect(_on_bonnie_left_door)
-	animatronics.bonnie.on_try_attack.connect(_on_bonnie_try_attack)
-	animatronics.foxy.on_try_attack.connect(_on_foxy_try_attack)
 	
 	animatronics.chica.on_at_door.connect(_on_chica_at_door)
 	animatronics.chica.on_left_door.connect(_on_chica_left_door)
-	animatronics.chica.on_try_attack.connect(_on_chica_try_attack)
-	animatronics.freddy.on_try_attack.connect(_on_freddy_try_attack)
+
+	animatronics.bonnie.on_try_attack.connect(
+		func(): _try_attack(animatronics.bonnie, left_door, true))
+	animatronics.chica.on_try_attack.connect(
+		func(): _try_attack(animatronics.chica, right_door, true))
+	animatronics.freddy.on_try_attack.connect(
+		func(): _try_attack(animatronics.freddy, right_door))
+	animatronics.foxy.on_try_attack.connect(
+		func(): _try_attack(animatronics.foxy, left_door, false, true))
 
 func _process(delta: float) -> void:
 	flicker_light_count += delta
@@ -99,38 +104,21 @@ func _on_bonnie_at_door():
 	
 func _on_bonnie_left_door():
 	play_stringer_sound_left = false
-	
-func _on_bonnie_try_attack():
-	if not left_door.can_enter_office():
-		animatronics.bonnie.step_back()
-	else:
-		animatronics.bonnie.enter_office()
-		left_door.enter_imminent_death()
-	
+
 func _on_chica_at_door():
 	play_stringer_sound_right = true
 	
 func _on_chica_left_door():
 	play_stringer_sound_right = false
-	
-func _on_chica_try_attack():
-	if not right_door.can_enter_office():
-		animatronics.chica.step_back()
-	else:
-		animatronics.chica.enter_office()
-		right_door.enter_imminent_death()
-		
-func _on_freddy_try_attack():
-	if not right_door.can_enter_office():
-		animatronics.freddy.step_back()
-	else:
-		animatronics.freddy.enter_office()
-		
-func _on_foxy_try_attack():
-	if not left_door.can_enter_office():
-		animatronics.foxy.step_back()
-	else:
-		animatronics.foxy.enter_office()
-		animatronics.foxy.play_jumpscare()
+
+func _try_attack(animatronic: Animatronic, door: Door, imminent_death := false, instant_jumpscare := false) -> void:
+	if not door.can_enter_office():
+		animatronic.step_back()
+		return
+	animatronic.enter_office()
+	if imminent_death:
+		door.enter_imminent_death()
+	if instant_jumpscare:
+		animatronic.play_jumpscare()
 		
 		

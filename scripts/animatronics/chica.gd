@@ -28,7 +28,12 @@ func move_ai() -> void:
 		kitchen_audio_interval.stop()
 		if current_kitchen_mess_audio != null:
 			current_kitchen_mess_audio.stop()
-			
+
+func play_jumpscare() -> void:
+	for breathing_sound in breathing_sounds:
+		breathing_sound.stop()
+	super.play_jumpscare()
+
 func get_character() -> Animatronics.Character:
 	return Animatronics.Character.CHICA
 
@@ -55,3 +60,14 @@ func _on_kitchen_audio_interval_timeout() -> void:
 
 func _on_disabled_gameplay() -> void:
 	kitchen_audio_interval.stop()
+	
+func on_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
+	decrease_kitchen_sound()
+	if current_position == CameraMap.Camera.OFFICE:
+		play_jumpscare()
+	
+func on_camera_changed(camera: CameraMap.Camera) -> void:
+	if camera == CameraMap.Camera.CAM_6:
+		increase_kitchen_sound()
+	else:
+		decrease_kitchen_sound()

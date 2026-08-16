@@ -1,89 +1,60 @@
-extends Node2D
+class_name CameraSwitching extends Node2D
 
-const CAMERA_SPEED = 75
-const FLICKER_TIMER = 0.027
+signal sprite_changed(camera_sprite_width: float)
 
 @export var animatronics: Animatronics
 @export var office: Office
 
 @onready var current_camera := CameraMap.Camera.CAM_1A
-@onready var statics := $"CanvasLayer/Cameras/Statics"
-@onready var white_bars: WhiteBars = $"CanvasLayer/Cameras/White Bars"
 @onready var camera_moving_audio := $"CanvasLayer/Cameras/Audio/Camera Moving Audio"
 @onready var monitor_view := $"MonitorView"
 @onready var monitor_animation: MonitorAnimation = $"CanvasLayer/Monitor"
-@onready var cooldown_camera_side := $"Cooldown Camera Side"
-@onready var camera_outline := $"CanvasLayer/Cameras/Camera Outline"
 @onready var camera_map: CameraMap = $"CanvasLayer/Cameras/Camera Map"
 @onready var camera_disabled_text := $"CanvasLayer/Cameras/Camera Disabled Text"
-@onready var camera_garble_sounds := [$"CanvasLayer/Cameras/Audio/Camera Garble 1", $"CanvasLayer/Cameras/Audio/Camera Garble 2", $"CanvasLayer/Cameras/Audio/Camera Garble 3"]
-@onready var garble_sprite := $"Points/Garble"
-@onready var garble_timer := $"Points/Garble/Garble Timer"
-@onready var foxy_running_animation := $"Points/CAM 4A (East Hall)/Foxy Running"
+@onready var foxy_running_animation := $"Camera Sprites/Points/CAM 4A (East Hall)/Foxy Running"
 @onready var force_camera_down_timer := $"Force Camera Down"
-@onready var pick_breath_sound_timer := $"Pick Breath Sound"
+@onready var camera_sprites := $"Camera Sprites"
+@onready var garble_effect := $"Camera Effects/Garble Effect"
+@onready var breathing_behind_cam := $"Breath Behind Camera"
 
-var camera_position_x := 0.0
-var moving_side = "right"
-var camera_moving = true
 var current_camera_sprite: Sprite2D
 var current_camera_sprite_width: float
-var flicker_time: float
 var right_door: Door
 
 func _ready() -> void:
 	visible = false
-	right_door = office.doors.right_door;
-	animatronics.bonnie.on_animatronic_moved.connect(_on_animatronic_moved)
-	animatronics.chica.on_animatronic_moved.connect(_on_animatronic_moved)
+	camera_sprites.setup(animatronics)
+	breathing_behind_cam.setup(animatronics)
+	
+	animatronics.bonnie.animatronic_moved.connect(_on_animatronic_moved)
+	animatronics.chica.animatronic_moved.connect(_on_animatronic_moved)
+	
+	# Freddy
+	monitor_animation.monitor_closed.connect(animatronics.freddy.on_monitor_closed)
+	monitor_animation.monitor_opened.connect(animatronics.freddy.on_monitor_opened)
+	camera_map.camera_changed.connect(animatronics.freddy.on_camera_changed)
+	
+	# Bonnie
+	monitor_animation.monitor_closed.connect(animatronics.bonnie.on_monitor_closed)
+	
+	# Chica
+	monitor_animation.monitor_closed.connect(animatronics.chica.on_monitor_closed)
+	camera_map.camera_changed.connect(animatronics.chica.on_camera_changed)
+	
+	# Foxy
+	monitor_animation.monitor_opened.connect(animatronics.foxy.on_monitor_open)
+	monitor_animation.monitor_closed.connect(animatronics.foxy.on_monitor_closed)
+	camera_map.camera_changed.connect(animatronics.foxy.on_camera_changed)
+	
 	Events.disable_gameplay.connect(_on_disabled_gameplay)
 
-func _process(delta: float) -> void:
-
-	if camera_moving and current_camera_sprite_width:
-		if moving_side == "right":
-			monitor_view.position.x += CAMERA_SPEED * delta
-		else:
-			monitor_view.position.x -= CAMERA_SPEED * delta
-		
-		if monitor_view.position.x >= current_camera_sprite_width:
-			moving_side = "left"
-			camera_moving = false
-			cooldown_camera_side.start()
-		if monitor_view.position.x <= 0:
-			moving_side = "right"
-			camera_moving = false
-			cooldown_camera_side.start()
-		
-	flicker_time += delta
-	if flicker_time >= FLICKER_TIMER:
-		if current_camera == CameraMap.Camera.CAM_2A:
-			_change_sprite(_get_west_hall_sprite())
-		var random = randf_range(0.05, 0.35)
-		statics.modulate.a = random
-		flicker_time = 0.0
-
-func _on_monitor_monitor_closed() -> void:
+func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	if not visible:
 		return
 	visible = false
 	camera_disabled_text.visible = false
 	camera_moving_audio.stop()
 	$CanvasLayer/Cameras.visible = false
-	animatronics.chica.decrease_kitchen_sound()
-	_stop_garble_camera()
-	for camera_garble_sound in camera_garble_sounds:
-		camera_garble_sound.stop()
-	if not animatronics.freddy.attack_mode or current_camera != CameraMap.Camera.CAM_4B:
-		animatronics.freddy.allow_moving()
-	animatronics.foxy.trigger_always_fail()
-	_handle_freddy_jingle_volume()
-	
-	var animatronic_in_office = animatronics.get_animatronic_in_office()
-	if animatronic_in_office != null and Globals.state != Globals.State.DIED:
-		var animatronic_character := animatronic_in_office.get_character()
-		if animatronic_character == Animatronics.Character.BONNIE or animatronic_character == Animatronics.Character.CHICA:
-			animatronic_in_office.play_jumpscare()
 	
 	foxy_running_animation.visible = false
 
@@ -91,223 +62,53 @@ func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
 	monitor_view.make_current()
 	visible = true
-	_change_sprite(_get_sprite_from_camera(current_camera))
+	change_sprite(camera_sprites.get_sprite_from_camera(current_camera))
 	camera_moving_audio.play()
-	camera_map.select_camera(camera_map.selected_camera_id)
-	animatronics.freddy.block_moving()
-	animatronics.foxy.block_moving()
+	camera_map.select_camera(camera_map.selected_camera)
 	if animatronics.bonnie.in_office() or animatronics.chica.in_office():
 		force_camera_down_timer.start()
-		pick_breath_sound_timer.start()
 	
-func _on_camera_map_camera_changed(id: CameraMap.Camera) -> void:
-	if id != CameraMap.Camera.CAM_6:
-		animatronics.chica.decrease_kitchen_sound()
-	current_camera = id
-	_change_sprite(_get_sprite_from_camera(id))
-	if animatronics.freddy.current_position == current_camera:
-		animatronics.freddy.reset_freddy_countdown()
-	if animatronics.freddy.attack_mode and current_camera != CameraMap.Camera.CAM_4B and right_door.can_enter_office():
-		animatronics.freddy.on_try_attack.emit()
-	_handle_freddy_jingle_volume()
+func _on_camera_map_camera_changed(camera: CameraMap.Camera) -> void:
+	current_camera = camera
+	change_sprite(camera_sprites.get_sprite_from_camera(camera))
 	if animatronics.foxy.is_coming() and current_camera == CameraMap.Camera.CAM_2A:
-		animatronics.foxy.accelerate_foxy_attack()
-		animatronics.foxy.step_sound.play()
 		foxy_running_animation.play("default")
 		foxy_running_animation.visible = true
 	else:
 		foxy_running_animation.visible = false
 		
 	
-func _change_sprite(new_sprite: Sprite2D) -> void:
+func change_sprite(new_sprite: Sprite2D) -> void:
 	_hide_all_camera()
 	current_camera_sprite = new_sprite
 	current_camera_sprite.visible = true
-	current_camera_sprite_width = current_camera_sprite.texture.get_width() - get_viewport_rect().size.x
-	if camera_map.selected_camera_id == CameraMap.Camera.CAM_6:
+	sprite_changed.emit(current_camera_sprite.texture.get_width())
+	if camera_map.selected_camera == CameraMap.Camera.CAM_6:
 		animatronics.chica.increase_kitchen_sound()
+		
+func reload_current_camera_sprite() -> void:
+	change_sprite(camera_sprites.get_sprite_from_camera(current_camera))
+		
+func _on_flicker_light_west_hall() -> void:
+	if current_camera != CameraMap.Camera.CAM_2A:
+		return
+	change_sprite(camera_sprites.get_sprite_from_camera(CameraMap.Camera.CAM_2A))
 	
 func _hide_all_camera():
-	for child in get_node("Points").get_children():
+	for child in camera_sprites.get_node("Points").get_children():
 		for sprite in child.get_children():
 			if sprite is Sprite2D:
 				sprite.visible = false
-
-func _on_cooldown_camera_side_timeout() -> void:
-	camera_moving = true
 	
 func _on_force_camera_down_timeout() -> void:
 	if Globals.state != Globals.State.OFFICE:
 		return
 	animatronics.get_animatronic_in_office().play_jumpscare()
 	
-func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera) -> void:
-	if not animatronics.chica.on_stage() and not animatronics.bonnie.on_stage() and animatronics.freddy.on_stage():
-		animatronics.freddy.blocked_on_stage = false
-		if not visible:
-			animatronics.freddy.allow_moving()
+func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera):
 	if visible and (old_position == current_camera or new_position == current_camera):
-		_garble_camera()
+		garble_effect.garble_camera()
 
 func _on_disabled_gameplay() -> void:
 	monitor_animation.close_monitor()
-	pick_breath_sound_timer.stop()
-
-func _handle_freddy_jingle_volume():
-	if current_camera == CameraMap.Camera.CAM_6:
-		animatronics.freddy.increase_jingle()
-	else:
-		animatronics.freddy.decrease_jingle()
-			
-func _garble_camera() -> void:
-	if current_camera == CameraMap.Camera.CAM_6:
-		return
-	garble_timer.start()
-	camera_garble_sounds.pick_random().play()
-	garble_sprite.visible = true
-	_change_sprite(_get_sprite_from_camera(current_camera))
-
-func _stop_garble_camera() -> void:	
-	garble_sprite.visible = false
-	garble_timer.stop()
-	
-func _on_garble_timer_timeout() -> void:
-	_stop_garble_camera()
-	
-func _on_pick_breath_sound_timeout() -> void:
-	var animatronic_office = animatronics.get_animatronic_in_office()
-	var animatronic_character = animatronic_office.get_character()
-	if animatronic_character == Animatronics.Character.BONNIE or animatronic_character == Animatronics.Character.CHICA:
-		animatronic_office.breathing_sounds.pick_random().play()
-
-func _get_sprite_from_camera(camera: CameraMap.Camera) -> Sprite2D:
-	camera_disabled_text.visible = false
-	match camera:
-		CameraMap.Camera.CAM_1A:
-			return _get_show_stage_sprite()
-		CameraMap.Camera.CAM_1B:
-			return _get_diner_area_sprite()
-		CameraMap.Camera.CAM_1C:
-			return _get_pirate_cove_sprite()
-		CameraMap.Camera.CAM_2A:
-			return _get_west_hall_sprite()
-		CameraMap.Camera.CAM_2B:
-			return _get_west_hall_corner_sprite()
-		CameraMap.Camera.CAM_3:
-			return _get_supply_closet_sprite()
-		CameraMap.Camera.CAM_4A:
-			return _get_east_hall_sprite()
-		CameraMap.Camera.CAM_4B:
-			return _get_east_hall_corner_sprite()
-		CameraMap.Camera.CAM_5:
-			return _get_backstage_sprite()
-		CameraMap.Camera.CAM_6:
-			camera_disabled_text.visible = true
-			return _get_kitchen_sprite()
-		CameraMap.Camera.CAM_7:
-			return _get_restrooms_sprite()
-	return _get_show_stage_sprite()
-	
-func _get_show_stage_sprite() -> Sprite2D:
-	if not animatronics.bonnie.on_stage() and not animatronics.chica.on_stage() and not animatronics.freddy.on_stage():
-		return $"Points/CAM 1A (Show Stage)/No Animatronics"
-	elif not animatronics.bonnie.on_stage() and not animatronics.chica.on_stage():
-		return $"Points/CAM 1A (Show Stage)/Freddy"
-	elif not animatronics.bonnie.on_stage():
-		return $"Points/CAM 1A (Show Stage)/Freddy Chica"
-	elif not animatronics.chica.on_stage():
-		return $"Points/CAM 1A (Show Stage)/Bonnie Freddy"
-	return $"Points/CAM 1A (Show Stage)/Every Animatronics"
-	
-func _get_diner_area_sprite() -> Sprite2D:
-	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_1B and animatronics.chica.current_position == CameraMap.Camera.CAM_1B:
-		return $"Points/CAM 1B (Dining Area)/Chica 2"
-	elif animatronics.bonnie.current_position == CameraMap.Camera.CAM_1B:
-		if animatronics.bonnie.variant == 0:
-			return $"Points/CAM 1B (Dining Area)/Bonnie"
-		else:
-			return $"Points/CAM 1B (Dining Area)/Bonnie 2"
-	elif animatronics.chica.current_position == CameraMap.Camera.CAM_1B:
-		return $"Points/CAM 1B (Dining Area)/Chica"
-	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_1B:
-		return $"Points/CAM 1B (Dining Area)/Freddy"
-	return $"Points/CAM 1B (Dining Area)/No Animatronic"
-
-func _get_pirate_cove_sprite() -> Sprite2D:
-	match animatronics.foxy.step_attack:
-		0:
-			return $"Points/CAM 1C (Pirate Cove)/Idle"
-		1:
-			return $"Points/CAM 1C (Pirate Cove)/1"
-		2:
-			return $"Points/CAM 1C (Pirate Cove)/2"
-		3:
-			if randi_range(0, 10) == 0:
-				return $"Points/CAM 1C (Pirate Cove)/It's me"
-			else:
-				return $"Points/CAM 1C (Pirate Cove)/3"
-	return $"Points/CAM 1C (Pirate Cove)/Idle"
-	
-func _get_west_hall_sprite() -> Sprite2D:
-	if animatronics.foxy.is_coming():
-		return $"Points/CAM 2A (West Hall)/No Light"
-	if (randi() % 10 >= 7):
-		if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2A:
-			return $"Points/CAM 2A (West Hall)/Light Bonnie"
-		else:
-			return $"Points/CAM 2A (West Hall)/Light"
-	else:
-		return $"Points/CAM 2A (West Hall)/No Light"
-
-func _get_west_hall_corner_sprite() -> Sprite2D:
-	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2B:
-		# TODO: glitch variant?
-		return $"Points/CAM 2B (W Hall Corner)/Bonnie"
-	else:
-		return $"Points/CAM 2B (W Hall Corner)/No Animatronic"
-	
-func _get_supply_closet_sprite() -> Sprite2D:
-	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_3:
-		return $"Points/CAM 3 (Supply Closet)/Bonnie"
-	else:
-		return $"Points/CAM 3 (Supply Closet)/No Animatronic"
-	
-func _get_east_hall_sprite() -> Sprite2D:
-	if animatronics.chica.current_position == CameraMap.Camera.CAM_4A:
-		if animatronics.chica.variant == 0:
-			return $"Points/CAM 4A (East Hall)/Chica"
-		else:
-			return $"Points/CAM 4A (East Hall)/Chica 2"
-	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_4A:
-		return $"Points/CAM 4A (East Hall)/Freddy"
-	return $"Points/CAM 4A (East Hall)/No Animatronic"
-
-func _get_east_hall_corner_sprite() -> Sprite2D:
-	if animatronics.chica.current_position == CameraMap.Camera.CAM_4B:
-		#TODO: glitch variant?
-		return $"Points/CAM 4B (E Hall Corner)/Chica"
-	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_4B:
-		return $"Points/CAM 4B (E Hall Corner)/Freddy"
-	return $"Points/CAM 4B (E Hall Corner)/No Animatronic"
-	
-func _get_backstage_sprite() -> Sprite2D:
-	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_5:
-		if animatronics.bonnie.variant == 0:
-			return $"Points/CAM 5 (Backstage)/Bonnie"
-		else:
-			return $"Points/CAM 5 (Backstage)/Bonnie 2"
-	return $"Points/CAM 5 (Backstage)/No Animatronic"
-	
-func _get_kitchen_sprite() -> Sprite2D:
-	return $"Points/CAM 6 (Kitchen)/Nothing"
-	
-func _get_restrooms_sprite() -> Sprite2D:
-	if animatronics.chica.current_position == CameraMap.Camera.CAM_7:
-		if animatronics.chica.variant == 0:
-			return $"Points/CAM 7 (Restrooms)/Chica"
-		else:
-			return $"Points/CAM 7 (Restrooms)/Chica 2"
-	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_7:
-			return $"Points/CAM 7 (Restrooms)/Freddy"
-	return $"Points/CAM 7 (Restrooms)/No Animatronic"
-	
+	breathing_behind_cam.pick_breath_sound_timer.stop()

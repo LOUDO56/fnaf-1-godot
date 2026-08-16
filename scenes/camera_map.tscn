@@ -64,7 +64,7 @@ texture = ExtResource("4_3woce")
 
 [node name="CAM 1B (Dining Area)" parent="Map" unique_id=1580857056 instance=ExtResource("3_qnfdv")]
 position = Vector2(-88, -104)
-id = 1
+camera = 1
 name_texture = ExtResource("7_euqvx")
 metadata/_edit_group_ = true
 
@@ -74,7 +74,7 @@ texture = ExtResource("5_mehrd")
 
 [node name="CAM 1C (Pirate Cove)" parent="Map" unique_id=1687972551 instance=ExtResource("3_qnfdv")]
 position = Vector2(-115, -22)
-id = 2
+camera = 2
 name_texture = ExtResource("9_xwb6f")
 metadata/_edit_group_ = true
 
@@ -84,7 +84,7 @@ texture = ExtResource("6_bjnf8")
 
 [node name="CAM 2A (West Hall)" parent="Map" unique_id=731321539 instance=ExtResource("3_qnfdv")]
 position = Vector2(-64, 92)
-id = 3
+camera = 3
 name_texture = ExtResource("11_q5yn7")
 metadata/_edit_group_ = true
 
@@ -94,7 +94,7 @@ texture = ExtResource("7_3woce")
 
 [node name="CAM 2B (W Hall Corner)" parent="Map" unique_id=449826847 instance=ExtResource("3_qnfdv")]
 position = Vector2(-64, 131)
-id = 4
+camera = 4
 name_texture = ExtResource("13_xwb6f")
 metadata/_edit_group_ = true
 
@@ -104,7 +104,7 @@ texture = ExtResource("7_6wb6y")
 
 [node name="CAM 3 (Supply Closet)" parent="Map" unique_id=297510203 instance=ExtResource("3_qnfdv")]
 position = Vector2(-142, 70)
-id = 5
+camera = 5
 name_texture = ExtResource("15_go3g4")
 metadata/_edit_group_ = true
 
@@ -115,7 +115,7 @@ texture = ExtResource("8_fnjts")
 
 [node name="CAM 4A (East Hall)" parent="Map" unique_id=543480939 instance=ExtResource("3_qnfdv")]
 position = Vector2(41, 92)
-id = 6
+camera = 6
 name_texture = ExtResource("17_nuhxw")
 metadata/_edit_group_ = true
 
@@ -125,7 +125,7 @@ texture = ExtResource("9_tahph")
 
 [node name="CAM 4B (E Hall Corner)" parent="Map" unique_id=1452548291 instance=ExtResource("3_qnfdv")]
 position = Vector2(41, 131)
-id = 7
+camera = 7
 name_texture = ExtResource("13_404jv")
 metadata/_edit_group_ = true
 
@@ -135,7 +135,7 @@ texture = ExtResource("10_rwre8")
 
 [node name="CAM 5 (Backstage)" parent="Map" unique_id=909134953 instance=ExtResource("3_qnfdv")]
 position = Vector2(-189, -74)
-id = 8
+camera = 8
 name_texture = ExtResource("20_8emqq")
 metadata/_edit_group_ = true
 
@@ -145,7 +145,7 @@ texture = ExtResource("11_iytmj")
 
 [node name="CAM 6 (Kitchen)" parent="Map" unique_id=442027099 instance=ExtResource("3_qnfdv")]
 position = Vector2(145, 54)
-id = 9
+camera = 9
 name_texture = ExtResource("22_wiai7")
 metadata/_edit_group_ = true
 
@@ -155,7 +155,7 @@ texture = ExtResource("12_oh77v")
 
 [node name="CAM 7 (Restrooms)" parent="Map" unique_id=1944400073 instance=ExtResource("3_qnfdv")]
 position = Vector2(148, -78)
-id = 10
+camera = 10
 name_texture = ExtResource("24_0tdn1")
 metadata/_edit_group_ = true
 
@@ -174,14 +174,15 @@ stream = ExtResource("16_6wb6y")
 
 [node name="White Bars Camera" parent="CanvasLayer" unique_id=707425992 instance=ExtResource("17_fnjts")]
 
-[connection signal="on_camera_point_clicked" from="Map/CAM 1A (Show Stage)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 1B (Dining Area)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 1C (Pirate Cove)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 2A (West Hall)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 2B (W Hall Corner)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 3 (Supply Closet)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 4A (East Hall)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 4B (E Hall Corner)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 5 (Backstage)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 6 (Kitchen)" to="." method="_on_camera_point_clicked"]
-[connection signal="on_camera_point_clicked" from="Map/CAM 7 (Restrooms)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_changed" from="." to="Map/CAM 1A (Show Stage)" method="_on_camera_map_camera_changed"]
+[connection signal="camera_point_clicked" from="Map/CAM 1A (Show Stage)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 1B (Dining Area)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 1C (Pirate Cove)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 2A (West Hall)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 2B (W Hall Corner)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 3 (Supply Closet)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 4A (East Hall)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 4B (E Hall Corner)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 5 (Backstage)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 6 (Kitchen)" to="." method="_on_camera_point_clicked"]
+[connection signal="camera_point_clicked" from="Map/CAM 7 (Restrooms)" to="." method="_on_camera_point_clicked"]

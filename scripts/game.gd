@@ -13,14 +13,19 @@ extends Node2D
 func _ready() -> void:
 	doors.setup_animatronics_behavior(animatronics)
 	office.listen_flip_events(monitor_animation, office_camera)
+	
 	monitor_animation.monitor_opened.connect(_on_monitor_opened)
 	monitor_animation.monitor_closed.connect(_on_monitor_closed)
+	
+	animatronics.bonnie.animatronic_moved.connect(animatronics.freddy.on_bonnie_move)
+	animatronics.chica.animatronic_moved.connect(animatronics.freddy.on_chica_move)
+	
 	Events.jumpscare_started.connect(_on_jumpscare_started)
 	
 func _on_monitor_opened() -> void:
 	office_camera.set_process(false)
 	
-func _on_monitor_closed() -> void:
+func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	office_camera.set_process(true)
 
 func _on_jumpscare_started(time: float) -> void:

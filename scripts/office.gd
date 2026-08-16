@@ -28,7 +28,7 @@ func _on_monitor_opened():
 func hide_doors():
 	doors.visible = false
 
-func _on_monitor_closed():
+func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera):
 	office_camera.make_current()
 	visible = true
 	fan_audio.volume_db += 10

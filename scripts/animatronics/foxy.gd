@@ -54,6 +54,7 @@ func trigger_always_fail() -> void:
 
 func _on_always_fail_timer_timeout() -> void:
 	always_fail_mode = false
+	allow_moving()
 
 func _play_step_sound() -> void:
 	pass
@@ -62,3 +63,14 @@ func _on_foxy_attack_timer_timeout() -> void:
 	if step_attack < 3:
 		return
 	on_try_attack.emit()
+	
+func on_monitor_open() -> void:
+	block_moving()
+
+func on_monitor_closed(_last_camera_view: CameraMap.Camera) -> void:
+	trigger_always_fail()
+
+func on_camera_changed(camera: CameraMap.Camera) -> void:
+	if is_coming() and camera == CameraMap.Camera.CAM_2A:
+		accelerate_foxy_attack()
+		step_sound.play()
