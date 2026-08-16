@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dfggeq5fuuanq" path="res://scripts/camera.gd" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://7b70rlteumyy" path="res://scenes/switching_cameras.tscn" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://dudem3f6cicig" path="res://scripts/libs.gd" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://c85atmdfgp6r6" path="res://scenes/ui/power_usage.tscn" id="6_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://scenes/ui/statics.tscn" id="8_gee14"]
 [ext_resource type="Script" uid="uid://sfpdspyhj55p" path="res://scripts/death.gd" id="8_vtaks"]
 [ext_resource type="AudioStream" uid="uid://bia1ot4nsv48b" path="res://assets/audio/static.wav" id="9_0tnpc"]
@@ -30,15 +31,16 @@ animatronics = NodePath("../Office/Animatronics")
 animatronics = NodePath("../../Office/Animatronics")
 office = NodePath("../../Office")
 
-[node name="Libs" type="Node2D" parent="." unique_id=365965140]
-script = ExtResource("5_iywne")
+[node name="UI" type="Node2D" parent="." unique_id=980144219]
+
+[node name="Power Usage" parent="UI" unique_id=530145606 instance=ExtResource("6_vtaks")]
 
 [node name="Jumpscare Timer" type="Timer" parent="." unique_id=790274028]
 wait_time = 0.6
 one_shot = true
 
 [node name="Death Layer" type="CanvasLayer" parent="." unique_id=1951408997]
-layer = 2
+layer = 4
 script = ExtResource("8_vtaks")
 
 [node name="Death Statics" parent="Death Layer" unique_id=1232822903 instance=ExtResource("8_gee14")]
@@ -46,5 +48,8 @@ visible = false
 
 [node name="Death Sound" type="AudioStreamPlayer" parent="Death Layer" unique_id=741058014 groups=["ambiance"]]
 stream = ExtResource("9_0tnpc")
+
+[node name="Libs" type="Node2D" parent="." unique_id=365965140]
+script = ExtResource("5_iywne")
 
 [connection signal="timeout" from="Jumpscare Timer" to="." method="_on_jumpscare_timer_timeout"]

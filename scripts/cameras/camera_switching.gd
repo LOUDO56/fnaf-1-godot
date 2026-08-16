@@ -8,10 +8,10 @@ signal sprite_changed(camera_sprite_width: float)
 @onready var current_camera := CameraMap.Camera.CAM_1A
 @onready var camera_moving_audio := $"CanvasLayer/Cameras/Audio/Camera Moving Audio"
 @onready var monitor_view := $"MonitorView"
-@onready var monitor_animation: MonitorAnimation = $"CanvasLayer/Monitor"
+@onready var monitor_animation: MonitorAnimation = $"CanvasLayer2/Monitor"
 @onready var camera_map: CameraMap = $"CanvasLayer/Cameras/Camera Map"
 @onready var camera_disabled_text := $"CanvasLayer/Cameras/Camera Disabled Text"
-@onready var foxy_running_animation := $"Camera Sprites/Points/CAM 4A (East Hall)/Foxy Running"
+@onready var foxy_running_animation: AnimatedSprite2D = $"Camera Sprites/Points/CAM 4A (East Hall)/Foxy Running"
 @onready var force_camera_down_timer := $"Force Camera Down"
 @onready var camera_sprites := $"Camera Sprites"
 @onready var garble_effect := $"Camera Effects/Garble Effect"
@@ -51,6 +51,7 @@ func _ready() -> void:
 func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	if not visible:
 		return
+	Events.decrease_power_usage.emit()
 	visible = false
 	camera_disabled_text.visible = false
 	camera_moving_audio.stop()
@@ -60,6 +61,7 @@ func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 
 func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
+	Events.increase_power_usage.emit()
 	monitor_view.make_current()
 	visible = true
 	change_sprite(camera_sprites.get_sprite_from_camera(current_camera))

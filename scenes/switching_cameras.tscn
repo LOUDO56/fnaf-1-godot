@@ -661,7 +661,7 @@ statics = NodePath("../../CanvasLayer/Cameras/Statics")
 
 [node name="Breath Behind Camera" type="Node2D" parent="." unique_id=1986883748 node_paths=PackedStringArray("monitor_animation")]
 script = ExtResource("8_qxcvq")
-monitor_animation = NodePath("../CanvasLayer/Monitor")
+monitor_animation = NodePath("../CanvasLayer2/Monitor")
 
 [node name="Pick Breath Sound" type="Timer" parent="Breath Behind Camera" unique_id=70148106]
 wait_time = 8.0
@@ -693,7 +693,7 @@ visible = false
 modulate = Color(1, 1, 1, 0.109000005)
 
 [node name="Camera Map" parent="CanvasLayer/Cameras" unique_id=48420636 instance=ExtResource("9_er5vx")]
-position = Vector2(1050, 509)
+position = Vector2(1038, 516)
 
 [node name="White Bars" parent="CanvasLayer/Cameras" unique_id=707425992 instance=ExtResource("10_p0ssk")]
 
@@ -721,27 +721,30 @@ script = ExtResource("61_d5oxx")
 wait_time = 1.2999999999999998
 autostart = true
 
-[node name="Monitor" type="Node2D" parent="CanvasLayer" unique_id=179084905 node_paths=PackedStringArray("camera_switching")]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1428001730]
+layer = 3
+
+[node name="Monitor" type="Node2D" parent="CanvasLayer2" unique_id=179084905 node_paths=PackedStringArray("camera_switching")]
 script = ExtResource("13_bgr5x")
 camera_switching = NodePath("../..")
 
-[node name="Monitor Sprite" type="Sprite2D" parent="CanvasLayer/Monitor" unique_id=854149140]
-position = Vector2(520, 668)
+[node name="Monitor Sprite" type="Sprite2D" parent="CanvasLayer2/Monitor" unique_id=854149140]
+position = Vector2(548, 668)
 texture = ExtResource("1_cowaa")
 
-[node name="Watch Monitor Animation" type="AnimatedSprite2D" parent="CanvasLayer/Monitor" unique_id=2142349348]
+[node name="Watch Monitor Animation" type="AnimatedSprite2D" parent="CanvasLayer2/Monitor" unique_id=2142349348]
 visible = false
 sprite_frames = SubResource("SpriteFrames_ucufk")
 centered = false
 
-[node name="Monitor Camera Sound" type="AudioStreamPlayer" parent="CanvasLayer/Monitor" unique_id=1441073752]
+[node name="Monitor Camera Sound" type="AudioStreamPlayer" parent="CanvasLayer2/Monitor" unique_id=1441073752]
 stream = ExtResource("14_ik82r")
 volume_db = -5.0
 
-[node name="Watch Cameras Zone" type="Area2D" parent="CanvasLayer/Monitor" unique_id=1710823504]
+[node name="Watch Cameras Zone" type="Area2D" parent="CanvasLayer2/Monitor" unique_id=1710823504]
 position = Vector2(520, 668)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Monitor/Watch Cameras Zone" unique_id=820599573]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer2/Monitor/Watch Cameras Zone" unique_id=820599573]
 position = Vector2(-33, 26.5)
 shape = SubResource("RectangleShape2D_0a554")
 
@@ -753,9 +756,9 @@ shape = SubResource("RectangleShape2D_0a554")
 [connection signal="timeout" from="Force Camera Down" to="." method="_on_force_camera_down_timeout"]
 [connection signal="camera_changed" from="CanvasLayer/Cameras/Camera Map" to="." method="_on_camera_map_camera_changed"]
 [connection signal="timeout" from="CanvasLayer/Cameras/Red Circle/Blink Timer" to="CanvasLayer/Cameras/Red Circle" method="_on_blink_timer_timeout"]
-[connection signal="monitor_closed" from="CanvasLayer/Monitor" to="." method="_on_monitor_monitor_closed"]
-[connection signal="monitor_closed" from="CanvasLayer/Monitor" to="Camera Effects/Garble Effect" method="_on_monitor_closed"]
-[connection signal="monitor_opened" from="CanvasLayer/Monitor" to="." method="_on_monitor_monitor_opened"]
-[connection signal="animation_finished" from="CanvasLayer/Monitor/Watch Monitor Animation" to="CanvasLayer/Monitor" method="_on_watch_monitor_animation_animation_finished"]
-[connection signal="mouse_entered" from="CanvasLayer/Monitor/Watch Cameras Zone" to="CanvasLayer/Monitor" method="_on_watch_cameras_zone_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Monitor/Watch Cameras Zone" to="CanvasLayer/Monitor" method="_on_watch_cameras_zone_mouse_exited"]
+[connection signal="monitor_closed" from="CanvasLayer2/Monitor" to="." method="_on_monitor_monitor_closed"]
+[connection signal="monitor_closed" from="CanvasLayer2/Monitor" to="Camera Effects/Garble Effect" method="_on_monitor_closed"]
+[connection signal="monitor_opened" from="CanvasLayer2/Monitor" to="." method="_on_monitor_monitor_opened"]
+[connection signal="animation_finished" from="CanvasLayer2/Monitor/Watch Monitor Animation" to="CanvasLayer2/Monitor" method="_on_watch_monitor_animation_animation_finished"]
+[connection signal="mouse_entered" from="CanvasLayer2/Monitor/Watch Cameras Zone" to="CanvasLayer2/Monitor" method="_on_watch_cameras_zone_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer2/Monitor/Watch Cameras Zone" to="CanvasLayer2/Monitor" method="_on_watch_cameras_zone_mouse_exited"]

@@ -68,8 +68,10 @@ func _on_door_buttons_toggle_door(side: String, close: bool) -> void:
 		door_animation = right_door_animation
 		
 	if close:
+		Events.increase_power_usage.emit()
 		door_animation.play("default")
 	else:
+		Events.decrease_power_usage.emit()
 		door_animation.play_backwards("default")
 		
 	door_toggle_sound.play()
@@ -77,9 +79,11 @@ func _on_door_buttons_toggle_door(side: String, close: bool) -> void:
 
 func _on_door_buttons_toggle_light(side: String, on: bool) -> void:
 	if on:
+		Events.increase_power_usage.emit()
 		door_light_sound.play()
 		_play_stinger_sound(side)
 	else:
+		Events.decrease_power_usage.emit()
 		door_light_sound.stop()
 
 

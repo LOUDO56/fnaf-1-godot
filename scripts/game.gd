@@ -4,7 +4,7 @@ extends Node2D
 @export var animatronics: Animatronics
 
 @onready var doors: Doors = $"Office/Doors"
-@onready var monitor_animation: MonitorAnimation = $"OfficeCamera/Watching Cameras/CanvasLayer/Monitor"
+@onready var monitor_animation: MonitorAnimation = $"OfficeCamera/Watching Cameras/CanvasLayer2/Monitor"
 @onready var office_camera: Camera2D = $"OfficeCamera"
 @onready var jumpscare_timer := $"Jumpscare Timer"
 @onready var death_layer := $"Death Layer"

@@ -63,6 +63,7 @@ func _change_state(state: State):
 func turn_off_light() -> void:
 	if not is_light_on:
 		return
+	Events.decrease_power_usage.emit()
 	is_light_on = false;
 	if is_door_closed:
 		_change_state(State.CLOSED)

@@ -530,9 +530,10 @@ volume_db = -10.0
 stream = ExtResource("40_4ei86")
 volume_db = -5.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Freddy" unique_id=937679396]
+[node name="Debug" type="CanvasLayer" parent="Freddy" unique_id=937679396]
+visible = false
 
-[node name="Move Freddy" type="Button" parent="Freddy/CanvasLayer" unique_id=61999]
+[node name="Move Freddy" type="Button" parent="Freddy/Debug" unique_id=61999]
 offset_left = 21.0
 offset_top = 659.0
 offset_right = 129.0
@@ -604,7 +605,7 @@ stream = ExtResource("118_1tb2y")
 volume_db = -5.0
 
 [connection signal="timeout" from="Chica/Kitchen Audio Interval" to="Chica" method="_on_kitchen_audio_interval_timeout"]
-[connection signal="pressed" from="Freddy/CanvasLayer/Move Freddy" to="Freddy" method="_on_move_freddy_pressed"]
+[connection signal="pressed" from="Freddy/Debug/Move Freddy" to="Freddy" method="_on_move_freddy_pressed"]
 [connection signal="timeout" from="Freddy/Freddy Jumpscare Timer" to="Freddy" method="_on_freddy_jumpscare_timer_timeout"]
 [connection signal="timeout" from="Foxy/Always Fail Timer" to="Foxy" method="_on_always_fail_timer_timeout"]
 [connection signal="timeout" from="Foxy/Foxy Attack Timer" to="Foxy" method="_on_foxy_attack_timer_timeout"]

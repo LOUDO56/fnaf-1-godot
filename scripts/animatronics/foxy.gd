@@ -41,6 +41,7 @@ func is_coming():
 	return step_attack == 3
 
 func accelerate_foxy_attack():
+	step_attack = 4
 	foxy_attack_timer.stop()
 	foxy_attack_timer.start(FAST_ATTACK_TIME)
 
