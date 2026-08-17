@@ -175,6 +175,11 @@ texture_filter = 1
 position = Vector2(244, 321)
 texture = ExtResource("21_i7nm7")
 
+[node name="Star 3" type="Sprite2D" parent="Text/Stars" unique_id=1387482975]
+texture_filter = 1
+position = Vector2(312, 321)
+texture = ExtResource("21_i7nm7")
+
 [node name="Credit" type="Sprite2D" parent="Text" unique_id=2014086294]
 position = Vector2(1156, 698)
 texture = ExtResource("34_x5yu2")

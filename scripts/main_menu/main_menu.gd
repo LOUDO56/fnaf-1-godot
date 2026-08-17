@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 	stars.get_node("Star 1").visible = PlayerData.star >= 1
 	stars.get_node("Star 2").visible = PlayerData.star >= 2
+	stars.get_node("Star 3").visible = PlayerData.star >= 3
 	
 	night_6.visible = PlayerData.star >= 1
 	custom_night.visible = PlayerData.star >= 2
