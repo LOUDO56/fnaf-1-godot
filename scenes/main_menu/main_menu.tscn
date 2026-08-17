@@ -155,15 +155,6 @@ texture = ExtResource("15_tfctf")
 centered = false
 script = ExtResource("16_vnpsp")
 
-[node name="Main Music" type="AudioStreamPlayer" parent="Background" unique_id=26976449]
-stream = ExtResource("18_bq5lc")
-autoplay = true
-
-[node name="Static" type="AudioStreamPlayer" parent="Background" unique_id=236579232]
-stream = ExtResource("19_xac7c")
-autoplay = true
-bus = &"Sfx"
-
 [node name="Text" type="Node2D" parent="." unique_id=375174129]
 
 [node name="Title" type="Sprite2D" parent="Text" unique_id=1852263412]
@@ -282,13 +273,26 @@ script = ExtResource("33_ptsf3")
 [node name="Select Sound" type="AudioStreamPlayer" parent="Text/Select" unique_id=355464791]
 stream = ExtResource("25_boqas")
 
+[node name="Main Music" type="AudioStreamPlayer" parent="." unique_id=26976449]
+stream = ExtResource("18_bq5lc")
+autoplay = true
+
+[node name="Static" type="AudioStreamPlayer" parent="." unique_id=236579232]
+stream = ExtResource("19_xac7c")
+autoplay = true
+bus = &"Sfx"
+
 [connection signal="timeout" from="Background/Freddy Twitching/Variant Timer" to="Background/Freddy Twitching" method="_on_variant_timer_timeout"]
 [connection signal="hovered" from="Text/New Game" to="Text/Select" method="_on_button_hovered"]
+[connection signal="input_event" from="Text/New Game" to="." method="_on_new_game_input_event"]
 [connection signal="mouse_entered" from="Text/New Game" to="Text/New Game" method="_on_mouse_entered"]
 [connection signal="hovered" from="Text/Continue" to="Text/Select" method="_on_button_hovered"]
+[connection signal="input_event" from="Text/Continue" to="." method="_on_continue_input_event"]
 [connection signal="mouse_entered" from="Text/Continue" to="Text/Continue" method="_on_mouse_entered"]
 [connection signal="hovered" from="Text/6th Night" to="Text/Select" method="_on_button_hovered"]
+[connection signal="input_event" from="Text/6th Night" to="." method="_on_6th_night_input_event"]
 [connection signal="mouse_entered" from="Text/6th Night" to="Text/6th Night" method="_on_mouse_entered"]
 [connection signal="hovered" from="Text/Custom Night" to="Text/Select" method="_on_button_hovered"]
+[connection signal="input_event" from="Text/Custom Night" to="." method="_on_custom_night_input_event"]
 [connection signal="mouse_entered" from="Text/Custom Night" to="Text/Custom Night" method="_on_mouse_entered"]
 [connection signal="changed_button" from="Text/Select" to="Text/Continue" method="_on_select_changed_button"]

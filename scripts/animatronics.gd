@@ -79,5 +79,5 @@ func _apply_ai_level_by_current_night() -> void:
 
 func _on_power_off() -> void:
 	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
-		animatronic.set_process(false)
+		animatronic.process_mode = Node.PROCESS_MODE_DISABLED
 		animatronic.cancel_jumpscare() # prevent animatronic in office to jumpscare when power is off

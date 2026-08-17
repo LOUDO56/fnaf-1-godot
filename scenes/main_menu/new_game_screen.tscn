@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bk3suv0qvgoh5"]
+
+[ext_resource type="Texture2D" uid="uid://cwhrnclw2cqlp" path="res://assets/images/2.5-START_TO_END/NEWSPAPER.png" id="1_12pkn"]
+[ext_resource type="Script" uid="uid://tdygijqmectv" path="res://scripts/main_menu/new_game_screen.gd" id="1_i135g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
+size = Vector2(1283.5, 719)
+
+[node name="New Game Screen" type="Node2D" unique_id=1331358176]
+script = ExtResource("1_i135g")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1947637264]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=978510983]
+wait_time = 5.0
+one_shot = true
+
+[node name="Help Wanted" type="Area2D" parent="." unique_id=2059421279]
+
+[node name="Sprite" type="Sprite2D" parent="Help Wanted" unique_id=704615155]
+texture = ExtResource("1_12pkn")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Help Wanted" unique_id=792325115]
+position = Vector2(641.75, 359.5)
+shape = SubResource("RectangleShape2D_ucufk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="input_event" from="Help Wanted" to="." method="_on_help_wanted_input_event"]

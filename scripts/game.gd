@@ -28,9 +28,10 @@ func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	office_camera.set_process(true)
 	
 func success_night():
-	process_mode = Node.PROCESS_MODE_DISABLED
+	add_child(success_screen)
 	success_screen.check_20_4(animatronics)
-	get_tree().root.add_child(success_screen)
+	process_mode = Node.PROCESS_MODE_DISABLED
+	success_screen.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_jumpscare_started(time: float, _animatronic: Animatronic) -> void:
 	office.set_process(PROCESS_MODE_DISABLED)

@@ -1,4 +1,4 @@
 extends Node
 
-var night := 1
-var star := 0
+var night := 6
+var star := 3

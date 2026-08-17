@@ -2,8 +2,6 @@ extends AnimatedSprite2D
 
 const FLICKER := 0.08
 
-@onready var variant_timer := $"Variant Timer"
-
 var current_flicker := 0.0
 
 func _process(delta: float) -> void:
@@ -14,7 +12,3 @@ func _process(delta: float) -> void:
 		if randf() < 0.4:
 			visible = true
 			frame = randi_range(0, sprite_frames.get_frame_count("default"))
-
-func _on_variant_timer_timeout() -> void:
-	variant_timer.stop()
-	frame = 0

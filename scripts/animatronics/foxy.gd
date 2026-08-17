@@ -34,6 +34,10 @@ func block_moving() -> void:
 	always_fail_timer.stop()
 	super.block_moving()
 
+func cancel_jumpscare() -> void:
+	foxy_attack_timer.stop()
+	super.cancel_jumpscare()
+
 func is_coming():
 	return step_attack == 3
 
