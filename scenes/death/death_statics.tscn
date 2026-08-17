@@ -11,3 +11,9 @@ script = ExtResource("1_7ksla")
 
 [node name="Static Sound" type="AudioStreamPlayer" parent="." unique_id=999134117]
 stream = ExtResource("3_7ksla")
+
+[node name="Game Over Timer" type="Timer" parent="." unique_id=592475622]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Game Over Timer" to="." method="_on_game_over_timer_timeout"]
