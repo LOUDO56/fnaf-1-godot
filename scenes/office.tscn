@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://llq8o26rstna" path="res://assets/images/3-THE_OFFICE/LIGHTS_OUT/305.png" id="6_qgrek"]
 [ext_resource type="AudioStream" uid="uid://bi5vxoh6vgwsc" path="res://assets/audio/deep steps.wav" id="7_f3wdx"]
 [ext_resource type="Texture2D" uid="uid://dl1o0fvt8tyal" path="res://assets/images/3-THE_OFFICE/RIGHT_LIGHT.png" id="7_fmddn"]
-[ext_resource type="Script" uid="uid://dy5ejgyygjgk2" path="res://scripts/doors/doors.gd" id="8_8ywr3"]
 [ext_resource type="Texture2D" uid="uid://cmvx5byvkxpt5" path="res://assets/images/3-THE_OFFICE/1-OFFICE_CHICA.png" id="8_70iqj"]
 [ext_resource type="PackedScene" uid="uid://daw8q1ml3ihbx" path="res://scenes/doors/buttons/right_door_buttons.tscn" id="9_gdafm"]
 [ext_resource type="Texture2D" uid="uid://dpdqwk2rjj5y5" path="res://assets/images/3-THE_OFFICE/DOORS/LEFT/1.png" id="9_qg43x"]
@@ -200,13 +199,14 @@ script = ExtResource("1_bv0q3")
 
 [node name="Ambiance" type="Node2D" parent="." unique_id=962121517]
 
-[node name="Ambiance A" type="AudioStreamPlayer" parent="Ambiance" unique_id=304361516 groups=["ambiance"]]
+[node name="Ambiance A" type="AudioStreamPlayer" parent="Ambiance" unique_id=304361516]
 stream = ExtResource("1_likdn")
-volume_db = -10.0
 autoplay = true
+bus = &"Ambiance"
 
 [node name="Power Off Audio" type="AudioStreamPlayer" parent="Ambiance" unique_id=74196955]
 stream = ExtResource("3_qgrek")
+bus = &"Ambiance"
 
 [node name="Stage" type="Node2D" parent="." unique_id=1795822514]
 script = ExtResource("1_osgti")
@@ -217,10 +217,12 @@ script = ExtResource("13_f1ywt")
 [node name="Fan Audio" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=1205193030]
 stream = ExtResource("5_qphb6")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="Step Sound" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=1688195894]
 stream = ExtResource("7_f3wdx")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="Step Delay" type="Timer" parent="Stage/Freddy Jingle/Step Sound" unique_id=447814327]
 wait_time = 2.0
@@ -228,6 +230,7 @@ one_shot = true
 
 [node name="Freddy Jingle Audio" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=932797044]
 stream = ExtResource("14_f3wdx")
+bus = &"Sfx"
 
 [node name="Normal" type="Sprite2D" parent="Stage" unique_id=146049526]
 texture = ExtResource("1_3e7dm")
@@ -274,61 +277,73 @@ position = Vector2(848, 401)
 sprite_frames = SubResource("SpriteFrames_blegu")
 autoplay = "default"
 
-[node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738 groups=["ambiance"]]
+[node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738]
 stream = ExtResource("5_qphb6")
-volume_db = -10.0
+volume_db = -12.0
 autoplay = true
+bus = &"Sfx"
 
-[node name="Doors" type="Node2D" parent="." unique_id=1379240426 node_paths=PackedStringArray("left_door", "right_door", "office_stage")]
-script = ExtResource("8_8ywr3")
-left_door = NodePath("Left/LeftDoorButtons")
-right_door = NodePath("Right/RightDoorButtons")
-office_stage = NodePath("../Stage")
+[node name="Doors" type="Node2D" parent="." unique_id=1379240426]
 
 [node name="Left" type="Node2D" parent="Doors" unique_id=303221849]
 
-[node name="LeftDoorButtons" parent="Doors/Left" unique_id=1750007891 node_paths=PackedStringArray("door_error_sound") instance=ExtResource("4_fmddn")]
+[node name="LeftDoorButtons" parent="Doors/Left" unique_id=1750007891 node_paths=PackedStringArray("right_door", "door_animation", "door_error_sound", "door_sound", "light_sound", "stinger_sound", "office_stage") instance=ExtResource("4_fmddn")]
 z_index = 1
 position = Vector2(39, 398)
+right_door = NodePath("../../Right/RightDoorButtons")
+door_animation = NodePath("../Door Animation")
 door_error_sound = NodePath("../../Door Error Sound")
+door_sound = NodePath("../../Door Toggle Sound")
+light_sound = NodePath("../../Door Light Sound")
+stinger_sound = NodePath("../../Stinger Sound")
+office_stage = NodePath("../../../Stage")
 
-[node name="Left Border" type="Sprite2D" parent="Doors/Left" unique_id=2142955233]
+[node name="Border" type="Sprite2D" parent="Doors/Left" unique_id=2142955233]
 position = Vector2(183, 367.55997)
 texture = ExtResource("24_0p3hi")
 
-[node name="Left Door Animation" type="AnimatedSprite2D" parent="Doors/Left" unique_id=1812582159]
+[node name="Door Animation" type="AnimatedSprite2D" parent="Doors/Left" unique_id=1812582159]
 position = Vector2(183, 367.5)
 sprite_frames = SubResource("SpriteFrames_skov3")
 
 [node name="Right" type="Node2D" parent="Doors" unique_id=1767701846]
 
-[node name="RightDoorButtons" parent="Doors/Right" unique_id=939025561 node_paths=PackedStringArray("door_error_sound") instance=ExtResource("9_gdafm")]
+[node name="RightDoorButtons" parent="Doors/Right" unique_id=939025561 node_paths=PackedStringArray("left_door", "door_animation", "door_error_sound", "door_sound", "light_sound", "stinger_sound", "office_stage") instance=ExtResource("9_gdafm")]
 z_index = 1
 position = Vector2(1551, 398)
+left_door = NodePath("../../Left/LeftDoorButtons")
+door_animation = NodePath("../Door Animation")
 door_error_sound = NodePath("../../Door Error Sound")
+door_sound = NodePath("../../Door Toggle Sound")
+light_sound = NodePath("../../Door Light Sound")
+stinger_sound = NodePath("../../Stinger Sound")
+office_stage = NodePath("../../../Stage")
 
-[node name="Right Border" type="Sprite2D" parent="Doors/Right" unique_id=259231760]
-position = Vector2(1406.044, 359.15997)
-scale = Vector2(0.9270645, 1.0051111)
+[node name="Border" type="Sprite2D" parent="Doors/Right" unique_id=1608507184]
+position = Vector2(1396, 359.55997)
 texture = ExtResource("40_bkq84")
 
-[node name="Right Door Animation" type="AnimatedSprite2D" parent="Doors/Right" unique_id=1208869580]
-position = Vector2(1413, 375.99997)
+[node name="Door Animation" type="AnimatedSprite2D" parent="Doors/Right" unique_id=1208869580]
+position = Vector2(1396, 359.99997)
 scale = Vector2(1, 1.0013889)
 sprite_frames = SubResource("SpriteFrames_ucufk")
 
 [node name="Door Toggle Sound" type="AudioStreamPlayer" parent="Doors" unique_id=183057559]
 stream = ExtResource("25_t1nwb")
 volume_db = -5.0
+bus = &"Sfx"
 
-[node name="Door Light Sound" type="AudioStreamPlayer" parent="Doors" unique_id=745367107 groups=["ambiance"]]
+[node name="Door Light Sound" type="AudioStreamPlayer" parent="Doors" unique_id=745367107]
 stream = ExtResource("42_bkq84")
+bus = &"Sfx"
 
-[node name="Stinger Sound" type="AudioStreamPlayer" parent="Doors" unique_id=7597149 groups=["ambiance"]]
+[node name="Stinger Sound" type="AudioStreamPlayer" parent="Doors" unique_id=7597149]
 stream = ExtResource("49_nygyx")
+bus = &"Sfx"
 
-[node name="Door Error Sound" type="AudioStreamPlayer" parent="Doors" unique_id=82423657 groups=["ambiance"]]
+[node name="Door Error Sound" type="AudioStreamPlayer" parent="Doors" unique_id=82423657]
 stream = ExtResource("51_vilxk")
+bus = &"Sfx"
 
 [node name="EasterEggs" type="Node2D" parent="." unique_id=426331742]
 
@@ -344,6 +359,7 @@ shape = SubResource("CircleShape2D_ucufk")
 [node name="Freddy Nose Sound" type="AudioStreamPlayer" parent="EasterEggs/Freedy Nose" unique_id=2014189551]
 stream = ExtResource("45_65uj5")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="Panorama" type="ColorRect" parent="." unique_id=1382670982]
 z_index = 2
@@ -353,8 +369,4 @@ offset_bottom = 719.0
 mouse_filter = 2
 
 [connection signal="timeout" from="Stage/Freddy Jingle/Step Sound/Step Delay" to="Stage/Freddy Jingle" method="_on_step_delay_timeout"]
-[connection signal="toggle_door" from="Doors/Left/LeftDoorButtons" to="Doors" method="_on_door_buttons_toggle_door"]
-[connection signal="toggle_light" from="Doors/Left/LeftDoorButtons" to="Doors" method="_on_door_buttons_toggle_light"]
-[connection signal="toggle_door" from="Doors/Right/RightDoorButtons" to="Doors" method="_on_door_buttons_toggle_door"]
-[connection signal="toggle_light" from="Doors/Right/RightDoorButtons" to="Doors" method="_on_door_buttons_toggle_light"]
 [connection signal="input_event" from="EasterEggs/Freedy Nose/Area2D" to="EasterEggs/Freedy Nose" method="_on_area_2d_input_event"]

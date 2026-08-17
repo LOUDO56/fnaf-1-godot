@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dp5sxuot33xhm"]
+
+[ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://scenes/ui/statics.tscn" id="1_01lca"]
+[ext_resource type="Script" uid="uid://dx46efjuht083" path="res://scripts/death/death_statics.gd" id="1_7ksla"]
+[ext_resource type="AudioStream" uid="uid://bia1ot4nsv48b" path="res://assets/audio/static.wav" id="3_7ksla"]
+
+[node name="Death Statics" type="Node2D" unique_id=1970779534]
+script = ExtResource("1_7ksla")
+
+[node name="Statics" parent="." unique_id=1232822903 instance=ExtResource("1_01lca")]
+
+[node name="Static Sound" type="AudioStreamPlayer" parent="." unique_id=999134117]
+stream = ExtResource("3_7ksla")

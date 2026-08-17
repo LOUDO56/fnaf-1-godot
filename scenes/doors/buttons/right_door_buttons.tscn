@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://daw8q1ml3ihbx"]
 
-[ext_resource type="Script" uid="uid://n1lvb7381xp8" path="res://scripts/doors/door_buttons.gd" id="1_rwd2m"]
+[ext_resource type="Script" uid="uid://b0ihelmk1ojxi" path="res://scripts/doors/right_door.gd" id="1_rwd2m"]
 [ext_resource type="Texture2D" uid="uid://do71yc3gkrxet" path="res://assets/images/3-THE_OFFICE/DOORS/BUTTONS/RIGHT/1-STOPPED.png" id="1_xwoj4"]
 [ext_resource type="Texture2D" uid="uid://dvggyrljqny8k" path="res://assets/images/3-THE_OFFICE/DOORS/BUTTONS/RIGHT/2-DOOR.png" id="2_rwd2m"]
 [ext_resource type="Texture2D" uid="uid://b6uhy8q4poyua" path="res://assets/images/3-THE_OFFICE/DOORS/BUTTONS/RIGHT/3-LIGHT.png" id="3_3txoa"]
@@ -14,7 +14,6 @@ size = Vector2(56, 106.125)
 
 [node name="RightDoorButtons" type="Node2D" unique_id=1750007891]
 script = ExtResource("1_rwd2m")
-side = "right"
 
 [node name="Opened" type="Sprite2D" parent="." unique_id=162184190]
 texture_filter = 1

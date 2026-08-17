@@ -32,17 +32,13 @@ Globals="*uid://bvgc2s1qw5mtp"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
+window/canvas_textures/default_texture_filter=0
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
-
-[global_group]
-
-ambiance=""
 
 [physics]
 

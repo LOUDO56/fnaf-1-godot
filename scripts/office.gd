@@ -2,10 +2,9 @@ class_name Office extends Node2D
 
 @onready var fan_audio = $"Fan/Fan Audio"
 @onready var fan = $"Fan"
-@onready var doors: Doors = $"Doors"
+@onready var left_door: LeftDoor = $"Doors/Left/LeftDoorButtons"
+@onready var right_door: RightDoor = $"Doors/Right/RightDoorButtons"
 @onready var office_stage: OfficeStage = $"Stage"
-@onready var left_door_buttons: Door = $"Doors/Left/LeftDoorButtons"
-@onready var right_door_buttons: Door = $"Doors/Right/RightDoorButtons"
 @onready var power_off_audio := $"Ambiance/Power Off Audio"
 @onready var freddy_jingle := $"Stage/Freddy Jingle"
 
@@ -14,6 +13,8 @@ class_name Office extends Node2D
 var office_camera: Camera2D
 
 func _ready() -> void:
+	left_door.setup(animatronics)
+	right_door.setup(animatronics)
 	office_stage.animatronics = animatronics
 	freddy_jingle.setup(animatronics.freddy)
 	Events.power_off.connect(_on_power_off)
@@ -27,12 +28,12 @@ func listen_flip_events(monitor_animation: MonitorAnimation, office_camera_1: Ca
 func _on_monitor_opened():
 	visible = false
 	fan_audio.volume_db -= 10
-	left_door_buttons.turn_off_light()
-	right_door_buttons.turn_off_light()
-	doors.stop_light_sound()
+	left_door.turn_off_light()
+	right_door.turn_off_light()
 	
 func hide_doors():
-	doors.visible = false
+	left_door.visible = false
+	right_door.visible = false
 
 func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera):
 	office_camera.make_current()

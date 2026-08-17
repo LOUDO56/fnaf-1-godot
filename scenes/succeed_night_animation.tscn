@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://b4s256xj1o7xy"]
 
-[ext_resource type="Script" uid="uid://bcvxiywxhavor" path="res://scripts/succeed_nigtht_animation.gd" id="1_54niq"]
-[ext_resource type="Texture2D" uid="uid://bph6vlko2l4nq" path="res://assets/images/3-THE_OFFICE/OTHER/AM_6AM.png" id="2_p2b4q"]
-[ext_resource type="Texture2D" uid="uid://d2bso0sudb7i" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/5.png" id="3_psfiw"]
-[ext_resource type="Texture2D" uid="uid://c8rn56jt5r0eh" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/6.png" id="4_084fq"]
-[ext_resource type="AudioStream" uid="uid://l2ahv8c4bxbm" path="res://assets/audio/chimes 2.wav" id="5_4g8qk"]
-[ext_resource type="AudioStream" uid="uid://dgqo2n1vgfq3u" path="res://assets/audio/CROWD_SMALL_CHIL_EC049202.wav" id="6_12o54"]
+[ext_resource type="Script" uid="uid://bcvxiywxhavor" path="res://scripts/succeed_nigtht_animation.gd" id="1_h2hxc"]
+[ext_resource type="Texture2D" uid="uid://bph6vlko2l4nq" path="res://assets/images/3-THE_OFFICE/OTHER/AM_6AM.png" id="2_olsgb"]
+[ext_resource type="Texture2D" uid="uid://d2bso0sudb7i" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/5.png" id="3_t6kf6"]
+[ext_resource type="Texture2D" uid="uid://c8rn56jt5r0eh" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/6.png" id="4_20mry"]
+[ext_resource type="AudioStream" uid="uid://l2ahv8c4bxbm" path="res://assets/audio/chimes 2.wav" id="5_yjygv"]
+[ext_resource type="AudioStream" uid="uid://dgqo2n1vgfq3u" path="res://assets/audio/CROWD_SMALL_CHIL_EC049202.wav" id="6_dnun0"]
 
-[node name="Succeed Nigtht Animation" type="Node2D" unique_id=2052581549]
-script = ExtResource("1_54niq")
+[node name="Succeed Night Animation" type="Node2D" unique_id=2052581549]
+script = ExtResource("1_h2hxc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1153458412]
 layer = 4
@@ -22,7 +22,7 @@ color = Color(0, 0, 0, 1)
 [node name="AM" type="Sprite2D" parent="CanvasLayer" unique_id=1733704362]
 texture_filter = 1
 position = Vector2(702, 359)
-texture = ExtResource("2_p2b4q")
+texture = ExtResource("2_olsgb")
 
 [node name="Zone" type="ColorRect" parent="CanvasLayer" unique_id=1137242629]
 clip_children = 1
@@ -34,18 +34,18 @@ offset_bottom = 411.0
 texture_filter = 1
 position = Vector2(581, 53)
 scale = Vector2(2.6666658, 2.6666658)
-texture = ExtResource("3_psfiw")
+texture = ExtResource("3_t6kf6")
 
 [node name="6" type="Sprite2D" parent="CanvasLayer/Zone" unique_id=103639958]
 texture_filter = 1
 position = Vector2(581, 164.99998)
 scale = Vector2(2.6666658, 2.6666658)
-texture = ExtResource("4_084fq")
+texture = ExtResource("4_20mry")
 
 [node name="Win Sound" type="AudioStreamPlayer" parent="." unique_id=519150846]
-stream = ExtResource("5_4g8qk")
+stream = ExtResource("5_yjygv")
 volume_db = -5.0
 
 [node name="Children Yeah" type="AudioStreamPlayer" parent="." unique_id=1967585502]
-stream = ExtResource("6_12o54")
+stream = ExtResource("6_dnun0")
 volume_db = -5.0

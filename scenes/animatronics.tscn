@@ -461,7 +461,7 @@ script = ExtResource("1_cweo8")
 [node name="Bonnie" type="Node2D" parent="." unique_id=1439423576 node_paths=PackedStringArray("breathing_sounds", "step_sound", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("2_cweo8")
 breathing_sounds = [NodePath("../Breath 1"), NodePath("../Breath 2"), NodePath("../Breath 3"), NodePath("../Breath 4")]
-ai_level = 5
+ai_level = 20
 movement_timer_seconds = 4.97
 step_sound = NodePath("../Step Audio")
 jumpscare_animation = NodePath("Jumpscare")
@@ -477,28 +477,31 @@ centered = false
 [node name="Chica" type="Node2D" parent="." unique_id=1463412259 node_paths=PackedStringArray("breathing_sounds", "step_sound", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("3_yemax")
 breathing_sounds = [NodePath("../Breath 1"), NodePath("../Breath 2"), NodePath("../Breath 3"), NodePath("../Breath 4")]
-ai_level = 7
 movement_timer_seconds = 4.98
 step_sound = NodePath("../Step Audio")
 jumpscare_animation = NodePath("Jumpscare")
 jumpscare_audio = NodePath("../Default Jumpscare Audio")
 jumpscare_duration = 0.6
 
-[node name="Kitchen Mess Audio 1" type="AudioStreamPlayer" parent="Chica" unique_id=279386011 groups=["ambiance"]]
+[node name="Kitchen Mess Audio 1" type="AudioStreamPlayer" parent="Chica" unique_id=279386011]
 stream = ExtResource("4_dxqq2")
 volume_db = -20.0
+bus = &"Sfx"
 
-[node name="Kitchen Mess Audio 2" type="AudioStreamPlayer" parent="Chica" unique_id=968047200 groups=["ambiance"]]
+[node name="Kitchen Mess Audio 2" type="AudioStreamPlayer" parent="Chica" unique_id=968047200]
 stream = ExtResource("5_h7bw6")
 volume_db = -20.0
+bus = &"Sfx"
 
-[node name="Kitchen Mess Audio 4" type="AudioStreamPlayer" parent="Chica" unique_id=2081049365 groups=["ambiance"]]
+[node name="Kitchen Mess Audio 4" type="AudioStreamPlayer" parent="Chica" unique_id=2081049365]
 stream = ExtResource("7_exftl")
 volume_db = -20.0
+bus = &"Sfx"
 
-[node name="Kitchen Mess Audio 3" type="AudioStreamPlayer" parent="Chica" unique_id=324219245 groups=["ambiance"]]
+[node name="Kitchen Mess Audio 3" type="AudioStreamPlayer" parent="Chica" unique_id=324219245]
 stream = ExtResource("6_eq31s")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="Kitchen Audio Interval" type="Timer" parent="Chica" unique_id=570394944]
 wait_time = 8.0
@@ -511,31 +514,35 @@ centered = false
 [node name="Freddy" type="Node2D" parent="." unique_id=1373339142 node_paths=PackedStringArray("jumpscare_light_out_animation", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("8_e6oyr")
 jumpscare_light_out_animation = NodePath("Jumpscare Light Out")
-ai_level = 3
 movement_timer_seconds = 3.02
 jumpscare_animation = NodePath("Jumpscare")
 jumpscare_audio = NodePath("../Default Jumpscare Audio")
 jumpscare_duration = 0.9
 
-[node name="Freddy Jingle" type="AudioStreamPlayer" parent="Freddy" unique_id=529242764 groups=["ambiance"]]
+[node name="Freddy Jingle" type="AudioStreamPlayer" parent="Freddy" unique_id=529242764]
 stream = ExtResource("9_ns5r7")
 volume_db = -5.0
+bus = &"Sfx"
 
-[node name="Freddy Laugh 1" type="AudioStreamPlayer" parent="Freddy" unique_id=2719322 groups=["ambiance"]]
+[node name="Freddy Laugh 1" type="AudioStreamPlayer" parent="Freddy" unique_id=2719322]
 stream = ExtResource("9_wbclq")
 volume_db = -10.0
+bus = &"Sfx"
 
-[node name="Freddy Laugh 2" type="AudioStreamPlayer" parent="Freddy" unique_id=382475517 groups=["ambiance"]]
+[node name="Freddy Laugh 2" type="AudioStreamPlayer" parent="Freddy" unique_id=382475517]
 stream = ExtResource("10_ns5r7")
 volume_db = -10.0
+bus = &"Sfx"
 
-[node name="Freddy Laugh 3" type="AudioStreamPlayer" parent="Freddy" unique_id=828067397 groups=["ambiance"]]
+[node name="Freddy Laugh 3" type="AudioStreamPlayer" parent="Freddy" unique_id=828067397]
 stream = ExtResource("11_5nh4t")
 volume_db = -10.0
+bus = &"Sfx"
 
-[node name="Freddy Step" type="AudioStreamPlayer" parent="Freddy" unique_id=2055591084 groups=["ambiance"]]
+[node name="Freddy Step" type="AudioStreamPlayer" parent="Freddy" unique_id=2055591084]
 stream = ExtResource("40_4ei86")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="Debug" type="CanvasLayer" parent="Freddy" unique_id=937679396]
 visible = false
@@ -562,7 +569,6 @@ centered = false
 
 [node name="Foxy" type="Node2D" parent="." unique_id=581834715 node_paths=PackedStringArray("step_sound", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("13_ns5r7")
-ai_level = 5
 movement_timer_seconds = 5.01
 step_sound = NodePath("Run Audio")
 jumpscare_animation = NodePath("Jumpscare")
@@ -571,10 +577,12 @@ jumpscare_duration = 1.0
 
 [node name="Knock Door Audio" type="AudioStreamPlayer" parent="Foxy" unique_id=1592716128]
 stream = ExtResource("90_1bw17")
+bus = &"Sfx"
 
-[node name="Run Audio" type="AudioStreamPlayer" parent="Foxy" unique_id=1398133831 groups=["ambiance"]]
+[node name="Run Audio" type="AudioStreamPlayer" parent="Foxy" unique_id=1398133831]
 stream = ExtResource("14_5nh4t")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="Always Fail Timer" type="Timer" parent="Foxy" unique_id=560084429]
 
@@ -587,29 +595,35 @@ centered = false
 wait_time = 25.0
 one_shot = true
 
-[node name="Step Audio" type="AudioStreamPlayer" parent="." unique_id=1576850055 groups=["ambiance"]]
+[node name="Step Audio" type="AudioStreamPlayer" parent="." unique_id=1576850055]
 stream = ExtResource("3_bis2m")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Default Jumpscare Audio" type="AudioStreamPlayer" parent="." unique_id=686595821]
 stream = ExtResource("113_wf610")
 volume_db = -10.0
+bus = &"Jumpscare"
 
-[node name="Breath 1" type="AudioStreamPlayer" parent="." unique_id=1408834565 groups=["ambiance"]]
+[node name="Breath 1" type="AudioStreamPlayer" parent="." unique_id=1408834565]
 stream = ExtResource("115_hl3ll")
 volume_db = -5.0
+bus = &"Sfx"
 
-[node name="Breath 2" type="AudioStreamPlayer" parent="." unique_id=272534302 groups=["ambiance"]]
+[node name="Breath 2" type="AudioStreamPlayer" parent="." unique_id=272534302]
 stream = ExtResource("116_4ei86")
 volume_db = -5.0
+bus = &"Sfx"
 
-[node name="Breath 3" type="AudioStreamPlayer" parent="." unique_id=1704842981 groups=["ambiance"]]
+[node name="Breath 3" type="AudioStreamPlayer" parent="." unique_id=1704842981]
 stream = ExtResource("117_7rsai")
 volume_db = -5.0
+bus = &"Sfx"
 
-[node name="Breath 4" type="AudioStreamPlayer" parent="." unique_id=1869151693 groups=["ambiance"]]
+[node name="Breath 4" type="AudioStreamPlayer" parent="." unique_id=1869151693]
 stream = ExtResource("118_1tb2y")
 volume_db = -5.0
+bus = &"Sfx"
 
 [connection signal="timeout" from="Chica/Kitchen Audio Interval" to="Chica" method="_on_kitchen_audio_interval_timeout"]
 [connection signal="pressed" from="Freddy/Debug/Move Freddy" to="Freddy" method="_on_move_freddy_pressed"]

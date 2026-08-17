@@ -3,16 +3,13 @@ class_name Game extends Node2D
 @export var office: Office
 @export var animatronics: Animatronics
 
-@onready var doors: Doors = $"Office/Doors"
 @onready var monitor_animation: MonitorAnimation = $"OfficeCamera/Switching Cameras/CanvasLayer2/Monitor"
 @onready var office_camera: Camera2D = $"OfficeCamera"
 @onready var jumpscare_timer := $"Jumpscare Timer"
-@onready var death_layer := $"Death Layer"
 @onready var jumpscare_sound := $"Office/Animatronics/Default Jumpscare Audio"
-@onready var success_screen := preload("res://scenes/succeed_nigtht_animation.tscn").instantiate()
+@onready var success_screen := preload("res://scenes/succeed_night_animation.tscn").instantiate()
 
 func _ready() -> void:
-	doors.setup_animatronics_behavior(animatronics)
 	office.listen_flip_events(monitor_animation, office_camera)
 	
 	monitor_animation.monitor_opened.connect(_on_monitor_opened)
@@ -45,10 +42,9 @@ func _on_power_off() -> void:
 	_stop_audio()
 
 func _stop_audio() -> void:
-	for ambiance_sound in get_tree().get_nodes_in_group("ambiance"):
-		ambiance_sound.stop()
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Ambiance"), true)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Sfx"), true)
 
 func _on_jumpscare_timer_timeout() -> void:
-	death_layer.show_death_statics()
-	jumpscare_sound.stop()
+	get_tree().change_scene_to_file("res://scenes/death/death_statics.tscn")
 	

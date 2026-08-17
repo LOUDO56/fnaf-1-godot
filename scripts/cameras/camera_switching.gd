@@ -19,7 +19,6 @@ signal sprite_changed(camera_sprite_width: float)
 
 var current_camera_sprite: Sprite2D
 var current_camera_sprite_width: float
-var right_door: Door
 
 func _ready() -> void:
 	visible = false

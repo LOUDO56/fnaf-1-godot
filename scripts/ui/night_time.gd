@@ -12,6 +12,9 @@ const HOUR_LENGTH := 89.0
 var current_hour := 0
 var elapsed_seconds_between_hour := 0.0
 
+func _ready() -> void:
+	Events.power_off.connect(_on_power_off)
+
 func _process(delta: float) -> void:
 	elapsed_seconds_between_hour += delta
 	if current_hour == 0 and elapsed_seconds_between_hour >= FIRST_HOUR_LENGTH\
@@ -31,6 +34,8 @@ func _update_ui_time() -> void:
 	for digit in digits.get_children():
 		digit.visible = digit.name != "12" and digit.name == str(current_hour)
 
+func _on_power_off() -> void:
+	get_node("CanvasLayer").visible = false
 
 func _on_instant_success_pressed() -> void:
 	game.success_night()

@@ -34,5 +34,5 @@ func _update_digit(digits: Node2D, number: int) -> void:
 	for digit in digits.get_children():
 		digit.visible = digit.name == str(number)
 		
-func _on_jumpscare_started(time: float, animatronic: Animatronic) -> void:
+func _on_jumpscare_started(_time: float, _animatronic: Animatronic) -> void:
 	set_process(false)

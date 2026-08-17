@@ -8,9 +8,6 @@
 [ext_resource type="Script" uid="uid://dudem3f6cicig" path="res://scripts/libs.gd" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://b4kfro0u777fy" path="res://scenes/ui/night_time.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://c85atmdfgp6r6" path="res://scenes/ui/power_usage.tscn" id="6_vtaks"]
-[ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://scenes/ui/statics.tscn" id="8_gee14"]
-[ext_resource type="Script" uid="uid://sfpdspyhj55p" path="res://scripts/death.gd" id="8_vtaks"]
-[ext_resource type="AudioStream" uid="uid://bia1ot4nsv48b" path="res://assets/audio/static.wav" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" unique_id=1569501029 node_paths=PackedStringArray("office", "animatronics")]
 script = ExtResource("1_u5sy4")
@@ -43,16 +40,6 @@ animatronics = NodePath("../../Office/Animatronics")
 [node name="Jumpscare Timer" type="Timer" parent="." unique_id=790274028]
 wait_time = 0.6
 one_shot = true
-
-[node name="Death Layer" type="CanvasLayer" parent="." unique_id=1951408997]
-layer = 4
-script = ExtResource("8_vtaks")
-
-[node name="Death Statics" parent="Death Layer" unique_id=1232822903 instance=ExtResource("8_gee14")]
-visible = false
-
-[node name="Death Sound" type="AudioStreamPlayer" parent="Death Layer" unique_id=741058014 groups=["ambiance"]]
-stream = ExtResource("9_0tnpc")
 
 [node name="Libs" type="Node2D" parent="." unique_id=365965140]
 script = ExtResource("5_iywne")
