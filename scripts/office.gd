@@ -8,15 +8,9 @@ class_name Office extends Node2D
 @onready var power_off_audio := $"Ambiance/Power Off Audio"
 @onready var freddy_jingle := $"Stage/Freddy Jingle"
 
-@export var animatronics: Animatronics
-
 var office_camera: Camera2D
 
 func _ready() -> void:
-	left_door.setup(animatronics)
-	right_door.setup(animatronics)
-	office_stage.animatronics = animatronics
-	freddy_jingle.setup(animatronics.freddy)
 	Events.power_off.connect(_on_power_off)
 	Events.jumpscare_started.connect(_on_jumpscare_started)
 

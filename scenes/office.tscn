@@ -206,7 +206,6 @@ bus = &"Ambiance"
 
 [node name="Power Off Audio" type="AudioStreamPlayer" parent="Ambiance" unique_id=74196955]
 stream = ExtResource("3_qgrek")
-bus = &"Ambiance"
 
 [node name="Stage" type="Node2D" parent="." unique_id=1795822514]
 script = ExtResource("1_osgti")
@@ -217,12 +216,11 @@ script = ExtResource("13_f1ywt")
 [node name="Fan Audio" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=1205193030]
 stream = ExtResource("5_qphb6")
 volume_db = -5.0
-bus = &"Sfx"
+bus = &"Power down"
 
 [node name="Step Sound" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=1688195894]
 stream = ExtResource("7_f3wdx")
 volume_db = -5.0
-bus = &"Sfx"
 
 [node name="Step Delay" type="Timer" parent="Stage/Freddy Jingle/Step Sound" unique_id=447814327]
 wait_time = 2.0
@@ -230,7 +228,6 @@ one_shot = true
 
 [node name="Freddy Jingle Audio" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=932797044]
 stream = ExtResource("14_f3wdx")
-bus = &"Sfx"
 
 [node name="Normal" type="Sprite2D" parent="Stage" unique_id=146049526]
 texture = ExtResource("1_3e7dm")
@@ -331,7 +328,7 @@ sprite_frames = SubResource("SpriteFrames_ucufk")
 [node name="Door Toggle Sound" type="AudioStreamPlayer" parent="Doors" unique_id=183057559]
 stream = ExtResource("25_t1nwb")
 volume_db = -5.0
-bus = &"Sfx"
+bus = &"Doors"
 
 [node name="Door Light Sound" type="AudioStreamPlayer" parent="Doors" unique_id=745367107]
 stream = ExtResource("42_bkq84")

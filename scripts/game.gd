@@ -6,7 +6,7 @@ class_name Game extends Node2D
 @onready var monitor_animation: MonitorAnimation = $"OfficeCamera/Switching Cameras/CanvasLayer2/Monitor"
 @onready var office_camera: Camera2D = $"OfficeCamera"
 @onready var jumpscare_timer := $"Jumpscare Timer"
-@onready var jumpscare_sound := $"Office/Animatronics/Default Jumpscare Audio"
+@onready var jumpscare_sound := $"Animatronics/Default Jumpscare Audio"
 @onready var success_screen := preload("res://scenes/succeed_night_animation.tscn").instantiate()
 
 func _ready() -> void:
