@@ -15,7 +15,7 @@ general/size/mode=3
 [application]
 
 config/name="five nights at freddy's"
-run/main_scene="uid://bj6ejibqm23bs"
+run/main_scene="uid://vpms7e5yikcn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -24,6 +24,7 @@ func _ready() -> void:
 	if PlayerData.night < 6:
 		PlayerData.night += 1
 	win_sound.play()
+	PlayerData.save()
 	position_y_to_stop = digit_5.position.y
 
 func check_20_4(animatronics: Animatronics):
@@ -50,8 +51,14 @@ func _process(delta: float) -> void:
 		black.modulate.a = color_rect_alpha
 		if color_rect_alpha >= 1.0:
 			finished = true
-			get_tree().change_scene_to_file("res://scenes/main_menu/starting_night.tscn")
+			_main_screen_or_ending()
 			
+func _main_screen_or_ending() -> void:
+	if PlayerData.night < 5:
+		get_tree().change_scene_to_file("res://scenes/main_menu/starting_night.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/ending/ending.tscn")
+
 func _on_children_yeah_finished() -> void:
 	fade_out = true
 	color_rect_alpha = 0.0

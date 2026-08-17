@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b4cvu00xat2ad"]
+
+[ext_resource type="Texture2D" uid="uid://dgyg8vceybey8" path="res://assets/images/2.5-START_TO_END/1.png" id="1_b7uqy"]
+[ext_resource type="Script" uid="uid://xbhfanwwlwvk" path="res://scripts/ending/ending.gd" id="1_hki1m"]
+[ext_resource type="Texture2D" uid="uid://cunj2dspry2ob" path="res://assets/images/2.5-START_TO_END/2.png" id="2_hki1m"]
+[ext_resource type="Texture2D" uid="uid://dgq65c5fg4a5h" path="res://assets/images/2.5-START_TO_END/3.png" id="3_wijjp"]
+[ext_resource type="AudioStream" uid="uid://yvbk2evbaclp" path="res://assets/audio/music box.wav" id="4_keg6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
+size = Vector2(1287, 740)
+
+[node name="Ending" type="Node2D" unique_id=487009744]
+script = ExtResource("1_hki1m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1360766609]
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background Music" type="AudioStreamPlayer" parent="." unique_id=1858965067]
+stream = ExtResource("4_keg6f")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="." unique_id=857262273]
+wait_time = 17.0
+one_shot = true
+autostart = true
+
+[node name="Sprites" type="Area2D" parent="." unique_id=1377014360]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites" unique_id=2067112974]
+position = Vector2(633.5, 360)
+shape = SubResource("RectangleShape2D_ucufk")
+
+[node name="Night 5" type="Sprite2D" parent="Sprites" unique_id=1291436363]
+visible = false
+texture = ExtResource("1_b7uqy")
+centered = false
+
+[node name="Night 6" type="Sprite2D" parent="Sprites" unique_id=1944316397]
+visible = false
+texture = ExtResource("2_hki1m")
+centered = false
+
+[node name="Night 7" type="Sprite2D" parent="Sprites" unique_id=1545351900]
+visible = false
+texture = ExtResource("3_wijjp")
+centered = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="input_event" from="Sprites" to="." method="_on_sprites_input_event"]

@@ -29,10 +29,10 @@ func _on_continue_input_event(_viewport: Node, event: InputEvent, _shape_idx: in
 		PlayerData.night = min(PlayerData.night, 5)
 		get_tree().change_scene_to_file("res://scenes/main_menu/starting_night.tscn")
 
-func _on_6th_night_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_6th_night_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		PlayerData.night = 6
 		get_tree().change_scene_to_file("res://scenes/main_menu/starting_night.tscn")
 				
-func _on_custom_night_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+func _on_custom_night_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
 	pass
