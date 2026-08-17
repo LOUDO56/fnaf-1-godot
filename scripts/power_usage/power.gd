@@ -1,6 +1,5 @@
 class_name Power extends Node2D
 
-@export var night_divisor := 3.0
 @export var usage: PowerUsage
 
 @onready var first_digit = $"Percent/First Digit"
@@ -8,10 +7,17 @@ class_name Power extends Node2D
 
 var power := 100.0
 var power_consume_time := 0.0
+var night_divisor := 3.0
 
 func _ready() -> void:
 	_update_power_sprite_value()
 	Events.jumpscare_started.connect(_on_jumpscare_started)
+	match PlayerData.night:
+		1: night_divisor = 9.6
+		2: night_divisor = 6
+		3: night_divisor = 5
+		4: night_divisor = 4
+		5, 6, 7: night_divisor = 3
 
 func _process(delta: float) -> void:
 	power_consume_time += delta
