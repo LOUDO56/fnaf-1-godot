@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://yo4wi8ldt34l"]
+
+[ext_resource type="Script" uid="uid://ba0dt1m4tmtv4" path="res://scripts/phone_guy.gd" id="1_u0xek"]
+[ext_resource type="AudioStream" uid="uid://b1dbx7v85ukep" path="res://assets/audio/voiceover1c.wav" id="2_pxrps"]
+[ext_resource type="AudioStream" uid="uid://d0qvinoxxirfm" path="res://assets/audio/voiceover2a.wav" id="3_u1jn1"]
+[ext_resource type="AudioStream" uid="uid://db157lm0trwj0" path="res://assets/audio/voiceover3.wav" id="4_8bukc"]
+[ext_resource type="AudioStream" uid="uid://dbhwc0gurexrp" path="res://assets/audio/voiceover4.wav" id="5_m1l2h"]
+[ext_resource type="AudioStream" uid="uid://d1y5ro1upgqjx" path="res://assets/audio/voiceover5.wav" id="6_nq6tt"]
+[ext_resource type="Texture2D" uid="uid://dxvidlb0168j1" path="res://assets/images/7-NIGHT_LOADING/MUTE_CALL_BUTTON.png" id="7_pxrps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
+size = Vector2(134, 41)
+
+[node name="Phone Guy" type="Node2D" unique_id=643778555]
+script = ExtResource("1_u0xek")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1617284333]
+layer = 2
+
+[node name="Mute Call" type="Area2D" parent="CanvasLayer" unique_id=908399478]
+position = Vector2(89, 39)
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/Mute Call" unique_id=614772079]
+modulate = Color(1, 1, 1, 0.6)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("7_pxrps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Mute Call" unique_id=1881943256]
+shape = SubResource("RectangleShape2D_ucufk")
+
+[node name="Voice Night 1" type="AudioStreamPlayer" parent="." unique_id=189174234]
+stream = ExtResource("2_pxrps")
+bus = &"Phone Guy"
+
+[node name="Voice Night 2" type="AudioStreamPlayer" parent="." unique_id=1625960430]
+stream = ExtResource("3_u1jn1")
+bus = &"Phone Guy"
+
+[node name="Voice Night 3" type="AudioStreamPlayer" parent="." unique_id=524738087]
+stream = ExtResource("4_8bukc")
+bus = &"Phone Guy"
+
+[node name="Voice Night 4" type="AudioStreamPlayer" parent="." unique_id=1837548518]
+stream = ExtResource("5_m1l2h")
+bus = &"Phone Guy"
+
+[node name="Voice Night 5" type="AudioStreamPlayer" parent="." unique_id=4068518]
+stream = ExtResource("6_nq6tt")
+bus = &"Phone Guy"
+
+[node name="Hide Mute Timer" type="Timer" parent="." unique_id=1134538246]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[node name="Show Mute Timer" type="Timer" parent="." unique_id=623569091]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="input_event" from="CanvasLayer/Mute Call" to="." method="_on_mute_call_input_event"]
+[connection signal="timeout" from="Hide Mute Timer" to="." method="_on_hide_mute_timer_timeout"]
+[connection signal="timeout" from="Show Mute Timer" to="." method="_on_show_mute_timer_timeout"]

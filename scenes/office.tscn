@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cavf4wmldef6k" path="res://scripts/office.gd" id="1_bv0q3"]
 [ext_resource type="AudioStream" uid="uid://c8jfd355f8uac" path="res://assets/audio/ColdPresc B.wav" id="1_likdn"]
 [ext_resource type="Script" uid="uid://doocewdvk6fje" path="res://scripts/stage.gd" id="1_osgti"]
+[ext_resource type="PackedScene" uid="uid://yo4wi8ldt34l" path="res://scenes/phone_guy.tscn" id="2_f3wdx"]
 [ext_resource type="Texture2D" uid="uid://dwhff32d2wgr2" path="res://assets/images/3-THE_OFFICE/FAN/1.png" id="2_qphb6"]
 [ext_resource type="Texture2D" uid="uid://b403vjlypshgb" path="res://assets/images/3-THE_OFFICE/FAN/2.png" id="3_hub07"]
 [ext_resource type="AudioStream" uid="uid://bf4h5sqwv4u2r" path="res://assets/audio/powerdown.wav" id="3_qgrek"]
@@ -197,6 +198,8 @@ shader_parameter/wrapping_mode = 0
 [node name="Office" type="Node2D" unique_id=1654829613]
 script = ExtResource("1_bv0q3")
 
+[node name="Phone Guy" parent="." unique_id=643778555 instance=ExtResource("2_f3wdx")]
+
 [node name="Ambiance" type="Node2D" parent="." unique_id=962121517]
 
 [node name="Ambiance A" type="AudioStreamPlayer" parent="Ambiance" unique_id=304361516]
@@ -286,7 +289,7 @@ bus = &"Sfx"
 
 [node name="LeftDoorButtons" parent="Doors/Left" unique_id=1750007891 node_paths=PackedStringArray("right_door", "door_animation", "door_error_sound", "door_sound", "light_sound", "stinger_sound", "office_stage") instance=ExtResource("4_fmddn")]
 z_index = 1
-position = Vector2(39, 398)
+position = Vector2(48, 398)
 right_door = NodePath("../../Right/RightDoorButtons")
 door_animation = NodePath("../Door Animation")
 door_error_sound = NodePath("../../Door Error Sound")

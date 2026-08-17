@@ -88,11 +88,12 @@ texture = ExtResource("3_w30q0")
 position = Vector2(0, 7)
 
 [node name="Night" type="Sprite2D" parent="CanvasLayer/Current Night" unique_id=804915820]
-position = Vector2(1182, 75)
+position = Vector2(1184.5001, 74.99999)
+scale = Vector2(0.942, 0.942)
 texture = ExtResource("9_xg1ny")
 
 [node name="Numbers" type="Node2D" parent="CanvasLayer/Current Night" unique_id=1098165499]
-position = Vector2(1232.9999, 74.00001)
+position = Vector2(1233.9999, 74.00001)
 scale = Vector2(1.01, 1.01)
 
 [node name="1" type="Sprite2D" parent="CanvasLayer/Current Night/Numbers" unique_id=1467396198]

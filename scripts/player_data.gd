@@ -2,6 +2,7 @@ extends Node
 
 var night := 1
 var star := 0
+var played_phone_guy_voice: Array[AudioStreamPlayer]
 
 func _ready() -> void:
 	load_save()

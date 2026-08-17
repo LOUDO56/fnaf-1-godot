@@ -60,7 +60,8 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Sprite2D" parent="Map/CAM 1A (Show Stage)" unique_id=371991633]
 texture_filter = 1
-position = Vector2(-8, 0)
+position = Vector2(-7, 0)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("4_3woce")
 
 [node name="CAM 1B (Dining Area)" parent="Map" unique_id=1580857056 instance=ExtResource("3_qnfdv")]
@@ -71,7 +72,8 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Sprite2D" parent="Map/CAM 1B (Dining Area)" unique_id=928292221]
 texture_filter = 1
-position = Vector2(-8, 0)
+position = Vector2(-7, 0)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("5_mehrd")
 
 [node name="CAM 1C (Pirate Cove)" parent="Map" unique_id=1687972551 instance=ExtResource("3_qnfdv")]
@@ -83,6 +85,7 @@ metadata/_edit_group_ = true
 [node name="Text" type="Sprite2D" parent="Map/CAM 1C (Pirate Cove)" unique_id=1247442875]
 texture_filter = 1
 position = Vector2(-7, 0)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("6_bjnf8")
 
 [node name="CAM 2A (West Hall)" parent="Map" unique_id=731321539 instance=ExtResource("3_qnfdv")]
@@ -93,7 +96,8 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Sprite2D" parent="Map/CAM 2A (West Hall)" unique_id=562310093]
 texture_filter = 1
-position = Vector2(-7, 0)
+position = Vector2(-8, -1)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("7_3woce")
 
 [node name="CAM 2B (W Hall Corner)" parent="Map" unique_id=449826847 instance=ExtResource("3_qnfdv")]
@@ -104,7 +108,8 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Sprite2D" parent="Map/CAM 2B (W Hall Corner)" unique_id=1613345639]
 texture_filter = 1
-position = Vector2(-7, 0)
+position = Vector2(-8, -1)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("7_6wb6y")
 
 [node name="CAM 3 (Supply Closet)" parent="Map" unique_id=297510203 instance=ExtResource("3_qnfdv")]
@@ -115,8 +120,8 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Sprite2D" parent="Map/CAM 3 (Supply Closet)" unique_id=1849031437]
 texture_filter = 1
-position = Vector2(-5.0700016, 0.25)
-scale = Vector2(1.0599998, 1.06)
+position = Vector2(-6.0700016, -0.75)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("8_fnjts")
 
 [node name="CAM 4A (East Hall)" parent="Map" unique_id=543480939 instance=ExtResource("3_qnfdv")]
@@ -128,6 +133,7 @@ metadata/_edit_group_ = true
 [node name="Text" type="Sprite2D" parent="Map/CAM 4A (East Hall)" unique_id=694949103]
 texture_filter = 1
 position = Vector2(-8, 0)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("9_tahph")
 
 [node name="CAM 4B (E Hall Corner)" parent="Map" unique_id=1452548291 instance=ExtResource("3_qnfdv")]
@@ -139,6 +145,7 @@ metadata/_edit_group_ = true
 [node name="Text" type="Sprite2D" parent="Map/CAM 4B (E Hall Corner)" unique_id=1850719822]
 texture_filter = 1
 position = Vector2(-7, 0)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("10_rwre8")
 
 [node name="CAM 5 (Backstage)" parent="Map" unique_id=909134953 instance=ExtResource("3_qnfdv")]
@@ -149,7 +156,8 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Sprite2D" parent="Map/CAM 5 (Backstage)" unique_id=1995914166]
 texture_filter = 1
-position = Vector2(-7, 0)
+position = Vector2(-8, 0)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("11_iytmj")
 
 [node name="CAM 6 (Kitchen)" parent="Map" unique_id=442027099 instance=ExtResource("3_qnfdv")]
@@ -160,7 +168,8 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Sprite2D" parent="Map/CAM 6 (Kitchen)" unique_id=1651375860]
 texture_filter = 1
-position = Vector2(-7, 0)
+position = Vector2(-7, -1)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("12_oh77v")
 
 [node name="CAM 7 (Restrooms)" parent="Map" unique_id=1944400073 instance=ExtResource("3_qnfdv")]
@@ -171,7 +180,8 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Sprite2D" parent="Map/CAM 7 (Restrooms)" unique_id=1184646926]
 texture_filter = 1
-position = Vector2(-7, 0)
+position = Vector2(-6, 0)
+scale = Vector2(1.01, 1.01)
 texture = ExtResource("13_4foth")
 
 [node name="Camera Name" type="Sprite2D" parent="Map" unique_id=727381699]
