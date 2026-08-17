@@ -48,9 +48,6 @@ func move_ai() -> void:
 func _can_try_attack():
 	return attack_mode and not is_stalled and randi() % 2 == 0 # to allow freddy to either try attack or return to 4A		
 
-func get_character() -> Animatronics.Character:
-	return Animatronics.Character.FREDDY
-
 func step_back():
 	if is_stalled:
 		return

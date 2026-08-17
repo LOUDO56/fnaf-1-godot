@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4s256xj1o7xy"]
 
-[ext_resource type="Script" uid="uid://bcvxiywxhavor" path="res://scripts/succeed_nigtht_animation.gd" id="1_h2hxc"]
+[ext_resource type="Script" uid="uid://bcvxiywxhavor" path="res://scripts/succeed_night_animation.gd" id="1_h2hxc"]
 [ext_resource type="Texture2D" uid="uid://bph6vlko2l4nq" path="res://assets/images/3-THE_OFFICE/OTHER/AM_6AM.png" id="2_olsgb"]
 [ext_resource type="Texture2D" uid="uid://d2bso0sudb7i" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/5.png" id="3_t6kf6"]
 [ext_resource type="Texture2D" uid="uid://c8rn56jt5r0eh" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/6.png" id="4_20mry"]
@@ -42,6 +42,13 @@ position = Vector2(581, 164.99998)
 scale = Vector2(2.6666658, 2.6666658)
 texture = ExtResource("4_20mry")
 
+[node name="Black" type="ColorRect" parent="CanvasLayer" unique_id=40148576]
+modulate = Color(1, 1, 1, 0)
+offset_left = 4.0
+offset_right = 2095.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
 [node name="Win Sound" type="AudioStreamPlayer" parent="." unique_id=519150846]
 stream = ExtResource("5_yjygv")
 volume_db = -5.0
@@ -49,3 +56,5 @@ volume_db = -5.0
 [node name="Children Yeah" type="AudioStreamPlayer" parent="." unique_id=1967585502]
 stream = ExtResource("6_dnun0")
 volume_db = -5.0
+
+[connection signal="finished" from="Children Yeah" to="." method="_on_children_yeah_finished"]

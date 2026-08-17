@@ -8,6 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://pultwlouk6db" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/4.png" id="5_am3l4"]
 [ext_resource type="Texture2D" uid="uid://d2bso0sudb7i" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/5.png" id="6_1v4m5"]
 [ext_resource type="Texture2D" uid="uid://c8rn56jt5r0eh" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/6.png" id="7_8amll"]
+[ext_resource type="Texture2D" uid="uid://yy35d2ydoob7" path="res://assets/images/3-THE_OFFICE/OTHER/NIGHT.png" id="9_xg1ny"]
+[ext_resource type="Texture2D" uid="uid://dme52syf67tv6" path="res://assets/images/3-THE_OFFICE/NIGHT_NUMBERS/2.png" id="10_cm1jp"]
+[ext_resource type="Texture2D" uid="uid://da26l0pr0wgbo" path="res://assets/images/3-THE_OFFICE/NIGHT_NUMBERS/7.png" id="10_xg1ny"]
+[ext_resource type="Texture2D" uid="uid://y2opw156qlvn" path="res://assets/images/3-THE_OFFICE/NIGHT_NUMBERS/3.png" id="11_xg1ny"]
+[ext_resource type="Texture2D" uid="uid://bsityqyuuuhvk" path="res://assets/images/3-THE_OFFICE/NIGHT_NUMBERS/4.png" id="12_sg4xb"]
+[ext_resource type="Texture2D" uid="uid://btp2ncm2gok1g" path="res://assets/images/3-THE_OFFICE/NIGHT_NUMBERS/5.png" id="13_fr5on"]
+[ext_resource type="Texture2D" uid="uid://btytgbmn7npis" path="res://assets/images/3-THE_OFFICE/NIGHT_NUMBERS/6.png" id="14_m5u3y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v8u1k"]
+load_path = "res://.godot/imported/1.png-cd5ad5dd2208dee77a618aeb7a6845db.ctex"
 
 [node name="Night Time" type="Node2D" unique_id=1946143972]
 script = ExtResource("1_w30q0")
@@ -73,6 +83,44 @@ texture = ExtResource("2_bal3p")
 texture_filter = 1
 position = Vector2(1191, 36)
 texture = ExtResource("3_w30q0")
+
+[node name="Current Night" type="Node2D" parent="CanvasLayer" unique_id=1186862317]
+position = Vector2(0, 7)
+
+[node name="Night" type="Sprite2D" parent="CanvasLayer/Current Night" unique_id=804915820]
+position = Vector2(1182, 75)
+texture = ExtResource("9_xg1ny")
+
+[node name="Numbers" type="Node2D" parent="CanvasLayer/Current Night" unique_id=1098165499]
+position = Vector2(1232.9999, 74.00001)
+scale = Vector2(1.01, 1.01)
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/Current Night/Numbers" unique_id=1467396198]
+visible = false
+texture = SubResource("CompressedTexture2D_v8u1k")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/Current Night/Numbers" unique_id=1610080108]
+visible = false
+texture = ExtResource("10_cm1jp")
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/Current Night/Numbers" unique_id=1291236881]
+visible = false
+texture = ExtResource("11_xg1ny")
+
+[node name="4" type="Sprite2D" parent="CanvasLayer/Current Night/Numbers" unique_id=785628149]
+visible = false
+texture = ExtResource("12_sg4xb")
+
+[node name="5" type="Sprite2D" parent="CanvasLayer/Current Night/Numbers" unique_id=600421719]
+visible = false
+texture = ExtResource("13_fr5on")
+
+[node name="6" type="Sprite2D" parent="CanvasLayer/Current Night/Numbers" unique_id=1084151449]
+visible = false
+texture = ExtResource("14_m5u3y")
+
+[node name="7" type="Sprite2D" parent="CanvasLayer/Current Night/Numbers" unique_id=386737294]
+texture = ExtResource("10_xg1ny")
 
 [node name="Instant Success" type="Button" parent="CanvasLayer" unique_id=69048970]
 visible = false

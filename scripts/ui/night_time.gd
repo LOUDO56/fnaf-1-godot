@@ -6,6 +6,7 @@ const HOUR_LENGTH := 89.0
 @export var game: Game
 
 @onready var digits = $"CanvasLayer/Time/Digits"
+@onready var night_numbers = $"CanvasLayer/Current Night/Numbers"
 
 @export var animatronics: Animatronics
 
@@ -14,6 +15,7 @@ var elapsed_seconds_between_hour := 0.0
 
 func _ready() -> void:
 	Events.power_off.connect(_on_power_off)
+	_update_night_count()
 
 func _process(delta: float) -> void:
 	elapsed_seconds_between_hour += delta
@@ -33,6 +35,10 @@ func _process(delta: float) -> void:
 func _update_ui_time() -> void:
 	for digit in digits.get_children():
 		digit.visible = digit.name != "12" and digit.name == str(current_hour)
+		
+func _update_night_count() -> void:
+	for number in night_numbers.get_children():
+		number.visible = number.name == str(PlayerData.night)
 
 func _on_power_off() -> void:
 	get_node("CanvasLayer").visible = false

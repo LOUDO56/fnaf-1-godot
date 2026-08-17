@@ -22,8 +22,6 @@ var is_stalled := false
 var timer_jumpscare: Timer
 
 func _process(delta: float) -> void:
-	if Globals.state != Globals.State.OFFICE:
-		return
 	if current_position == CameraMap.Camera.OFFICE:
 		return
 	movement_opportunity += delta
@@ -117,6 +115,5 @@ func step_back():
 func enter_office():
 	current_position = CameraMap.Camera.OFFICE
 
-@abstract func get_character() -> Animatronics.Character
 @abstract func move_ai() -> void
 @abstract func _attack_blocked() -> void

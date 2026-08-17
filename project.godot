@@ -26,7 +26,7 @@ buses/default_bus_layout="uid://bpts5617ubv58"
 [autoload]
 
 Events="*uid://bp5s8q3i3s4vv"
-Globals="*uid://bvgc2s1qw5mtp"
+PlayerData="*uid://d0vp84ltj2u8h"
 
 [display]
 

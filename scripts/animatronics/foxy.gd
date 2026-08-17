@@ -23,9 +23,6 @@ func move_ai() -> void:
 		if step_attack == 3:
 			foxy_attack_timer.start(DEFAULT_ATTACK_TIME)
 
-func get_character() -> Animatronics.Character:
-	return Animatronics.Character.FOXY
-
 func _attack_blocked() -> void:
 	knock_door_audio.play()
 	current_position = CameraMap.Camera.CAM_1C

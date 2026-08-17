@@ -7,7 +7,7 @@ class_name Game extends Node2D
 @onready var office_camera: Camera2D = $"OfficeCamera"
 @onready var jumpscare_timer := $"Jumpscare Timer"
 @onready var jumpscare_sound := $"Animatronics/Default Jumpscare Audio"
-@onready var success_screen := preload("res://scenes/succeed_night_animation.tscn").instantiate()
+@onready var success_screen: SuccessNightAnimation = preload("res://scenes/succeed_night_animation.tscn").instantiate()
 
 func _ready() -> void:
 	office.listen_flip_events(monitor_animation, office_camera)
@@ -29,10 +29,10 @@ func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	
 func success_night():
 	process_mode = Node.PROCESS_MODE_DISABLED
+	success_screen.check_20_4(animatronics)
 	get_tree().root.add_child(success_screen)
 
 func _on_jumpscare_started(time: float, _animatronic: Animatronic) -> void:
-	Globals.state = Globals.State.DIED
 	office.set_process(PROCESS_MODE_DISABLED)
 	jumpscare_timer.start(time)
 	_stop_audio()

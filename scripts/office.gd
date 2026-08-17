@@ -41,7 +41,7 @@ func _on_power_off():
 
 
 func _on_jumpscare_started(_time: float, animatronic: Animatronic):
-	if animatronic.get_character() == Animatronics.Character.FOXY:
+	if animatronic is Foxy:
 		return
 	fan.visible = false
 	fan.stop()

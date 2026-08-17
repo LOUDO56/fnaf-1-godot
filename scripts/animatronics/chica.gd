@@ -34,8 +34,6 @@ func play_jumpscare() -> void:
 		breathing_sound.stop()
 	super.play_jumpscare()
 
-func get_character() -> Animatronics.Character:
-	return Animatronics.Character.CHICA
 
 func _attack_blocked() -> void:
 	current_position = [CameraMap.Camera.CAM_4A, CameraMap.Camera.CAM_1B].pick_random()

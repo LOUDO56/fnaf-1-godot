@@ -41,8 +41,6 @@ func setup(p_animatronics: Animatronics) -> void:
 
 func _on_buttons_area_input_event(_viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if Globals.state != Globals.State.OFFICE:
-			return
 		if imminent_death:
 			if can_press_door:
 				door_error_sound.play()

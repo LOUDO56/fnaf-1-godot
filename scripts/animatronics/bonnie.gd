@@ -15,10 +15,7 @@ func move_ai() -> void:
 	current_position = ROUTES[current_position].pick_random()
 	if current_position == CameraMap.Camera.CAM_5:
 		_easter_egg_bonnie_look_camera_backstage()
-
-func get_character() -> Animatronics.Character:
-	return Animatronics.Character.BONNIE
-
+		
 func _attack_blocked() -> void:
 	current_position = CameraMap.Camera.CAM_1B
 

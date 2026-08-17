@@ -11,7 +11,7 @@ func setup(p_animatronics: Animatronics) -> void:
 	
 func _on_monitor_opened() -> void:
 	var animatronic_in_office = animatronics.get_animatronic_in_office()
-	if animatronic_in_office != null and (animatronic_in_office.get_character() == Animatronics.Character.BONNIE or animatronic_in_office.get_character() == Animatronics.Character.CHICA):
+	if animatronic_in_office != null and animatronic_in_office is Bonnie or animatronic_in_office is Chica:
 		pick_breath_sound_timer.start()
 
 func _on_pick_breath_sound_timeout() -> void:

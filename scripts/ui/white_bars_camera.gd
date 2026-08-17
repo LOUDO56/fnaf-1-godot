@@ -13,6 +13,7 @@ func play() -> void:
 	white_bars_camera_sound.play()
 	
 func stop() -> void:
+	white_bars_camera_animation.stop()
 	white_bars_camera_animation.visible = false
 
 func _on_white_bars_camera_animation_animation_finished() -> void:

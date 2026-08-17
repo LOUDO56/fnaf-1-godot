@@ -47,14 +47,12 @@ func _get_movement_speed(ratio) -> float:
 		
 func _on_disable_gameplay():
 	var animatronic_in_office = animatronics.get_animatronic_in_office()
-	var character = animatronic_in_office.get_character()
-	
-	if character != Animatronics.Character.FOXY:
+
+	if animatronic_in_office is not Foxy:
 		office.hide_doors()
 	
-	match character:
-		Animatronics.Character.BONNIE, Animatronics.Character.CHICA:
-			position.x = margin_right_office / 2.0
+	if animatronic_in_office is Bonnie or animatronic_in_office is Chica:
+		position.x = margin_right_office / 2.0
 	
 	can_move = false
 

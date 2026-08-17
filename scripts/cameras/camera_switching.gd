@@ -56,6 +56,7 @@ func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	camera_disabled_text.visible = false
 	camera_moving_audio.stop()
 	$CanvasLayer/Cameras.visible = false
+	camera_map.white_bars.stop()
 	
 	foxy_running_animation.visible = false
 
@@ -103,8 +104,6 @@ func _hide_all_camera():
 				sprite.visible = false
 	
 func _on_force_camera_down_timeout() -> void:
-	if Globals.state != Globals.State.OFFICE:
-		return
 	animatronics.get_animatronic_in_office().play_jumpscare()
 	
 func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera):
