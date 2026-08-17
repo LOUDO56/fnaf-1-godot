@@ -125,10 +125,10 @@ texture = ExtResource("10_xg1ny")
 
 [node name="Instant Success" type="Button" parent="CanvasLayer" unique_id=69048970]
 visible = false
-offset_left = 1139.0
-offset_top = 68.0
-offset_right = 1237.0
-offset_bottom = 99.0
+offset_left = 1146.0
+offset_top = 104.0
+offset_right = 1244.0
+offset_bottom = 135.0
 text = "Finish night"
 
 [connection signal="pressed" from="CanvasLayer/Instant Success" to="." method="_on_instant_success_pressed"]

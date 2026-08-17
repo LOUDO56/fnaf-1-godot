@@ -11,4 +11,5 @@ func _ready() -> void:
 
 func _on_game_over_timer_timeout() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
-	get_tree().root.add_child(game_over)
+	add_child(game_over)
+	game_over.process_mode = Node.PROCESS_MODE_ALWAYS

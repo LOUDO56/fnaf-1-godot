@@ -23,10 +23,10 @@ func _process(delta: float) -> void:
 	or current_hour >= 1  and elapsed_seconds_between_hour >= HOUR_LENGTH:
 		current_hour += 1
 		if current_hour >= 2 and current_hour <= 4:
-			animatronics.bonnie.ai_level += 1
+			animatronics.bonnie.ai_level = min(animatronics.bonnie.ai_level + 1, 20)
 			if current_hour >= 3:
-				animatronics.chica.ai_level += 1
-				animatronics.foxy.ai_level += 1
+				animatronics.chica.ai_level += min(animatronics.chica.ai_level + 1, 20)
+				animatronics.foxy.ai_level += min(animatronics.foxy.ai_level + 1, 20)
 		elapsed_seconds_between_hour = 0.0
 		_update_ui_time()
 		if current_hour == 6:

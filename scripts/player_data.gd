@@ -4,13 +4,20 @@ var night := 1
 var star := 0
 var played_phone_guy_voice: Array[AudioStreamPlayer]
 
+var night_7_ai_level = {
+	Freddy: 1,
+	Bonnie: 3,
+	Chica: 3,
+	Foxy: 1,
+}
+
 func _ready() -> void:
 	load_save()
 
 func save() -> void:
 	var save_file = FileAccess.open("user://freddy", FileAccess.WRITE)
 	save_file.store_line(JSON.stringify({
-		"night": self.night,
+		"night": PlayerData.night,
 		"star": self.star
 	}))
 

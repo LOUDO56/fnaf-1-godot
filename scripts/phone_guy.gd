@@ -19,7 +19,7 @@ func _ready() -> void:
 		3: voice_to_play = voice_night_3
 		4: voice_to_play = voice_night_4
 		5: voice_to_play = voice_night_5
-	if voice_to_play not in PlayerData.played_phone_guy_voice:
+	if voice_to_play != null and voice_to_play not in PlayerData.played_phone_guy_voice:
 		show_mute_timer.start()
 		voice_to_play.play()
 		PlayerData.played_phone_guy_voice.append(voice_to_play)

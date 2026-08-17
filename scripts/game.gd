@@ -10,6 +10,8 @@ class_name Game extends Node2D
 @onready var success_screen: SuccessNightAnimation = preload("res://scenes/succeed_night_animation.tscn").instantiate()
 
 func _ready() -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Ambiance"), false)
+	
 	office.listen_flip_events(monitor_animation, office_camera)
 	
 	monitor_animation.monitor_opened.connect(_on_monitor_opened)

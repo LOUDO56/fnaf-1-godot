@@ -35,5 +35,5 @@ bus/6/name = &"Phone Guy"
 bus/6/solo = false
 bus/6/mute = false
 bus/6/bypass_fx = false
-bus/6/volume_db = 1.2604752
+bus/6/volume_db = 0.46499825
 bus/6/send = &"Master"
