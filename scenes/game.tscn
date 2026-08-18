@@ -13,6 +13,11 @@
 [ext_resource type="Script" uid="uid://bqep43wxj8guh" path="res://scripts/animatronics/golden_freddy.gd" id="9_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bxn37k5n3dr3e" path="res://assets/images/8-EASTER_EGGS/GOLDEN_FREDDY.png" id="10_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://cqxtrneadegge" path="res://assets/audio/Laugh_Giggle_Girl_1.wav" id="11_kvpfn"]
+[ext_resource type="Script" uid="uid://dfrtlkpb6qe6m" path="res://scripts/easter_eggs/random_hallucination.gd" id="14_trtic"]
+[ext_resource type="Script" uid="uid://dfhbnl4bk7omp" path="res://scripts/easter_eggs/metal_door_pounding.gd" id="15_ir15t"]
+[ext_resource type="AudioStream" uid="uid://bvha6fy2rjffl" path="res://assets/audio/DOOR_POUNDING_ME_D0291401.wav" id="16_rysoc"]
+[ext_resource type="Script" uid="uid://4ledbpg5jkl2" path="res://scripts/easter_eggs/circus_music.gd" id="17_ssvqc"]
+[ext_resource type="AudioStream" uid="uid://dtslb25kkqvgw" path="res://assets/audio/circus.wav" id="18_ssvqc"]
 
 [node name="Game" type="Node2D" unique_id=1569501029 node_paths=PackedStringArray("office", "animatronics")]
 script = ExtResource("1_u5sy4")
@@ -32,7 +37,6 @@ animatronics = NodePath("../Animatronics")
 
 [node name="Ambiance Sound" type="AudioStreamPlayer" parent="Giant Hollow Tube Sector Handler" unique_id=574151175]
 stream = ExtResource("5_kvuet")
-autoplay = true
 bus = &"Ambiance"
 
 [node name="OfficeCamera" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office", "animatronics")]
@@ -81,6 +85,36 @@ one_shot = true
 [node name="Enable Easter Egg Timer" type="Timer" parent="Golden Freddy" unique_id=1501927017]
 autostart = true
 
+[node name="Random Hallucination" type="Node2D" parent="." unique_id=730686082]
+script = ExtResource("14_trtic")
+
+[node name="Timer" type="Timer" parent="Random Hallucination" unique_id=1463411277]
+autostart = true
+
+[node name="Metal Door Pounding" type="Node2D" parent="." unique_id=1822340943]
+script = ExtResource("15_ir15t")
+
+[node name="Timer" type="Timer" parent="Metal Door Pounding" unique_id=227670130]
+wait_time = 10.0
+autostart = true
+
+[node name="Metal Door Pounding Sound" type="AudioStreamPlayer" parent="Metal Door Pounding" unique_id=1603099134]
+stream = ExtResource("16_rysoc")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="Circus Music" type="Node2D" parent="." unique_id=1120188166]
+script = ExtResource("17_ssvqc")
+
+[node name="Timer" type="Timer" parent="Circus Music" unique_id=2006211854]
+wait_time = 5.0
+autostart = true
+
+[node name="Circus Music Sound" type="AudioStreamPlayer" parent="Circus Music" unique_id=2058170638]
+stream = ExtResource("18_ssvqc")
+volume_db = -22.0
+bus = &"Sfx"
+
 [connection signal="golden_freddy_appear" from="OfficeCamera/Switching Cameras" to="Golden Freddy" method="_on_switching_cameras_golden_freddy_appear"]
 [connection signal="golden_freddy_attack" from="OfficeCamera/Switching Cameras" to="Golden Freddy" method="_on_switching_cameras_golden_freddy_attack"]
 [connection signal="golden_freddy_block_attack" from="OfficeCamera/Switching Cameras" to="Golden Freddy" method="_on_switching_cameras_golden_freddy_block_attack"]
@@ -88,3 +122,6 @@ autostart = true
 [connection signal="appear_camera" from="Golden Freddy" to="OfficeCamera/Switching Cameras" method="_on_golden_freddy_appear_camera"]
 [connection signal="timeout" from="Golden Freddy/Golden Freddy Jumpscare Timer" to="Golden Freddy" method="_on_golden_freddy_jumpscare_timer_timeout"]
 [connection signal="timeout" from="Golden Freddy/Enable Easter Egg Timer" to="Golden Freddy" method="_on_enable_easter_egg_timer_timeout"]
+[connection signal="timeout" from="Random Hallucination/Timer" to="Random Hallucination" method="_on_timer_timeout"]
+[connection signal="timeout" from="Metal Door Pounding/Timer" to="Metal Door Pounding" method="_on_timer_timeout"]
+[connection signal="timeout" from="Circus Music/Timer" to="Circus Music" method="_on_timer_timeout"]

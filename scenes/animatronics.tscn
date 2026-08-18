@@ -116,6 +116,7 @@
 [ext_resource type="Texture2D" uid="uid://dspq545dpx0yd" path="res://assets/images/3-THE_OFFICE/JUMPSCARES/1-FREDDY_LIGHTS_OUT/326.png" id="70_7rsai"]
 [ext_resource type="AudioStream" uid="uid://bmb0bfq35vj2c" path="res://assets/audio/knock2.wav" id="90_1bw17"]
 [ext_resource type="AudioStream" uid="uid://b8g14hngdjjaw" path="res://assets/audio/XSCREAM.wav" id="113_wf610"]
+[ext_resource type="AudioStream" uid="uid://dwlwn1h5w6ojv" path="res://assets/audio/pirate song2.wav" id="115_1tb2y"]
 [ext_resource type="AudioStream" uid="uid://cpuasgw2ua65v" path="res://assets/audio/Vocals_Breaths_S_35972006.wav" id="115_hl3ll"]
 [ext_resource type="AudioStream" uid="uid://di6da7mwmhrv7" path="res://assets/audio/Vocals_Breaths_S_35972008.wav" id="116_4ei86"]
 [ext_resource type="AudioStream" uid="uid://d1d3nh2wn8bep" path="res://assets/audio/Vocals_Breaths_S_35972012.wav" id="117_7rsai"]
@@ -594,6 +595,14 @@ centered = false
 wait_time = 25.0
 one_shot = true
 
+[node name="Singing" type="AudioStreamPlayer" parent="Foxy" unique_id=1422325140]
+stream = ExtResource("115_1tb2y")
+volume_db = -10.0
+
+[node name="Timer Singing" type="Timer" parent="Foxy" unique_id=702431833]
+wait_time = 4.0
+autostart = true
+
 [node name="Step Audio" type="AudioStreamPlayer" parent="." unique_id=1576850055]
 stream = ExtResource("3_bis2m")
 volume_db = -10.0
@@ -629,3 +638,4 @@ bus = &"Sfx"
 [connection signal="timeout" from="Freddy/Freddy Jumpscare Timer" to="Freddy" method="_on_freddy_jumpscare_timer_timeout"]
 [connection signal="timeout" from="Foxy/Always Fail Timer" to="Foxy" method="_on_always_fail_timer_timeout"]
 [connection signal="timeout" from="Foxy/Foxy Attack Timer" to="Foxy" method="_on_foxy_attack_timer_timeout"]
+[connection signal="timeout" from="Foxy/Timer Singing" to="Foxy" method="_on_timer_singing_timeout"]

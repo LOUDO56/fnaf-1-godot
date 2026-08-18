@@ -34,6 +34,9 @@ func _handle_ambiance_volume() -> void:
 		threat += 1
 	if animatronics.freddy.in_office():
 		threat = 4
+	
+	if threat > 0 and not ambiance_sound.playing:
+		ambiance_sound.play()
 		
 	match threat:
 		0: ambiance_sound.volume_db = -999.0

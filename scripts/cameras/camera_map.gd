@@ -17,8 +17,9 @@ func select_camera(camera: Camera) -> void:
 				child.select()
 			else:
 				child.unselect()
-	selected_camera = camera
 	white_bars.play()
-	camera_changed.emit(camera)
+	if selected_camera != camera:
+		camera_changed.emit(camera)
+	selected_camera = camera
 
 enum Camera {CAM_1A, CAM_1B, CAM_1C, CAM_2A, CAM_2B, CAM_3, CAM_4A, CAM_4B, CAM_5, CAM_6, CAM_7, DOOR, OFFICE}

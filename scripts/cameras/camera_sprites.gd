@@ -40,7 +40,10 @@ func _get_show_stage_sprite() -> Sprite2D:
 	if not animatronics.bonnie.on_stage() and not animatronics.chica.on_stage() and not animatronics.freddy.on_stage():
 		return $"Points/CAM 1A (Show Stage)/No Animatronics"
 	elif not animatronics.bonnie.on_stage() and not animatronics.chica.on_stage():
-		return $"Points/CAM 1A (Show Stage)/Freddy"
+		if randi() % 10 == 0:
+			return $"Points/CAM 1A (Show Stage)/Freddy Look Camera"
+		else:
+			return $"Points/CAM 1A (Show Stage)/Freddy"
 	elif not animatronics.bonnie.on_stage():
 		return $"Points/CAM 1A (Show Stage)/Freddy Chica"
 	elif not animatronics.chica.on_stage():
@@ -94,7 +97,10 @@ func _get_west_hall_corner_sprite() -> Sprite2D:
 	elif show_golden_freddy:
 		return $"Points/CAM 2B (W Hall Corner)/Golden Freddy Poster"
 	else:
-		return $"Points/CAM 2B (W Hall Corner)/No Animatronic"
+		if randi() % 100 == 0:
+			return $"Points/CAM 2B (W Hall Corner)/Freddy Poster"
+		else:
+			return $"Points/CAM 2B (W Hall Corner)/No Animatronic"
 	
 func _get_supply_closet_sprite() -> Sprite2D:
 	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_3:
@@ -110,6 +116,11 @@ func _get_east_hall_sprite() -> Sprite2D:
 			return $"Points/CAM 4A (East Hall)/Chica 2"
 	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_4A:
 		return $"Points/CAM 4A (East Hall)/Freddy"
+	if randi() % 100 == 0:
+		if randi() % 2 == 0:
+			return $"Points/CAM 4A (East Hall)/Children"
+		else:
+			return $"Points/CAM 4A (East Hall)/It's me"
 	return $"Points/CAM 4A (East Hall)/No Animatronic"
 
 func _get_east_hall_corner_sprite() -> Sprite2D:
@@ -118,6 +129,13 @@ func _get_east_hall_corner_sprite() -> Sprite2D:
 	elif animatronics.chica.current_position == CameraMap.Camera.CAM_4B:
 		#TODO: glitch variant?
 		return $"Points/CAM 4B (E Hall Corner)/Chica"
+	if randi() % 25 == 0:
+		return [
+			$"Points/CAM 4B (E Hall Corner)/News", 
+			$"Points/CAM 4B (E Hall Corner)/News 2", 
+			$"Points/CAM 4B (E Hall Corner)/News 3",
+			 $"Points/CAM 4B (E Hall Corner)/News 4"
+			].pick_random()
 	return $"Points/CAM 4B (E Hall Corner)/No Animatronic"
 	
 func _get_backstage_sprite() -> Sprite2D:

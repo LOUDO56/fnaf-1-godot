@@ -8,6 +8,10 @@ extends Node2D
 @onready var custom_night_screen := preload("res://scenes/custom_night.tscn").instantiate()
 
 func _ready() -> void:
+	if randi() % 1_000 == 0:
+		get_tree().change_scene_to_file("res://scenes/easter_eggs/eyesless_bonnie.tscn")
+		return
+	
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Sfx"), false)
 	
 	stars.get_node("Star 1").visible = PlayerData.star >= 1

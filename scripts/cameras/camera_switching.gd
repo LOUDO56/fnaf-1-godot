@@ -68,7 +68,7 @@ func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	if golden_freddy_seen:
 		golden_freddy_attack.emit()
 		camera_sprites.show_golden_freddy = false
-
+	
 
 func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
@@ -84,7 +84,6 @@ func _on_monitor_monitor_opened() -> void:
 		golden_freddy_block_attack.emit()
 		golden_freddy_seen = false
 	
-	
 func _on_camera_map_camera_changed(camera: CameraMap.Camera) -> void:
 	current_camera = camera
 	change_sprite(camera_sprites.get_sprite_from_camera(camera))
@@ -98,6 +97,7 @@ func _on_camera_map_camera_changed(camera: CameraMap.Camera) -> void:
 	and animatronics.bonnie.current_position != CameraMap.Camera.CAM_2B:
 		golden_freddy_seen = true
 		golden_freddy_appear.emit()
+
 	
 func change_sprite(new_sprite: Sprite2D) -> void:
 	_hide_all_camera()
@@ -106,6 +106,8 @@ func change_sprite(new_sprite: Sprite2D) -> void:
 	sprite_changed.emit(current_camera_sprite.texture.get_width())
 	if camera_map.selected_camera == CameraMap.Camera.CAM_6:
 		animatronics.chica.increase_kitchen_sound()
+	if current_camera == CameraMap.Camera.CAM_1C:
+		animatronics.foxy.increase_singing()
 		
 func reload_current_camera_sprite() -> void:
 	change_sprite(camera_sprites.get_sprite_from_camera(current_camera))

@@ -10,12 +10,14 @@ const RANDOM_ALWAYS_FAIL_SECONDS = [0.83, 16.67]
 @onready var always_fail_timer = $"Always Fail Timer"
 @onready var foxy_attack_timer = $"Foxy Attack Timer"
 @onready var knock_door_audio = $"Knock Door Audio"
+@onready var singing_audio = $"Singing"
 
 var step_attack := 0
 var always_fail_mode := false
 var draining_power := 1.0
 
 func _ready() -> void:
+	decrease_singing()
 	current_position = CameraMap.Camera.CAM_1C
 
 func move_ai() -> void:
@@ -45,6 +47,13 @@ func block_moving() -> void:
 func cancel_jumpscare() -> void:
 	foxy_attack_timer.stop()
 	super.cancel_jumpscare()
+
+func increase_singing() -> void:
+	singing_audio.volume_db = -15.0
+	
+func decrease_singing() -> void:
+	singing_audio.volume_db = -22.0
+
 
 func is_coming():
 	return step_attack == 3
@@ -79,8 +88,20 @@ func on_monitor_open() -> void:
 
 func on_monitor_closed(_last_camera_view: CameraMap.Camera) -> void:
 	trigger_always_fail()
+	decrease_singing()
 
 func on_camera_changed(camera: CameraMap.Camera) -> void:
 	if is_coming() and camera == CameraMap.Camera.CAM_2A:
 		accelerate_foxy_attack()
 		step_sound.play()
+	if camera == CameraMap.Camera.CAM_1C:
+		increase_singing()
+	else:
+		decrease_singing()
+
+
+func _on_timer_singing_timeout() -> void:
+	if step_attack > 0:
+		return
+	if randi() % 30 == 0:
+		singing_audio.play()

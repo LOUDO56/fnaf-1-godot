@@ -14,4 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+	if randi() % 10_000 == 0:
+		get_tree().change_scene_to_file("res://scenes/easter_eggs/creepy_end.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
