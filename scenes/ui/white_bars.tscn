@@ -44,7 +44,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"default",
-"speed": 30.0
+"speed": 60.0
 }]
 
 [node name="White Bars Camera" type="Node2D" unique_id=707425992]

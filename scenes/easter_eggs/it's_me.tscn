@@ -13,6 +13,7 @@ script = ExtResource("1_1si30")
 
 [node name="Robot Voice" type="AudioStreamPlayer" parent="." unique_id=107253534]
 stream = ExtResource("2_ubpfu")
+bus = &"Sfx"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=339727790]
 layer = 10

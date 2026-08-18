@@ -60,6 +60,7 @@ texture = ExtResource("10_kvpfn")
 
 [node name="Laugh Giggle Girl" type="AudioStreamPlayer" parent="Golden Freddy" unique_id=1892245503]
 stream = ExtResource("11_kvpfn")
+bus = &"Sfx"
 
 [node name="Golden Freddy Jumpscare Timer" type="Timer" parent="Golden Freddy" unique_id=693341193]
 wait_time = 5.0

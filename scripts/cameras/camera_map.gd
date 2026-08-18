@@ -7,9 +7,6 @@ signal camera_changed(camera: Camera)
 
 var selected_camera := Camera.CAM_1A
 
-func _ready() -> void:
-	white_bars.get_node("White Bars Camera Animation").speed_scale = 2.0
-
 func _on_camera_point_clicked(camera: Camera) -> void:
 	select_camera(camera)
 
