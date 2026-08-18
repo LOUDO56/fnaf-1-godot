@@ -25,18 +25,19 @@ func _ready() -> void:
 	camera_sprites.setup(animatronics)
 	breathing_behind_cam.setup(animatronics)
 	
-	animatronics.bonnie.animatronic_moved.connect(_on_animatronic_moved)
-	animatronics.chica.animatronic_moved.connect(_on_animatronic_moved)
-	
 	# Freddy
 	monitor_animation.monitor_closed.connect(animatronics.freddy.on_monitor_closed)
 	monitor_animation.monitor_opened.connect(animatronics.freddy.on_monitor_opened)
 	camera_map.camera_changed.connect(animatronics.freddy.on_camera_changed)
 	
 	# Bonnie
+	animatronics.bonnie.animatronic_moved.connect(_on_animatronic_moved)
 	monitor_animation.monitor_closed.connect(animatronics.bonnie.on_monitor_closed)
+	animatronics.bonnie.on_office.connect(_on_animatrionic_enter_office)
 	
 	# Chica
+	animatronics.chica.animatronic_moved.connect(_on_animatronic_moved)
+	animatronics.chica.on_office.connect(_on_animatrionic_enter_office)
 	monitor_animation.monitor_closed.connect(animatronics.chica.on_monitor_closed)
 	camera_map.camera_changed.connect(animatronics.chica.on_camera_changed)
 	
@@ -113,6 +114,12 @@ func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraM
 
 func _on_foxy_attack_blocked() -> void:
 	monitor_animation.close_monitor()
+	
+func _on_animatrionic_enter_office() -> void:
+	if not visible:
+		return
+	force_camera_down_timer.start()
+	breathing_behind_cam.start_breath_sound()
 
 func _on_disabled_gameplay() -> void:
 	monitor_animation.close_monitor()

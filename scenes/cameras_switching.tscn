@@ -115,6 +115,7 @@
 [ext_resource type="Texture2D" uid="uid://xalkknx5xbx" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/28.png" id="65_1ygy3"]
 [ext_resource type="Texture2D" uid="uid://wpexvfuvwsn5" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/29.png" id="66_lu7us"]
 [ext_resource type="Texture2D" uid="uid://c7qn0flmuhlev" path="res://assets/images/6-CAMERAS/FOXY_RUNNING/30.png" id="67_rec8s"]
+[ext_resource type="AudioStream" uid="uid://bda4thv81s1ea" path="res://assets/audio/COMPUTER_DIGITAL_L2076505.wav" id="91_it2ud"]
 [ext_resource type="Script" uid="uid://bnm3mygd258yh" path="res://scripts/cameras/monitor_view.gd" id="92_uqv87"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0a554"]
@@ -694,16 +695,22 @@ garble_sprite = NodePath("../../Camera Sprites/Points/Garble Sprite")
 [node name="Garble Timer" type="Timer" parent="Camera Effects/Garble Effect" unique_id=376032606]
 wait_time = 5.0
 
-[node name="Camera Garble 1" type="AudioStreamPlayer" parent="Camera Effects/Garble Effect" unique_id=2086320123]
+[node name="Garble Sounds" type="Node2D" parent="Camera Effects/Garble Effect" unique_id=894283030]
+
+[node name="Camera Garble 1" type="AudioStreamPlayer" parent="Camera Effects/Garble Effect/Garble Sounds" unique_id=2086320123]
 stream = ExtResource("59_aqy2v")
 bus = &"Sfx"
 
-[node name="Camera Garble 2" type="AudioStreamPlayer" parent="Camera Effects/Garble Effect" unique_id=84364554]
+[node name="Camera Garble 2" type="AudioStreamPlayer" parent="Camera Effects/Garble Effect/Garble Sounds" unique_id=84364554]
 stream = ExtResource("60_fatv5")
 bus = &"Sfx"
 
-[node name="Camera Garble 3" type="AudioStreamPlayer" parent="Camera Effects/Garble Effect" unique_id=1579882063]
+[node name="Camera Garble 3" type="AudioStreamPlayer" parent="Camera Effects/Garble Effect/Garble Sounds" unique_id=1579882063]
 stream = ExtResource("61_0gpnb")
+bus = &"Sfx"
+
+[node name="Camera Garble 4" type="AudioStreamPlayer" parent="Camera Effects/Garble Effect/Garble Sounds" unique_id=2075554893]
+stream = ExtResource("91_it2ud")
 bus = &"Sfx"
 
 [node name="Cam 2A Light Flicker" type="Node2D" parent="Camera Effects" unique_id=538352622 node_paths=PackedStringArray("camera_switching", "camera_sprites")]
@@ -817,6 +824,7 @@ shape = SubResource("RectangleShape2D_0a554")
 [connection signal="monitor_closed" from="CanvasLayer2/Monitor" to="." method="_on_monitor_monitor_closed"]
 [connection signal="monitor_closed" from="CanvasLayer2/Monitor" to="Camera Effects/Garble Effect" method="_on_monitor_closed"]
 [connection signal="monitor_opened" from="CanvasLayer2/Monitor" to="." method="_on_monitor_monitor_opened"]
+[connection signal="monitor_opened" from="CanvasLayer2/Monitor" to="Camera Effects/Garble Effect" method="_on_monitor_opened"]
 [connection signal="animation_finished" from="CanvasLayer2/Monitor/Watch Monitor Animation" to="CanvasLayer2/Monitor" method="_on_watch_monitor_animation_animation_finished"]
 [connection signal="mouse_entered" from="CanvasLayer2/Monitor/Watch Cameras Zone" to="CanvasLayer2/Monitor" method="_on_watch_cameras_zone_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer2/Monitor/Watch Cameras Zone" to="CanvasLayer2/Monitor" method="_on_watch_cameras_zone_mouse_exited"]

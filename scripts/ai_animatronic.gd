@@ -2,6 +2,7 @@
 
 signal animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera)
 signal on_at_door()
+signal on_office()
 signal on_left_door()
 signal on_try_attack()
 signal on_finish_jumpscare()
@@ -106,6 +107,8 @@ func _get_step_sound_db_distance() -> float:
 			return -14.0
 		CameraMap.Camera.CAM_2B, CameraMap.Camera.CAM_4B:
 			return -10.0
+		CameraMap.Camera.OFFICE:
+			return 0.0
 	return -5.0
 	
 func step_back():
@@ -114,6 +117,8 @@ func step_back():
 
 func enter_office():
 	current_position = CameraMap.Camera.OFFICE
+	on_office.emit()
+	_play_step_sound()
 
 @abstract func move_ai() -> void
 @abstract func _attack_blocked() -> void

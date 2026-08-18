@@ -32,7 +32,6 @@ PlayerData="*uid://d0vp84ltj2u8h"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="viewport"
 window/canvas_textures/default_texture_filter=0
 
