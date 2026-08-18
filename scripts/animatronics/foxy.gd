@@ -12,6 +12,7 @@ const RANDOM_ALWAYS_FAIL_SECONDS = [0.83, 16.67]
 
 var step_attack := 0
 var always_fail_mode := false
+var draining_power := 1.0
 
 func _ready() -> void:
 	current_position = CameraMap.Camera.CAM_1C
@@ -30,6 +31,8 @@ func _attack_blocked() -> void:
 	step_attack = 0
 	foxy_attack_timer.stop()
 	attack_blocked.emit()
+	Events.update_power_by_amount.emit(-draining_power)
+	draining_power += 5.0
 
 func block_moving() -> void:
 	always_fail_mode = false

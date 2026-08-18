@@ -12,6 +12,7 @@ var night_divisor := 3.0
 func _ready() -> void:
 	_update_power_sprite_value()
 	Events.jumpscare_started.connect(_on_jumpscare_started)
+	Events.update_power_by_amount.connect(_on_power_updated)
 	match PlayerData.night:
 		1: night_divisor = 9.6
 		2: night_divisor = 6
@@ -42,3 +43,6 @@ func _update_digit(digits: Node2D, number: int) -> void:
 		
 func _on_jumpscare_started(_time: float, _animatronic: Animatronic) -> void:
 	set_process(false)
+	
+func _on_power_updated(amount: float) -> void:
+	power += amount
