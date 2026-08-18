@@ -9,6 +9,7 @@ class_name Office extends Node2D
 @onready var freddy_jingle := $"Stage/Freddy Jingle"
 
 @export var switchin_cameras: CameraSwitching
+@export var animatronics: Animatronics
 
 var office_camera: Camera2D
 

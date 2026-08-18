@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cwwxo271g3qdp" path="res://scripts/cameras/it's_me.gd" id="1_1si30"]
 [ext_resource type="AudioStream" uid="uid://chng65p7j4frh" path="res://assets/audio/robotvoice.wav" id="2_ubpfu"]
-[ext_resource type="Texture2D" uid="uid://v03dkm8siww6" path="res://assets/images/8-EASTER_EGGS/BONNIE (1).png" id="3_3slo1"]
 [ext_resource type="Texture2D" uid="uid://bwadgms2x61n1" path="res://assets/images/8-EASTER_EGGS/BONNIE (2).png" id="4_m2jwr"]
 [ext_resource type="Texture2D" uid="uid://cepn7j2ijj1me" path="res://assets/images/8-EASTER_EGGS/FREDDY.png" id="5_lstw1"]
 [ext_resource type="Texture2D" uid="uid://dqet52fd1bdwi" path="res://assets/images/8-EASTER_EGGS/IT'S ME (1).png" id="6_veuww"]
@@ -20,22 +19,21 @@ layer = 10
 
 [node name="Frames" type="Node2D" parent="CanvasLayer" unique_id=2131623540]
 
-[node name="Bonnie 1" type="Sprite2D" parent="CanvasLayer/Frames" unique_id=1948986959]
-texture = ExtResource("3_3slo1")
-centered = false
-
-[node name="Bonnie 2" type="Sprite2D" parent="CanvasLayer/Frames" unique_id=1677480527]
+[node name="Bonnie 1" type="Sprite2D" parent="CanvasLayer/Frames" unique_id=1677480527]
 texture = ExtResource("4_m2jwr")
 centered = false
 
 [node name="Freddy" type="Sprite2D" parent="CanvasLayer/Frames" unique_id=804896802]
+visible = false
 texture = ExtResource("5_lstw1")
 centered = false
 
 [node name="It\'s me 1" type="Sprite2D" parent="CanvasLayer/Frames" unique_id=880544567]
+visible = false
 texture = ExtResource("6_veuww")
 centered = false
 
 [node name="It\'s me 2" type="Sprite2D" parent="CanvasLayer/Frames" unique_id=945911261]
+visible = false
 texture = ExtResource("7_82g47")
 centered = false

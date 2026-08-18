@@ -601,7 +601,7 @@ bus = &"Sfx"
 
 [node name="Default Jumpscare Audio" type="AudioStreamPlayer" parent="." unique_id=686595821]
 stream = ExtResource("113_wf610")
-volume_db = -10.0
+volume_db = -5.0
 bus = &"Jumpscare"
 
 [node name="Breath 1" type="AudioStreamPlayer" parent="." unique_id=1408834565]

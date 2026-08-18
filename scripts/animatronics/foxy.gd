@@ -1,6 +1,7 @@
 class_name Foxy extends Animatronic
 
 signal attack_blocked()
+signal step_attack_changed(new_step: int)
 
 const DEFAULT_ATTACK_TIME := 25.0
 const FAST_ATTACK_TIME := 2.0
@@ -24,11 +25,13 @@ func move_ai() -> void:
 		step_attack += 1
 		if step_attack == 3:
 			foxy_attack_timer.start(DEFAULT_ATTACK_TIME)
+		step_attack_changed.emit(step_attack)
 
 func _attack_blocked() -> void:
 	knock_door_audio.play()
 	current_position = CameraMap.Camera.CAM_1C
 	step_attack = 0
+	step_attack_changed.emit(0)
 	foxy_attack_timer.stop()
 	attack_blocked.emit()
 	Events.update_power_by_amount.emit(-draining_power)

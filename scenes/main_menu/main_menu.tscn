@@ -39,8 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://cc5awxuiubaql" path="res://assets/images/1-MAIN_TEXT/CREDIT.png" id="34_x5yu2"]
 [ext_resource type="Script" uid="uid://ddiy5ygbvrxt3" path="res://scripts/main_menu/hovered.gd" id="35_aht68"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_d6haa"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ucufk"]
 animations = [{
 "frames": [{
@@ -107,11 +105,11 @@ script = ExtResource("1_hj072")
 
 [node name="Background" type="Node2D" parent="." unique_id=1995503599]
 
-[node name="Black" type="Sprite2D" parent="Background" unique_id=740389185]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(640, 360)
-scale = Vector2(1280, 720)
-texture = SubResource("CanvasTexture_d6haa")
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=262005917]
+offset_right = 1280.0
+offset_bottom = 721.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Freddy Twitching" type="AnimatedSprite2D" parent="Background" unique_id=1814456240]
 texture_filter = 1

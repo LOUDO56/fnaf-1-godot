@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bbcsj1dbbj26o" path="res://scenes/office.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cjtx82kq787uq" path="res://scenes/animatronics.tscn" id="2_gee14"]
 [ext_resource type="Script" uid="uid://dfggeq5fuuanq" path="res://scripts/camera.gd" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://m4xab1xr27r1" path="res://scripts/giant_hollow_tube_sector_handler.gd" id="4_dinhu"]
 [ext_resource type="PackedScene" uid="uid://7b70rlteumyy" path="res://scenes/cameras_switching.tscn" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://dudem3f6cicig" path="res://scripts/libs.gd" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://cx3hwvdkx6iy" path="res://assets/audio/EerieAmbienceLargeSca_MV005.wav" id="5_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b4kfro0u777fy" path="res://scenes/ui/night_time.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://c85atmdfgp6r6" path="res://scenes/ui/power_usage.tscn" id="6_vtaks"]
 [ext_resource type="Script" uid="uid://bqep43wxj8guh" path="res://scripts/animatronics/golden_freddy.gd" id="9_vtaks"]
@@ -17,11 +19,21 @@ script = ExtResource("1_u5sy4")
 office = NodePath("Office")
 animatronics = NodePath("Animatronics")
 
-[node name="Office" parent="." unique_id=1654829613 node_paths=PackedStringArray("switchin_cameras") instance=ExtResource("1_uwrxv")]
+[node name="Office" parent="." unique_id=1654829613 node_paths=PackedStringArray("switchin_cameras", "animatronics") instance=ExtResource("1_uwrxv")]
 switchin_cameras = NodePath("../OfficeCamera/Switching Cameras")
+animatronics = NodePath("../Animatronics")
 
 [node name="Animatronics" parent="." unique_id=181922248 node_paths=PackedStringArray("office") instance=ExtResource("2_gee14")]
 office = NodePath("../Office")
+
+[node name="Giant Hollow Tube Sector Handler" type="Node2D" parent="." unique_id=106811073 node_paths=PackedStringArray("animatronics")]
+script = ExtResource("4_dinhu")
+animatronics = NodePath("../Animatronics")
+
+[node name="Ambiance Sound" type="AudioStreamPlayer" parent="Giant Hollow Tube Sector Handler" unique_id=574151175]
+stream = ExtResource("5_kvuet")
+autoplay = true
+bus = &"Ambiance"
 
 [node name="OfficeCamera" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office", "animatronics")]
 z_index = 2

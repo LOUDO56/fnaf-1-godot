@@ -102,6 +102,7 @@ func enter_office() -> void:
 	allow_moving()
 	_move_freddy()
 	block_moving()
+	on_office.emit()
 
 func reset_freddy_countdown() -> void:
 	freddy_move_countdown = 0
@@ -116,7 +117,7 @@ func _play_laugh():
 		laugh.volume_db = _get_step_sound_db_distance()
 		laugh.stop()
 	freddy_laughs.pick_random().play()
-	freddy_step.volume_db = _get_step_sound_db_distance() + 5.0
+	freddy_step.volume_db = _get_step_sound_db_distance()
 	freddy_step.play()
 	
 func _on_move_freddy_pressed() -> void:
