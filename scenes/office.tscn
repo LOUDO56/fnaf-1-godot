@@ -359,13 +359,15 @@ shape = SubResource("CircleShape2D_ucufk")
 [node name="Freddy Nose Sound" type="AudioStreamPlayer" parent="EasterEggs/Freedy Nose" unique_id=2014189551]
 stream = ExtResource("45_65uj5")
 volume_db = -5.0
-bus = &"Sfx"
+bus = &"Easter Egg"
 
 [node name="Panorama" type="ColorRect" parent="." unique_id=1382670982]
 z_index = 2
 material = SubResource("ShaderMaterial_y13nk")
-offset_right = 1598.0
-offset_bottom = 719.0
+offset_left = 2.0
+offset_top = -21.0
+offset_right = 1600.0
+offset_bottom = 734.0
 mouse_filter = 2
 
 [connection signal="timeout" from="Stage/Freddy Jingle/Step Sound/Step Delay" to="Stage/Freddy Jingle" method="_on_step_delay_timeout"]

@@ -8,6 +8,8 @@ class_name Office extends Node2D
 @onready var power_off_audio := $"Ambiance/Power Off Audio"
 @onready var freddy_jingle := $"Stage/Freddy Jingle"
 
+@export var switchin_cameras: CameraSwitching
+
 var office_camera: Camera2D
 
 func _ready() -> void:
@@ -45,3 +47,7 @@ func _on_jumpscare_started(_time: float, animatronic: Animatronic):
 		return
 	fan.visible = false
 	fan.stop()
+
+
+func _on_golden_freddy_golden_freddy_appear() -> void:
+	switchin_cameras.show_golden_freddy_poster()

@@ -313,7 +313,7 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2q4n8"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rsai"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -379,7 +379,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("22_vsal5")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"default",
 "speed": 30.0
 }]
@@ -559,10 +559,9 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_c155o")
 centered = false
 
-[node name="Jumpscare Light Out" type="AnimatedSprite2D" parent="Freddy" unique_id=547023892]
+[node name="Jumpscare Light Out" type="AnimatedSprite2D" parent="Freddy" unique_id=1733259868]
 visible = false
-sprite_frames = SubResource("SpriteFrames_2q4n8")
-frame_progress = 0.17447989
+sprite_frames = SubResource("SpriteFrames_7rsai")
 centered = false
 
 [node name="Freddy Jumpscare Timer" type="Timer" parent="Freddy" unique_id=559988926]

@@ -80,10 +80,11 @@ func _move_freddy() -> void:
 		freddy_jumpscare_timer.start()
 
 func play_jumpscare_light_out() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	jumpscare_audio.play()
 	jumpscare_light_out_animation.visible = true
-	jumpscare_light_out_animation.play()
-	Events.jumpscare_started.emit(0.7, self)
+	jumpscare_light_out_animation.play("default")
+	Events.jumpscare_started.emit(0.65, self)
 
 func power_off_mode() -> bool:
 	return jumpscare_light_out_animation.visible

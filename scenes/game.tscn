@@ -8,18 +8,23 @@
 [ext_resource type="Script" uid="uid://dudem3f6cicig" path="res://scripts/libs.gd" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://b4kfro0u777fy" path="res://scenes/ui/night_time.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://c85atmdfgp6r6" path="res://scenes/ui/power_usage.tscn" id="6_vtaks"]
+[ext_resource type="Script" uid="uid://bqep43wxj8guh" path="res://scripts/animatronics/golden_freddy.gd" id="9_vtaks"]
+[ext_resource type="Texture2D" uid="uid://bxn37k5n3dr3e" path="res://assets/images/8-EASTER_EGGS/GOLDEN_FREDDY.png" id="10_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://cqxtrneadegge" path="res://assets/audio/Laugh_Giggle_Girl_1.wav" id="11_kvpfn"]
 
 [node name="Game" type="Node2D" unique_id=1569501029 node_paths=PackedStringArray("office", "animatronics")]
 script = ExtResource("1_u5sy4")
 office = NodePath("Office")
 animatronics = NodePath("Animatronics")
 
-[node name="Office" parent="." unique_id=1654829613 instance=ExtResource("1_uwrxv")]
+[node name="Office" parent="." unique_id=1654829613 node_paths=PackedStringArray("switchin_cameras") instance=ExtResource("1_uwrxv")]
+switchin_cameras = NodePath("../OfficeCamera/Switching Cameras")
 
 [node name="Animatronics" parent="." unique_id=181922248 node_paths=PackedStringArray("office") instance=ExtResource("2_gee14")]
 office = NodePath("../Office")
 
 [node name="OfficeCamera" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office", "animatronics")]
+z_index = 2
 anchor_mode = 0
 script = ExtResource("2_yqjtg")
 office = NodePath("../Office")
@@ -44,4 +49,29 @@ one_shot = true
 [node name="Libs" type="Node2D" parent="." unique_id=365965140]
 script = ExtResource("5_iywne")
 
+[node name="Golden Freddy" type="Node2D" parent="." unique_id=128490345]
+script = ExtResource("9_vtaks")
+
+[node name="Golden Freddy Sprite" type="Sprite2D" parent="Golden Freddy" unique_id=1197543971]
+visible = false
+z_index = 1
+position = Vector2(652, 480)
+texture = ExtResource("10_kvpfn")
+
+[node name="Laugh Giggle Girl" type="AudioStreamPlayer" parent="Golden Freddy" unique_id=1892245503]
+stream = ExtResource("11_kvpfn")
+
+[node name="Golden Freddy Jumpscare Timer" type="Timer" parent="Golden Freddy" unique_id=693341193]
+wait_time = 5.0
+one_shot = true
+
+[node name="Enable Easter Egg Timer" type="Timer" parent="Golden Freddy" unique_id=1501927017]
+autostart = true
+
+[connection signal="golden_freddy_appear" from="OfficeCamera/Switching Cameras" to="Golden Freddy" method="_on_switching_cameras_golden_freddy_appear"]
+[connection signal="golden_freddy_attack" from="OfficeCamera/Switching Cameras" to="Golden Freddy" method="_on_switching_cameras_golden_freddy_attack"]
+[connection signal="golden_freddy_block_attack" from="OfficeCamera/Switching Cameras" to="Golden Freddy" method="_on_switching_cameras_golden_freddy_block_attack"]
 [connection signal="timeout" from="Jumpscare Timer" to="." method="_on_jumpscare_timer_timeout"]
+[connection signal="appear_camera" from="Golden Freddy" to="OfficeCamera/Switching Cameras" method="_on_golden_freddy_appear_camera"]
+[connection signal="timeout" from="Golden Freddy/Golden Freddy Jumpscare Timer" to="Golden Freddy" method="_on_golden_freddy_jumpscare_timer_timeout"]
+[connection signal="timeout" from="Golden Freddy/Enable Easter Egg Timer" to="Golden Freddy" method="_on_enable_easter_egg_timer_timeout"]

@@ -1,6 +1,9 @@
 class_name CameraSwitching extends Node2D
 
 signal sprite_changed(camera_sprite_width: float)
+signal golden_freddy_attack()
+signal golden_freddy_appear()
+signal golden_freddy_block_attack()
 
 @export var animatronics: Animatronics
 @export var office: Office
@@ -19,6 +22,7 @@ signal sprite_changed(camera_sprite_width: float)
 
 var current_camera_sprite: Sprite2D
 var current_camera_sprite_width: float
+var golden_freddy_seen := false
 
 func _ready() -> void:
 	visible = false
@@ -61,6 +65,10 @@ func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	camera_map.white_bars.stop()
 	
 	foxy_running_animation.visible = false
+	if golden_freddy_seen:
+		golden_freddy_attack.emit()
+		camera_sprites.show_golden_freddy = false
+
 
 func _on_monitor_monitor_opened() -> void:
 	$CanvasLayer/Cameras.visible = true
@@ -72,6 +80,10 @@ func _on_monitor_monitor_opened() -> void:
 	camera_map.select_camera(camera_map.selected_camera)
 	if animatronics.bonnie.in_office() or animatronics.chica.in_office():
 		force_camera_down_timer.start()
+	if golden_freddy_seen:
+		golden_freddy_block_attack.emit()
+		golden_freddy_seen = false
+	
 	
 func _on_camera_map_camera_changed(camera: CameraMap.Camera) -> void:
 	current_camera = camera
@@ -82,6 +94,10 @@ func _on_camera_map_camera_changed(camera: CameraMap.Camera) -> void:
 	else:
 		foxy_running_animation.visible = false
 		
+	if camera_sprites.show_golden_freddy and not golden_freddy_seen and camera == CameraMap.Camera.CAM_2B\
+	and animatronics.bonnie.current_position != CameraMap.Camera.CAM_2B:
+		golden_freddy_seen = true
+		golden_freddy_appear.emit()
 	
 func change_sprite(new_sprite: Sprite2D) -> void:
 	_hide_all_camera()
@@ -129,3 +145,6 @@ func _on_power_off() -> void:
 	monitor_animation.close_monitor()
 	force_camera_down_timer.stop()
 	visible = false
+
+func _on_golden_freddy_appear_camera() -> void:
+	camera_sprites.show_golden_freddy = true

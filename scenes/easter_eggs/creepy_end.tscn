@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://3hx1tlrp2inv"]
+
+[ext_resource type="Texture2D" uid="uid://d2c7jlns6spja" path="res://assets/images/8-EASTER_EGGS/GOLDEN_FREDDY_JUMPSCARE.png" id="1_bqm4e"]
+[ext_resource type="Script" uid="uid://dngon6deyg2tt" path="res://scripts/easter_eggs/creepy_end.gd" id="1_rhild"]
+[ext_resource type="AudioStream" uid="uid://deqaffqlf2ymb" path="res://assets/audio/XSCREAM2.wav" id="2_2ntpd"]
+
+[node name="Creepy End" type="Node2D" unique_id=20038806]
+script = ExtResource("1_rhild")
+
+[node name="Golden Freddy" type="Sprite2D" parent="." unique_id=836929669]
+texture = ExtResource("1_bqm4e")
+centered = false
+
+[node name="Screamer" type="AudioStreamPlayer" parent="." unique_id=133572219]
+stream = ExtResource("2_2ntpd")
+volume_db = -5.0
+autoplay = true
+bus = &"Jumpscare"
+
+[connection signal="finished" from="Screamer" to="." method="_on_screamer_finished"]

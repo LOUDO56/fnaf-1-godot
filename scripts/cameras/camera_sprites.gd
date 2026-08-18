@@ -3,6 +3,7 @@ class_name CameraSprites extends Node2D
 @export var camera_disabled_text: Sprite2D
 
 var animatronics: Animatronics
+var show_golden_freddy := false
 
 func setup(p_animatronics: Animatronics) -> void:
 	animatronics = p_animatronics
@@ -90,6 +91,8 @@ func _get_west_hall_corner_sprite() -> Sprite2D:
 	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2B:
 		# TODO: glitch variant?
 		return $"Points/CAM 2B (W Hall Corner)/Bonnie"
+	elif show_golden_freddy:
+		return $"Points/CAM 2B (W Hall Corner)/Golden Freddy Poster"
 	else:
 		return $"Points/CAM 2B (W Hall Corner)/No Animatronic"
 	

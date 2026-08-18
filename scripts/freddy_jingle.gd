@@ -12,7 +12,7 @@ const FLICKER_BLACK_OUT := 0.04
 @onready var freddy_jingle_audio := $"Freddy Jingle Audio"
 @onready var fan_audio := $"Fan Audio"
 @onready var step_sound := $"Step Sound"
-@onready var step_sound_delaut := $"Step Sound/Step Delay"
+@onready var step_sound_default := $"Step Sound/Step Delay"
 
 var current_step_seconds := 0.0
 var current_seconds_freddy := 0.0
@@ -97,7 +97,7 @@ func _move_to_next_step() -> void:
 			fan_audio.stop()
 	
 func _on_power_off() -> void:
-	step_sound_delaut.start()
+	step_sound_default.start()
 	set_process(true)
 	
 func _on_step_delay_timeout() -> void:
