@@ -9,7 +9,7 @@ var ai_level_night := {
 	},
 	2: {
 		Freddy: 0,
-		Bonnie: 3,
+		Bonnie: 20,
 		Chica: 1,
 		Foxy: 1,
 	},

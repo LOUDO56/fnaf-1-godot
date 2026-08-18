@@ -478,6 +478,7 @@ centered = false
 [node name="Chica" type="Node2D" parent="." unique_id=1463412259 node_paths=PackedStringArray("breathing_sounds", "step_sound", "jumpscare_animation", "jumpscare_audio")]
 script = ExtResource("3_yemax")
 breathing_sounds = [NodePath("../Breath 1"), NodePath("../Breath 2"), NodePath("../Breath 3"), NodePath("../Breath 4")]
+ai_level = 20
 movement_timer_seconds = 4.98
 step_sound = NodePath("../Step Audio")
 jumpscare_animation = NodePath("Jumpscare")
@@ -610,7 +611,6 @@ bus = &"Sfx"
 
 [node name="Default Jumpscare Audio" type="AudioStreamPlayer" parent="." unique_id=686595821]
 stream = ExtResource("113_wf610")
-volume_db = -5.0
 bus = &"Jumpscare"
 
 [node name="Breath 1" type="AudioStreamPlayer" parent="." unique_id=1408834565]

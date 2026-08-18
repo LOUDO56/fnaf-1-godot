@@ -13,7 +13,6 @@ centered = false
 
 [node name="Screamer" type="AudioStreamPlayer" parent="." unique_id=133572219]
 stream = ExtResource("2_2ntpd")
-volume_db = -5.0
 autoplay = true
 bus = &"Jumpscare"
 

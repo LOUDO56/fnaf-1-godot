@@ -190,7 +190,7 @@ radius = 7.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y13nk"]
 shader = ExtResource("54_12wqr")
-shader_parameter/zoom = 0.17
+shader_parameter/zoom = 0.16
 shader_parameter/sharpness = 2.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/wrapping_mode = 0

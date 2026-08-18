@@ -40,7 +40,7 @@ func _handle_ambiance_volume() -> void:
 		
 	match threat:
 		0: ambiance_sound.volume_db = -999.0
-		1: ambiance_sound.volume_db = 5.5
+		1: ambiance_sound.volume_db = -5.5
 		2: ambiance_sound.volume_db = -1
 		3: ambiance_sound.volume_db = 2.5
 		4: ambiance_sound.volume_db = 5

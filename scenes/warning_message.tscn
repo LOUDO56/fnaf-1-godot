@@ -1,13 +1,18 @@
 [gd_scene format=3 uid="uid://b8b4s8b40cp7a"]
 
-[ext_resource type="Script" uid="uid://cveliqat7otr" path="res://scripts/warning_message.gd" id="1_axxv3"]
+[ext_resource type="Script" uid="uid://cip5ntgdfmu3h" path="res://scripts/libs/fade.gd" id="1_axxv3"]
 [ext_resource type="Texture2D" uid="uid://crdpt1ao4srgs" path="res://assets/images/1-MAIN_TEXT/WARNING.png" id="2_bwsg4"]
+[ext_resource type="PackedScene" uid="uid://vpms7e5yikcn" path="res://scenes/main_menu/main_menu.tscn" id="2_l3gxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
 size = Vector2(1296, 728)
 
-[node name="Warning Message" type="Node2D" unique_id=2104781395]
+[node name="Warning Message" type="Node2D" unique_id=2104781395 node_paths=PackedStringArray("sprite", "timer")]
 script = ExtResource("1_axxv3")
+sprite = NodePath("Warning/Sprite")
+timer = NodePath("Timer")
+scene = ExtResource("2_l3gxi")
+fade_speed = 0.8
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=442801770]
 offset_left = -3.5129395
@@ -32,4 +37,4 @@ position = Vector2(638, 354)
 shape = SubResource("RectangleShape2D_ucufk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="input_event" from="Warning" to="." method="_on_warning_input_event"]
+[connection signal="input_event" from="Warning" to="." method="_on_input_event"]
