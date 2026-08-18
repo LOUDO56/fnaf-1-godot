@@ -17,7 +17,8 @@ general/size/mode=3
 config/name="five nights at freddy's"
 run/main_scene="uid://b8b4s8b40cp7a"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c2x3nb8nl557m"
+config/windows_native_icon="res://icon.ico"
 
 [audio]
 
@@ -32,6 +33,7 @@ PlayerData="*uid://d0vp84ltj2u8h"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="viewport"
 window/canvas_textures/default_texture_filter=0
 
