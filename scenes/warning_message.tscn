@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b8b4s8b40cp7a"]
+
+[ext_resource type="Script" uid="uid://cveliqat7otr" path="res://scripts/warning_message.gd" id="1_axxv3"]
+[ext_resource type="Texture2D" uid="uid://crdpt1ao4srgs" path="res://assets/images/1-MAIN_TEXT/WARNING.png" id="2_bwsg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
+size = Vector2(1296, 728)
+
+[node name="Warning Message" type="Node2D" unique_id=2104781395]
+script = ExtResource("1_axxv3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=442801770]
+offset_right = 1279.0
+offset_bottom = 719.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=1894909576]
+wait_time = 5.0
+one_shot = true
+
+[node name="Warning" type="Area2D" parent="." unique_id=1650504286]
+
+[node name="Sprite" type="Sprite2D" parent="Warning" unique_id=603626395]
+position = Vector2(636, 306)
+texture = ExtResource("2_bwsg4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Warning" unique_id=224494094]
+position = Vector2(638, 354)
+shape = SubResource("RectangleShape2D_ucufk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="input_event" from="Warning" to="." method="_on_warning_input_event"]

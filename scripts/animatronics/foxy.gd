@@ -1,13 +1,14 @@
 class_name Foxy extends Animatronic
 
+signal attack_blocked()
+
 const DEFAULT_ATTACK_TIME := 25.0
 const FAST_ATTACK_TIME := 2.0
+const RANDOM_ALWAYS_FAIL_SECONDS = [0.83, 16.67]
 
 @onready var always_fail_timer = $"Always Fail Timer"
 @onready var foxy_attack_timer = $"Foxy Attack Timer"
 @onready var knock_door_audio = $"Knock Door Audio"
-
-const RANDOM_ALWAYS_FAIL_SECONDS = [0.83, 16.67]
 
 var step_attack := 0
 var always_fail_mode := false
@@ -28,6 +29,7 @@ func _attack_blocked() -> void:
 	current_position = CameraMap.Camera.CAM_1C
 	step_attack = 0
 	foxy_attack_timer.stop()
+	attack_blocked.emit()
 
 func block_moving() -> void:
 	always_fail_mode = false

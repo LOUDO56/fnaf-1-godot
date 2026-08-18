@@ -12,5 +12,5 @@ offset_bottom = 725.0
 color = Color(0, 0, 0, 1)
 
 [node name="Loading" type="Sprite2D" parent="." unique_id=2015696998]
-position = Vector2(1240, 690)
+position = Vector2(1230, 680)
 texture = ExtResource("1_x80ek")

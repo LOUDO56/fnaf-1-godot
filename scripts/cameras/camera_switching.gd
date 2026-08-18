@@ -44,6 +44,7 @@ func _ready() -> void:
 	monitor_animation.monitor_opened.connect(animatronics.foxy.on_monitor_open)
 	monitor_animation.monitor_closed.connect(animatronics.foxy.on_monitor_closed)
 	camera_map.camera_changed.connect(animatronics.foxy.on_camera_changed)
+	animatronics.foxy.attack_blocked.connect(_on_foxy_attack_blocked)
 	
 	Events.disable_gameplay.connect(_on_disabled_gameplay)
 	Events.power_off.connect(_on_power_off)
@@ -109,6 +110,9 @@ func _on_force_camera_down_timeout() -> void:
 func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera):
 	if visible and (old_position == current_camera or new_position == current_camera):
 		garble_effect.garble_camera()
+
+func _on_foxy_attack_blocked() -> void:
+	monitor_animation.close_monitor()
 
 func _on_disabled_gameplay() -> void:
 	monitor_animation.close_monitor()

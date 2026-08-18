@@ -172,12 +172,12 @@ texture = ExtResource("21_i7nm7")
 
 [node name="Star 2" type="Sprite2D" parent="Text/Stars" unique_id=662255822]
 texture_filter = 1
-position = Vector2(244, 321)
+position = Vector2(246, 321)
 texture = ExtResource("21_i7nm7")
 
 [node name="Star 3" type="Sprite2D" parent="Text/Stars" unique_id=1387482975]
 texture_filter = 1
-position = Vector2(312, 321)
+position = Vector2(318, 321)
 texture = ExtResource("21_i7nm7")
 
 [node name="Credit" type="Sprite2D" parent="Text" unique_id=2014086294]
@@ -197,7 +197,7 @@ texture = ExtResource("22_0oicw")
 shape = SubResource("RectangleShape2D_d6haa")
 
 [node name="Continue" type="Area2D" parent="Text" unique_id=1983335430]
-position = Vector2(245, 477)
+position = Vector2(245, 483)
 script = ExtResource("29_si1as")
 
 [node name="Sprite" type="Sprite2D" parent="Text/Continue" unique_id=1585573298]
