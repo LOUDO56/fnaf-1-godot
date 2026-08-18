@@ -14,7 +14,8 @@ general/size/mode=3
 
 [application]
 
-config/name="five nights at freddy's"
+config/name="Five Nights at Freddy's"
+config/version="1.132"
 run/main_scene="uid://b8b4s8b40cp7a"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://c2x3nb8nl557m"
@@ -28,6 +29,7 @@ buses/default_bus_layout="uid://bpts5617ubv58"
 
 Events="*uid://bp5s8q3i3s4vv"
 PlayerData="*uid://d0vp84ltj2u8h"
+InputManager="*uid://do102bd8ed80s"
 
 [display]
 

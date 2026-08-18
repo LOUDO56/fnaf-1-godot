@@ -10,8 +10,10 @@ size = Vector2(1296, 728)
 script = ExtResource("1_axxv3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=442801770]
-offset_right = 1279.0
-offset_bottom = 719.0
+offset_left = -3.5129395
+offset_top = -6.0
+offset_right = 1284.0
+offset_bottom = 727.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
