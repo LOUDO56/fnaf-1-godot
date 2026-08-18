@@ -42,8 +42,7 @@ func _get_show_stage_sprite() -> Sprite2D:
 	elif not animatronics.bonnie.on_stage() and not animatronics.chica.on_stage():
 		if randi() % 10 == 0:
 			return $"Points/CAM 1A (Show Stage)/Freddy Look Camera"
-		else:
-			return $"Points/CAM 1A (Show Stage)/Freddy"
+		return $"Points/CAM 1A (Show Stage)/Freddy"
 	elif not animatronics.bonnie.on_stage():
 		return $"Points/CAM 1A (Show Stage)/Freddy Chica"
 	elif not animatronics.chica.on_stage():
@@ -56,8 +55,7 @@ func _get_diner_area_sprite() -> Sprite2D:
 	elif animatronics.bonnie.current_position == CameraMap.Camera.CAM_1B:
 		if animatronics.bonnie.variant == 0:
 			return $"Points/CAM 1B (Dining Area)/Bonnie"
-		else:
-			return $"Points/CAM 1B (Dining Area)/Bonnie 2"
+		return $"Points/CAM 1B (Dining Area)/Bonnie 2"
 	elif animatronics.chica.current_position == CameraMap.Camera.CAM_1B:
 		return $"Points/CAM 1B (Dining Area)/Chica"
 	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_1B:
@@ -85,8 +83,7 @@ func _get_west_hall_sprite() -> Sprite2D:
 	if (randi() % 10 >= 7):
 		if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2A:
 			return $"Points/CAM 2A (West Hall)/Light Bonnie"
-		else:
-			return $"Points/CAM 2A (West Hall)/Light"
+		return $"Points/CAM 2A (West Hall)/Light"
 	else:
 		return $"Points/CAM 2A (West Hall)/No Light"
 
@@ -99,28 +96,24 @@ func _get_west_hall_corner_sprite() -> Sprite2D:
 	else:
 		if randi() % 100 == 0:
 			return $"Points/CAM 2B (W Hall Corner)/Freddy Poster"
-		else:
-			return $"Points/CAM 2B (W Hall Corner)/No Animatronic"
+		return $"Points/CAM 2B (W Hall Corner)/No Animatronic"
 	
 func _get_supply_closet_sprite() -> Sprite2D:
 	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_3:
 		return $"Points/CAM 3 (Supply Closet)/Bonnie"
-	else:
-		return $"Points/CAM 3 (Supply Closet)/No Animatronic"
+	return $"Points/CAM 3 (Supply Closet)/No Animatronic"
 	
 func _get_east_hall_sprite() -> Sprite2D:
 	if animatronics.chica.current_position == CameraMap.Camera.CAM_4A:
 		if animatronics.chica.variant == 0:
 			return $"Points/CAM 4A (East Hall)/Chica"
-		else:
-			return $"Points/CAM 4A (East Hall)/Chica 2"
+		return $"Points/CAM 4A (East Hall)/Chica 2"
 	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_4A:
 		return $"Points/CAM 4A (East Hall)/Freddy"
 	if randi() % 100 == 0:
 		if randi() % 2 == 0:
 			return $"Points/CAM 4A (East Hall)/Children"
-		else:
-			return $"Points/CAM 4A (East Hall)/It's me"
+		return $"Points/CAM 4A (East Hall)/It's me"
 	return $"Points/CAM 4A (East Hall)/No Animatronic"
 
 func _get_east_hall_corner_sprite() -> Sprite2D:
@@ -142,8 +135,9 @@ func _get_backstage_sprite() -> Sprite2D:
 	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_5:
 		if animatronics.bonnie.variant == 0:
 			return $"Points/CAM 5 (Backstage)/Bonnie"
-		else:
-			return $"Points/CAM 5 (Backstage)/Bonnie 2"
+		return $"Points/CAM 5 (Backstage)/Bonnie 2"
+	if randi() % 20 == 0:
+		return $"Points/CAM 5 (Backstage)/Looking"
 	return $"Points/CAM 5 (Backstage)/No Animatronic"
 	
 func _get_kitchen_sprite() -> Sprite2D:
@@ -153,8 +147,7 @@ func _get_restrooms_sprite() -> Sprite2D:
 	if animatronics.chica.current_position == CameraMap.Camera.CAM_7:
 		if animatronics.chica.variant == 0:
 			return $"Points/CAM 7 (Restrooms)/Chica"
-		else:
-			return $"Points/CAM 7 (Restrooms)/Chica 2"
+		return $"Points/CAM 7 (Restrooms)/Chica 2"
 	elif animatronics.freddy.current_position == CameraMap.Camera.CAM_7:
 			return $"Points/CAM 7 (Restrooms)/Freddy"
 	return $"Points/CAM 7 (Restrooms)/No Animatronic"

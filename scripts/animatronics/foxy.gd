@@ -103,5 +103,5 @@ func on_camera_changed(camera: CameraMap.Camera) -> void:
 func _on_timer_singing_timeout() -> void:
 	if step_attack > 0:
 		return
-	if randi() % 30 == 0:
+	if randi() % 30 == 0 and not singing_audio.playing:
 		singing_audio.play()
