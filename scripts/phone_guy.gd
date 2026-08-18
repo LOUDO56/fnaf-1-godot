@@ -35,3 +35,6 @@ func _on_hide_mute_timer_timeout() -> void:
 
 func _on_show_mute_timer_timeout() -> void:
 	mute_call.visible = true
+
+func _on_voice_night_5_finished() -> void:
+	mute_call.visible = false
