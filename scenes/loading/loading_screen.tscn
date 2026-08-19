@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dtp5q4a04oene"]
+
+[ext_resource type="Script" uid="uid://jm5punges3ld" path="res://scenes/loading/loading_screen.gd" id="1_sc2n5"]
+[ext_resource type="Texture2D" uid="uid://bm5y86vspgpb0" path="res://scenes/loading/little_clock.png" id="1_x80ek"]
+
+[node name="Loading Screen" type="Node2D" unique_id=172851591]
+script = ExtResource("1_sc2n5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1956417216]
+offset_right = 1281.0
+offset_bottom = 725.0
+color = Color(0, 0, 0, 1)
+
+[node name="Loading" type="Sprite2D" parent="." unique_id=2015696998]
+position = Vector2(1230, 680)
+texture = ExtResource("1_x80ek")

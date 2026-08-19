@@ -1,0 +1,641 @@
+[gd_scene format=3 uid="uid://cjtx82kq787uq"]
+
+[ext_resource type="Script" uid="uid://dvbqbm0jqt8ya" path="res://animatronics/animatronics.gd" id="1_cweo8"]
+[ext_resource type="Script" uid="uid://b0vqjyrwarwqo" path="res://animatronics/bonnie/bonnie.gd" id="2_7na5i"]
+[ext_resource type="AudioStream" uid="uid://bi5vxoh6vgwsc" path="res://animatronics/deep steps.wav" id="3_bis2m"]
+[ext_resource type="Texture2D" uid="uid://bjebe3d46gmm8" path="res://animatronics/bonnie/jumpscare/1.png" id="3_u1y12"]
+[ext_resource type="Texture2D" uid="uid://bhpb870ktb8jb" path="res://animatronics/bonnie/jumpscare/2.png" id="4_7na5i"]
+[ext_resource type="AudioStream" uid="uid://rd4h244lqlgm" path="res://animatronics/chica/kitchen_sound/OVEN-DRAWE_GEN-HDF18122.wav" id="4_dxqq2"]
+[ext_resource type="AudioStream" uid="uid://ctvby2d3dtjra" path="res://animatronics/chica/kitchen_sound/OVEN-DRA_1_GEN-HDF18119.wav" id="5_h7bw6"]
+[ext_resource type="Texture2D" uid="uid://cefqx8hrfefnq" path="res://animatronics/bonnie/jumpscare/3.png" id="5_p2jws"]
+[ext_resource type="AudioStream" uid="uid://demp5dh55h6j7" path="res://animatronics/chica/kitchen_sound/OVEN-DRA_2_GEN-HDF18120.wav" id="6_eq31s"]
+[ext_resource type="Texture2D" uid="uid://cqhooy85b2j75" path="res://animatronics/bonnie/jumpscare/4.png" id="6_snehp"]
+[ext_resource type="AudioStream" uid="uid://bac0un6mfm34b" path="res://animatronics/chica/kitchen_sound/OVEN-DRA_7_GEN-HDF18121.wav" id="7_exftl"]
+[ext_resource type="Texture2D" uid="uid://bpefbk0kfnyqs" path="res://animatronics/bonnie/jumpscare/5.png" id="7_h4423"]
+[ext_resource type="Texture2D" uid="uid://c1mvleoe6hh3d" path="res://animatronics/bonnie/jumpscare/6.png" id="8_hqa72"]
+[ext_resource type="Texture2D" uid="uid://cvdrvknyik2bg" path="res://animatronics/bonnie/jumpscare/7.png" id="9_ef3yv"]
+[ext_resource type="AudioStream" uid="uid://yvbk2evbaclp" path="res://animatronics/freddy/music box.wav" id="9_ns5r7"]
+[ext_resource type="AudioStream" uid="uid://of1c4e4gjved" path="res://animatronics/freddy/Laugh_Giggle_Girl_1d.wav" id="9_wbclq"]
+[ext_resource type="AudioStream" uid="uid://76iy6myn2krj" path="res://animatronics/freddy/Laugh_Giggle_Girl_2d.wav" id="10_ns5r7"]
+[ext_resource type="Texture2D" uid="uid://cxxmysdn07hg4" path="res://animatronics/bonnie/jumpscare/8.png" id="10_pbdqq"]
+[ext_resource type="AudioStream" uid="uid://d357i6pemr8pj" path="res://animatronics/freddy/Laugh_Giggle_Girl_8d.wav" id="11_5nh4t"]
+[ext_resource type="Texture2D" uid="uid://dyqan1ucadxq3" path="res://animatronics/bonnie/jumpscare/9.png" id="11_b1u6p"]
+[ext_resource type="Texture2D" uid="uid://bx5qhtwun4t26" path="res://animatronics/bonnie/jumpscare/10.png" id="12_7pexg"]
+[ext_resource type="Texture2D" uid="uid://ujnaticwaerq" path="res://animatronics/bonnie/jumpscare/11.png" id="13_v4p6y"]
+[ext_resource type="AudioStream" uid="uid://dbiqnewhxk8ne" path="res://animatronics/foxy/running/run.wav" id="14_5nh4t"]
+[ext_resource type="Script" uid="uid://jjdrnn5ta30t" path="res://animatronics/chica/chica.gd" id="14_7na5i"]
+[ext_resource type="Texture2D" uid="uid://bj6mqlwuvq22m" path="res://animatronics/chica/jumpscare/1.png" id="19_u1y12"]
+[ext_resource type="Texture2D" uid="uid://bfl6lg58u4jpd" path="res://animatronics/chica/jumpscare/2.png" id="20_7na5i"]
+[ext_resource type="Texture2D" uid="uid://dlnx5nvrodvmx" path="res://animatronics/chica/jumpscare/3.png" id="21_p2jws"]
+[ext_resource type="Texture2D" uid="uid://bv53nqcuee4t7" path="res://animatronics/chica/jumpscare/4.png" id="22_snehp"]
+[ext_resource type="Texture2D" uid="uid://crjibcgaargj0" path="res://animatronics/chica/jumpscare/5.png" id="23_h4423"]
+[ext_resource type="Texture2D" uid="uid://chixvy5m0devi" path="res://animatronics/chica/jumpscare/6.png" id="24_hqa72"]
+[ext_resource type="Texture2D" uid="uid://dsplku0m8yyab" path="res://animatronics/chica/jumpscare/7.png" id="25_ef3yv"]
+[ext_resource type="Texture2D" uid="uid://bq80l2jr15no3" path="res://animatronics/chica/jumpscare/8.png" id="26_pbdqq"]
+[ext_resource type="Texture2D" uid="uid://dudahwvd88tmx" path="res://animatronics/chica/jumpscare/9.png" id="27_b1u6p"]
+[ext_resource type="Texture2D" uid="uid://016k7stguek4" path="res://animatronics/chica/jumpscare/10.png" id="28_7pexg"]
+[ext_resource type="Texture2D" uid="uid://dpv3wiwaiokhm" path="res://animatronics/chica/jumpscare/11.png" id="29_v4p6y"]
+[ext_resource type="Texture2D" uid="uid://boviffy7q0bon" path="res://animatronics/chica/jumpscare/12.png" id="30_wlaq2"]
+[ext_resource type="Texture2D" uid="uid://cwuqqqyjn4c00" path="res://animatronics/chica/jumpscare/13.png" id="31_6npio"]
+[ext_resource type="Texture2D" uid="uid://ces4hg1q8y2f2" path="res://animatronics/chica/jumpscare/14.png" id="32_wkjd5"]
+[ext_resource type="Texture2D" uid="uid://cwosyvno3o56g" path="res://animatronics/chica/jumpscare/15.png" id="33_2r2xe"]
+[ext_resource type="Texture2D" uid="uid://rbh2vgx3j8pe" path="res://animatronics/chica/jumpscare/16.png" id="34_dmva5"]
+[ext_resource type="Script" uid="uid://dcw78bowo04pp" path="res://animatronics/freddy/freddy.gd" id="35_7na5i"]
+[ext_resource type="AudioStream" uid="uid://bakslxawoeoy0" path="res://animatronics/freddy/running fast3.wav" id="40_4ei86"]
+[ext_resource type="Texture2D" uid="uid://dpkgr635lu0a5" path="res://animatronics/freddy/jumpscare/normal/1.png" id="41_7na5i"]
+[ext_resource type="Texture2D" uid="uid://d4i7lq5cph15u" path="res://animatronics/freddy/jumpscare/normal/2.png" id="42_p2jws"]
+[ext_resource type="Texture2D" uid="uid://lfqcv8x5s05i" path="res://animatronics/freddy/jumpscare/normal/3.png" id="43_snehp"]
+[ext_resource type="Texture2D" uid="uid://dc472tr4mhkqn" path="res://animatronics/freddy/jumpscare/normal/4.png" id="44_h4423"]
+[ext_resource type="Texture2D" uid="uid://bg2duuqeefith" path="res://animatronics/freddy/jumpscare/normal/5.png" id="45_hqa72"]
+[ext_resource type="Texture2D" uid="uid://82u1lbtch21l" path="res://animatronics/freddy/jumpscare/normal/6.png" id="46_ef3yv"]
+[ext_resource type="Texture2D" uid="uid://cugifms4b6kws" path="res://animatronics/freddy/jumpscare/normal/7.png" id="47_pbdqq"]
+[ext_resource type="Texture2D" uid="uid://vqajg06sxlaf" path="res://animatronics/freddy/jumpscare/normal/8.png" id="48_b1u6p"]
+[ext_resource type="Texture2D" uid="uid://7efc1y87bonw" path="res://animatronics/freddy/jumpscare/normal/9.png" id="49_7pexg"]
+[ext_resource type="Texture2D" uid="uid://cfme5busnr0l2" path="res://animatronics/freddy/jumpscare/normal/10.png" id="50_v4p6y"]
+[ext_resource type="Texture2D" uid="uid://btr53moika06v" path="res://animatronics/freddy/jumpscare/normal/11.png" id="51_wlaq2"]
+[ext_resource type="Texture2D" uid="uid://ctvjt7ll8a87u" path="res://animatronics/freddy/jumpscare/normal/12.png" id="52_6npio"]
+[ext_resource type="Texture2D" uid="uid://do3ag5yfar0xe" path="res://animatronics/freddy/jumpscare/normal/13.png" id="53_wkjd5"]
+[ext_resource type="Texture2D" uid="uid://pcpoxwt6vanp" path="res://animatronics/freddy/jumpscare/normal/14.png" id="54_2r2xe"]
+[ext_resource type="Texture2D" uid="uid://dvwtchvlwgnda" path="res://animatronics/freddy/jumpscare/normal/15.png" id="55_dmva5"]
+[ext_resource type="Texture2D" uid="uid://xit5ro6m0pdk" path="res://animatronics/freddy/jumpscare/normal/16.png" id="56_rqy1a"]
+[ext_resource type="Texture2D" uid="uid://dgvrmjal5v0j5" path="res://animatronics/freddy/jumpscare/normal/17.png" id="57_me6rj"]
+[ext_resource type="Texture2D" uid="uid://snpcqmsavpgi" path="res://animatronics/freddy/jumpscare/normal/18.png" id="58_65iyr"]
+[ext_resource type="Texture2D" uid="uid://h34cutkbncqq" path="res://animatronics/freddy/jumpscare/normal/19.png" id="59_axxph"]
+[ext_resource type="Texture2D" uid="uid://c38a7cct50ngt" path="res://animatronics/freddy/jumpscare/normal/20.png" id="60_w7kl1"]
+[ext_resource type="Texture2D" uid="uid://v657w3sju3de" path="res://animatronics/freddy/jumpscare/normal/21.png" id="61_6hj3s"]
+[ext_resource type="Texture2D" uid="uid://1juqihtp7cns" path="res://animatronics/freddy/jumpscare/normal/22.png" id="62_mtx6p"]
+[ext_resource type="Texture2D" uid="uid://s20trblbq0x6" path="res://animatronics/freddy/jumpscare/normal/23.png" id="63_ueew8"]
+[ext_resource type="Texture2D" uid="uid://ctekkkeiaoli0" path="res://animatronics/freddy/jumpscare/normal/24.png" id="64_qsffx"]
+[ext_resource type="Texture2D" uid="uid://cgujiwr5nvh61" path="res://animatronics/freddy/jumpscare/normal/25.png" id="65_gohw0"]
+[ext_resource type="Texture2D" uid="uid://hoqngomrwe46" path="res://animatronics/freddy/jumpscare/normal/26.png" id="66_d0vvk"]
+[ext_resource type="Texture2D" uid="uid://re0ijlfuhrj5" path="res://animatronics/freddy/jumpscare/normal/27.png" id="67_h1p8v"]
+[ext_resource type="Texture2D" uid="uid://ujevmv4uw6pu" path="res://animatronics/freddy/jumpscare/normal/28.png" id="68_33evd"]
+[ext_resource type="Texture2D" uid="uid://bhuar08iylf4j" path="res://animatronics/freddy/jumpscare/normal/29.png" id="69_nekb3"]
+[ext_resource type="Texture2D" uid="uid://dspq545dpx0yd" path="res://animatronics/freddy/jumpscare/light_out/1.png" id="71_p2jws"]
+[ext_resource type="Texture2D" uid="uid://cvm1cc7tnsjl4" path="res://animatronics/freddy/jumpscare/light_out/4.png" id="74_hqa72"]
+[ext_resource type="Texture2D" uid="uid://ds8uhveaphie3" path="res://animatronics/freddy/jumpscare/light_out/5.png" id="75_ef3yv"]
+[ext_resource type="Texture2D" uid="uid://c0a7bnbwffevd" path="res://animatronics/freddy/jumpscare/light_out/6.png" id="76_pbdqq"]
+[ext_resource type="Texture2D" uid="uid://cbs7r5amatv0v" path="res://animatronics/freddy/jumpscare/light_out/7.png" id="77_b1u6p"]
+[ext_resource type="Texture2D" uid="uid://bcbgo3psijqp2" path="res://animatronics/freddy/jumpscare/light_out/8.png" id="78_7pexg"]
+[ext_resource type="Texture2D" uid="uid://bng44js13kv2c" path="res://animatronics/freddy/jumpscare/light_out/9.png" id="79_v4p6y"]
+[ext_resource type="Texture2D" uid="uid://c1t8p7gt3uc7f" path="res://animatronics/freddy/jumpscare/light_out/10.png" id="80_wlaq2"]
+[ext_resource type="Texture2D" uid="uid://b7jcmpm2c4rpe" path="res://animatronics/freddy/jumpscare/light_out/11.png" id="81_6npio"]
+[ext_resource type="Texture2D" uid="uid://cpe0i01xysx17" path="res://animatronics/freddy/jumpscare/light_out/12.png" id="82_wkjd5"]
+[ext_resource type="Texture2D" uid="uid://bwcqim0n2lr3j" path="res://animatronics/freddy/jumpscare/light_out/13.png" id="83_2r2xe"]
+[ext_resource type="Texture2D" uid="uid://x1lyp7ol0vsk" path="res://animatronics/freddy/jumpscare/light_out/14.png" id="84_dmva5"]
+[ext_resource type="Texture2D" uid="uid://3858c4rg77va" path="res://animatronics/freddy/jumpscare/light_out/15.png" id="85_rqy1a"]
+[ext_resource type="Texture2D" uid="uid://bxdva7l31d3nc" path="res://animatronics/freddy/jumpscare/light_out/16.png" id="86_me6rj"]
+[ext_resource type="Texture2D" uid="uid://8u2ms0qcxv2x" path="res://animatronics/freddy/jumpscare/light_out/17.png" id="87_65iyr"]
+[ext_resource type="Texture2D" uid="uid://bwuqa0spnmldu" path="res://animatronics/freddy/jumpscare/light_out/18.png" id="88_axxph"]
+[ext_resource type="Texture2D" uid="uid://brjf254w0tngb" path="res://animatronics/freddy/jumpscare/light_out/19.png" id="89_w7kl1"]
+[ext_resource type="AudioStream" uid="uid://bmb0bfq35vj2c" path="res://animatronics/foxy/knock2.wav" id="90_1bw17"]
+[ext_resource type="Texture2D" uid="uid://w25n5jxbqf1v" path="res://animatronics/freddy/jumpscare/light_out/20.png" id="90_6hj3s"]
+[ext_resource type="Texture2D" uid="uid://dl40b7mg22t1d" path="res://animatronics/freddy/jumpscare/light_out/21.png" id="90_7na5i"]
+[ext_resource type="Script" uid="uid://jsm5gqasqb18" path="res://animatronics/foxy/foxy.gd" id="91_7na5i"]
+[ext_resource type="Texture2D" uid="uid://w15wctbotbtm" path="res://animatronics/foxy/jumpscare/1.png" id="93_u1y12"]
+[ext_resource type="Texture2D" uid="uid://ot8ug48i72u4" path="res://animatronics/foxy/jumpscare/2.png" id="94_7na5i"]
+[ext_resource type="Texture2D" uid="uid://bujopokad8qtu" path="res://animatronics/foxy/jumpscare/3.png" id="95_p2jws"]
+[ext_resource type="Texture2D" uid="uid://b86w31jonkqmx" path="res://animatronics/foxy/jumpscare/4.png" id="96_snehp"]
+[ext_resource type="Texture2D" uid="uid://bvwognjywbbir" path="res://animatronics/foxy/jumpscare/5.png" id="97_h4423"]
+[ext_resource type="Texture2D" uid="uid://c70a4wkf1nxh0" path="res://animatronics/foxy/jumpscare/6.png" id="98_hqa72"]
+[ext_resource type="Texture2D" uid="uid://dttc7wud2ehdl" path="res://animatronics/foxy/jumpscare/7.png" id="99_ef3yv"]
+[ext_resource type="Texture2D" uid="uid://dmiy1rmllpj3j" path="res://animatronics/foxy/jumpscare/8.png" id="100_pbdqq"]
+[ext_resource type="Texture2D" uid="uid://bv3b57ndy68ek" path="res://animatronics/foxy/jumpscare/9.png" id="101_b1u6p"]
+[ext_resource type="Texture2D" uid="uid://db1amkbdagulc" path="res://animatronics/foxy/jumpscare/10.png" id="102_7pexg"]
+[ext_resource type="Texture2D" uid="uid://c121l6af0r56t" path="res://animatronics/foxy/jumpscare/11.png" id="103_v4p6y"]
+[ext_resource type="Texture2D" uid="uid://jyckjeynpvvx" path="res://animatronics/foxy/jumpscare/12.png" id="104_wlaq2"]
+[ext_resource type="Texture2D" uid="uid://b1gsd86apr1pl" path="res://animatronics/foxy/jumpscare/13.png" id="105_6npio"]
+[ext_resource type="Texture2D" uid="uid://yqqxgam8bxsl" path="res://animatronics/foxy/jumpscare/14.png" id="106_wkjd5"]
+[ext_resource type="Texture2D" uid="uid://dqiviqrywb57e" path="res://animatronics/foxy/jumpscare/15.png" id="107_2r2xe"]
+[ext_resource type="Texture2D" uid="uid://bu52o0qnex8nh" path="res://animatronics/foxy/jumpscare/16.png" id="108_dmva5"]
+[ext_resource type="Texture2D" uid="uid://dmxh0u5mqj0gn" path="res://animatronics/foxy/jumpscare/17.png" id="109_rqy1a"]
+[ext_resource type="Texture2D" uid="uid://uqx7lrmjat3m" path="res://animatronics/foxy/jumpscare/18.png" id="110_me6rj"]
+[ext_resource type="Texture2D" uid="uid://c13enmcemc5la" path="res://animatronics/foxy/jumpscare/19.png" id="111_65iyr"]
+[ext_resource type="Texture2D" uid="uid://cwo6sjq31f655" path="res://animatronics/foxy/jumpscare/20.png" id="112_axxph"]
+[ext_resource type="Texture2D" uid="uid://be2xxcjjxlrx8" path="res://animatronics/foxy/jumpscare/21.png" id="113_w7kl1"]
+[ext_resource type="AudioStream" uid="uid://b8g14hngdjjaw" path="res://animatronics/XSCREAM.wav" id="113_wf610"]
+[ext_resource type="AudioStream" uid="uid://dwlwn1h5w6ojv" path="res://animatronics/foxy/pirate song2.wav" id="115_1tb2y"]
+[ext_resource type="AudioStream" uid="uid://cpuasgw2ua65v" path="res://scenes/night/camera/breath/Vocals_Breaths_S_35972006.wav" id="115_hl3ll"]
+[ext_resource type="AudioStream" uid="uid://di6da7mwmhrv7" path="res://scenes/night/camera/breath/Vocals_Breaths_S_35972008.wav" id="116_4ei86"]
+[ext_resource type="AudioStream" uid="uid://d1d3nh2wn8bep" path="res://scenes/night/camera/breath/Vocals_Breaths_S_35972012.wav" id="117_7rsai"]
+[ext_resource type="AudioStream" uid="uid://dwrgyhijypn34" path="res://scenes/night/camera/breath/Vocals_Breaths_S_35972014.wav" id="118_1tb2y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucufk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u1y12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7na5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p2jws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_snehp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h4423")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hqa72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ef3yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pbdqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b1u6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7pexg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_v4p6y")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0a554"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_u1y12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7na5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_p2jws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_snehp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_h4423")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_hqa72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ef3yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_pbdqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_b1u6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7pexg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_v4p6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_wlaq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_6npio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_wkjd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_2r2xe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_dmva5")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 35.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c155o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_7na5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_p2jws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_snehp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_h4423")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_hqa72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_ef3yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_pbdqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_b1u6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_7pexg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_v4p6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_wlaq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_6npio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_wkjd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_2r2xe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_dmva5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_rqy1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_me6rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_65iyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_axxph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_w7kl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_6hj3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_mtx6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_ueew8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_qsffx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_gohw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_d0vvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_h1p8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_33evd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_nekb3")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u1y12"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rsai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("71_p2jws")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_u1y12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_hqa72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_ef3yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_pbdqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_b1u6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_7pexg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_v4p6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_wlaq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_6npio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_wkjd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_2r2xe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_dmva5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_rqy1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_me6rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_65iyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_axxph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_w7kl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_6hj3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_7na5i")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nac6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_u1y12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_7na5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_p2jws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_snehp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_h4423")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_hqa72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_ef3yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_pbdqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_b1u6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_7pexg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_v4p6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_wlaq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_6npio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_wkjd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_2r2xe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_dmva5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_rqy1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_me6rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_65iyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_axxph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_w7kl1")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Animatronics" type="Node2D" unique_id=181922248]
+script = ExtResource("1_cweo8")
+
+[node name="Bonnie" type="Node2D" parent="." unique_id=1439423576 node_paths=PackedStringArray("breathing_sounds", "step_sound", "jumpscare_animation", "jumpscare_audio")]
+script = ExtResource("2_7na5i")
+breathing_sounds = [NodePath("../Breath 1"), NodePath("../Breath 2"), NodePath("../Breath 3"), NodePath("../Breath 4")]
+ai_level = 20
+movement_timer_seconds = 4.97
+step_sound = NodePath("../Step Audio")
+jumpscare_animation = NodePath("Jumpscare")
+jumpscare_audio = NodePath("../Default Jumpscare Audio")
+jumpscare_duration = 0.6
+
+[node name="Jumpscare" type="AnimatedSprite2D" parent="Bonnie" unique_id=2062884745]
+visible = false
+scale = Vector2(1.088, 1)
+sprite_frames = SubResource("SpriteFrames_ucufk")
+centered = false
+
+[node name="Chica" type="Node2D" parent="." unique_id=1463412259 node_paths=PackedStringArray("breathing_sounds", "step_sound", "jumpscare_animation", "jumpscare_audio")]
+script = ExtResource("14_7na5i")
+breathing_sounds = [NodePath("../Breath 1"), NodePath("../Breath 2"), NodePath("../Breath 3"), NodePath("../Breath 4")]
+ai_level = 20
+movement_timer_seconds = 4.98
+step_sound = NodePath("../Step Audio")
+jumpscare_animation = NodePath("Jumpscare")
+jumpscare_audio = NodePath("../Default Jumpscare Audio")
+jumpscare_duration = 0.6
+
+[node name="Kitchen Mess Audio 1" type="AudioStreamPlayer" parent="Chica" unique_id=279386011]
+stream = ExtResource("4_dxqq2")
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="Kitchen Mess Audio 2" type="AudioStreamPlayer" parent="Chica" unique_id=968047200]
+stream = ExtResource("5_h7bw6")
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="Kitchen Mess Audio 4" type="AudioStreamPlayer" parent="Chica" unique_id=2081049365]
+stream = ExtResource("7_exftl")
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="Kitchen Mess Audio 3" type="AudioStreamPlayer" parent="Chica" unique_id=324219245]
+stream = ExtResource("6_eq31s")
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="Kitchen Audio Interval" type="Timer" parent="Chica" unique_id=570394944]
+wait_time = 8.0
+
+[node name="Jumpscare" type="AnimatedSprite2D" parent="Chica" unique_id=258600334]
+visible = false
+sprite_frames = SubResource("SpriteFrames_0a554")
+centered = false
+
+[node name="Freddy" type="Node2D" parent="." unique_id=1373339142 node_paths=PackedStringArray("jumpscare_light_out_animation", "jumpscare_animation", "jumpscare_audio")]
+script = ExtResource("35_7na5i")
+jumpscare_light_out_animation = NodePath("Jumpscare Light Out")
+movement_timer_seconds = 3.02
+jumpscare_animation = NodePath("Jumpscare")
+jumpscare_audio = NodePath("../Default Jumpscare Audio")
+jumpscare_duration = 0.9
+
+[node name="Freddy Jingle" type="AudioStreamPlayer" parent="Freddy" unique_id=529242764]
+stream = ExtResource("9_ns5r7")
+volume_db = -5.0
+bus = &"Sfx"
+
+[node name="Freddy Laugh 1" type="AudioStreamPlayer" parent="Freddy" unique_id=2719322]
+stream = ExtResource("9_wbclq")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="Freddy Laugh 2" type="AudioStreamPlayer" parent="Freddy" unique_id=382475517]
+stream = ExtResource("10_ns5r7")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="Freddy Laugh 3" type="AudioStreamPlayer" parent="Freddy" unique_id=828067397]
+stream = ExtResource("11_5nh4t")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="Freddy Step" type="AudioStreamPlayer" parent="Freddy" unique_id=2055591084]
+stream = ExtResource("40_4ei86")
+volume_db = -5.0
+bus = &"Sfx"
+
+[node name="Debug" type="CanvasLayer" parent="Freddy" unique_id=937679396]
+visible = false
+
+[node name="Move Freddy" type="Button" parent="Freddy/Debug" unique_id=61999]
+offset_left = 21.0
+offset_top = 659.0
+offset_right = 129.0
+offset_bottom = 690.0
+text = "Move Freddy"
+
+[node name="Jumpscare" type="AnimatedSprite2D" parent="Freddy" unique_id=1929632256]
+visible = false
+sprite_frames = SubResource("SpriteFrames_c155o")
+centered = false
+
+[node name="Jumpscare Light Out" type="AnimatedSprite2D" parent="Freddy" unique_id=1733259868]
+visible = false
+sprite_frames = SubResource("SpriteFrames_7rsai")
+centered = false
+
+[node name="Freddy Jumpscare Timer" type="Timer" parent="Freddy" unique_id=559988926]
+
+[node name="Foxy" type="Node2D" parent="." unique_id=581834715 node_paths=PackedStringArray("step_sound", "jumpscare_animation", "jumpscare_audio")]
+script = ExtResource("91_7na5i")
+movement_timer_seconds = 5.01
+step_sound = NodePath("Run Audio")
+jumpscare_animation = NodePath("Jumpscare")
+jumpscare_audio = NodePath("../Default Jumpscare Audio")
+jumpscare_duration = 1.0
+
+[node name="Knock Door Audio" type="AudioStreamPlayer" parent="Foxy" unique_id=1592716128]
+stream = ExtResource("90_1bw17")
+bus = &"Sfx"
+
+[node name="Run Audio" type="AudioStreamPlayer" parent="Foxy" unique_id=1398133831]
+stream = ExtResource("14_5nh4t")
+volume_db = -5.0
+bus = &"Sfx"
+
+[node name="Always Fail Timer" type="Timer" parent="Foxy" unique_id=560084429]
+
+[node name="Jumpscare" type="AnimatedSprite2D" parent="Foxy" unique_id=301944157]
+visible = false
+sprite_frames = SubResource("SpriteFrames_nac6p")
+centered = false
+
+[node name="Foxy Attack Timer" type="Timer" parent="Foxy" unique_id=607744715]
+wait_time = 25.0
+one_shot = true
+
+[node name="Singing" type="AudioStreamPlayer" parent="Foxy" unique_id=1422325140]
+stream = ExtResource("115_1tb2y")
+volume_db = -10.0
+
+[node name="Timer Singing" type="Timer" parent="Foxy" unique_id=702431833]
+wait_time = 4.0
+autostart = true
+
+[node name="Step Audio" type="AudioStreamPlayer" parent="." unique_id=1576850055]
+stream = ExtResource("3_bis2m")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="Default Jumpscare Audio" type="AudioStreamPlayer" parent="." unique_id=686595821]
+stream = ExtResource("113_wf610")
+bus = &"Jumpscare"
+
+[node name="Breath 1" type="AudioStreamPlayer" parent="." unique_id=1408834565]
+stream = ExtResource("115_hl3ll")
+volume_db = -5.0
+bus = &"Sfx"
+
+[node name="Breath 2" type="AudioStreamPlayer" parent="." unique_id=272534302]
+stream = ExtResource("116_4ei86")
+volume_db = -5.0
+bus = &"Sfx"
+
+[node name="Breath 3" type="AudioStreamPlayer" parent="." unique_id=1704842981]
+stream = ExtResource("117_7rsai")
+volume_db = -5.0
+bus = &"Sfx"
+
+[node name="Breath 4" type="AudioStreamPlayer" parent="." unique_id=1869151693]
+stream = ExtResource("118_1tb2y")
+volume_db = -5.0
+bus = &"Sfx"
+
+[connection signal="timeout" from="Chica/Kitchen Audio Interval" to="Chica" method="_on_kitchen_audio_interval_timeout"]
+[connection signal="pressed" from="Freddy/Debug/Move Freddy" to="Freddy" method="_on_move_freddy_pressed"]
+[connection signal="timeout" from="Freddy/Freddy Jumpscare Timer" to="Freddy" method="_on_freddy_jumpscare_timer_timeout"]
+[connection signal="timeout" from="Foxy/Always Fail Timer" to="Foxy" method="_on_always_fail_timer_timeout"]
+[connection signal="timeout" from="Foxy/Foxy Attack Timer" to="Foxy" method="_on_foxy_attack_timer_timeout"]
+[connection signal="timeout" from="Foxy/Timer Singing" to="Foxy" method="_on_timer_singing_timeout"]

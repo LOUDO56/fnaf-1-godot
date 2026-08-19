@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b4s256xj1o7xy"]
+
+[ext_resource type="Script" uid="uid://bcvxiywxhavor" path="res://scenes/6_am/6_am.gd" id="1_tkpor"]
+[ext_resource type="Texture2D" uid="uid://bph6vlko2l4nq" path="res://scenes/6_am/AM_6AM.png" id="2_fx3hx"]
+[ext_resource type="Texture2D" uid="uid://d2bso0sudb7i" path="res://ui/night_time/number_am/5.png" id="3_kqkv4"]
+[ext_resource type="Texture2D" uid="uid://c8rn56jt5r0eh" path="res://ui/night_time/number_am/6.png" id="4_etry7"]
+[ext_resource type="AudioStream" uid="uid://l2ahv8c4bxbm" path="res://scenes/6_am/chimes 2.wav" id="5_p54b4"]
+[ext_resource type="AudioStream" uid="uid://dgqo2n1vgfq3u" path="res://scenes/6_am/CROWD_SMALL_CHIL_EC049202.wav" id="6_gctu2"]
+
+[node name="6 AM" type="Node2D" unique_id=2052581549]
+script = ExtResource("1_tkpor")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1153458412]
+layer = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=802247024]
+offset_left = 4.0
+offset_right = 2095.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="AM" type="Sprite2D" parent="CanvasLayer" unique_id=1733704362]
+texture_filter = 1
+position = Vector2(702, 359)
+texture = ExtResource("2_fx3hx")
+
+[node name="Zone" type="ColorRect" parent="CanvasLayer" unique_id=1137242629]
+clip_children = 1
+offset_top = 308.0
+offset_right = 1280.0
+offset_bottom = 411.0
+
+[node name="5" type="Sprite2D" parent="CanvasLayer/Zone" unique_id=2010045830]
+texture_filter = 1
+position = Vector2(581, 53)
+scale = Vector2(2.6666658, 2.6666658)
+texture = ExtResource("3_kqkv4")
+
+[node name="6" type="Sprite2D" parent="CanvasLayer/Zone" unique_id=103639958]
+texture_filter = 1
+position = Vector2(581, 164.99998)
+scale = Vector2(2.6666658, 2.6666658)
+texture = ExtResource("4_etry7")
+
+[node name="Black" type="ColorRect" parent="CanvasLayer" unique_id=40148576]
+modulate = Color(1, 1, 1, 0)
+offset_left = 4.0
+offset_right = 2095.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Win Sound" type="AudioStreamPlayer" parent="." unique_id=519150846]
+stream = ExtResource("5_p54b4")
+volume_db = -5.0
+
+[node name="Children Yeah" type="AudioStreamPlayer" parent="." unique_id=1967585502]
+stream = ExtResource("6_gctu2")
+volume_db = -5.0
+
+[connection signal="finished" from="Children Yeah" to="." method="_on_children_yeah_finished"]

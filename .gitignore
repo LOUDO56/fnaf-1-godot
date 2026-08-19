@@ -2,5 +2,7 @@
 .godot/
 /android/
 
-assets
-export
+/build/*
+/*/**/*.png
+/*/**/*.wav
+/*/**/*.import

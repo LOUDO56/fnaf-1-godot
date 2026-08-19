@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://c85atmdfgp6r6"]
+
+[ext_resource type="Script" uid="uid://bx3qvwob0tmlg" path="res://ui/power/power.gd" id="1_ugso2"]
+[ext_resource type="Texture2D" uid="uid://dxvjmw2ew3ejd" path="res://ui/power/numbers/0.png" id="2_ugso2"]
+[ext_resource type="Texture2D" uid="uid://1klp2t1e8hc7" path="res://ui/power/numbers/1.png" id="3_xo8w4"]
+[ext_resource type="Texture2D" uid="uid://whkotgxd50nu" path="res://ui/power/numbers/2.png" id="4_60bry"]
+[ext_resource type="Texture2D" uid="uid://cq640of8stu5a" path="res://ui/power/numbers/3.png" id="5_wdaf0"]
+[ext_resource type="Texture2D" uid="uid://mnhy802kdawk" path="res://ui/power/numbers/4.png" id="6_y68dd"]
+[ext_resource type="Texture2D" uid="uid://cavqg4gfxlhow" path="res://ui/power/numbers/5.png" id="7_mml1i"]
+[ext_resource type="Texture2D" uid="uid://tuwd6wkseul0" path="res://ui/power/numbers/6.png" id="8_bj60x"]
+[ext_resource type="Texture2D" uid="uid://d2okyc7bxvuri" path="res://ui/power/numbers/7.png" id="9_jsx8n"]
+[ext_resource type="Texture2D" uid="uid://bqq7rdlq08wb8" path="res://ui/power/numbers/8.png" id="10_xg5g8"]
+[ext_resource type="Texture2D" uid="uid://xwbfo72a7i8n" path="res://ui/power/numbers/9.png" id="11_cfh4g"]
+[ext_resource type="Texture2D" uid="uid://ijxvn0gkxogj" path="res://ui/power/percent.png" id="12_1orjl"]
+[ext_resource type="Texture2D" uid="uid://byl7jg1j2qrvx" path="res://ui/power/power_left.png" id="13_ugso2"]
+[ext_resource type="Script" uid="uid://bvq6mu30iv7un" path="res://ui/power/usage_bar/usage_bar.gd" id="14_j7q5b"]
+[ext_resource type="Texture2D" uid="uid://qr2fjbirfjjp" path="res://ui/power/usage_bar/usage.png" id="15_ugso2"]
+[ext_resource type="Texture2D" uid="uid://od3bwcuf10u" path="res://ui/power/usage_bar/bars/1.png" id="16_ugso2"]
+[ext_resource type="Texture2D" uid="uid://lta10o7o0x61" path="res://ui/power/usage_bar/bars/2.png" id="17_xo8w4"]
+[ext_resource type="Texture2D" uid="uid://b3x2qxbinv4w" path="res://ui/power/usage_bar/bars/3.png" id="18_60bry"]
+[ext_resource type="Texture2D" uid="uid://bqddeu8308vii" path="res://ui/power/usage_bar/bars/4.png" id="19_wdaf0"]
+[ext_resource type="Texture2D" uid="uid://cmdrqwm3oqkfa" path="res://ui/power/usage_bar/bars/5.png" id="20_y68dd"]
+
+[node name="Power Usage" type="Node2D" unique_id=530145606]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1610794701]
+layer = 2
+
+[node name="Power" type="Node2D" parent="CanvasLayer" unique_id=1628115552 node_paths=PackedStringArray("usage")]
+script = ExtResource("1_ugso2")
+usage = NodePath("../Usage")
+
+[node name="Percent" type="Node2D" parent="CanvasLayer/Power" unique_id=567882912]
+position = Vector2(1, 0)
+
+[node name="First Digit" type="Node2D" parent="CanvasLayer/Power/Percent" unique_id=1234251200]
+position = Vector2(191, 638)
+metadata/_edit_group_ = true
+
+[node name="0" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=1025375019]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_ugso2")
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=1638385605]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_xo8w4")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=1663178495]
+visible = false
+texture_filter = 1
+texture = ExtResource("4_60bry")
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=993158099]
+visible = false
+texture_filter = 1
+texture = ExtResource("5_wdaf0")
+
+[node name="4" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=1846520827]
+visible = false
+texture_filter = 1
+texture = ExtResource("6_y68dd")
+
+[node name="5" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=2032553535]
+visible = false
+texture_filter = 1
+texture = ExtResource("7_mml1i")
+
+[node name="6" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=239240762]
+visible = false
+texture_filter = 1
+texture = ExtResource("8_bj60x")
+
+[node name="7" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=1268544533]
+visible = false
+texture_filter = 1
+texture = ExtResource("9_jsx8n")
+
+[node name="8" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=471501221]
+visible = false
+texture_filter = 1
+texture = ExtResource("10_xg5g8")
+
+[node name="9" type="Sprite2D" parent="CanvasLayer/Power/Percent/First Digit" unique_id=1452450055]
+texture_filter = 1
+texture = ExtResource("11_cfh4g")
+
+[node name="Second Digit" type="Node2D" parent="CanvasLayer/Power/Percent" unique_id=1011016164]
+position = Vector2(209, 638)
+metadata/_edit_group_ = true
+
+[node name="0" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=1425731096]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_ugso2")
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=1246970020]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_xo8w4")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=957140302]
+visible = false
+texture_filter = 1
+texture = ExtResource("4_60bry")
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=971890433]
+visible = false
+texture_filter = 1
+texture = ExtResource("5_wdaf0")
+
+[node name="4" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=1858490400]
+visible = false
+texture_filter = 1
+texture = ExtResource("6_y68dd")
+
+[node name="5" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=1029913281]
+visible = false
+texture_filter = 1
+texture = ExtResource("7_mml1i")
+
+[node name="6" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=2033205368]
+visible = false
+texture_filter = 1
+texture = ExtResource("8_bj60x")
+
+[node name="7" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=1884664743]
+visible = false
+texture_filter = 1
+texture = ExtResource("9_jsx8n")
+
+[node name="8" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=685490951]
+visible = false
+texture_filter = 1
+texture = ExtResource("10_xg5g8")
+
+[node name="9" type="Sprite2D" parent="CanvasLayer/Power/Percent/Second Digit" unique_id=1860855205]
+texture_filter = 1
+texture = ExtResource("11_cfh4g")
+
+[node name="Percentage" type="Sprite2D" parent="CanvasLayer/Power/Percent" unique_id=1010584711]
+texture_filter = 1
+position = Vector2(226, 642)
+texture = ExtResource("12_1orjl")
+
+[node name="Power Left Text" type="Sprite2D" parent="CanvasLayer/Power" unique_id=278276891]
+texture_filter = 1
+position = Vector2(107, 640)
+texture = ExtResource("13_ugso2")
+
+[node name="Usage" type="Node2D" parent="CanvasLayer" unique_id=1752693100]
+script = ExtResource("14_j7q5b")
+
+[node name="Usage Text" type="Sprite2D" parent="CanvasLayer/Usage" unique_id=955682605]
+texture_filter = 1
+position = Vector2(73.99999, 675)
+texture = ExtResource("15_ugso2")
+
+[node name="Bars" type="Sprite2D" parent="CanvasLayer/Usage" unique_id=1224150940]
+position = Vector2(173, 674)
+metadata/_edit_group_ = true
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/Usage/Bars" unique_id=991849436]
+texture_filter = 1
+texture = ExtResource("16_ugso2")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/Usage/Bars" unique_id=852000466]
+visible = false
+texture_filter = 1
+texture = ExtResource("17_xo8w4")
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/Usage/Bars" unique_id=567062970]
+visible = false
+texture_filter = 1
+texture = ExtResource("18_60bry")
+
+[node name="4" type="Sprite2D" parent="CanvasLayer/Usage/Bars" unique_id=1883031426]
+visible = false
+texture_filter = 1
+texture = ExtResource("19_wdaf0")
+
+[node name="5" type="Sprite2D" parent="CanvasLayer/Usage/Bars" unique_id=842024589]
+visible = false
+texture_filter = 1
+texture = ExtResource("20_y68dd")

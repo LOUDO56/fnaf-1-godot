@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://ck1pogjdo54dk"]
+
+[ext_resource type="Script" uid="uid://byxthlkqxosat" path="res://scenes/custom_night/custom_night.gd" id="1_6oq70"]
+[ext_resource type="Texture2D" uid="uid://bjce1a06c0par" path="res://scenes/custom_night/customize.png" id="1_ikwda"]
+[ext_resource type="Texture2D" uid="uid://go4q4b3hfcm7" path="res://scenes/custom_night/animatronics/freddy/name.png" id="2_dwogi"]
+[ext_resource type="Texture2D" uid="uid://b3fdde20q7euk" path="res://scenes/custom_night/animatronics/freddy/icon.png" id="3_enwfw"]
+[ext_resource type="PackedScene" uid="uid://cevtvr8q3wce7" path="res://scenes/custom_night/select_level/select_level.tscn" id="4_yldvl"]
+[ext_resource type="Texture2D" uid="uid://cabkochabwk7u" path="res://scenes/custom_night/animatronics/bonnie/name.png" id="5_q7y6r"]
+[ext_resource type="Texture2D" uid="uid://by5avv4edjapw" path="res://scenes/custom_night/animatronics/bonnie/icon.png" id="6_5wybq"]
+[ext_resource type="Texture2D" uid="uid://cab28aodf0xgl" path="res://scenes/custom_night/animatronics/chica/name.png" id="7_6oq70"]
+[ext_resource type="Texture2D" uid="uid://g85wp4avq2mh" path="res://scenes/custom_night/animatronics/chica/icon.png" id="8_3ne7h"]
+[ext_resource type="Texture2D" uid="uid://d1didtq340l6u" path="res://scenes/custom_night/animatronics/foxy/name.png" id="9_t7ie2"]
+[ext_resource type="Texture2D" uid="uid://cm0knwebeg2ta" path="res://scenes/custom_night/animatronics/foxy/icon.png" id="10_mg76g"]
+[ext_resource type="Texture2D" uid="uid://dsketjjocc4bh" path="res://scenes/custom_night/difficulty_guide.png" id="11_q7y6r"]
+[ext_resource type="Texture2D" uid="uid://dved6gepdsxfu" path="res://scenes/custom_night/ready.png" id="12_5wybq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
+size = Vector2(196.5, 66.25)
+
+[node name="Custom Night" type="Node2D" unique_id=718854639]
+script = ExtResource("1_6oq70")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1332645750]
+offset_right = 1283.0
+offset_bottom = 723.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Customize Night" type="Sprite2D" parent="." unique_id=1150590920]
+position = Vector2(629, 65)
+texture = ExtResource("1_ikwda")
+
+[node name="Animatronics" type="Node2D" parent="." unique_id=1054490480]
+
+[node name="Freddy" type="Node2D" parent="Animatronics" unique_id=1765357783]
+position = Vector2(-39, 0)
+
+[node name="Name" type="Sprite2D" parent="Animatronics/Freddy" unique_id=1377580692]
+position = Vector2(253, 177)
+texture = ExtResource("2_dwogi")
+
+[node name="Image" type="Sprite2D" parent="Animatronics/Freddy" unique_id=579030286]
+position = Vector2(253, 316)
+texture = ExtResource("3_enwfw")
+
+[node name="Select Level" parent="Animatronics/Freddy" unique_id=89531772 instance=ExtResource("4_yldvl")]
+position = Vector2(169, 514)
+scale = Vector2(1.115, 1.115)
+
+[node name="Bonnie" type="Node2D" parent="Animatronics" unique_id=1504069464]
+position = Vector2(257, 0)
+
+[node name="Name" type="Sprite2D" parent="Animatronics/Bonnie" unique_id=1386391424]
+position = Vector2(253, 177)
+texture = ExtResource("5_q7y6r")
+
+[node name="Image" type="Sprite2D" parent="Animatronics/Bonnie" unique_id=1292933856]
+position = Vector2(253, 316)
+texture = ExtResource("6_5wybq")
+
+[node name="Select Level" parent="Animatronics/Bonnie" unique_id=4491241 instance=ExtResource("4_yldvl")]
+position = Vector2(169, 514)
+scale = Vector2(1.115, 1.115)
+
+[node name="Chica" type="Node2D" parent="Animatronics" unique_id=1655928863]
+position = Vector2(537, 0)
+
+[node name="Name" type="Sprite2D" parent="Animatronics/Chica" unique_id=507376278]
+position = Vector2(253, 177)
+texture = ExtResource("7_6oq70")
+
+[node name="Image" type="Sprite2D" parent="Animatronics/Chica" unique_id=1810089941]
+position = Vector2(253, 316)
+texture = ExtResource("8_3ne7h")
+
+[node name="Select Level" parent="Animatronics/Chica" unique_id=273951579 instance=ExtResource("4_yldvl")]
+position = Vector2(169, 514)
+scale = Vector2(1.115, 1.115)
+
+[node name="Foxy" type="Node2D" parent="Animatronics" unique_id=809409778]
+position = Vector2(817, 0)
+
+[node name="Name" type="Sprite2D" parent="Animatronics/Foxy" unique_id=860717687]
+position = Vector2(253, 177)
+texture = ExtResource("9_t7ie2")
+
+[node name="Image" type="Sprite2D" parent="Animatronics/Foxy" unique_id=2032894662]
+position = Vector2(253, 316)
+texture = ExtResource("10_mg76g")
+
+[node name="Select Level" parent="Animatronics/Foxy" unique_id=504910308 instance=ExtResource("4_yldvl")]
+position = Vector2(169, 514)
+scale = Vector2(1.115, 1.115)
+
+[node name="Difficulty Guide" type="Sprite2D" parent="." unique_id=1391349993]
+position = Vector2(524, 684)
+texture = ExtResource("11_q7y6r")
+
+[node name="Ready" type="Area2D" parent="." unique_id=1025261469]
+
+[node name="Sprite" type="Sprite2D" parent="Ready" unique_id=135461095]
+position = Vector2(1156, 669)
+texture = ExtResource("12_5wybq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ready" unique_id=1914476424]
+position = Vector2(1156.25, 669.875)
+shape = SubResource("RectangleShape2D_ucufk")
+
+[connection signal="input_event" from="Ready" to="." method="_on_ready_input_event"]

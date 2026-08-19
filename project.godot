@@ -44,6 +44,17 @@ window/canvas_textures/default_texture_filter=0
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[file_customization]
+
+folder_colors={
+"res://animatronics/": "red",
+"res://build/": "gray",
+"res://common/": "green",
+"res://scenes/": "orange",
+"res://shaders/": "purple",
+"res://ui/": "blue"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

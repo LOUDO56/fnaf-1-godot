@@ -1,58 +1,58 @@
 [gd_scene format=3 uid="uid://vpms7e5yikcn"]
 
-[ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://scenes/ui/statics.tscn" id="1_fsom3"]
-[ext_resource type="Script" uid="uid://b1eaedc8by7w7" path="res://scripts/main_menu/main_menu.gd" id="1_hj072"]
-[ext_resource type="Texture2D" uid="uid://cscpf12dc17uf" path="res://assets/images/2-MENU_TWITCHING/1.png" id="2_wem23"]
-[ext_resource type="Texture2D" uid="uid://cmvutdef6mg5v" path="res://assets/images/2-MENU_TWITCHING/2.png" id="3_3ovsr"]
-[ext_resource type="Texture2D" uid="uid://dbvxrgoux8uqi" path="res://assets/images/2-MENU_TWITCHING/3.png" id="4_5seab"]
-[ext_resource type="Texture2D" uid="uid://boevh4lc4ymwg" path="res://assets/images/2-MENU_TWITCHING/4.png" id="5_4xg86"]
-[ext_resource type="Script" uid="uid://behax362x2qf5" path="res://scripts/main_menu/freddy_twitching.gd" id="5_5seab"]
-[ext_resource type="Script" uid="uid://q864cyvsmo2g" path="res://scripts/libs/flicker.gd" id="6_4xg86"]
-[ext_resource type="Texture2D" uid="uid://kw02vnlbhg5t" path="res://assets/images/2-MENU_TWITCHING/WHITE_BARS/1.png" id="8_4ujhu"]
-[ext_resource type="Texture2D" uid="uid://bcngqndhrupa2" path="res://assets/images/2-MENU_TWITCHING/WHITE_BARS/2.png" id="9_vnpsp"]
-[ext_resource type="Texture2D" uid="uid://d20rwwdytn1px" path="res://assets/images/2-MENU_TWITCHING/WHITE_BARS/3.png" id="10_a1gy5"]
-[ext_resource type="Texture2D" uid="uid://dexal8e1210dd" path="res://assets/images/2-MENU_TWITCHING/WHITE_BARS/4.png" id="11_bq5lc"]
-[ext_resource type="Texture2D" uid="uid://wjgvirrvjktn" path="res://assets/images/2-MENU_TWITCHING/WHITE_BARS/5.png" id="12_xac7c"]
-[ext_resource type="Texture2D" uid="uid://b0ael0iibqmoq" path="res://assets/images/2-MENU_TWITCHING/WHITE_BARS/6.png" id="13_0m3cs"]
-[ext_resource type="Texture2D" uid="uid://bg3gnccp1tav1" path="res://assets/images/2-MENU_TWITCHING/WHITE_BARS/7.png" id="14_i7nm7"]
-[ext_resource type="Script" uid="uid://xsibpq5qjs4r" path="res://scripts/main_menu/white_bars.gd" id="15_a1gy5"]
-[ext_resource type="Texture2D" uid="uid://dfmvl67fall4b" path="res://assets/images/2-MENU_TWITCHING/WHITE_BARS/1_crop.png" id="15_tfctf"]
-[ext_resource type="Script" uid="uid://btw7ryp0kqaga" path="res://scripts/main_menu/white_bar_moving.gd" id="16_vnpsp"]
-[ext_resource type="AudioStream" uid="uid://dlgwa0k4v5xvu" path="res://assets/audio/darkness music.wav" id="18_bq5lc"]
-[ext_resource type="AudioStream" uid="uid://4q3qju745mph" path="res://assets/audio/static2.wav" id="19_xac7c"]
-[ext_resource type="Texture2D" uid="uid://nnnb0hu5k4xo" path="res://assets/images/1-MAIN_TEXT/GAME_TITLE.png" id="20_0m3cs"]
-[ext_resource type="Texture2D" uid="uid://cye7cisyh4cxi" path="res://assets/images/1-MAIN_TEXT/STAR.png" id="21_i7nm7"]
-[ext_resource type="Texture2D" uid="uid://bh7s1noey5lbb" path="res://assets/images/1-MAIN_TEXT/BUTTON01.png" id="22_0oicw"]
-[ext_resource type="Texture2D" uid="uid://bi2iqipll4oej" path="res://assets/images/1-MAIN_TEXT/BUTTON02.png" id="23_83tid"]
-[ext_resource type="Texture2D" uid="uid://dsgg07jcorw8e" path="res://assets/images/1-MAIN_TEXT/NIGHT.png" id="24_g8sw0"]
-[ext_resource type="Texture2D" uid="uid://cvn3tj6lpwbyx" path="res://assets/images/1-MAIN_TEXT/SIXTH_NIGHT.png" id="24_t0qut"]
-[ext_resource type="AudioStream" uid="uid://c6uc7yflp6bmw" path="res://assets/audio/blip3.wav" id="25_boqas"]
-[ext_resource type="Texture2D" uid="uid://ddasendwqd21t" path="res://assets/images/1-MAIN_TEXT/CUSTOM_NIGHT.png" id="25_g8sw0"]
-[ext_resource type="Texture2D" uid="uid://d2bso0sudb7i" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/5.png" id="25_jnwll"]
-[ext_resource type="Texture2D" uid="uid://cwq7ygvl6w05v" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/1.png" id="25_unaco"]
-[ext_resource type="Texture2D" uid="uid://rbbdtgegmt2i" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/2.png" id="26_81nce"]
-[ext_resource type="Texture2D" uid="uid://beka0h7o4lsvf" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/3.png" id="27_hj072"]
-[ext_resource type="Texture2D" uid="uid://pultwlouk6db" path="res://assets/images/3-THE_OFFICE/OTHER/NUMBERS/TIME/4.png" id="28_x5yu2"]
-[ext_resource type="Script" uid="uid://do1lovxrfg5m2" path="res://scripts/main_menu/continue.gd" id="29_si1as"]
-[ext_resource type="Texture2D" uid="uid://clt1mpdv28r2g" path="res://assets/images/1-MAIN_TEXT/SET_.png" id="32_81nce"]
-[ext_resource type="Script" uid="uid://csgrx5yo6y2bx" path="res://scripts/main_menu/select.gd" id="33_ptsf3"]
-[ext_resource type="Texture2D" uid="uid://cc5awxuiubaql" path="res://assets/images/1-MAIN_TEXT/CREDIT.png" id="34_x5yu2"]
-[ext_resource type="Script" uid="uid://ddiy5ygbvrxt3" path="res://scripts/main_menu/hovered.gd" id="35_aht68"]
+[ext_resource type="Script" uid="uid://b1eaedc8by7w7" path="res://scenes/main_menu/main_menu.gd" id="1_si1as"]
+[ext_resource type="Texture2D" uid="uid://cscpf12dc17uf" path="res://scenes/main_menu/freddy_twitching/1.png" id="2_n4ny7"]
+[ext_resource type="Texture2D" uid="uid://cmvutdef6mg5v" path="res://scenes/main_menu/freddy_twitching/2.png" id="3_3vb4h"]
+[ext_resource type="Texture2D" uid="uid://dbvxrgoux8uqi" path="res://scenes/main_menu/freddy_twitching/3.png" id="4_h10i5"]
+[ext_resource type="Texture2D" uid="uid://boevh4lc4ymwg" path="res://scenes/main_menu/freddy_twitching/4.png" id="5_kvv6k"]
+[ext_resource type="Script" uid="uid://behax362x2qf5" path="res://scenes/main_menu/freddy_twitching/freddy_twitching.gd" id="6_kc1yb"]
+[ext_resource type="Script" uid="uid://q864cyvsmo2g" path="res://common/libs/flicker.gd" id="7_f52r8"]
+[ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://common/effects/statics/statics.tscn" id="8_bva8j"]
+[ext_resource type="Texture2D" uid="uid://kw02vnlbhg5t" path="res://scenes/main_menu/white_bars/animation/1.png" id="9_je0q8"]
+[ext_resource type="Texture2D" uid="uid://bcngqndhrupa2" path="res://scenes/main_menu/white_bars/animation/2.png" id="10_6rkor"]
+[ext_resource type="Texture2D" uid="uid://d20rwwdytn1px" path="res://scenes/main_menu/white_bars/animation/3.png" id="11_vpquf"]
+[ext_resource type="Texture2D" uid="uid://dexal8e1210dd" path="res://scenes/main_menu/white_bars/animation/4.png" id="12_tjoo1"]
+[ext_resource type="Texture2D" uid="uid://wjgvirrvjktn" path="res://scenes/main_menu/white_bars/animation/5.png" id="13_4bd77"]
+[ext_resource type="Texture2D" uid="uid://b0ael0iibqmoq" path="res://scenes/main_menu/white_bars/animation/6.png" id="14_li5uk"]
+[ext_resource type="Texture2D" uid="uid://bg3gnccp1tav1" path="res://scenes/main_menu/white_bars/animation/7.png" id="15_3k5n0"]
+[ext_resource type="Script" uid="uid://xsibpq5qjs4r" path="res://scenes/main_menu/white_bars/white_bars.gd" id="16_gbc4w"]
+[ext_resource type="Texture2D" uid="uid://dfmvl67fall4b" path="res://scenes/main_menu/white_bars/white_line.png" id="17_e3g0a"]
+[ext_resource type="Script" uid="uid://btw7ryp0kqaga" path="res://scenes/main_menu/white_bars/white_bar_moving.gd" id="18_8i2hs"]
+[ext_resource type="AudioStream" uid="uid://dlgwa0k4v5xvu" path="res://scenes/main_menu/darkness music.wav" id="18_bq5lc"]
+[ext_resource type="Texture2D" uid="uid://nnnb0hu5k4xo" path="res://scenes/main_menu/game_title.png" id="19_fde4t"]
+[ext_resource type="AudioStream" uid="uid://4q3qju745mph" path="res://scenes/main_menu/static2.wav" id="19_xac7c"]
+[ext_resource type="Texture2D" uid="uid://cye7cisyh4cxi" path="res://scenes/main_menu/star.png" id="20_s424j"]
+[ext_resource type="Texture2D" uid="uid://cc5awxuiubaql" path="res://scenes/main_menu/credit.png" id="21_lmo0x"]
+[ext_resource type="Script" uid="uid://ddiy5ygbvrxt3" path="res://scenes/main_menu/buttons/button_hovered.gd" id="22_duxfo"]
+[ext_resource type="Texture2D" uid="uid://bh7s1noey5lbb" path="res://scenes/main_menu/buttons/new-game.png" id="23_0888h"]
+[ext_resource type="Texture2D" uid="uid://dsgg07jcorw8e" path="res://scenes/main_menu/night.png" id="24_g8sw0"]
+[ext_resource type="Script" uid="uid://do1lovxrfg5m2" path="res://scenes/main_menu/buttons/continue/continue.gd" id="24_lhx75"]
+[ext_resource type="AudioStream" uid="uid://c6uc7yflp6bmw" path="res://scenes/night/camera/blip3.wav" id="25_boqas"]
+[ext_resource type="Texture2D" uid="uid://bi2iqipll4oej" path="res://scenes/main_menu/buttons/continue/continue.png" id="25_kcyhq"]
+[ext_resource type="Texture2D" uid="uid://cwq7ygvl6w05v" path="res://ui/night_time/number_am/1.png" id="27_bvyqd"]
+[ext_resource type="Texture2D" uid="uid://rbbdtgegmt2i" path="res://ui/night_time/number_am/2.png" id="28_7l674"]
+[ext_resource type="Texture2D" uid="uid://beka0h7o4lsvf" path="res://ui/night_time/number_am/3.png" id="29_cbnnd"]
+[ext_resource type="Texture2D" uid="uid://pultwlouk6db" path="res://ui/night_time/number_am/4.png" id="30_1tc74"]
+[ext_resource type="Texture2D" uid="uid://d2bso0sudb7i" path="res://ui/night_time/number_am/5.png" id="31_nmgfj"]
+[ext_resource type="Texture2D" uid="uid://cvn3tj6lpwbyx" path="res://scenes/main_menu/buttons/sixth_night.png" id="32_41vot"]
+[ext_resource type="Texture2D" uid="uid://ddasendwqd21t" path="res://scenes/main_menu/buttons/custom_night.png" id="33_vsplr"]
+[ext_resource type="Texture2D" uid="uid://clt1mpdv28r2g" path="res://scenes/main_menu/select/select.png" id="34_qrddl"]
+[ext_resource type="Script" uid="uid://csgrx5yo6y2bx" path="res://scenes/main_menu/select/select.gd" id="35_eqgax"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ucufk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_wem23")
+"texture": ExtResource("2_n4ny7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_3ovsr")
+"texture": ExtResource("3_3vb4h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_5seab")
+"texture": ExtResource("4_h10i5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_4xg86")
+"texture": ExtResource("5_kvv6k")
 }],
 "loop": 0,
 "name": &"default",
@@ -63,25 +63,25 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_4ujhu")
+"texture": ExtResource("9_je0q8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_vnpsp")
+"texture": ExtResource("10_6rkor")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_a1gy5")
+"texture": ExtResource("11_vpquf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_bq5lc")
+"texture": ExtResource("12_tjoo1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_xac7c")
+"texture": ExtResource("13_4bd77")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_0m3cs")
+"texture": ExtResource("14_li5uk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_i7nm7")
+"texture": ExtResource("15_3k5n0")
 }],
 "loop": 0,
 "name": &"default",
@@ -101,7 +101,7 @@ size = Vector2(237, 50)
 size = Vector2(312, 47)
 
 [node name="Main Menu" type="Node2D" unique_id=642743441]
-script = ExtResource("1_hj072")
+script = ExtResource("1_si1as")
 
 [node name="Background" type="Node2D" parent="." unique_id=1995503599]
 
@@ -115,10 +115,10 @@ color = Color(0, 0, 0, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ucufk")
 centered = false
-script = ExtResource("5_5seab")
+script = ExtResource("6_kc1yb")
 
 [node name="Flicker" type="Node2D" parent="Background/Freddy Twitching" unique_id=1687175754 node_paths=PackedStringArray("target")]
-script = ExtResource("6_4xg86")
+script = ExtResource("7_f52r8")
 target = NodePath("..")
 flicker = 0.1
 
@@ -126,11 +126,26 @@ flicker = 0.1
 wait_time = 0.1
 one_shot = true
 
-[node name="Statics" parent="Background" unique_id=1232822903 instance=ExtResource("1_fsom3")]
+[node name="Freddy Twitching" type="AnimatedSprite2D" parent="Background/Freddy Twitching" unique_id=1476193808]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ucufk")
+centered = false
+script = ExtResource("6_kc1yb")
+
+[node name="Flicker" type="Node2D" parent="Background/Freddy Twitching/Freddy Twitching" unique_id=59366252 node_paths=PackedStringArray("target")]
+script = ExtResource("7_f52r8")
+target = NodePath("..")
+flicker = 0.1
+
+[node name="Variant Timer" type="Timer" parent="Background/Freddy Twitching/Freddy Twitching" unique_id=2118639645]
+wait_time = 0.1
+one_shot = true
+
+[node name="Statics" parent="Background" unique_id=1232822903 instance=ExtResource("8_bva8j")]
 modulate = Color(1, 1, 1, 0.6039216)
 
 [node name="Flicker" type="Node2D" parent="Background/Statics" unique_id=1062784638 node_paths=PackedStringArray("target")]
-script = ExtResource("6_4xg86")
+script = ExtResource("7_f52r8")
 target = NodePath("..")
 flicker = 0.04
 range_a = 0.4
@@ -143,22 +158,22 @@ sprite_frames = SubResource("SpriteFrames_0a554")
 frame = 6
 frame_progress = 1.0
 centered = false
-script = ExtResource("15_a1gy5")
+script = ExtResource("16_gbc4w")
 
 [node name="White Bar Moving" type="Sprite2D" parent="Background" unique_id=2011558907]
 modulate = Color(1, 1, 1, 0.16900001)
 texture_filter = 1
 position = Vector2(0, -37)
-texture = ExtResource("15_tfctf")
+texture = ExtResource("17_e3g0a")
 centered = false
-script = ExtResource("16_vnpsp")
+script = ExtResource("18_8i2hs")
 
 [node name="Text" type="Node2D" parent="." unique_id=375174129]
 
 [node name="Title" type="Sprite2D" parent="Text" unique_id=1852263412]
 texture_filter = 1
 position = Vector2(244, 176)
-texture = ExtResource("20_0m3cs")
+texture = ExtResource("19_fde4t")
 
 [node name="Stars" type="Node2D" parent="Text" unique_id=1773509150]
 position = Vector2(0, 4)
@@ -166,41 +181,41 @@ position = Vector2(0, 4)
 [node name="Star 1" type="Sprite2D" parent="Text/Stars" unique_id=638481716]
 texture_filter = 1
 position = Vector2(171, 321)
-texture = ExtResource("21_i7nm7")
+texture = ExtResource("20_s424j")
 
 [node name="Star 2" type="Sprite2D" parent="Text/Stars" unique_id=662255822]
 texture_filter = 1
 position = Vector2(246, 321)
-texture = ExtResource("21_i7nm7")
+texture = ExtResource("20_s424j")
 
 [node name="Star 3" type="Sprite2D" parent="Text/Stars" unique_id=1387482975]
 texture_filter = 1
 position = Vector2(318, 321)
-texture = ExtResource("21_i7nm7")
+texture = ExtResource("20_s424j")
 
 [node name="Credit" type="Sprite2D" parent="Text" unique_id=2014086294]
 position = Vector2(1156, 698)
-texture = ExtResource("34_x5yu2")
+texture = ExtResource("21_lmo0x")
 
 [node name="New Game" type="Area2D" parent="Text" unique_id=1437570674]
 position = Vector2(248, 415)
-script = ExtResource("35_aht68")
+script = ExtResource("22_duxfo")
 
 [node name="Sprite" type="Sprite2D" parent="Text/New Game" unique_id=1231262926]
 texture_filter = 1
 scale = Vector2(1.01, 1.01)
-texture = ExtResource("22_0oicw")
+texture = ExtResource("23_0888h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Text/New Game" unique_id=1505144722]
 shape = SubResource("RectangleShape2D_d6haa")
 
 [node name="Continue" type="Area2D" parent="Text" unique_id=1983335430]
 position = Vector2(245, 483)
-script = ExtResource("29_si1as")
+script = ExtResource("24_lhx75")
 
 [node name="Sprite" type="Sprite2D" parent="Text/Continue" unique_id=1585573298]
 texture_filter = 1
-texture = ExtResource("23_83tid")
+texture = ExtResource("25_kcyhq")
 
 [node name="Current Night" type="Sprite2D" parent="Text/Continue/Sprite" unique_id=150064825]
 texture_filter = 1
@@ -212,31 +227,31 @@ texture = ExtResource("24_g8sw0")
 [node name="1" type="Sprite2D" parent="Text/Continue/Sprite/Current Night/Numbers" unique_id=1829133864]
 position = Vector2(46, -1)
 scale = Vector2(0.49999976, 0.49999976)
-texture = ExtResource("25_unaco")
+texture = ExtResource("27_bvyqd")
 
 [node name="2" type="Sprite2D" parent="Text/Continue/Sprite/Current Night/Numbers" unique_id=1875348328]
 visible = false
 position = Vector2(46, -1)
 scale = Vector2(0.49999976, 0.49999976)
-texture = ExtResource("26_81nce")
+texture = ExtResource("28_7l674")
 
 [node name="3" type="Sprite2D" parent="Text/Continue/Sprite/Current Night/Numbers" unique_id=1984305828]
 visible = false
 position = Vector2(46, -1)
 scale = Vector2(0.49999976, 0.49999976)
-texture = ExtResource("27_hj072")
+texture = ExtResource("29_cbnnd")
 
 [node name="4" type="Sprite2D" parent="Text/Continue/Sprite/Current Night/Numbers" unique_id=580475673]
 visible = false
 position = Vector2(46, -1)
 scale = Vector2(0.49999976, 0.49999976)
-texture = ExtResource("28_x5yu2")
+texture = ExtResource("30_1tc74")
 
 [node name="5" type="Sprite2D" parent="Text/Continue/Sprite/Current Night/Numbers" unique_id=1675620517]
 visible = false
 position = Vector2(46, -1)
 scale = Vector2(0.49999976, 0.49999976)
-texture = ExtResource("25_jnwll")
+texture = ExtResource("31_nmgfj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Text/Continue" unique_id=50441974]
 position = Vector2(2.5, 14.5)
@@ -244,12 +259,12 @@ shape = SubResource("RectangleShape2D_s38yd")
 
 [node name="6th Night" type="Area2D" parent="Text" unique_id=373909374]
 position = Vector2(255, 558)
-script = ExtResource("35_aht68")
+script = ExtResource("22_duxfo")
 
 [node name="Sprite" type="Sprite2D" parent="Text/6th Night" unique_id=420409607]
 texture_filter = 1
 position = Vector2(0, 3)
-texture = ExtResource("24_t0qut")
+texture = ExtResource("32_41vot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Text/6th Night" unique_id=1833852304]
 position = Vector2(0.5, 3)
@@ -257,12 +272,12 @@ shape = SubResource("RectangleShape2D_lelfc")
 
 [node name="Custom Night" type="Area2D" parent="Text" unique_id=964553061]
 position = Vector2(295, 625)
-script = ExtResource("35_aht68")
+script = ExtResource("22_duxfo")
 
 [node name="Sprite" type="Sprite2D" parent="Text/Custom Night" unique_id=1671837612]
 texture_filter = 1
 position = Vector2(0, 1)
-texture = ExtResource("25_g8sw0")
+texture = ExtResource("33_vsplr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Text/Custom Night" unique_id=1551049986]
 position = Vector2(-1, 1.5)
@@ -270,8 +285,8 @@ shape = SubResource("RectangleShape2D_32dos")
 
 [node name="Select" type="Sprite2D" parent="Text" unique_id=1814432894]
 position = Vector2(96, 417)
-texture = ExtResource("32_81nce")
-script = ExtResource("33_ptsf3")
+texture = ExtResource("34_qrddl")
+script = ExtResource("35_eqgax")
 
 [node name="Select Sound" type="AudioStreamPlayer" parent="Text/Select" unique_id=355464791]
 stream = ExtResource("25_boqas")
@@ -286,6 +301,7 @@ autoplay = true
 bus = &"Sfx"
 
 [connection signal="timeout" from="Background/Freddy Twitching/Variant Timer" to="Background/Freddy Twitching" method="_on_variant_timer_timeout"]
+[connection signal="timeout" from="Background/Freddy Twitching/Freddy Twitching/Variant Timer" to="Background/Freddy Twitching/Freddy Twitching" method="_on_variant_timer_timeout"]
 [connection signal="hovered" from="Text/New Game" to="Text/Select" method="_on_button_hovered"]
 [connection signal="input_event" from="Text/New Game" to="." method="_on_new_game_input_event"]
 [connection signal="mouse_entered" from="Text/New Game" to="Text/New Game" method="_on_mouse_entered"]

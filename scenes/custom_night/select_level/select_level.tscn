@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://cevtvr8q3wce7"]
+
+[ext_resource type="Script" uid="uid://b756gnfuf1wyi" path="res://scenes/custom_night/select_level/select_level.gd" id="1_sgmts"]
+[ext_resource type="Texture2D" uid="uid://pggn3kyu8uc3" path="res://scenes/custom_night/select_level/ai_level.png" id="1_wa6dx"]
+[ext_resource type="Texture2D" uid="uid://br3ajawyioo0a" path="res://scenes/custom_night/select_level/buttons/left.png" id="2_sgmts"]
+[ext_resource type="Texture2D" uid="uid://dvymdqoa08yco" path="res://scenes/custom_night/select_level/buttons/right.png" id="3_ce2fv"]
+[ext_resource type="Texture2D" uid="uid://cjqqlbaqw0usv" path="res://scenes/custom_night/select_level/numbers/0.png" id="4_ilfnd"]
+[ext_resource type="Texture2D" uid="uid://ot51v2uffc3b" path="res://scenes/custom_night/select_level/numbers/1.png" id="5_qanov"]
+[ext_resource type="Texture2D" uid="uid://dtsxdodyl5ewq" path="res://scenes/custom_night/select_level/numbers/2.png" id="6_kkbj1"]
+[ext_resource type="Texture2D" uid="uid://bqjd5l3com0kx" path="res://scenes/custom_night/select_level/numbers/3.png" id="7_soaws"]
+[ext_resource type="Texture2D" uid="uid://bpy4x8i8xqo0x" path="res://scenes/custom_night/select_level/numbers/4.png" id="8_xb6g7"]
+[ext_resource type="Texture2D" uid="uid://b42q5j6k73142" path="res://scenes/custom_night/select_level/numbers/5.png" id="9_0comb"]
+[ext_resource type="Texture2D" uid="uid://cncn54c0o736f" path="res://scenes/custom_night/select_level/numbers/6.png" id="10_sq8ha"]
+[ext_resource type="Texture2D" uid="uid://b4cyanqeuxrij" path="res://scenes/custom_night/select_level/numbers/7.png" id="11_af72y"]
+[ext_resource type="Texture2D" uid="uid://b3qoi2jfrrtug" path="res://scenes/custom_night/select_level/numbers/8.png" id="12_r0ygc"]
+[ext_resource type="Texture2D" uid="uid://2mapvaghhmln" path="res://scenes/custom_night/select_level/numbers/9.png" id="13_ynrjx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
+size = Vector2(40, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a554"]
+size = Vector2(40, 57)
+
+[node name="Select Level" type="Node2D" unique_id=89531772]
+script = ExtResource("1_sgmts")
+
+[node name="AI level" type="Sprite2D" parent="." unique_id=28324183]
+position = Vector2(76.09001, -51.249996)
+scale = Vector2(0.94000006, 0.94)
+texture = ExtResource("1_wa6dx")
+
+[node name="Arrows" type="Node2D" parent="." unique_id=1838451006]
+
+[node name="Left" type="Area2D" parent="Arrows" unique_id=876927459]
+
+[node name="Sprite" type="Sprite2D" parent="Arrows/Left" unique_id=2036508587]
+texture = ExtResource("2_sgmts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrows/Left" unique_id=149958186]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ucufk")
+
+[node name="Right" type="Area2D" parent="Arrows" unique_id=1593832844]
+
+[node name="Sprite" type="Sprite2D" parent="Arrows/Right" unique_id=1069148049]
+position = Vector2(152, 0)
+texture = ExtResource("3_ce2fv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrows/Right" unique_id=1065703094]
+position = Vector2(151, 0.5)
+shape = SubResource("RectangleShape2D_0a554")
+
+[node name="Numbers" type="Node2D" parent="." unique_id=295123068]
+position = Vector2(24, 0)
+
+[node name="Digits 1" type="Node2D" parent="Numbers" unique_id=1032489792]
+position = Vector2(47, 0)
+
+[node name="0" type="Sprite2D" parent="Numbers/Digits 1" unique_id=1283090332]
+visible = false
+texture = ExtResource("4_ilfnd")
+
+[node name="1" type="Sprite2D" parent="Numbers/Digits 1" unique_id=1673835269]
+visible = false
+texture = ExtResource("5_qanov")
+
+[node name="2" type="Sprite2D" parent="Numbers/Digits 1" unique_id=437077870]
+texture = ExtResource("6_kkbj1")
+
+[node name="3" type="Sprite2D" parent="Numbers/Digits 1" unique_id=1853716894]
+visible = false
+texture = ExtResource("7_soaws")
+
+[node name="4" type="Sprite2D" parent="Numbers/Digits 1" unique_id=574614184]
+visible = false
+texture = ExtResource("8_xb6g7")
+
+[node name="5" type="Sprite2D" parent="Numbers/Digits 1" unique_id=1003367109]
+visible = false
+texture = ExtResource("9_0comb")
+
+[node name="6" type="Sprite2D" parent="Numbers/Digits 1" unique_id=442974248]
+visible = false
+texture = ExtResource("10_sq8ha")
+
+[node name="7" type="Sprite2D" parent="Numbers/Digits 1" unique_id=1776518737]
+visible = false
+texture = ExtResource("11_af72y")
+
+[node name="8" type="Sprite2D" parent="Numbers/Digits 1" unique_id=437062079]
+visible = false
+texture = ExtResource("12_r0ygc")
+
+[node name="9" type="Sprite2D" parent="Numbers/Digits 1" unique_id=163282618]
+visible = false
+texture = ExtResource("13_ynrjx")
+
+[node name="Digits 2" type="Node2D" parent="Numbers" unique_id=1275799111]
+position = Vector2(83, 0)
+
+[node name="0" type="Sprite2D" parent="Numbers/Digits 2" unique_id=1782113806]
+texture = ExtResource("4_ilfnd")
+
+[node name="1" type="Sprite2D" parent="Numbers/Digits 2" unique_id=347387080]
+visible = false
+texture = ExtResource("5_qanov")
+
+[node name="2" type="Sprite2D" parent="Numbers/Digits 2" unique_id=405822266]
+visible = false
+texture = ExtResource("6_kkbj1")
+
+[node name="3" type="Sprite2D" parent="Numbers/Digits 2" unique_id=1035069604]
+visible = false
+texture = ExtResource("7_soaws")
+
+[node name="4" type="Sprite2D" parent="Numbers/Digits 2" unique_id=121633791]
+visible = false
+texture = ExtResource("8_xb6g7")
+
+[node name="5" type="Sprite2D" parent="Numbers/Digits 2" unique_id=995169929]
+visible = false
+texture = ExtResource("9_0comb")
+
+[node name="6" type="Sprite2D" parent="Numbers/Digits 2" unique_id=1393428955]
+visible = false
+texture = ExtResource("10_sq8ha")
+
+[node name="7" type="Sprite2D" parent="Numbers/Digits 2" unique_id=606043351]
+visible = false
+texture = ExtResource("11_af72y")
+
+[node name="8" type="Sprite2D" parent="Numbers/Digits 2" unique_id=439480503]
+visible = false
+texture = ExtResource("12_r0ygc")
+
+[node name="9" type="Sprite2D" parent="Numbers/Digits 2" unique_id=1473718151]
+visible = false
+texture = ExtResource("13_ynrjx")
+
+[connection signal="input_event" from="Arrows/Left" to="." method="_on_left_arrow_input_event"]
+[connection signal="input_event" from="Arrows/Right" to="." method="_on_right_arrow_input_event"]

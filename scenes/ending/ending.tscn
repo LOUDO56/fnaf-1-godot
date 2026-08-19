@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b4cvu00xat2ad"]
 
-[ext_resource type="Texture2D" uid="uid://dgyg8vceybey8" path="res://assets/images/2.5-START_TO_END/1.png" id="1_b7uqy"]
-[ext_resource type="Script" uid="uid://xbhfanwwlwvk" path="res://scripts/ending/ending.gd" id="1_hki1m"]
-[ext_resource type="Texture2D" uid="uid://cunj2dspry2ob" path="res://assets/images/2.5-START_TO_END/2.png" id="2_hki1m"]
+[ext_resource type="Texture2D" uid="uid://dgyg8vceybey8" path="res://scenes/ending/night_5.png" id="1_b7uqy"]
+[ext_resource type="Script" uid="uid://xbhfanwwlwvk" path="res://scenes/ending/ending.gd" id="1_hki1m"]
+[ext_resource type="Texture2D" uid="uid://cunj2dspry2ob" path="res://scenes/ending/night_6.png" id="2_hki1m"]
 [ext_resource type="PackedScene" uid="uid://vpms7e5yikcn" path="res://scenes/main_menu/main_menu.tscn" id="2_wijjp"]
-[ext_resource type="Texture2D" uid="uid://dgq65c5fg4a5h" path="res://assets/images/2.5-START_TO_END/3.png" id="3_wijjp"]
-[ext_resource type="AudioStream" uid="uid://yvbk2evbaclp" path="res://assets/audio/music box.wav" id="4_keg6f"]
+[ext_resource type="Texture2D" uid="uid://dgq65c5fg4a5h" path="res://scenes/ending/night_7.png" id="3_wijjp"]
+[ext_resource type="AudioStream" uid="uid://yvbk2evbaclp" path="res://animatronics/freddy/music box.wav" id="4_keg6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucufk"]
 size = Vector2(1287, 740)
