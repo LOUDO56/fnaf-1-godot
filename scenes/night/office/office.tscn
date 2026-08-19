@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dpdqwk2rjj5y5" path="res://scenes/night/office/door/left/animation/1.png" id="9_qg43x"]
 [ext_resource type="Texture2D" uid="uid://bfgipxsph4ge" path="res://scenes/night/office/door/left/animation/2.png" id="10_8ywr3"]
 [ext_resource type="Texture2D" uid="uid://c0wvhki8w376j" path="res://scenes/night/office/door/left/animation/3.png" id="11_t1nwb"]
-[ext_resource type="Texture2D" uid="uid://coxek1ydkmwf8" path="res://scenes/night/camera/sprites/kitchen.png" id="12_rvn1j"]
+[ext_resource type="Texture2D" uid="uid://coxek1ydkmwf8" path="res://scenes/night/camera/sprites/black.png" id="12_rvn1j"]
 [ext_resource type="Texture2D" uid="uid://bpklp80wl663f" path="res://scenes/night/office/door/left/animation/4.png" id="12_uwvu6"]
 [ext_resource type="Texture2D" uid="uid://bfx6ucde20oib" path="res://scenes/night/office/door/left/animation/5.png" id="13_7i2nt"]
 [ext_resource type="Script" uid="uid://cbn577syt1vnh" path="res://animatronics/freddy/freddy_jingle.gd" id="13_f1ywt"]

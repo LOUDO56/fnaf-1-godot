@@ -87,7 +87,7 @@
 [ext_resource type="Texture2D" uid="uid://ckx8ljvjojouj" path="res://animatronics/foxy/running/animation/11.png" id="48_yo03f"]
 [ext_resource type="Texture2D" uid="uid://cyqkh2v47ywi0" path="res://scenes/night/camera/sprites/restrooms/default.png" id="49_1yjca"]
 [ext_resource type="Texture2D" uid="uid://bxsd7mg3li6wv" path="res://animatronics/foxy/running/animation/12.png" id="49_ath43"]
-[ext_resource type="Texture2D" uid="uid://coxek1ydkmwf8" path="res://scenes/night/camera/sprites/kitchen.png" id="49_iab5x"]
+[ext_resource type="Texture2D" uid="uid://coxek1ydkmwf8" path="res://scenes/night/camera/sprites/black.png" id="49_iab5x"]
 [ext_resource type="Texture2D" uid="uid://b3bti55puayy1" path="res://animatronics/foxy/running/animation/13.png" id="50_ewv14"]
 [ext_resource type="Texture2D" uid="uid://bjee8a34j2p14" path="res://scenes/night/camera/sprites/restrooms/chica.png" id="50_iab5x"]
 [ext_resource type="Texture2D" uid="uid://cjopa5hv74pot" path="res://scenes/night/camera/sprites/restrooms/chica_2.png" id="51_65s46"]

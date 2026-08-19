@@ -5,3 +5,4 @@
 /build/*
 /*/**/*.png
 /*/**/*.wav
+!/scenes/night/camera/sprites/black.png

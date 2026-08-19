@@ -48,6 +48,7 @@ version_control/autoload_on_startup=true
 
 folder_colors={
 "res://animatronics/": "red",
+"res://assets_importer/": "gray",
 "res://build/": "gray",
 "res://common/": "green",
 "res://scenes/": "orange",
