@@ -26,6 +26,11 @@ to extract all the assets of the game.
 Then, place the **Images** and **Sounds** folder in the **assets_importer** folder, and run the script based on your OS (`assets_importer.bat` for Windows, `assets_importer.sh` for Linux/MacOS).
 It will automatically move the needed assets to their corresponding place in the project.
 
+## Credits
+- [fnaf1-ai-simulator](https://github.com/CeriW/fnaf1-ai-simulator) - a huge piece of diamond to understand how the game work!
+- [How I Made a PERFECT Recreation of Fnaf 2 From Zero](https://www.youtube.com/watch?v=-fcFxFKNooI) - the video that inspired me to take on this project
+- [Techincal Fnaf Wiki](https://technicalfnaf.fandom.com/wiki/Technical-Fnaf_Wiki) - some details listed in this wiki that allowed me to re-implement little details!
+
 ## Disclosure
 - This repository is purely for educational purposes
 - No AI was used to write the code
