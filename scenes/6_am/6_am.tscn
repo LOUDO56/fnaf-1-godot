@@ -14,7 +14,7 @@ script = ExtResource("1_tkpor")
 layer = 4
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=802247024]
-offset_left = 4.0
+offset_left = -4.0
 offset_right = 2095.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
