@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dlgwa0k4v5xvu"
+path="res://.godot/imported/darkness music.wav-fd221b1facb907876a0edb9038282b5c.sample"
+
+[deps]
+
+source_file="res://scenes/main_menu/darkness music.wav"
+dest_files=["res://.godot/imported/darkness music.wav-fd221b1facb907876a0edb9038282b5c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
