@@ -5,10 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c8jfd355f8uac" path="res://scenes/night/ambiance/ColdPresc B.wav" id="1_likdn"]
 [ext_resource type="Script" uid="uid://doocewdvk6fje" path="res://scenes/night/office/office_stage.gd" id="1_osgti"]
 [ext_resource type="PackedScene" uid="uid://yo4wi8ldt34l" path="res://scenes/night/phone_guy/phone_guy.tscn" id="2_f3wdx"]
-[ext_resource type="Texture2D" uid="uid://dwhff32d2wgr2" path="res://scenes/night/office/fan/1.png" id="2_qphb6"]
-[ext_resource type="Texture2D" uid="uid://b403vjlypshgb" path="res://scenes/night/office/fan/2.png" id="3_hub07"]
 [ext_resource type="AudioStream" uid="uid://bf4h5sqwv4u2r" path="res://scenes/night/office/powerdown.wav" id="3_qgrek"]
-[ext_resource type="Texture2D" uid="uid://spt5aoet4p0s" path="res://scenes/night/office/fan/3.png" id="4_2knxt"]
 [ext_resource type="PackedScene" uid="uid://ci4vlxslkxxs4" path="res://scenes/night/office/door/left/left_door_buttons.tscn" id="4_fmddn"]
 [ext_resource type="AudioStream" uid="uid://dxgmn4ek5rmym" path="res://scenes/night/office/fan/Buzz_Fan_Florescent2.wav" id="5_qphb6"]
 [ext_resource type="Texture2D" uid="uid://d3d5ewnvf24dg" path="res://scenes/night/office/light_out/office_light_out.png" id="5_wb33o"]
@@ -32,8 +29,11 @@
 [ext_resource type="Texture2D" uid="uid://ctxv567tyokqp" path="res://scenes/night/office/door/left/animation/8.png" id="16_u5glt"]
 [ext_resource type="Texture2D" uid="uid://dchnvfhc4e7g1" path="res://scenes/night/office/door/left/animation/9.png" id="17_3u7yi"]
 [ext_resource type="Texture2D" uid="uid://dwwu5gm67xf30" path="res://scenes/night/office/door/left/animation/10.png" id="18_eet0l"]
+[ext_resource type="Texture2D" uid="uid://ctll0pb6wjs50" path="res://scenes/night/office/fan/1.png" id="18_mhvot"]
 [ext_resource type="Texture2D" uid="uid://ehjus72ji3lx" path="res://scenes/night/office/door/left/animation/11.png" id="19_42gc7"]
+[ext_resource type="Texture2D" uid="uid://bhhkbemqv0rxn" path="res://scenes/night/office/fan/2.png" id="19_aaw3f"]
 [ext_resource type="Texture2D" uid="uid://bxgk4st207bym" path="res://scenes/night/office/door/left/animation/12.png" id="20_gf52q"]
+[ext_resource type="Texture2D" uid="uid://dtvq6sx410rlv" path="res://scenes/night/office/fan/3.png" id="20_vkpek"]
 [ext_resource type="Texture2D" uid="uid://dtuh4bbxvqeaw" path="res://scenes/night/office/door/left/animation/13.png" id="21_fsavt"]
 [ext_resource type="Texture2D" uid="uid://dkbdfndc636bi" path="res://scenes/night/office/door/left/animation/14.png" id="22_8pip0"]
 [ext_resource type="Texture2D" uid="uid://bhx8lfd5t420x" path="res://scenes/night/office/door/left/border_left.png" id="24_0p3hi"]
@@ -65,13 +65,13 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_qphb6")
+"texture": ExtResource("18_mhvot")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_hub07")
+"texture": ExtResource("19_aaw3f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2knxt")
+"texture": ExtResource("20_vkpek")
 }],
 "loop": 1,
 "name": &"default",
@@ -269,9 +269,11 @@ centered = false
 
 [node name="Fan" type="AnimatedSprite2D" parent="." unique_id=110171421]
 z_index = 1
-position = Vector2(848, 401)
+position = Vector2(780, 303)
 sprite_frames = SubResource("SpriteFrames_blegu")
 autoplay = "default"
+frame_progress = 0.010922715
+centered = false
 
 [node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738]
 stream = ExtResource("5_qphb6")
