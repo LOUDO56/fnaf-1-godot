@@ -30,6 +30,7 @@ It will automatically move the needed assets to their corresponding place in the
 - [fnaf1-ai-simulator](https://github.com/CeriW/fnaf1-ai-simulator) - a huge piece of diamond to understand how the game work!
 - [How I Made a PERFECT Recreation of Fnaf 2 From Zero](https://www.youtube.com/watch?v=-fcFxFKNooI) - the video that inspired me to take on this project
 - [Techincal Fnaf Wiki](https://technicalfnaf.fandom.com/wiki/Technical-Fnaf_Wiki) - some details listed in this wiki that allowed me to re-implement little details!
+- [Panorama Shade](https://godotshaders.com/shader/fnaf-clickteam-perspective-displacement/) - the shader used to make the office like a 3d environment
 
 ## Disclosure
 - This repository is purely for educational purposes
