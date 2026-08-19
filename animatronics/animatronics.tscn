@@ -519,7 +519,7 @@ jumpscare_light_out_animation = NodePath("Jumpscare Light Out")
 movement_timer_seconds = 3.02
 jumpscare_animation = NodePath("Jumpscare")
 jumpscare_audio = NodePath("../Default Jumpscare Audio")
-jumpscare_duration = 0.9
+jumpscare_duration = 1.0
 
 [node name="Freddy Jingle" type="AudioStreamPlayer" parent="Freddy" unique_id=529242764]
 stream = ExtResource("9_ns5r7")

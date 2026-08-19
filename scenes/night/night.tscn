@@ -22,9 +22,9 @@
 [node name="Night" type="Node2D" unique_id=1569501029 groups=["night"]]
 script = ExtResource("1_5ap7r")
 
-[node name="Animatronics" parent="." unique_id=181922248 groups=["animatronics"] instance=ExtResource("3_1k6li")]
-
 [node name="Office" parent="." unique_id=1654829613 instance=ExtResource("2_4dcjf")]
+
+[node name="Animatronics" parent="." unique_id=181922248 groups=["animatronics"] instance=ExtResource("3_1k6li")]
 
 [node name="Giant Hollow Tube Sector Handler" type="Node2D" parent="." unique_id=106811073]
 script = ExtResource("4_5ap7r")

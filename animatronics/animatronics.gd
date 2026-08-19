@@ -39,10 +39,16 @@ var ai_level_night := {
 	}
 }
 
-@onready var bonnie: Bonnie = $"Bonnie"
-@onready var chica: Chica = $"Chica"
-@onready var freddy: Freddy = $"Freddy"
-@onready var foxy: Foxy = $"Foxy"
+var bonnie: Bonnie
+var chica: Chica
+var freddy: Freddy
+var foxy: Foxy
+
+func _enter_tree() -> void:
+	bonnie = $"Bonnie"
+	chica = $"Chica"
+	freddy = $"Freddy"
+	foxy = $"Foxy"
 
 func _ready() -> void:
 	Events.power_off.connect(_on_power_off)
