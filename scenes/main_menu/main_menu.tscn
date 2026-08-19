@@ -38,6 +38,8 @@
 [ext_resource type="Texture2D" uid="uid://ddasendwqd21t" path="res://scenes/main_menu/buttons/custom_night.png" id="33_vsplr"]
 [ext_resource type="Texture2D" uid="uid://clt1mpdv28r2g" path="res://scenes/main_menu/select/select.png" id="34_qrddl"]
 [ext_resource type="Script" uid="uid://csgrx5yo6y2bx" path="res://scenes/main_menu/select/select.gd" id="35_eqgax"]
+[ext_resource type="FontFile" uid="uid://be0o6tms2pih0" path="res://scenes/main_menu/CONSOLA.TTF" id="37_3vb4h"]
+[ext_resource type="Texture2D" uid="uid://j8yovteivghv" path="res://godot_icon.png" id="39_n4ny7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ucufk"]
 animations = [{
@@ -100,6 +102,9 @@ size = Vector2(237, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32dos"]
 size = Vector2(312, 47)
 
+[sub_resource type="FontVariation" id="FontVariation_2qdcn"]
+base_font = ExtResource("37_3vb4h")
+
 [node name="Main Menu" type="Node2D" unique_id=642743441]
 script = ExtResource("1_si1as")
 
@@ -154,6 +159,7 @@ range_b = 0.6
 [node name="White Bars" type="AnimatedSprite2D" parent="Background" unique_id=863773271]
 modulate = Color(1, 1, 1, 0.38500002)
 texture_filter = 1
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_0a554")
 frame = 6
 frame_progress = 1.0
@@ -291,6 +297,16 @@ script = ExtResource("35_eqgax")
 [node name="Select Sound" type="AudioStreamPlayer" parent="Text/Select" unique_id=355464791]
 stream = ExtResource("25_boqas")
 
+[node name="Label" type="Label" parent="Text" unique_id=1285715542]
+offset_left = 8.0
+offset_top = 674.0
+offset_right = 226.0
+offset_bottom = 715.0
+theme_override_fonts/font = SubResource("FontVariation_2qdcn")
+theme_override_font_sizes/font_size = 18
+text = "Godot version by LOUDO
+Made with <3"
+
 [node name="Main Music" type="AudioStreamPlayer" parent="." unique_id=26976449]
 stream = ExtResource("18_bq5lc")
 autoplay = true
@@ -299,6 +315,12 @@ autoplay = true
 stream = ExtResource("19_xac7c")
 autoplay = true
 bus = &"Sfx"
+
+[node name="GodotIcon" type="Sprite2D" parent="." unique_id=304099995]
+texture_filter = 2
+position = Vector2(380.00003, 256)
+scale = Vector2(0.33837867, 0.33837867)
+texture = ExtResource("39_n4ny7")
 
 [connection signal="timeout" from="Background/Freddy Twitching/Variant Timer" to="Background/Freddy Twitching" method="_on_variant_timer_timeout"]
 [connection signal="timeout" from="Background/Freddy Twitching/Freddy Twitching/Variant Timer" to="Background/Freddy Twitching/Freddy Twitching" method="_on_variant_timer_timeout"]
