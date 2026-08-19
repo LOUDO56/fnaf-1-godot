@@ -39,20 +39,13 @@ var ai_level_night := {
 	}
 }
 
-
 @onready var bonnie: Bonnie = $"Bonnie"
 @onready var chica: Chica = $"Chica"
 @onready var freddy: Freddy = $"Freddy"
 @onready var foxy: Foxy = $"Foxy"
 
-@export var office: Office
-
 func _ready() -> void:
 	Events.power_off.connect(_on_power_off)
-	office.left_door.setup(self)
-	office.right_door.setup(self)
-	office.office_stage.animatronics = self
-	office.freddy_jingle.setup(self.freddy)
 	_apply_ai_level_by_current_night()
 
 func get_animatronic_in_office() -> Animatronic:

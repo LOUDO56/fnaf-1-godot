@@ -191,7 +191,7 @@ shader_parameter/sharpness = 2.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/wrapping_mode = 0
 
-[node name="Office" type="Node2D" unique_id=1654829613]
+[node name="Office" type="Node2D" unique_id=1654829613 groups=["office"]]
 script = ExtResource("1_bv0q3")
 
 [node name="Phone Guy" parent="." unique_id=643778555 instance=ExtResource("2_f3wdx")]

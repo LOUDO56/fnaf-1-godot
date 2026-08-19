@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var office: Office
-@export var animatronics: Animatronics
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
+@onready var office: Office = get_tree().get_first_node_in_group("office")
 
 const SLOW_MOVE_SPEED := 200.0
 const MED_MOVE_SPEED := 600.0

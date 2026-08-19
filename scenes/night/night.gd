@@ -1,8 +1,7 @@
-class_name Game extends Node2D
+class_name Night extends Node2D
 
-@export var office: Office
-@export var animatronics: Animatronics
-
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
+@onready var office: Office = get_tree().get_first_node_in_group("office")
 @onready var monitor_animation: MonitorAnimation = $"OfficeCamera/Switching Cameras/CanvasLayer2/Monitor"
 @onready var office_camera: Camera2D = $"OfficeCamera"
 @onready var jumpscare_timer := $"Jumpscare Timer"
@@ -11,8 +10,6 @@ class_name Game extends Node2D
 
 func _ready() -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Ambiance"), false)
-	
-	office.listen_flip_events(monitor_animation, office_camera)
 	
 	monitor_animation.monitor_opened.connect(_on_monitor_opened)
 	monitor_animation.monitor_closed.connect(_on_monitor_closed)

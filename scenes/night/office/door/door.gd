@@ -10,6 +10,7 @@ const FLICKER_LIGHT_MAX := 0.015
 @onready var closed := $"Closed"
 @onready var light_on := $"Light On"
 @onready var closed_light_on := $"Closed Light On"
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
 
 @export var side := "left"
 @export var door_animation: AnimatedSprite2D
@@ -19,7 +20,6 @@ const FLICKER_LIGHT_MAX := 0.015
 @export var stinger_sound: AudioStreamPlayer
 @export var office_stage: OfficeStage
 
-var animatronics: Animatronics
 var is_door_closed := false
 var is_light_on := false
 var can_press_door := true;
@@ -31,11 +31,8 @@ var always_on := false
 
 func _ready() -> void:
 	Events.power_off.connect(_on_power_off)
-
-func setup(p_animatronics: Animatronics) -> void:
-	animatronics = p_animatronics
 	setup_animatronics_behavior()
-
+	
 @abstract func setup_animatronics_behavior() -> void
 @abstract func change_door_sprite() -> void
 @abstract func stop_light_other_door() -> void

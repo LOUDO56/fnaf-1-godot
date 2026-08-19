@@ -13,9 +13,8 @@ const CHICA_THREAT_LOCATION = [
 ]
 const FOXY_STAGE_THREAT = 3
 
-@export var animatronics: Animatronics
-
 @onready var ambiance_sound := $"Ambiance Sound"
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
 
 func _ready() -> void:
 	_handle_ambiance_volume()

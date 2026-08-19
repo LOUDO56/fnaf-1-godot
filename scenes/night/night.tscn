@@ -19,42 +19,30 @@
 [ext_resource type="Script" uid="uid://4ledbpg5jkl2" path="res://scenes/night/circus_music/circus_music.gd" id="17_5ap7r"]
 [ext_resource type="AudioStream" uid="uid://dtslb25kkqvgw" path="res://scenes/night/circus_music/circus.wav" id="18_d64sk"]
 
-[node name="Night" type="Node2D" unique_id=1569501029 node_paths=PackedStringArray("office", "animatronics")]
+[node name="Night" type="Node2D" unique_id=1569501029 groups=["night"]]
 script = ExtResource("1_5ap7r")
-office = NodePath("Office")
-animatronics = NodePath("Animatronics")
 
-[node name="Office" parent="." unique_id=1654829613 node_paths=PackedStringArray("switchin_cameras", "animatronics") instance=ExtResource("2_4dcjf")]
-switchin_cameras = NodePath("../OfficeCamera/Switching Cameras")
-animatronics = NodePath("../Animatronics")
+[node name="Animatronics" parent="." unique_id=181922248 groups=["animatronics"] instance=ExtResource("3_1k6li")]
 
-[node name="Animatronics" parent="." unique_id=181922248 node_paths=PackedStringArray("office") instance=ExtResource("3_1k6li")]
-office = NodePath("../Office")
+[node name="Office" parent="." unique_id=1654829613 instance=ExtResource("2_4dcjf")]
 
-[node name="Giant Hollow Tube Sector Handler" type="Node2D" parent="." unique_id=106811073 node_paths=PackedStringArray("animatronics")]
+[node name="Giant Hollow Tube Sector Handler" type="Node2D" parent="." unique_id=106811073]
 script = ExtResource("4_5ap7r")
-animatronics = NodePath("../Animatronics")
 
 [node name="Ambiance Sound" type="AudioStreamPlayer" parent="Giant Hollow Tube Sector Handler" unique_id=574151175]
 stream = ExtResource("5_6j50f")
 bus = &"Ambiance"
 
-[node name="OfficeCamera" type="Camera2D" parent="." unique_id=1107271409 node_paths=PackedStringArray("office", "animatronics")]
+[node name="OfficeCamera" type="Camera2D" parent="." unique_id=1107271409 groups=["office_camera"]]
 z_index = 2
 anchor_mode = 0
 script = ExtResource("6_7pj5x")
-office = NodePath("../Office")
-animatronics = NodePath("../Animatronics")
 
-[node name="Switching Cameras" parent="OfficeCamera" unique_id=1111582433 node_paths=PackedStringArray("animatronics", "office") instance=ExtResource("7_322k1")]
-animatronics = NodePath("../../Animatronics")
-office = NodePath("../../Office")
+[node name="Switching Cameras" parent="OfficeCamera" unique_id=1111582433 instance=ExtResource("7_322k1")]
 
 [node name="UI" type="Node2D" parent="." unique_id=980144219]
 
-[node name="Night Time" parent="UI" unique_id=1946143972 node_paths=PackedStringArray("game", "animatronics") instance=ExtResource("8_potet")]
-game = NodePath("../..")
-animatronics = NodePath("../../Animatronics")
+[node name="Night Time" parent="UI" unique_id=1946143972 instance=ExtResource("8_potet")]
 
 [node name="Power Usage" parent="UI" unique_id=530145606 instance=ExtResource("9_emljs")]
 

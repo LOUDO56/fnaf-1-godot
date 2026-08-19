@@ -2,11 +2,9 @@ class_name CameraSprites extends Node2D
 
 @export var camera_disabled_text: Sprite2D
 
-var animatronics: Animatronics
-var show_golden_freddy := false
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
 
-func setup(p_animatronics: Animatronics) -> void:
-	animatronics = p_animatronics
+var show_golden_freddy := false
 
 func get_sprite_from_camera(camera: CameraMap.Camera) -> Sprite2D:
 	camera_disabled_text.visible = false

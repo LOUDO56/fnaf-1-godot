@@ -3,12 +3,10 @@ extends Node2D
 const FIRST_HOUR_LENGTH := 90.0
 const HOUR_LENGTH := 89.0
 
-@export var game: Game
-
 @onready var digits = $"CanvasLayer/Time/Digits"
 @onready var night_numbers = $"CanvasLayer/Current Night/Numbers"
-
-@export var animatronics: Animatronics
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
+@onready var night: Night = get_tree().get_first_node_in_group("night")
 
 var current_hour := 0
 var elapsed_seconds_between_hour := 0.0
@@ -30,7 +28,7 @@ func _process(delta: float) -> void:
 		elapsed_seconds_between_hour = 0.0
 		_update_ui_time()
 		if current_hour == 6:
-			game.success_night()
+			night.success_night()
 		
 func _update_ui_time() -> void:
 	for digit in digits.get_children():
@@ -44,4 +42,4 @@ func _on_power_off() -> void:
 	get_node("CanvasLayer").visible = false
 
 func _on_instant_success_pressed() -> void:
-	game.success_night()
+	night.success_night()

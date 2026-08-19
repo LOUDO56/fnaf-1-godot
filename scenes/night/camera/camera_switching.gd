@@ -5,9 +5,6 @@ signal golden_freddy_attack()
 signal golden_freddy_appear()
 signal golden_freddy_block_attack()
 
-@export var animatronics: Animatronics
-@export var office: Office
-
 @onready var current_camera := CameraMap.Camera.CAM_1A
 @onready var camera_moving_audio := $"CanvasLayer/Cameras/Audio/Camera Moving Audio"
 @onready var monitor_view := $"MonitorView"
@@ -19,6 +16,7 @@ signal golden_freddy_block_attack()
 @onready var camera_sprites := $"Camera Sprites"
 @onready var garble_effect := $"Camera Effects/Garble Effect"
 @onready var breathing_behind_cam := $"Breath Behind Camera"
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
 
 var current_camera_sprite: Sprite2D
 var current_camera_sprite_width: float
@@ -26,8 +24,6 @@ var golden_freddy_seen := false
 
 func _ready() -> void:
 	visible = false
-	camera_sprites.setup(animatronics)
-	breathing_behind_cam.setup(animatronics)
 	
 	# Freddy
 	monitor_animation.monitor_closed.connect(animatronics.freddy.on_monitor_closed)

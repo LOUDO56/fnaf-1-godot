@@ -788,7 +788,7 @@ autostart = true
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1428001730]
 layer = 3
 
-[node name="Monitor" type="Node2D" parent="CanvasLayer2" unique_id=179084905 node_paths=PackedStringArray("camera_switching")]
+[node name="Monitor" type="Node2D" parent="CanvasLayer2" unique_id=179084905 node_paths=PackedStringArray("camera_switching") groups=["monitor"]]
 script = ExtResource("13_bgr5x")
 camera_switching = NodePath("../..")
 

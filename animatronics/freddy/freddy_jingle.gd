@@ -13,6 +13,7 @@ const FLICKER_BLACK_OUT := 0.04
 @onready var fan_audio := $"Fan Audio"
 @onready var step_sound := $"Step Sound"
 @onready var step_sound_default := $"Step Sound/Step Delay"
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
 
 var current_step_seconds := 0.0
 var current_seconds_freddy := 0.0
@@ -21,10 +22,6 @@ var current_flicker_freddy_face := 0.0
 var current_step := Step.REACHING_DOOR
 
 var stage: OfficeStage
-var freddy: Freddy
-
-func setup(p_freddy: Freddy) -> void:
-	freddy = p_freddy
 
 func _ready() -> void:
 	stage = get_parent()
@@ -58,7 +55,7 @@ func _process(delta: float) -> void:
 		if current_seconds_freddy >= TRIGGER_SECONDS_JUMPSCARE:
 			if randf() < 0.20:
 				step_sound.stop()
-				freddy.play_jumpscare_light_out()
+				animatronics.freddy.play_jumpscare_light_out()
 				set_process(false)
 			current_seconds_freddy = 0.0
 	

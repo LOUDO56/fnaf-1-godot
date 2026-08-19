@@ -1,12 +1,11 @@
 class_name BreathBehindCamera extends Node2D
 
 @onready var pick_breath_sound_timer := $"Pick Breath Sound"
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
+
 @export var monitor_animation: MonitorAnimation
 
-var animatronics: Animatronics
-
-func setup(p_animatronics: Animatronics) -> void:
-	animatronics = p_animatronics
+func _ready() -> void:
 	monitor_animation.monitor_opened.connect(_on_monitor_opened)
 	
 func _on_monitor_opened() -> void:

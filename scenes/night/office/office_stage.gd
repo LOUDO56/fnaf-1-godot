@@ -9,7 +9,6 @@ class_name OfficeStage extends Node2D
 @onready var right_chica_light_on_stage := $"Right Chica Light On"
 @onready var black_out := $"Black Out"
 
-var animatronics: Animatronics
 var current_stage := Stage.NORMAL
 
 func _ready() -> void:
