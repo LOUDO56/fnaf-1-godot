@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d0dpeb3po8cqr"
-path="res://.godot/imported/door_toggle.wav-7ed1275d7390c7d725921b265ef0748b.sample"
+path="res://.godot/imported/SFXBible_12478.wav-bc92ac7cbd973e73b2cecd062eb264b6.sample"
 
 [deps]
 
-source_file="res://scenes/night/office/door/door_toggle.wav"
-dest_files=["res://.godot/imported/door_toggle.wav-7ed1275d7390c7d725921b265ef0748b.sample"]
+source_file="res://scenes/night/office/door/SFXBible_12478.wav"
+dest_files=["res://.godot/imported/SFXBible_12478.wav-bc92ac7cbd973e73b2cecd062eb264b6.sample"]
 
 [params]
 

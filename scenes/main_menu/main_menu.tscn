@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ael0iibqmoq" path="res://scenes/main_menu/white_bars/animation/6.png" id="14_li5uk"]
 [ext_resource type="Texture2D" uid="uid://bg3gnccp1tav1" path="res://scenes/main_menu/white_bars/animation/7.png" id="15_3k5n0"]
 [ext_resource type="Script" uid="uid://xsibpq5qjs4r" path="res://scenes/main_menu/white_bars/white_bars.gd" id="16_gbc4w"]
-[ext_resource type="Texture2D" uid="uid://dfmvl67fall4b" path="res://scenes/main_menu/white_bars/white_line.png" id="17_e3g0a"]
+[ext_resource type="Texture2D" uid="uid://k5naeyt0e2jn" path="res://scenes/main_menu/white_bars/white_line.png" id="17_e3g0a"]
 [ext_resource type="Script" uid="uid://btw7ryp0kqaga" path="res://scenes/main_menu/white_bars/white_bar_moving.gd" id="18_8i2hs"]
 [ext_resource type="AudioStream" uid="uid://dlgwa0k4v5xvu" path="res://scenes/main_menu/darkness music.wav" id="18_bq5lc"]
 [ext_resource type="Texture2D" uid="uid://nnnb0hu5k4xo" path="res://scenes/main_menu/game_title.png" id="19_fde4t"]

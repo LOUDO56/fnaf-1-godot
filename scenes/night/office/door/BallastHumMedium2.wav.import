@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dtdwl7v2d5h7s"
-path="res://.godot/imported/door_light.wav-dbed6763e52ced22857d6029932d0bb6.sample"
+path="res://.godot/imported/BallastHumMedium2.wav-822eeb69f86560b8bba6e50cf730f435.sample"
 
 [deps]
 
-source_file="res://scenes/night/office/door/door_light.wav"
-dest_files=["res://.godot/imported/door_light.wav-dbed6763e52ced22857d6029932d0bb6.sample"]
+source_file="res://scenes/night/office/door/BallastHumMedium2.wav"
+dest_files=["res://.godot/imported/BallastHumMedium2.wav-822eeb69f86560b8bba6e50cf730f435.sample"]
 
 [params]
 
