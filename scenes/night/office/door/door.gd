@@ -4,7 +4,7 @@ const DOOR_SHAPE_ID := 0
 const LIGTH_SHAPE_ID := 1
 const PRESS_DOOR_DELAY := 0.5
 const PRESS_LIGHT_DELAY := 0.2
-const FLICKER_LIGHT_MAX := 0.025
+const FLICKER_LIGHT_MAX := 0.015
 
 @onready var opened := $"Opened"
 @onready var closed := $"Closed"

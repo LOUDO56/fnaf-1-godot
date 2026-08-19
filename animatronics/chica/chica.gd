@@ -40,14 +40,12 @@ func _attack_blocked() -> void:
 	current_position = [CameraMap.Camera.CAM_4A, CameraMap.Camera.CAM_1B].pick_random()
 
 func increase_kitchen_sound():
-	if current_kitchen_mess_audio == null or !current_kitchen_mess_audio.playing:
-		return
-	current_kitchen_mess_audio.volume_db = -3.0
+	for kitchen_mess_audio in kitchen_mess_audios:
+		kitchen_mess_audio.volume_db = -3.0
 	
 func decrease_kitchen_sound():
-	if current_kitchen_mess_audio == null or !current_kitchen_mess_audio.playing:
-		return
-	current_kitchen_mess_audio.volume_db = -20.0
+	for kitchen_mess_audio in kitchen_mess_audios:
+		kitchen_mess_audio.volume_db = -20.0
 
 func _play_random_kitchen_sound():
 	if current_kitchen_mess_audio == null or !current_kitchen_mess_audio.playing:

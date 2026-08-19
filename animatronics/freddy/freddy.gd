@@ -118,6 +118,8 @@ func _play_laugh():
 		laugh.stop()
 	freddy_laughs.pick_random().play()
 	freddy_step.volume_db = _get_step_sound_db_distance()
+	if freddy_step.volume_db == 0.0:
+		freddy_step.volume_db = -3.0
 	freddy_step.play()
 	
 func _on_move_freddy_pressed() -> void:
