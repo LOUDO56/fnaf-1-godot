@@ -6,9 +6,9 @@ func setup_animatronics_behavior() -> void:
 	animatronics.bonnie.on_at_door.connect(_on_animatronic_at_door)
 	animatronics.bonnie.on_left_door.connect(_on_animatronic_left_door)
 	
-	animatronics.bonnie.on_try_attack.connect(func(): _try_attack(animatronics.bonnie, true))
+	animatronics.bonnie.on_try_attack.connect(func(): _try_attack(animatronics.bonnie, side, true))
 	animatronics.foxy.on_try_attack.connect(
-		func(): _try_attack(animatronics.foxy, false, true))
+		func(): _try_attack(animatronics.foxy, side, false, true))
 		
 func change_door_sprite() -> void:
 	if animatronics.bonnie.at_door():

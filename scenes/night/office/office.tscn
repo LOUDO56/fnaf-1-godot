@@ -310,6 +310,7 @@ sprite_frames = SubResource("SpriteFrames_skov3")
 z_index = 1
 position = Vector2(1551, 398)
 left_door = NodePath("../../Left/LeftDoorButtons")
+side = "right"
 door_animation = NodePath("../Door Animation")
 door_error_sound = NodePath("../../Door Error Sound")
 door_sound = NodePath("../../Door Toggle Sound")
