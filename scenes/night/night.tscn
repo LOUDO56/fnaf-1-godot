@@ -100,7 +100,7 @@ autostart = true
 
 [node name="Circus Music Sound" type="AudioStreamPlayer" parent="Circus Music" unique_id=2058170638]
 stream = ExtResource("18_d64sk")
-volume_db = -16.0
+volume_db = -22.0
 bus = &"Sfx"
 
 [connection signal="golden_freddy_appear" from="OfficeCamera/Switching Cameras" to="Golden Freddy" method="_on_switching_cameras_golden_freddy_appear"]

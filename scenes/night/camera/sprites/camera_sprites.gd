@@ -34,6 +34,19 @@ func get_sprite_from_camera(camera: CameraMap.Camera) -> Sprite2D:
 			return _get_restrooms_sprite()
 	return _get_show_stage_sprite()
 	
+func get_flicker_head_animatronic_sprite(animatronic: Animatronic, pose: int) -> Sprite2D:
+	if animatronic is Bonnie:
+		match pose:
+			1: 	return $"Points/CAM 2B (W Hall Corner)/Bonnie"
+			2: return $"Points/CAM 2B (W Hall Corner)/Bonnie 2"
+			3: return $"Points/CAM 2B (W Hall Corner)/Bonnie 3"
+	if animatronic is Chica:
+		match pose:
+			1: return $"Points/CAM 4B (E Hall Corner)/Chica"
+			2: return $"Points/CAM 4B (E Hall Corner)/Chica 2"
+			3: return $"Points/CAM 4B (E Hall Corner)/Chica 3"
+	return _get_kitchen_sprite()
+			
 func _get_show_stage_sprite() -> Sprite2D:
 	if not animatronics.bonnie.on_stage() and not animatronics.chica.on_stage() and not animatronics.freddy.on_stage():
 		return $"Points/CAM 1A (Show Stage)/No Animatronics"

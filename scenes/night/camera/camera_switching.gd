@@ -16,6 +16,7 @@ signal golden_freddy_block_attack()
 @onready var camera_sprites := $"Camera Sprites"
 @onready var garble_effect := $"Camera Effects/Garble Effect"
 @onready var breathing_behind_cam := $"Breath Behind Camera"
+@onready var robot_voice := $"Camera Effects/Head Tilting/Robot Voice"
 @onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
 
 var current_camera_sprite: Sprite2D
@@ -32,11 +33,13 @@ func _ready() -> void:
 	
 	# Bonnie
 	animatronics.bonnie.animatronic_moved.connect(_on_animatronic_moved)
+	animatronics.bonnie.animatronic_moved.connect(_on_bonnie_chica_moved)
 	monitor_animation.monitor_closed.connect(animatronics.bonnie.on_monitor_closed)
 	animatronics.bonnie.on_office.connect(_on_animatrionic_enter_office)
 	
 	# Chica
 	animatronics.chica.animatronic_moved.connect(_on_animatronic_moved)
+	animatronics.chica.animatronic_moved.connect(_on_bonnie_chica_moved)
 	animatronics.chica.on_office.connect(_on_animatrionic_enter_office)
 	monitor_animation.monitor_closed.connect(animatronics.chica.on_monitor_closed)
 	camera_map.camera_changed.connect(animatronics.chica.on_camera_changed)
@@ -64,6 +67,8 @@ func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	if golden_freddy_seen:
 		golden_freddy_attack.emit()
 		camera_sprites.show_golden_freddy = false
+		
+	robot_voice.volume_db = -15.0
 	
 
 func _on_monitor_monitor_opened() -> void:
@@ -93,6 +98,9 @@ func _on_camera_map_camera_changed(camera: CameraMap.Camera) -> void:
 	and animatronics.bonnie.current_position != CameraMap.Camera.CAM_2B:
 		golden_freddy_seen = true
 		golden_freddy_appear.emit()
+		
+	if not _bonnie_in_cam_2b_and_player_too() and not _chica_in_cam_4b_and_player_too():
+		robot_voice.volume_db = -15.0
 
 	
 func change_sprite(new_sprite: Sprite2D) -> void:
@@ -113,6 +121,33 @@ func _on_flicker_light_west_hall() -> void:
 		return
 	change_sprite(camera_sprites.get_sprite_from_camera(CameraMap.Camera.CAM_2A))
 	
+func _on_head_tilting_head_flickering() -> void:
+	if current_camera == CameraMap.Camera.CAM_2B and animatronics.bonnie.current_position  == CameraMap.Camera.CAM_2B:
+		_handle_head_tilting(animatronics.bonnie)
+	if current_camera == CameraMap.Camera.CAM_4B and animatronics.chica.current_position  == CameraMap.Camera.CAM_4B:
+		_handle_head_tilting(animatronics.chica)
+		
+func _on_head_tilting_request_random_volume_voice() -> void:
+	if not robot_voice.playing or not visible:
+		return
+	if _bonnie_in_cam_2b_and_player_too() or _chica_in_cam_4b_and_player_too():
+		robot_voice.volume_db = 0.0 if randi() % 5 <= 2 else -50.0
+		
+func _bonnie_in_cam_2b_and_player_too() -> bool:
+	return current_camera == CameraMap.Camera.CAM_2B and animatronics.bonnie.current_position == CameraMap.Camera.CAM_2B 
+
+func _chica_in_cam_4b_and_player_too() -> bool:
+	return current_camera == CameraMap.Camera.CAM_4B and animatronics.chica.current_position == CameraMap.Camera.CAM_4B
+
+func _handle_head_tilting(animatronic: Animatronic) -> void:
+	var random_num = randi_range(1, 30)
+	if random_num >= 25 and random_num <= 28:
+		change_sprite(camera_sprites.get_flicker_head_animatronic_sprite(animatronic, 2))
+	elif random_num >= 29:
+		change_sprite(camera_sprites.get_flicker_head_animatronic_sprite(animatronic, 3))
+	else:
+		change_sprite(camera_sprites.get_flicker_head_animatronic_sprite(animatronic, 1))
+	
 func _hide_all_camera():
 	for child in camera_sprites.get_node("Points").get_children():
 		for sprite in child.get_children():
@@ -125,6 +160,16 @@ func _on_force_camera_down_timeout() -> void:
 func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera):
 	if visible and (old_position == current_camera or new_position == current_camera):
 		garble_effect.garble_camera()
+		
+func _on_bonnie_chica_moved(_old_position: CameraMap.Camera, new_position: CameraMap.Camera):
+	if new_position == CameraMap.Camera.CAM_2B or new_position == CameraMap.Camera.CAM_4B:
+		if not visible and (not _bonnie_in_cam_2b_and_player_too() or not _chica_in_cam_4b_and_player_too()):
+			robot_voice.volume_db = -15.0
+		else:
+			robot_voice.volume_db = 0.0
+		robot_voice.play()
+	else:
+		robot_voice.stop()
 
 func _on_foxy_attack_blocked() -> void:
 	monitor_animation.close_monitor()

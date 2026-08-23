@@ -117,6 +117,8 @@
 [ext_resource type="Texture2D" uid="uid://c7qn0flmuhlev" path="res://animatronics/foxy/running/animation/30.png" id="67_rec8s"]
 [ext_resource type="AudioStream" uid="uid://bda4thv81s1ea" path="res://scenes/night/camera/effects/garble/COMPUTER_DIGITAL_L2076505.wav" id="91_it2ud"]
 [ext_resource type="Script" uid="uid://bnm3mygd258yh" path="res://scenes/night/monitor/monitor_view.gd" id="92_uqv87"]
+[ext_resource type="Script" uid="uid://bvu7hgux6j15t" path="res://scenes/night/camera/effects/head_tilting.gd" id="94_jdoot"]
+[ext_resource type="AudioStream" uid="uid://chng65p7j4frh" path="res://animatronics/robotvoice.wav" id="95_062xi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0a554"]
 animations = [{
@@ -722,6 +724,19 @@ camera_sprites = NodePath("../../Camera Sprites")
 script = ExtResource("8_jqppk")
 statics = NodePath("../../CanvasLayer/Cameras/Statics")
 
+[node name="Head Tilting" type="Node2D" parent="Camera Effects" unique_id=152653032 node_paths=PackedStringArray("camera_switching")]
+script = ExtResource("94_jdoot")
+camera_switching = NodePath("../..")
+
+[node name="Robot Voice" type="AudioStreamPlayer" parent="Camera Effects/Head Tilting" unique_id=1515297232]
+stream = ExtResource("95_062xi")
+
+[node name="Head Tilt Timer" type="Timer" parent="Camera Effects/Head Tilting" unique_id=1681763557]
+wait_time = 0.05
+
+[node name="Volume Robot Voice" type="Timer" parent="Camera Effects/Head Tilting" unique_id=35610448]
+wait_time = 0.1
+
 [node name="Breath Behind Camera" type="Node2D" parent="." unique_id=1986883748 node_paths=PackedStringArray("monitor_animation")]
 script = ExtResource("8_qxcvq")
 monitor_animation = NodePath("../CanvasLayer2/Monitor")
@@ -816,6 +831,10 @@ shape = SubResource("RectangleShape2D_0a554")
 [connection signal="sprite_changed" from="." to="MonitorView" method="_on_watching_cameras_sprite_changed"]
 [connection signal="timeout" from="Camera Effects/Garble Effect/Garble Timer" to="Camera Effects/Garble Effect" method="_on_garble_timer_timeout"]
 [connection signal="flicker_light_west_hall" from="Camera Effects/Cam 2A Light Flicker" to="." method="_on_flicker_light_west_hall"]
+[connection signal="head_flickering" from="Camera Effects/Head Tilting" to="." method="_on_head_tilting_head_flickering"]
+[connection signal="request_random_volume_voice" from="Camera Effects/Head Tilting" to="." method="_on_head_tilting_request_random_volume_voice"]
+[connection signal="timeout" from="Camera Effects/Head Tilting/Head Tilt Timer" to="Camera Effects/Head Tilting" method="_on_heal_tilt_timer_timeout"]
+[connection signal="timeout" from="Camera Effects/Head Tilting/Volume Robot Voice" to="Camera Effects/Head Tilting" method="_on_volume_robot_voice_timeout"]
 [connection signal="timeout" from="Breath Behind Camera/Pick Breath Sound" to="Breath Behind Camera" method="_on_pick_breath_sound_timeout"]
 [connection signal="timeout" from="MonitorView/Cooldown Camera Side" to="MonitorView" method="_on_cooldown_camera_side_timeout"]
 [connection signal="timeout" from="Force Camera Down" to="." method="_on_force_camera_down_timeout"]

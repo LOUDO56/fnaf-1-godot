@@ -163,8 +163,8 @@ func enter_imminent_death() -> void:
 	imminent_death = true
 	turn_off_light()
 	
-func _try_attack(animatronic: Animatronic, side: String, is_imminent_death := false, instant_jumpscare := false) -> void:
-	if not can_enter_office() and self.side == side:
+func _try_attack(animatronic: Animatronic, side_attack: String, is_imminent_death := false, instant_jumpscare := false) -> void:
+	if not can_enter_office() and self.side == side_attack:
 		animatronic.step_back()
 		return
 	animatronic.enter_office()
