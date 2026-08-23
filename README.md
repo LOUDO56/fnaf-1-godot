@@ -1,7 +1,7 @@
 # Fnaf 1 Godot
 <div align="center">
-    <img width="120" height="120" alt="logo" src="https://github.com/user-attachments/assets/af612f0b-5391-453b-a807-4eb831f831ac" />
-    <p>The famous <b>Five Nights at Freddy's 1</b> remade in Godot!</p>
+	<img width="120" height="120" alt="logo" src="https://github.com/user-attachments/assets/af612f0b-5391-453b-a807-4eb831f831ac" />
+	<p>The famous <b>Five Nights at Freddy's 1</b> remade in Godot!</p>
 </div>
 <div align="center">
   <img width="800" height="450" alt="ezgif-2e49fdb39cb76332" src="https://github.com/user-attachments/assets/69c9a0ef-d816-47e3-b0c0-b5e9d7da6a98" />
@@ -29,6 +29,7 @@ It will automatically move the needed assets to their corresponding place in the
 ## Credits
 - [fnaf1-ai-simulator](https://github.com/CeriW/fnaf1-ai-simulator) - a huge piece of diamond to understand how the game work!
 - [How I Made a PERFECT Recreation of Fnaf 2 From Zero](https://www.youtube.com/watch?v=-fcFxFKNooI) - the video that inspired me to take on this project
+- [Theoretically Possible Events in Fnaf 1](https://www.youtube.com/watch?v=YWz-h8ZRswc) - some very specific details with randomness that I could re-implement
 - [Techincal Fnaf Wiki](https://technicalfnaf.fandom.com/wiki/Technical-Fnaf_Wiki) - some details listed in this wiki that allowed me to re-implement little details!
 - [Panorama Shader](https://godotshaders.com/shader/fnaf-clickteam-perspective-displacement/) - the shader used to make the office like a 3d environment
 

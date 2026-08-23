@@ -5,11 +5,12 @@ extends Node2D
 
 signal flicker_light_west_hall
 
-const FLICKER_TIMER = 0.027
+const FLICKER_TIMER = 0.0167
 var flicker_time: float
 
 func _process(delta: float) -> void:
 	flicker_time += delta
-	if flicker_time >= FLICKER_TIMER and camera_switching.current_camera == CameraMap.Camera.CAM_2A:
-		flicker_light_west_hall.emit()
+	if flicker_time >= FLICKER_TIMER:
+		if camera_switching.current_camera == CameraMap.Camera.CAM_2A and randi_range(1, 10) >= 3:
+			flicker_light_west_hall.emit()
 		flicker_time = 0.0

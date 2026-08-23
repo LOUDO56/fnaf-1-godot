@@ -3,11 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bbxtto5q27tcq" path="res://common/effects/statics/statics.tscn" id="1_01lca"]
 [ext_resource type="Script" uid="uid://dx46efjuht083" path="res://scenes/game_over/death_statics/death_statics.gd" id="1_7ksla"]
 [ext_resource type="AudioStream" uid="uid://bia1ot4nsv48b" path="res://scenes/game_over/death_statics/static.wav" id="3_7ksla"]
+[ext_resource type="PackedScene" uid="uid://cdtpq4vqwca0c" path="res://common/effects/white_bars/white_bars.tscn" id="3_dcl01"]
 
 [node name="Death Statics" type="Node2D" unique_id=1970779534]
 script = ExtResource("1_7ksla")
 
 [node name="Statics" parent="." unique_id=1232822903 instance=ExtResource("1_01lca")]
+
+[node name="White Bars Camera" parent="." unique_id=707425992 instance=ExtResource("3_dcl01")]
 
 [node name="Static Sound" type="AudioStreamPlayer" parent="." unique_id=999134117]
 stream = ExtResource("3_7ksla")

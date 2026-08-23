@@ -156,7 +156,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_v4p6y")
 }],
-"loop": 2,
+"loop": 1,
 "name": &"default",
 "speed": 30.0
 }]
@@ -212,9 +212,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("34_dmva5")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"default",
-"speed": 35.0
+"speed": 30.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c155o"]
@@ -466,7 +466,7 @@ movement_timer_seconds = 4.97
 step_sound = NodePath("../Step Audio")
 jumpscare_animation = NodePath("Jumpscare")
 jumpscare_audio = NodePath("../Default Jumpscare Audio")
-jumpscare_duration = 0.6
+jumpscare_duration = 0.8
 
 [node name="Jumpscare" type="AnimatedSprite2D" parent="Bonnie" unique_id=2062884745]
 visible = false
@@ -481,7 +481,7 @@ movement_timer_seconds = 4.98
 step_sound = NodePath("../Step Audio")
 jumpscare_animation = NodePath("Jumpscare")
 jumpscare_audio = NodePath("../Default Jumpscare Audio")
-jumpscare_duration = 0.6
+jumpscare_duration = 0.7
 
 [node name="Kitchen Mess Audio 1" type="AudioStreamPlayer" parent="Chica" unique_id=279386011]
 stream = ExtResource("4_dxqq2")
@@ -504,7 +504,7 @@ volume_db = -20.0
 bus = &"Sfx"
 
 [node name="Kitchen Audio Interval" type="Timer" parent="Chica" unique_id=570394944]
-wait_time = 8.0
+wait_time = 4.0
 
 [node name="Jumpscare" type="AnimatedSprite2D" parent="Chica" unique_id=258600334]
 visible = false
@@ -517,7 +517,7 @@ jumpscare_light_out_animation = NodePath("Jumpscare Light Out")
 movement_timer_seconds = 3.02
 jumpscare_animation = NodePath("Jumpscare")
 jumpscare_audio = NodePath("../Default Jumpscare Audio")
-jumpscare_duration = 1.0
+jumpscare_duration = 0.8
 
 [node name="Freddy Jingle" type="AudioStreamPlayer" parent="Freddy" unique_id=529242764]
 stream = ExtResource("9_ns5r7")

@@ -40,7 +40,7 @@ func move_ai() -> void:
 	if ai_level < 10:
 		if succeed_last_movement:
 			return
-		succeed_last_movement = not is_stalled or attack_mode
+		succeed_last_movement = not is_stalled
 	else:
 		succeed_last_movement = true
 		_move_freddy()
@@ -49,7 +49,7 @@ func _can_try_attack():
 	return attack_mode and not is_stalled and randi() % 2 == 0 # to allow freddy to either try attack or return to 4A		
 
 func step_back():
-	if is_stalled:
+	if not succeed_last_movement:
 		return
 	_play_laugh()
 	_attack_blocked()

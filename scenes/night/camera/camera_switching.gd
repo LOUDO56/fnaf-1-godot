@@ -5,6 +5,8 @@ signal golden_freddy_attack()
 signal golden_freddy_appear()
 signal golden_freddy_block_attack()
 
+@export var golden_freddy: GoldenFreddy
+
 @onready var current_camera := CameraMap.Camera.CAM_1A
 @onready var camera_moving_audio := $"CanvasLayer/Cameras/Audio/Camera Moving Audio"
 @onready var monitor_view := $"MonitorView"
@@ -49,6 +51,9 @@ func _ready() -> void:
 	monitor_animation.monitor_closed.connect(animatronics.foxy.on_monitor_closed)
 	camera_map.camera_changed.connect(animatronics.foxy.on_camera_changed)
 	animatronics.foxy.attack_blocked.connect(_on_foxy_attack_blocked)
+	
+	# Golden Fredy
+	golden_freddy.appear_camera.connect(_on_golden_freddy_appear_camera)
 	
 	Events.disable_gameplay.connect(_on_disabled_gameplay)
 	Events.power_off.connect(_on_power_off)

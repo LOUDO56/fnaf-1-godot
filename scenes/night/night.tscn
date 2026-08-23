@@ -38,7 +38,8 @@ z_index = 2
 anchor_mode = 0
 script = ExtResource("6_7pj5x")
 
-[node name="Switching Cameras" parent="OfficeCamera" unique_id=1111582433 instance=ExtResource("7_322k1")]
+[node name="Switching Cameras" parent="OfficeCamera" unique_id=1111582433 node_paths=PackedStringArray("golden_freddy") instance=ExtResource("7_322k1")]
+golden_freddy = NodePath("../../Golden Freddy")
 
 [node name="UI" type="Node2D" parent="." unique_id=980144219]
 

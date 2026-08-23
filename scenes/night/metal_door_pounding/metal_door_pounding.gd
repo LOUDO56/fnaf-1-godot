@@ -4,4 +4,5 @@ extends Node2D
 
 func _on_timer_timeout() -> void:
 	if randi() % 50 == 0:
+		metal_door_pounding_sound.volume_db = randf_range(-12.0, -7.0)
 		metal_door_pounding_sound.play()

@@ -4,7 +4,7 @@ const DOOR_SHAPE_ID := 0
 const LIGTH_SHAPE_ID := 1
 const PRESS_DOOR_DELAY := 0.5
 const PRESS_LIGHT_DELAY := 0.2
-const FLICKER_LIGHT_MAX := 0.015
+const FLICKER_LIGHT_MAX := 0.0167
 
 @onready var opened := $"Opened"
 @onready var closed := $"Closed"
@@ -27,7 +27,6 @@ var can_press_light := true;
 var imminent_death := false
 var play_stringer_sound := false
 var flicker_light_count := 0.0
-var always_on := false
 
 func _ready() -> void:
 	Events.power_off.connect(_on_power_off)
@@ -58,13 +57,12 @@ func _process(delta: float) -> void:
 		return
 	flicker_light_count = 0
 
-	if (randf() < 0.2 and not always_on):
+	if (randi_range(1, 10) == 1):
 		light_sound.volume_db = -100
 		office_stage.change_stage(OfficeStage.Stage.NORMAL)
 	else:
 		light_sound.volume_db = 0
 		change_door_sprite()
-	always_on = false
 		
 func _play_stinger() -> void:
 	if play_stringer_sound:
@@ -110,7 +108,6 @@ func turn_on_light() -> void:
 	if is_light_on:
 		return
 	flicker_light_count = 0.0
-	always_on = true # guarantee to have light when pressing, without it it can start flicker off and looking like there's a delay
 	is_light_on = true
 	stop_light_other_door()
 	light_sound.play()

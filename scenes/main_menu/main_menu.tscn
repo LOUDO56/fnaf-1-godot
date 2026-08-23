@@ -58,7 +58,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"default",
-"speed": 5.0
+"speed": 0.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0a554"]
@@ -125,24 +125,9 @@ script = ExtResource("6_kc1yb")
 [node name="Flicker" type="Node2D" parent="Background/Freddy Twitching" unique_id=1687175754 node_paths=PackedStringArray("target")]
 script = ExtResource("7_f52r8")
 target = NodePath("..")
-flicker = 0.1
+flicker = 0.3
 
 [node name="Variant Timer" type="Timer" parent="Background/Freddy Twitching" unique_id=249000634]
-wait_time = 0.1
-one_shot = true
-
-[node name="Freddy Twitching" type="AnimatedSprite2D" parent="Background/Freddy Twitching" unique_id=1476193808]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_ucufk")
-centered = false
-script = ExtResource("6_kc1yb")
-
-[node name="Flicker" type="Node2D" parent="Background/Freddy Twitching/Freddy Twitching" unique_id=59366252 node_paths=PackedStringArray("target")]
-script = ExtResource("7_f52r8")
-target = NodePath("..")
-flicker = 0.1
-
-[node name="Variant Timer" type="Timer" parent="Background/Freddy Twitching/Freddy Twitching" unique_id=2118639645]
 wait_time = 0.1
 one_shot = true
 
@@ -152,7 +137,7 @@ modulate = Color(1, 1, 1, 0.6039216)
 [node name="Flicker" type="Node2D" parent="Background/Statics" unique_id=1062784638 node_paths=PackedStringArray("target")]
 script = ExtResource("7_f52r8")
 target = NodePath("..")
-flicker = 0.04
+flicker = 0.9
 range_a = 0.4
 range_b = 0.6
 
@@ -323,7 +308,6 @@ scale = Vector2(0.33837867, 0.33837867)
 texture = ExtResource("39_n4ny7")
 
 [connection signal="timeout" from="Background/Freddy Twitching/Variant Timer" to="Background/Freddy Twitching" method="_on_variant_timer_timeout"]
-[connection signal="timeout" from="Background/Freddy Twitching/Freddy Twitching/Variant Timer" to="Background/Freddy Twitching/Freddy Twitching" method="_on_variant_timer_timeout"]
 [connection signal="hovered" from="Text/New Game" to="Text/Select" method="_on_button_hovered"]
 [connection signal="input_event" from="Text/New Game" to="." method="_on_new_game_input_event"]
 [connection signal="mouse_entered" from="Text/New Game" to="Text/New Game" method="_on_mouse_entered"]

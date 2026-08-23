@@ -49,8 +49,13 @@ func decrease_kitchen_sound():
 
 func _play_random_kitchen_sound():
 	if current_kitchen_mess_audio == null or !current_kitchen_mess_audio.playing:
-		current_kitchen_mess_audio = kitchen_mess_audios.pick_random() 
-		current_kitchen_mess_audio.play()
+		var pick_sound_kitchen_index := randi_range(0, 10)
+		if pick_sound_kitchen_index < 4:
+			if randf() <= 0.5 and current_kitchen_mess_audio != null:
+				current_kitchen_mess_audio.play()
+				return
+			current_kitchen_mess_audio = kitchen_mess_audios[pick_sound_kitchen_index]
+			current_kitchen_mess_audio.play()
 
 func _on_kitchen_audio_interval_timeout() -> void:
 	_play_random_kitchen_sound()

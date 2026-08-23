@@ -31,10 +31,10 @@ func _on_penalty_timer_timeout() -> void:
 	_handle_decrease_power(-1)
 	
 func _on_drain_timer_timeout() -> void:
-	_handle_decrease_power(-1 - usage.consumption_level)
+	_handle_decrease_power(-1 - (usage.consumption_level - 1))
 	
 func _handle_decrease_power(to_remove: int) -> void:
-	if power >= 0:
+	if power > 0:
 		power += to_remove
 		_update_power_sprite_value()
 	else:

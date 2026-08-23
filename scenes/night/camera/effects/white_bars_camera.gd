@@ -9,7 +9,8 @@ func _ready() -> void:
 
 func play() -> void:
 	white_bars_camera_animation.visible = true
-	white_bars_camera_animation.play()
+	white_bars_camera_animation.frame = 0
+	white_bars_camera_animation.play("default")
 	white_bars_camera_sound.play()
 	
 func stop() -> void:

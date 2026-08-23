@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dkjgxsolgcoyy" path="res://common/effects/statics/frames/7.png" id="7_5ldgy"]
 [ext_resource type="Texture2D" uid="uid://b25xmobh41gqu" path="res://common/effects/statics/frames/8.png" id="8_l0dni"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mhvot"]
+blend_mode = 1
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_isd6c"]
 animations = [{
 "frames": [{
@@ -38,12 +41,13 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 30.0
+"speed": 60.0
 }]
 
 [node name="Statics" type="Node2D" unique_id=1232822903]
 
 [node name="StaticAnimation" type="AnimatedSprite2D" parent="." unique_id=712032074]
+material = SubResource("CanvasItemMaterial_mhvot")
 sprite_frames = SubResource("SpriteFrames_isd6c")
 autoplay = "default"
 centered = false

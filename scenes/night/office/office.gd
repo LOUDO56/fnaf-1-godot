@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _on_monitor_opened():
 	visible = false
-	fan_audio.volume_db -= 10
+	fan_audio.volume_db -= 8
 	left_door.turn_off_light()
 	right_door.turn_off_light()
 	
@@ -28,7 +28,7 @@ func hide_doors():
 func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera):
 	office_camera.make_current()
 	visible = true
-	fan_audio.volume_db += 10
+	fan_audio.volume_db += 8
 
 func _on_power_off():
 	power_off_audio.play()

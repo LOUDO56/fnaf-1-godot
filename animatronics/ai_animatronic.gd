@@ -108,8 +108,8 @@ func _get_step_sound_db_distance() -> float:
 		CameraMap.Camera.CAM_2B, CameraMap.Camera.CAM_4B:
 			return -10.0
 		CameraMap.Camera.OFFICE:
-			return 0.0
-	return -5.0
+			return -5.0
+	return -8.0
 	
 func step_back():
 	_play_step_sound()
