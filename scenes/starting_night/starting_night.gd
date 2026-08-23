@@ -10,7 +10,6 @@ var fade_text := false
 var current_alpha := 1.0
 
 func _ready() -> void:
-	white_bars_animation.get_node("White Bars Camera Animation").speed_scale = 0.55
 	white_bars_animation.play()
 	_show_night()
 	

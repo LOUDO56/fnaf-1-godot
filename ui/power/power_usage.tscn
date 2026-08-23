@@ -149,6 +149,11 @@ texture_filter = 1
 position = Vector2(107, 640)
 texture = ExtResource("13_ugso2")
 
+[node name="Penalty Timer" type="Timer" parent="CanvasLayer/Power" unique_id=697582743]
+
+[node name="Drain Timer" type="Timer" parent="CanvasLayer/Power" unique_id=1069965594]
+autostart = true
+
 [node name="Usage" type="Node2D" parent="CanvasLayer" unique_id=1752693100]
 script = ExtResource("14_j7q5b")
 
@@ -184,3 +189,6 @@ texture = ExtResource("19_wdaf0")
 visible = false
 texture_filter = 1
 texture = ExtResource("20_y68dd")
+
+[connection signal="timeout" from="CanvasLayer/Power/Penalty Timer" to="CanvasLayer/Power" method="_on_penalty_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/Power/Drain Timer" to="CanvasLayer/Power" method="_on_drain_timer_timeout"]

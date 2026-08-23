@@ -11,7 +11,7 @@ signal increase_power_usage()
 @warning_ignore("unused_signal")
 signal decrease_power_usage()
 @warning_ignore("unused_signal")
-signal update_power_by_amount(amount: float)
+signal update_power_by_amount(amount: int)
 
 @warning_ignore("unused_signal")
 signal power_off()

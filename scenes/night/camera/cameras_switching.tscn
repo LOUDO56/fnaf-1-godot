@@ -730,6 +730,7 @@ camera_switching = NodePath("../..")
 
 [node name="Robot Voice" type="AudioStreamPlayer" parent="Camera Effects/Head Tilting" unique_id=1515297232]
 stream = ExtResource("95_062xi")
+bus = &"Sfx"
 
 [node name="Head Tilt Timer" type="Timer" parent="Camera Effects/Head Tilting" unique_id=1681763557]
 wait_time = 0.05

@@ -33,13 +33,13 @@ func _ready() -> void:
 	
 	# Bonnie
 	animatronics.bonnie.animatronic_moved.connect(_on_animatronic_moved)
-	animatronics.bonnie.animatronic_moved.connect(_on_bonnie_chica_moved)
+	animatronics.bonnie.animatronic_moved.connect(_on_bonnie_moved)
 	monitor_animation.monitor_closed.connect(animatronics.bonnie.on_monitor_closed)
 	animatronics.bonnie.on_office.connect(_on_animatrionic_enter_office)
 	
 	# Chica
 	animatronics.chica.animatronic_moved.connect(_on_animatronic_moved)
-	animatronics.chica.animatronic_moved.connect(_on_bonnie_chica_moved)
+	animatronics.chica.animatronic_moved.connect(_on_chica_moved)
 	animatronics.chica.on_office.connect(_on_animatrionic_enter_office)
 	monitor_animation.monitor_closed.connect(animatronics.chica.on_monitor_closed)
 	camera_map.camera_changed.connect(animatronics.chica.on_camera_changed)
@@ -161,15 +161,28 @@ func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraM
 	if visible and (old_position == current_camera or new_position == current_camera):
 		garble_effect.garble_camera()
 		
-func _on_bonnie_chica_moved(_old_position: CameraMap.Camera, new_position: CameraMap.Camera):
-	if new_position == CameraMap.Camera.CAM_2B or new_position == CameraMap.Camera.CAM_4B:
-		if not visible and (not _bonnie_in_cam_2b_and_player_too() or not _chica_in_cam_4b_and_player_too()):
-			robot_voice.volume_db = -15.0
-		else:
-			robot_voice.volume_db = 0.0
-		robot_voice.play()
-	else:
-		robot_voice.stop()
+func _on_bonnie_moved(_old: CameraMap.Camera, new_position: CameraMap.Camera) -> void:
+	_handle_corner_voice(new_position, CameraMap.Camera.CAM_2B,
+		animatronics.chica.current_position, CameraMap.Camera.CAM_4B)
+
+func _on_chica_moved(_old: CameraMap.Camera, new_position: CameraMap.Camera) -> void:
+	_handle_corner_voice(new_position, CameraMap.Camera.CAM_4B,
+		animatronics.bonnie.current_position, CameraMap.Camera.CAM_2B)
+
+func _handle_corner_voice(
+	new_position: CameraMap.Camera,
+	corner: CameraMap.Camera,
+	other_position: CameraMap.Camera,
+	other_corner: CameraMap.Camera
+) -> void:
+	if new_position != corner:
+		if other_position != other_corner:
+			robot_voice.stop()
+		return
+
+	var watched := visible and current_camera == corner
+	robot_voice.volume_db = 0.0 if watched else -15.0
+	robot_voice.play()
 
 func _on_foxy_attack_blocked() -> void:
 	monitor_animation.close_monitor()
@@ -188,6 +201,7 @@ func _on_power_off() -> void:
 	monitor_animation.close_monitor()
 	force_camera_down_timer.stop()
 	visible = false
+	robot_voice.stop()
 
 func _on_golden_freddy_appear_camera() -> void:
 	camera_sprites.show_golden_freddy = true

@@ -34,5 +34,5 @@ func load_save() -> void:
 			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 			continue
 
-		night = int(json.data["night"])
-		star = int(json.data["star"])
+		night = min(7, int(json.data["night"]))
+		star = min(3, int(json.data["star"]))
