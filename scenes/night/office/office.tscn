@@ -228,6 +228,23 @@ one_shot = true
 [node name="Freddy Jingle Audio" type="AudioStreamPlayer" parent="Stage/Freddy Jingle" unique_id=932797044]
 stream = ExtResource("14_f3wdx")
 
+[node name="Next Step Timer" type="Timer" parent="Stage/Freddy Jingle" unique_id=641058252]
+wait_time = 5.0
+
+[node name="Max Step Timer" type="Timer" parent="Stage/Freddy Jingle" unique_id=1570689918]
+wait_time = 20.0
+one_shot = true
+
+[node name="Freddy Flicker Timer" type="Timer" parent="Stage/Freddy Jingle" unique_id=2124993276]
+wait_time = 0.05
+
+[node name="Black Out Transition Timer" type="Timer" parent="Stage/Freddy Jingle" unique_id=2034401705]
+wait_time = 0.3
+one_shot = true
+
+[node name="Jumpscare Timer" type="Timer" parent="Stage/Freddy Jingle" unique_id=1918902979]
+wait_time = 2.0
+
 [node name="Normal" type="Sprite2D" parent="Stage" unique_id=146049526]
 texture = ExtResource("1_3e7dm")
 centered = false
@@ -370,4 +387,9 @@ offset_bottom = 734.0
 mouse_filter = 2
 
 [connection signal="timeout" from="Stage/Freddy Jingle/Step Sound/Step Delay" to="Stage/Freddy Jingle" method="_on_step_delay_timeout"]
+[connection signal="timeout" from="Stage/Freddy Jingle/Next Step Timer" to="Stage/Freddy Jingle" method="_on_next_step_timer_timeout"]
+[connection signal="timeout" from="Stage/Freddy Jingle/Max Step Timer" to="Stage/Freddy Jingle" method="_on_max_step_timer_timeout"]
+[connection signal="timeout" from="Stage/Freddy Jingle/Freddy Flicker Timer" to="Stage/Freddy Jingle" method="_on_freddy_flicker_timer_timeout"]
+[connection signal="timeout" from="Stage/Freddy Jingle/Black Out Transition Timer" to="Stage/Freddy Jingle" method="_on_black_out_transition_timer_timeout"]
+[connection signal="timeout" from="Stage/Freddy Jingle/Jumpscare Timer" to="Stage/Freddy Jingle" method="_on_jumpscare_timer_timeout"]
 [connection signal="input_event" from="EasterEggs/Freedy Nose/Area2D" to="EasterEggs/Freedy Nose" method="_on_area_2d_input_event"]

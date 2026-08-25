@@ -1,23 +1,24 @@
 class_name FreddyJingle extends Node2D
 
-const TRIGGER_SECONDS_NEXT_STEP := 5.0
-const TRIGGER_SECONDS_JUMPSCARE := 2.0
-const MAX_SECONDS_STEP_STEP := 20.0
-const MAX_BLACK_OUT_FLICKER := 0.3
-const FLICKER_FREDDY_FACE := 0.05
+enum Step { REACHING_DOOR, JINGLE, TRANSITION_BLACK_OUT, IN_OFFICE }
+
 const FLICKER_BLACK_OUT := 0.0167
+const NEXT_STEP_CHANCE := 0.20
+const JUMPSCARE_CHANCE := 0.20
 
 @onready var freddy_jingle_audio := $"Freddy Jingle Audio"
 @onready var fan_audio := $"Fan Audio"
 @onready var step_sound := $"Step Sound"
 @onready var step_sound_default := $"Step Sound/Step Delay"
+@onready var next_step_timer := $"Next Step Timer"
+@onready var max_step_timer := $"Max Step Timer"
+@onready var freddy_flicker_timer := $"Freddy Flicker Timer"
+@onready var black_out_transition_timer := $"Black Out Transition Timer"
+@onready var jumpscare_timer := $"Jumpscare Timer"
 @onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
 
-var current_step_seconds := 0.0
-var current_seconds_freddy := 0.0
-var current_seconds_transition_blackout := 0.0
-var current_flicker_freddy_face := 0.0
 var current_step := Step.REACHING_DOOR
+var current_black_out_flicker := 0.0
 var stage: OfficeStage
 
 func _ready() -> void:
@@ -26,44 +27,10 @@ func _ready() -> void:
 	set_process(false)
 
 func _process(delta: float) -> void:
-	current_seconds_freddy += delta
-	current_step_seconds += delta
-
-	if current_step == Step.REACHING_DOOR or current_step == Step.JINGLE:
-		if current_seconds_freddy >= TRIGGER_SECONDS_NEXT_STEP or current_step_seconds >= MAX_SECONDS_STEP_STEP:
-			if randf() < 0.20:
-				_move_to_next_step()
-				return
-			current_seconds_freddy = 0.0
-
-	if current_step == Step.JINGLE:
-		_handle_freddy_flicker(delta)
-
-	if current_step == Step.TRANSITION_BLACK_OUT:
-		current_seconds_transition_blackout += delta
-		if current_seconds_transition_blackout >= MAX_BLACK_OUT_FLICKER:
-			_move_to_next_step()
-			return
-		elif current_seconds_freddy >= FLICKER_BLACK_OUT:
-			current_seconds_freddy = 0.0
-			_handle_black_out_flicker()
-
-	if current_step == Step.IN_OFFICE:
-		if current_seconds_freddy >= TRIGGER_SECONDS_JUMPSCARE:
-			if randf() < 0.20:
-				step_sound.stop()
-				animatronics.freddy.play_jumpscare_light_out()
-				set_process(false)
-			current_seconds_freddy = 0.0
-
-func _handle_freddy_flicker(delta: float) -> void:
-	current_flicker_freddy_face += delta
-	if current_flicker_freddy_face >= FLICKER_FREDDY_FACE:
-		current_flicker_freddy_face = 0.0
-		if randi_range(1, 4) == 1:
-			stage.change_stage(OfficeStage.Stage.POWER_OFF)
-		else:
-			stage.change_stage(OfficeStage.Stage.POWER_OFF_FREDDY)
+	current_black_out_flicker += delta
+	if current_black_out_flicker >= FLICKER_BLACK_OUT:
+		current_black_out_flicker = 0.0
+		_handle_black_out_flicker()
 
 func _handle_black_out_flicker() -> void:
 	if randf() <= 0.5:
@@ -73,31 +40,64 @@ func _handle_black_out_flicker() -> void:
 		fan_audio.play()
 		stage.change_stage(OfficeStage.Stage.POWER_OFF)
 
-func _move_to_next_step() -> void:
-	current_seconds_freddy = 0.0
-	current_step_seconds = 0.0
-	current_seconds_transition_blackout = 0.0
-	current_flicker_freddy_face = 0.0
-	match current_step:
-		Step.REACHING_DOOR:
-			current_step = Step.JINGLE
-			freddy_jingle_audio.play()
-		Step.JINGLE:
-			current_step = Step.TRANSITION_BLACK_OUT
-			freddy_jingle_audio.stop()
-			stage.change_stage(OfficeStage.Stage.BLACK_OUT)
-			fan_audio.stop()
-		Step.TRANSITION_BLACK_OUT:
-			step_sound.play()
-			current_step = Step.IN_OFFICE
-			stage.change_stage(OfficeStage.Stage.BLACK_OUT)
-			fan_audio.stop()
-
 func _on_power_off() -> void:
 	step_sound_default.start()
-	set_process(true)
+	_start_step_timers()
+
+func _start_step_timers() -> void:
+	next_step_timer.start()
+	max_step_timer.start()
+
+func _stop_step_timers() -> void:
+	next_step_timer.stop()
+	max_step_timer.stop()
+
+func _on_next_step_timer_timeout() -> void:
+	if randf() < NEXT_STEP_CHANCE:
+		_move_to_next_step()
+
+func _on_max_step_timer_timeout() -> void:
+	_move_to_next_step()
+
+func _on_freddy_flicker_timer_timeout() -> void:
+	if randi_range(1, 4) == 1:
+		stage.change_stage(OfficeStage.Stage.POWER_OFF)
+	else:
+		stage.change_stage(OfficeStage.Stage.POWER_OFF_FREDDY)
+
+func _on_black_out_transition_timer_timeout() -> void:
+	_move_to_next_step()
+
+func _on_jumpscare_timer_timeout() -> void:
+	if randf() < JUMPSCARE_CHANCE:
+		jumpscare_timer.stop()
+		step_sound.stop()
+		animatronics.freddy.play_jumpscare_light_out()
 
 func _on_step_delay_timeout() -> void:
 	step_sound.play()
 
-enum Step { REACHING_DOOR, JINGLE, TRANSITION_BLACK_OUT, IN_OFFICE }
+func _move_to_next_step() -> void:
+	match current_step:
+		Step.REACHING_DOOR:
+			current_step = Step.JINGLE
+			freddy_jingle_audio.play()
+			freddy_flicker_timer.start()
+			_start_step_timers()
+		Step.JINGLE:
+			current_step = Step.TRANSITION_BLACK_OUT
+			_stop_step_timers()
+			freddy_flicker_timer.stop()
+			freddy_jingle_audio.stop()
+			fan_audio.stop()
+			stage.change_stage(OfficeStage.Stage.BLACK_OUT)
+			current_black_out_flicker = 0.0
+			set_process(true)
+			black_out_transition_timer.start()
+		Step.TRANSITION_BLACK_OUT:
+			current_step = Step.IN_OFFICE
+			set_process(false)
+			step_sound.play()
+			fan_audio.stop()
+			stage.change_stage(OfficeStage.Stage.BLACK_OUT)
+			jumpscare_timer.start()
