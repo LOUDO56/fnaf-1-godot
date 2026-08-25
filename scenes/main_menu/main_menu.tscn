@@ -128,8 +128,8 @@ target = NodePath("..")
 flicker = 0.3
 
 [node name="Variant Timer" type="Timer" parent="Background/Freddy Twitching" unique_id=249000634]
-wait_time = 0.1
-one_shot = true
+wait_time = 0.08
+autostart = true
 
 [node name="Statics" parent="Background" unique_id=1232822903 instance=ExtResource("8_bva8j")]
 modulate = Color(1, 1, 1, 0.6039216)
