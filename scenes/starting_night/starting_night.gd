@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	
 func _show_night() -> void:
 	for night in nights.get_children():
-		night.visible = night.name == str(PlayerData.night)
+		night.visible = night.name == str(PlayerData.level)
 
 func _on_fade_and_start_timer_timeout() -> void:
 	fade_text = true

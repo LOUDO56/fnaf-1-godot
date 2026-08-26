@@ -23,7 +23,7 @@ func _ready() -> void:
 	_update_power_sprite_value()
 	Events.jumpscare_started.connect(_on_jumpscare_started)
 	Events.update_power_by_amount.connect(_on_power_updated)
-	var penalty_timer_value = NIGHT_POWER_PENALTY_TIMER[PlayerData.night]
+	var penalty_timer_value = NIGHT_POWER_PENALTY_TIMER[PlayerData.level]
 	if penalty_timer_value != 0:
 		penalty_timer.start(penalty_timer_value)
 

@@ -3,6 +3,7 @@ class_name SuccessNightAnimation extends Node2D
 const FADE_SPEED := 1.0
 const DIGIT_SPEED := 21.7
 
+@onready var animatronics: Animatronics = get_tree().get_first_node_in_group("animatronics")
 @onready var win_sound := $"Win Sound"
 @onready var children_yeah := $"Children Yeah"
 @onready var digit_5 := $"CanvasLayer/Zone/5"
@@ -14,23 +15,34 @@ var color_rect_alpha := 0.0
 var position_y_to_stop := 0
 var fade_out := false
 var finished := false
-var beat_20_4 := false
+var play_ending := false
 
 func _ready() -> void:
-	if PlayerData.night == 5 or PlayerData.night == 6:
-		PlayerData.star += 1
-	if PlayerData.night == 7 and beat_20_4:
-		PlayerData.star += 1
-	if PlayerData.night < 6:
-		PlayerData.night += 1
+	if PlayerData.level == 5:
+		play_ending = true
+		PlayerData.beat_game = true
+	if PlayerData.level == 6:
+		play_ending = true
+		PlayerData.beat6 = true
+	if  PlayerData.level == 7:
+		play_ending = true
+		if beat_20_4():
+			PlayerData.beat7 = true
+	PlayerData.beating_20_4 = false
+	
+	PlayerData.progress_level += 1
+	if PlayerData.progress_level < 6:
+		PlayerData.level = PlayerData.progress_level
+	PlayerData.progress_level = min(5, PlayerData.progress_level)
+	
 	win_sound.play()
 	PlayerData.save()
 	position_y_to_stop = digit_5.position.y
 
-func check_20_4(animatronics: Animatronics):
-	if PlayerData.night != 7:
+func beat_20_4():
+	if PlayerData.level != 7:
 		return
-	beat_20_4 = animatronics.every_animatronic_max_ai()
+	return animatronics.every_animatronic_max_ai() and PlayerData.beating_20_4
 
 func _process(delta: float) -> void:
 	if finished:
@@ -54,10 +66,10 @@ func _process(delta: float) -> void:
 			_main_screen_or_ending()
 			
 func _main_screen_or_ending() -> void:
-	if PlayerData.night < 5:
-		get_tree().change_scene_to_file("res://scenes/starting_night/starting_night.tscn")
-	else:
+	if play_ending:
 		get_tree().change_scene_to_file("res://scenes/ending/ending.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/starting_night/starting_night.tscn")
 
 func _on_children_yeah_finished() -> void:
 	fade_out = true

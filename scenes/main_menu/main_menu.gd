@@ -14,38 +14,38 @@ func _ready() -> void:
 	
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Sfx"), false)
 	
-	stars.get_node("Star 1").visible = PlayerData.star >= 1
-	stars.get_node("Star 2").visible = PlayerData.star >= 2
-	stars.get_node("Star 3").visible = PlayerData.star >= 3
+	stars.get_node("Star 1").visible = PlayerData.beat_game
+	stars.get_node("Star 2").visible = PlayerData.beat6
+	stars.get_node("Star 3").visible = PlayerData.beat7
 	
-	night_6.visible = PlayerData.star >= 1
-	custom_night.visible = PlayerData.star >= 2
+	night_6.visible = PlayerData.beat_game
+	custom_night.visible = PlayerData.beat6
 	
 	for number in night_numbers.get_children():
-		number.visible = number.name == str(PlayerData.night)
-	night_numbers.get_node("5").visible = PlayerData.night >= 5
+		number.visible = number.name == str(PlayerData.progress_level)
 
 
 func _on_new_game_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		PlayerData.night = 1
-		PlayerData.save()
+		PlayerData.level = 1
+		PlayerData.progress_level = 1
 		get_node("Background").process_mode = Node.PROCESS_MODE_DISABLED
 		get_node("Text").process_mode = Node.PROCESS_MODE_DISABLED
 		add_child(new_game_screen)
 
 func _on_continue_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		PlayerData.night = min(PlayerData.night, 5)
+		PlayerData.level = min(PlayerData.progress_level, 5)
 		get_tree().change_scene_to_file("res://scenes/starting_night/starting_night.tscn")
 
 func _on_6th_night_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		PlayerData.night = 6
+		PlayerData.level = 6
 		get_tree().change_scene_to_file("res://scenes/starting_night/starting_night.tscn")
 				
 func _on_custom_night_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		PlayerData.level = 7
 		get_node("Background").process_mode = Node.PROCESS_MODE_DISABLED
 		get_node("Text").process_mode = Node.PROCESS_MODE_DISABLED
 		add_child(custom_night_screen)

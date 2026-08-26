@@ -122,7 +122,6 @@ texture = ExtResource("10_xg1ny")
 texture = ExtResource("16_rqu40")
 
 [node name="Instant Success" type="Button" parent="CanvasLayer" unique_id=69048970]
-visible = false
 offset_left = 1146.0
 offset_top = 104.0
 offset_right = 1244.0

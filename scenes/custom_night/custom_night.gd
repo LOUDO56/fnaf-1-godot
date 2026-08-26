@@ -22,14 +22,19 @@ func _ready() -> void:
 
 func _on_ready_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if freddy_level.current_level == 1 and bonnie_level.current_level == 9\
-		and chica_level.current_level == 8 and foxy_level.current_level == 7:
+		if freddy_level.progress_level == 1 and bonnie_level.progress_level == 9\
+		and chica_level.progress_level == 8 and foxy_level.progress_level == 7:
 			get_tree().change_scene_to_file("res://scenes/creepy_end/creepy_end.tscn")
 			return
 		
-		PlayerData.night = 7
-		PlayerData.night_7_ai_level[Freddy] = freddy_level.current_level
-		PlayerData.night_7_ai_level[Bonnie] = bonnie_level.current_level
-		PlayerData.night_7_ai_level[Chica] = chica_level.current_level
-		PlayerData.night_7_ai_level[Foxy] = foxy_level.current_level
+		PlayerData.level = 7
+		PlayerData.level_7_ai_level[Freddy] = freddy_level.progress_level
+		PlayerData.level_7_ai_level[Bonnie] = bonnie_level.progress_level
+		PlayerData.level_7_ai_level[Chica] = chica_level.progress_level
+		PlayerData.level_7_ai_level[Foxy] = foxy_level.progress_level
+		PlayerData.beating_20_4 = _20_4()
 		get_tree().change_scene_to_file("res://scenes/starting_night/starting_night.tscn")
+
+func _20_4() -> bool:
+	return freddy_level.progress_level == 20 and bonnie_level.progress_level == 20 \
+	and chica_level.progress_level == 20 and foxy_level.progress_level == 20

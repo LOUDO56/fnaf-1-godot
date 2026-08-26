@@ -28,7 +28,6 @@ func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	
 func success_night():
 	add_child(success_screen)
-	success_screen.check_20_4(animatronics)
 	process_mode = Node.PROCESS_MODE_DISABLED
 	success_screen.process_mode = Node.PROCESS_MODE_ALWAYS
 

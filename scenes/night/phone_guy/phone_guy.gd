@@ -13,7 +13,7 @@ var voice_to_play: AudioStreamPlayer
 
 func _ready() -> void:
 	mute_call.visible = false
-	match PlayerData.night:
+	match PlayerData.level:
 		1: voice_to_play = voice_night_1
 		2: voice_to_play = voice_night_2
 		3: voice_to_play = voice_night_3

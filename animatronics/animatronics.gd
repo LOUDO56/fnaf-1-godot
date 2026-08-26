@@ -67,14 +67,14 @@ func every_animatronic_max_ai() -> bool:
 	return true
 
 func _apply_ai_level_by_current_night() -> void:
-	if PlayerData.night > 7:
+	if PlayerData.level > 7:
 		return
-	if PlayerData.night == 7:
+	if PlayerData.level == 7:
 		for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
-			animatronic.ai_level = PlayerData.night_7_ai_level[animatronic.get_script()]
+			animatronic.ai_level = PlayerData.level_7_ai_level[animatronic.get_script()]
 		return
 	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
-		animatronic.ai_level = ai_level_night[PlayerData.night][animatronic.get_script()]
+		animatronic.ai_level = ai_level_night[PlayerData.level][animatronic.get_script()]
 
 func _on_power_off() -> void:
 	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:

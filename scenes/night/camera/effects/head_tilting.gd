@@ -9,7 +9,7 @@ signal request_random_volume_voice()
 @onready var volume_robot_voice = $"Volume Robot Voice"
 
 func _ready() -> void:
-	if PlayerData.night >= 3:
+	if PlayerData.level >= 3:
 		head_tilt_timer.start()
 		volume_robot_voice.start()
 

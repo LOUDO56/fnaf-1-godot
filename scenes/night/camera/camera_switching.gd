@@ -72,8 +72,9 @@ func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	if golden_freddy_seen:
 		golden_freddy_attack.emit()
 		camera_sprites.show_golden_freddy = false
-		
-	robot_voice.volume_db = -15.0
+	
+	if PlayerData.level >= 3:	
+		robot_voice.volume_db = -15.0
 	
 
 func _on_monitor_monitor_opened() -> void:
@@ -104,7 +105,7 @@ func _on_camera_map_camera_changed(camera: CameraMap.Camera) -> void:
 		golden_freddy_seen = true
 		golden_freddy_appear.emit()
 		
-	if not _bonnie_in_cam_2b_and_player_too() and not _chica_in_cam_4b_and_player_too():
+	if PlayerData.level >= 3 and not _bonnie_in_cam_2b_and_player_too() and not _chica_in_cam_4b_and_player_too():
 		robot_voice.volume_db = -15.0
 
 	
@@ -180,6 +181,8 @@ func _handle_corner_voice(
 	other_position: CameraMap.Camera,
 	other_corner: CameraMap.Camera
 ) -> void:
+	if PlayerData.level < 3:
+		return
 	if new_position != corner:
 		if other_position != other_corner:
 			robot_voice.stop()

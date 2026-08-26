@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 		if current_hour >= 2 and current_hour <= 4:
 			animatronics.bonnie.ai_level = min(animatronics.bonnie.ai_level + 1, 20)
 			if current_hour >= 3:
-				animatronics.chica.ai_level += min(animatronics.chica.ai_level + 1, 20)
-				animatronics.foxy.ai_level += min(animatronics.foxy.ai_level + 1, 20)
+				animatronics.chica.ai_level = min(animatronics.chica.ai_level + 1, 20)
+				animatronics.foxy.ai_level = min(animatronics.foxy.ai_level + 1, 20)
 		elapsed_seconds_between_hour = 0.0
 		_update_ui_time()
 		if current_hour == 6:
@@ -36,7 +36,7 @@ func _update_ui_time() -> void:
 		
 func _update_night_count() -> void:
 	for number in night_numbers.get_children():
-		number.visible = number.name == str(PlayerData.night)
+		number.visible = number.name == str(PlayerData.level)
 
 func _on_power_off() -> void:
 	get_node("CanvasLayer").visible = false
