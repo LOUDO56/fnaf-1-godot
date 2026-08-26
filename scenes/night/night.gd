@@ -10,6 +10,7 @@ class_name Night extends Node2D
 
 func _ready() -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Ambiance"), false)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Sfx"), false)
 	
 	monitor_animation.monitor_opened.connect(_on_monitor_opened)
 	monitor_animation.monitor_closed.connect(_on_monitor_closed)
@@ -32,7 +33,7 @@ func success_night():
 	success_screen.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_jumpscare_started(time: float, _animatronic: Animatronic) -> void:
-	office.set_process(PROCESS_MODE_DISABLED)
+	office.process_mode = Node.PROCESS_MODE_DISABLED
 	jumpscare_timer.start(time)
 	_stop_audio()
 

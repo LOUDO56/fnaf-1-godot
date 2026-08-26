@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 		visible = false
 		if randf() < 0.4:
 			visible = true
-			frame = randi_range(0, sprite_frames.get_frame_count("default"))
+			frame = randi_range(0, sprite_frames.get_frame_count("default") - 1)

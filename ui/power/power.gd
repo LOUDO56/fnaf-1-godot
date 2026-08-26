@@ -34,14 +34,16 @@ func _on_drain_timer_timeout() -> void:
 	_handle_decrease_power(-1 - (usage.consumption_level - 1))
 	
 func _handle_decrease_power(to_remove: int) -> void:
+	if power <= 0:
+		return
+	power = maxi(power + to_remove, 0)
+	_update_power_sprite_value()
 	if power > 0:
-		power += to_remove
-		_update_power_sprite_value()
-	else:
-		drain_timer.stop()
-		penalty_timer.stop()
-		Events.power_off.emit()
-		get_parent().visible = false
+		return
+	drain_timer.stop()
+	penalty_timer.stop()
+	Events.power_off.emit()
+	get_parent().visible = false
 
 func _update_power_sprite_value() -> void:
 	var normalized_power := int(power / 10.0)
@@ -54,7 +56,8 @@ func _update_digit(digits: Node2D, number: int) -> void:
 		digit.visible = digit.name == str(number)
 		
 func _on_jumpscare_started(_time: float, _animatronic: Animatronic) -> void:
-	set_process(false)
+	drain_timer.stop()
+	penalty_timer.stop()
 	
 func _on_power_updated(amount: int) -> void:
-	power += amount
+	_handle_decrease_power(amount)

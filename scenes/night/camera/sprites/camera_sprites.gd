@@ -58,6 +58,8 @@ func _get_show_stage_sprite() -> Sprite2D:
 		return $"Points/CAM 1A (Show Stage)/Freddy Chica"
 	elif not animatronics.chica.on_stage():
 		return $"Points/CAM 1A (Show Stage)/Bonnie Freddy"
+	if randi() % 10 == 0:
+		return $"Points/CAM 1A (Show Stage)/Everyone Look Camera"
 	return $"Points/CAM 1A (Show Stage)/Every Animatronics"
 	
 func _get_diner_area_sprite() -> Sprite2D:
@@ -86,10 +88,12 @@ func _get_pirate_cove_sprite() -> Sprite2D:
 				return $"Points/CAM 1C (Pirate Cove)/It's me"
 			else:
 				return $"Points/CAM 1C (Pirate Cove)/3"
+	if animatronics.foxy.is_running():
+		return $"Points/CAM 1C (Pirate Cove)/It's me"
 	return $"Points/CAM 1C (Pirate Cove)/Idle"
 	
 func _get_west_hall_sprite() -> Sprite2D:
-	if animatronics.foxy.is_coming():
+	if animatronics.foxy.is_running():
 		return $"Points/CAM 2A (West Hall)/No Light"
 	if (randi() % 10 >= 7):
 		if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2A:
@@ -100,7 +104,6 @@ func _get_west_hall_sprite() -> Sprite2D:
 
 func _get_west_hall_corner_sprite() -> Sprite2D:
 	if animatronics.bonnie.current_position == CameraMap.Camera.CAM_2B:
-		# TODO: glitch variant?
 		return $"Points/CAM 2B (W Hall Corner)/Bonnie"
 	elif show_golden_freddy:
 		return $"Points/CAM 2B (W Hall Corner)/Golden Freddy Poster"
@@ -131,7 +134,6 @@ func _get_east_hall_corner_sprite() -> Sprite2D:
 	if animatronics.freddy.current_position == CameraMap.Camera.CAM_4B:
 		return $"Points/CAM 4B (E Hall Corner)/Freddy"
 	elif animatronics.chica.current_position == CameraMap.Camera.CAM_4B:
-		#TODO: glitch variant?
 		return $"Points/CAM 4B (E Hall Corner)/Chica"
 	if randi() % 25 == 0:
 		return [

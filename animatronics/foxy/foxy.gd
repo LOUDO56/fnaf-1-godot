@@ -6,6 +6,7 @@ signal step_attack_changed(new_step: int)
 const DEFAULT_ATTACK_TIME := 25.0
 const FAST_ATTACK_TIME := 2.0
 const RANDOM_ALWAYS_FAIL_SECONDS = [0.8, 17.5]
+const POWER_UNITS_PER_PERCENT := 10
 
 @onready var always_fail_timer = $"Always Fail Timer"
 @onready var foxy_attack_timer = $"Foxy Attack Timer"
@@ -33,10 +34,10 @@ func _attack_blocked() -> void:
 	knock_door_audio.play()
 	current_position = CameraMap.Camera.CAM_1C
 	step_attack = randi_range(0, 1)
-	step_attack_changed.emit(0)
+	step_attack_changed.emit(step_attack)
 	foxy_attack_timer.stop()
 	attack_blocked.emit()
-	Events.update_power_by_amount.emit(-draining_power)
+	Events.update_power_by_amount.emit(-draining_power * POWER_UNITS_PER_PERCENT)
 	draining_power += 5
 
 func block_moving() -> void:
@@ -57,6 +58,9 @@ func decrease_singing() -> void:
 
 func is_coming():
 	return step_attack == 3
+
+func is_running():
+	return step_attack >= 3
 
 func accelerate_foxy_attack():
 	step_attack = 4

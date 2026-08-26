@@ -7,7 +7,6 @@ class_name Freddy extends Animatronic
 @onready var freddy_jumpscare_timer := $"Freddy Jumpscare Timer"
 @onready var freddy_step := $"Freddy Step"
 
-var freddy_max_countdown: float
 var freddy_move_countdown := 0.0
 var succeed_last_movement := false
 var attack_mode := false
@@ -25,12 +24,13 @@ const ROUTES := {
 
 func _ready() -> void:
 	block_moving() # since chica and bonnie are on stage by default, freddy can't move directly
-	if ai_level < 10:
-		freddy_max_countdown = (1000 - (100 * ai_level)) / 60.0
+
+func _get_max_countdown() -> float:
+	return (1000 - (100 * ai_level)) / 60.0
 
 func _process(delta: float) -> void:
 	if ai_level < 10 and succeed_last_movement:
-		if freddy_move_countdown < freddy_max_countdown:
+		if freddy_move_countdown < _get_max_countdown():
 			freddy_move_countdown += delta
 		elif not is_stalled:
 			_move_freddy()
@@ -118,8 +118,6 @@ func _play_laugh():
 		laugh.stop()
 	freddy_laughs.pick_random().play()
 	freddy_step.volume_db = _get_step_sound_db_distance()
-	if freddy_step.volume_db == 0.0:
-		freddy_step.volume_db = -3.0
 	freddy_step.play()
 	
 func _on_move_freddy_pressed() -> void:
@@ -128,10 +126,15 @@ func _on_move_freddy_pressed() -> void:
 	chica_left_stage = true
 	_move_freddy()
 
+func _try_office_attack(_delta: float) -> void:
+	pass
+
 func _on_freddy_jumpscare_timer_timeout() -> void:
-	if randf() < 0.25 and not is_stalled:
-		play_jumpscare()
+	if not in_office() or monitor_opened:
+		return
+	if randf() < 0.25:
 		freddy_jumpscare_timer.stop()
+		play_jumpscare()
 		
 func on_monitor_closed(last_camera_viewed: CameraMap.Camera) -> void:
 	if not attack_mode or last_camera_viewed != CameraMap.Camera.CAM_4B:
@@ -154,7 +157,9 @@ func on_camera_changed(camera: CameraMap.Camera) -> void:
 func on_bonnie_move(old_position: CameraMap.Camera, _new_position: CameraMap.Camera):
 	if old_position == CameraMap.Camera.CAM_1A:
 		bonnie_left_stage = true
+		allow_moving()
 	
 func on_chica_move(old_position: CameraMap.Camera, _new_position: CameraMap.Camera):
 	if old_position == CameraMap.Camera.CAM_1A:
 		chica_left_stage = true
+		allow_moving()

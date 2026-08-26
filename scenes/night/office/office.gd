@@ -1,6 +1,7 @@
 class_name Office extends Node2D
 
 @onready var fan_audio = $"Fan/Fan Audio"
+@onready var fan_audio_volume_db: float = fan_audio.volume_db
 @onready var fan = $"Fan"
 @onready var left_door: LeftDoor = $"Doors/Left/LeftDoorButtons"
 @onready var right_door: RightDoor = $"Doors/Right/RightDoorButtons"
@@ -17,7 +18,7 @@ func _ready() -> void:
 
 func _on_monitor_opened():
 	visible = false
-	fan_audio.volume_db -= 8
+	fan_audio.volume_db = fan_audio_volume_db - 8
 	left_door.turn_off_light()
 	right_door.turn_off_light()
 	
@@ -28,12 +29,13 @@ func hide_doors():
 func _on_monitor_closed(_last_camera_viewed: CameraMap.Camera):
 	office_camera.make_current()
 	visible = true
-	fan_audio.volume_db += 8
+	fan_audio.volume_db = fan_audio_volume_db
 
 func _on_power_off():
 	power_off_audio.play()
 	fan.visible = false
 	fan.stop()
+	fan_audio.stop()
 
 
 func _on_jumpscare_started(_time: float, animatronic: Animatronic):
@@ -41,3 +43,4 @@ func _on_jumpscare_started(_time: float, animatronic: Animatronic):
 		return
 	fan.visible = false
 	fan.stop()
+	fan_audio.stop()

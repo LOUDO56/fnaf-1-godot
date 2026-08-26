@@ -19,10 +19,10 @@ func _ready() -> void:
 		3: voice_to_play = voice_night_3
 		4: voice_to_play = voice_night_4
 		5: voice_to_play = voice_night_5
-	if voice_to_play != null and voice_to_play not in PlayerData.played_phone_guy_voice:
+	if voice_to_play != null and PlayerData.level not in PlayerData.played_phone_guy_voice:
 		show_mute_timer.start()
 		voice_to_play.play()
-		PlayerData.played_phone_guy_voice.append(voice_to_play)
+		PlayerData.played_phone_guy_voice.append(PlayerData.level)
 
 func _on_mute_call_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

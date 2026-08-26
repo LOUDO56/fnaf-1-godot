@@ -55,6 +55,9 @@ func _ready() -> void:
 	# Golden Fredy
 	golden_freddy.appear_camera.connect(_on_golden_freddy_appear_camera)
 	
+	monitor_animation.monitor_opened.connect(func(): animatronics.set_monitor_opened(true))
+	monitor_animation.monitor_closed.connect(func(_last_camera_viewed): animatronics.set_monitor_opened(false))
+	
 	Events.disable_gameplay.connect(_on_disabled_gameplay)
 	Events.power_off.connect(_on_power_off)
 
@@ -64,6 +67,7 @@ func _on_monitor_monitor_closed(_last_camera_viewed: CameraMap.Camera) -> void:
 	Events.decrease_power_usage.emit()
 	visible = false
 	camera_disabled_text.visible = false
+	force_camera_down_timer.stop()
 	camera_moving_audio.stop()
 	$CanvasLayer/Cameras.visible = false
 	camera_map.white_bars.stop()
@@ -94,7 +98,7 @@ func _on_monitor_monitor_opened() -> void:
 func _on_camera_map_camera_changed(camera: CameraMap.Camera) -> void:
 	current_camera = camera
 	change_sprite(camera_sprites.get_sprite_from_camera(camera))
-	if animatronics.foxy.is_coming() and current_camera == CameraMap.Camera.CAM_2A:
+	if animatronics.foxy.is_running() and current_camera == CameraMap.Camera.CAM_2A:
 		foxy_running_animation.play("default")
 		foxy_running_animation.visible = true
 	else:
@@ -161,7 +165,10 @@ func _hide_all_camera():
 				sprite.visible = false
 	
 func _on_force_camera_down_timeout() -> void:
-	animatronics.get_animatronic_in_office().play_jumpscare()
+	var animatronic_in_office := animatronics.get_animatronic_in_office()
+	if animatronic_in_office == null:
+		return
+	animatronic_in_office.play_jumpscare()
 	
 func _on_animatronic_moved(old_position: CameraMap.Camera, new_position: CameraMap.Camera):
 	if visible and (old_position == current_camera or new_position == current_camera):

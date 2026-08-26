@@ -8,7 +8,7 @@ var beat7 := false
 
 var beating_20_4 := false
 
-var played_phone_guy_voice: Array[AudioStreamPlayer]
+var played_phone_guy_voice: Array[int] = []
 
 var level_7_ai_level = {
 	Freddy: 1,
@@ -18,7 +18,6 @@ var level_7_ai_level = {
 }
 
 func _ready() -> void:
-	save()
 	load_save()
 
 func save() -> void:

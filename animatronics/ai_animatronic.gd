@@ -8,6 +8,8 @@ signal on_try_attack()
 signal on_finish_jumpscare()
 
 const MAX_AI_LEVEL = 20
+const OFFICE_ATTACK_INTERVAL := 1.0
+const OFFICE_ATTACK_CHANCE := 0.25
 
 @export var ai_level := 0
 @export var movement_timer_seconds := 0.0
@@ -20,10 +22,13 @@ var movement_opportunity := 0.0
 var current_position := CameraMap.Camera.CAM_1A
 var variant := 0
 var is_stalled := false
+var monitor_opened := false
+var office_attack_countdown := 0.0
 var timer_jumpscare: Timer
 
 func _process(delta: float) -> void:
 	if current_position == CameraMap.Camera.OFFICE:
+		_try_office_attack(delta)
 		return
 	movement_opportunity += delta
 	if movement_opportunity >= movement_timer_seconds:
@@ -70,6 +75,16 @@ func _try_to_move() -> void:
 func _can_try_attack():
 	return current_position == CameraMap.Camera.DOOR
 
+func _try_office_attack(delta: float) -> void:
+	if monitor_opened or jumpscare_animation.visible:
+		return
+	office_attack_countdown += delta
+	if office_attack_countdown < OFFICE_ATTACK_INTERVAL:
+		return
+	office_attack_countdown = 0.0
+	if randf() < OFFICE_ATTACK_CHANCE:
+		play_jumpscare()
+
 func play_jumpscare() -> void:
 	if not in_office():
 		return
@@ -81,6 +96,7 @@ func play_jumpscare() -> void:
 
 
 func cancel_jumpscare() -> void:
+	office_attack_countdown = 0.0
 	current_position = CameraMap.Camera.CAM_1A
 	jumpscare_audio.stop()
 	jumpscare_animation.visible = false

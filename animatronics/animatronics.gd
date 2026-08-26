@@ -20,7 +20,7 @@ var ai_level_night := {
 		Foxy: 2,
 	},
 	4: {
-		Freddy: 0,
+		Freddy: [1, 2],
 		Bonnie: 2,
 		Chica: 4,
 		Foxy: 6,
@@ -54,6 +54,10 @@ func _ready() -> void:
 	Events.power_off.connect(_on_power_off)
 	_apply_ai_level_by_current_night()
 
+func set_monitor_opened(opened: bool) -> void:
+	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
+		animatronic.monitor_opened = opened
+
 func get_animatronic_in_office() -> Animatronic:
 	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
 		if animatronic.in_office():
@@ -74,7 +78,12 @@ func _apply_ai_level_by_current_night() -> void:
 			animatronic.ai_level = PlayerData.level_7_ai_level[animatronic.get_script()]
 		return
 	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
-		animatronic.ai_level = ai_level_night[PlayerData.level][animatronic.get_script()]
+		animatronic.ai_level = _resolve_ai_level(ai_level_night[PlayerData.level][animatronic.get_script()])
+
+func _resolve_ai_level(level) -> int:
+	if level is Array:
+		return int(level.pick_random())
+	return int(level)
 
 func _on_power_off() -> void:
 	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
