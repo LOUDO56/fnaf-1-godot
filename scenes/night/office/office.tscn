@@ -294,7 +294,7 @@ centered = false
 
 [node name="Fan Audio" type="AudioStreamPlayer" parent="Fan" unique_id=1994925738]
 stream = ExtResource("5_qphb6")
-volume_db = -15.0
+volume_db = -10.0
 autoplay = true
 bus = &"Sfx"
 
