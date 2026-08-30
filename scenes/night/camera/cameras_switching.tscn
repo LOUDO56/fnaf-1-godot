@@ -279,7 +279,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ap4w1"]
 shader = SubResource("Shader_awpbl")
-shader_parameter/zoom = 0.155
+shader_parameter/zoom = 0.21
 shader_parameter/sharpness = 2.0
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/wrapping_mode = 0
