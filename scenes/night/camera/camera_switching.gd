@@ -55,9 +55,6 @@ func _ready() -> void:
 	# Golden Fredy
 	golden_freddy.appear_camera.connect(_on_golden_freddy_appear_camera)
 	
-	monitor_animation.monitor_opened.connect(func(): animatronics.set_monitor_opened(true))
-	monitor_animation.monitor_closed.connect(func(_last_camera_viewed): animatronics.set_monitor_opened(false))
-	
 	Events.disable_gameplay.connect(_on_disabled_gameplay)
 	Events.power_off.connect(_on_power_off)
 

@@ -12,6 +12,7 @@ var succeed_last_movement := false
 var attack_mode := false
 var bonnie_left_stage := false
 var chica_left_stage := false
+var right_door_closed := false
 
 const ROUTES := {
 	CameraMap.Camera.CAM_1A: [CameraMap.Camera.CAM_1B],
@@ -58,7 +59,9 @@ func _attack_blocked() -> void:
 	current_position = CameraMap.Camera.CAM_4A
 	succeed_last_movement = false
 	attack_mode = false
-	is_stalled = true
+	block_moving()
+	movement_opportunity = 0.0
+	
 
 func _move_freddy() -> void:
 	if is_stalled:
@@ -77,6 +80,7 @@ func _move_freddy() -> void:
 	else:
 		freddy_jingle.stop()
 	if current_position == CameraMap.Camera.OFFICE:
+		block_moving()
 		freddy_jumpscare_timer.start()
 
 func play_jumpscare_light_out() -> void:
@@ -119,25 +123,39 @@ func _play_laugh():
 	freddy_laughs.pick_random().play()
 	freddy_step.volume_db = _get_step_sound_db_distance()
 	freddy_step.play()
+
+func _get_step_sound_db_distance() -> float:
+	match current_position:
+		CameraMap.Camera.CAM_1B, CameraMap.Camera.CAM_5, CameraMap.Camera.CAM_7:
+			return -9.0
+		CameraMap.Camera.CAM_3, CameraMap.Camera.CAM_1C, CameraMap.Camera.CAM_2A, CameraMap.Camera.CAM_4A, CameraMap.Camera.CAM_6:
+			return -8.0
+		CameraMap.Camera.CAM_2B, CameraMap.Camera.CAM_4B, CameraMap.Camera.OFFICE:
+			return -5.0
+	return 0.0
 	
 func _on_move_freddy_pressed() -> void:
-	is_stalled = false
+	allow_moving()
 	bonnie_left_stage = true
 	chica_left_stage = true
 	_move_freddy()
-
-func _try_office_attack(_delta: float) -> void:
-	pass
+	
+func _can_freddy_move(camera: CameraMap.Camera) -> bool:
+	if camera == CameraMap.Camera.CAM_4B:
+		return false
+	if camera == CameraMap.Camera.CAM_4A and right_door_closed:
+		return false
+	return true
 
 func _on_freddy_jumpscare_timer_timeout() -> void:
-	if not in_office() or monitor_opened:
+	if not in_office() or is_stalled:
 		return
 	if randf() < 0.25:
 		freddy_jumpscare_timer.stop()
 		play_jumpscare()
 		
 func on_monitor_closed(last_camera_viewed: CameraMap.Camera) -> void:
-	if not attack_mode or last_camera_viewed != CameraMap.Camera.CAM_4B:
+	if not attack_mode or _can_freddy_move(last_camera_viewed):
 		allow_moving()
 	decrease_jingle()
 	
@@ -147,13 +165,13 @@ func on_monitor_opened() -> void:
 func on_camera_changed(camera: CameraMap.Camera) -> void:
 	if camera == current_position:
 		reset_freddy_countdown()
-	if attack_mode and camera != CameraMap.Camera.CAM_4B and succeed_last_movement:
+	if attack_mode and _can_freddy_move(camera) and succeed_last_movement:
 		on_try_attack.emit()
 	if camera == CameraMap.Camera.CAM_6:
 		increase_jingle()
 	else:
 		decrease_jingle()
-
+		
 func on_bonnie_move(old_position: CameraMap.Camera, _new_position: CameraMap.Camera):
 	if old_position == CameraMap.Camera.CAM_1A:
 		bonnie_left_stage = true

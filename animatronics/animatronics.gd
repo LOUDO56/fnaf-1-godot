@@ -54,10 +54,6 @@ func _ready() -> void:
 	Events.power_off.connect(_on_power_off)
 	_apply_ai_level_by_current_night()
 
-func set_monitor_opened(opened: bool) -> void:
-	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
-		animatronic.monitor_opened = opened
-
 func get_animatronic_in_office() -> Animatronic:
 	for animatronic: Animatronic in [freddy, bonnie, chica, foxy]:
 		if animatronic.in_office():

@@ -11,6 +11,10 @@ func setup_animatronics_behavior() -> void:
 	animatronics.freddy.on_try_attack.connect(
 		func(): _try_attack(animatronics.freddy, side))
 		
+func toggle_door() -> void:
+	super.toggle_door()
+	animatronics.freddy.right_door_closed = is_door_closed
+		
 func change_door_sprite() -> void:
 	if animatronics.chica.at_door():
 		_play_stinger()
