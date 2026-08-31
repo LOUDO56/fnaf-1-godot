@@ -19,7 +19,7 @@ This project was a way for me to start testing Godot and get into this game engi
 For obvious reasons, no pre-compiled build of the project is available, as well as the assets.
 
 
-**However**, if you have a legal copy of Five Nights at Freddy's 1, you can use a decompiler like [Anaconda](https://github.com/fnmwolf/Anaconda) or [Nebula](https://github.com/AITYunivers/NebulaFD)
+**However**, if you have a legal copy of Five Nights at Freddy's 1, use [Nebula](https://github.com/AITYunivers/NebulaFD) decompiler
 to extract all the assets of the game.
 
 
