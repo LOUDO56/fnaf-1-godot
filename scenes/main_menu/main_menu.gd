@@ -29,7 +29,7 @@ func _on_new_game_input_event(_viewport: Node, event: InputEvent, _shape_idx: in
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		PlayerData.level = 1
 		PlayerData.progress_level = 1
-        PlayerData.save()
+		PlayerData.save()
 		get_node("Background").process_mode = Node.PROCESS_MODE_DISABLED
 		get_node("Text").process_mode = Node.PROCESS_MODE_DISABLED
 		add_child(new_game_screen)
